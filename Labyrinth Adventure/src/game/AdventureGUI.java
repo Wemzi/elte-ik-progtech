@@ -17,7 +17,7 @@ import javax.swing.JOptionPane;
 import persistence.*;
 import javax.swing.Timer;
 
-public class AdventureGUI {
+public class AdventureGUI extends MapBuilder {
 
     private JFrame frame;
     private Player Steve;
@@ -47,7 +47,7 @@ public class AdventureGUI {
         
         frame = new JFrame("Labyrinth Adventure");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        labyrinth = new LabyrinthBuilder();
+        labyrinth = new LabyrinthBuilder(false);
         cells = labyrinth.getCells();
         
         bottomMenu=new JMenuBar();
@@ -69,16 +69,14 @@ public class AdventureGUI {
         /** Kis help menüpont plusznak */
         Help.addActionListener(new ActionListener()
         { @Override
-        public void actionPerformed (ActionEvent e) 
-        {
-           JOptionPane.showMessageDialog(null,"A jatek soran egy veletlenszeruen generalt labirintusban ebredsz, ehesen, vilagitas nelkul. \n"
-                   + "A feladatod, hogy kijuss a labirintusbol, amiben egy sarkany is lapul. \n"
-                   + "A sarkanytol legalabb egy blokknyi tavolsagot erdemes tartani, kulonben akarmelyik pillanatban felfalhat. \n"
-                   + "A kezdo poziciod mindig a bal also sarok, a labirintus kijarata a jobb felso sarokban talalhato. \n"
-                   + "Jo jatekot! ");
-                                                
-        }
-            
+            public void actionPerformed (ActionEvent e) 
+            {
+               JOptionPane.showMessageDialog(null,"A jatek soran egy veletlenszeruen generalt labirintusban ebredsz, ehesen, vilagitas nelkul. \n"
+                       + "A feladatod, hogy kijuss a labirintusbol, amiben egy sarkany is lapul. \n"
+                       + "A sarkanytol legalabb egy blokknyi tavolsagot erdemes tartani, kulonben akarmelyik pillanatban felfalhat. \n"
+                       + "A kezdo poziciod mindig a bal also sarok, a labirintus kijarata a jobb felso sarokban talalhato. \n"
+                       + "Jo jatekot! ");                                     
+            } 
         });
         newGame.addActionListener(new ActionListener(){
            @Override
@@ -89,7 +87,6 @@ public class AdventureGUI {
            score=0;
            time = 0;
            restartGame();
-           
         }
         });
         Steve = new Player();
@@ -105,29 +102,29 @@ public class AdventureGUI {
                 boolean siker = false;
                 while(!siker)
                 {
-                    int rand = new Random().nextInt(5);
-                    if(rand==1 && !cells.get(Drake.getcoordY()).get(Drake.getcoordX()).getedgeRight())
+                    Cell drakeCell = cells.get(Drake.getcoordY()).get(Drake.getcoordX());
+                    if(!drakeCell.getedgeRight() && !drakeCell.gethasBeenSelected())
                     {
-                        Drake.randomMove(rand);
+                        Drake.randomMove(1);
                         siker=true;
                     }
-                    else if (rand == 2 && !cells.get(Drake.getcoordY()).get(Drake.getcoordX()).getedgeUp() )
+                    else if (!drakeCell.getedgeUp() && !drakeCell.gethasBeenSelected() )
                     {
-                        Drake.randomMove(rand);
+                        Drake.randomMove(2);
                         siker=true;
                     }
-                    else if(rand == 3 && !cells.get(Drake.getcoordY()).get(Drake.getcoordX()).getedgeDown() )
+                    else if(!drakeCell.getedgeDown() && !drakeCell.gethasBeenSelected() )
                     {
-                        Drake.randomMove(rand);
+                        Drake.randomMove(3);
                         siker=true;
                     }
-                    else if(rand == 4 && !cells.get(Drake.getcoordY()).get(Drake.getcoordX()).getedgeLeft())
+                    else if(!drakeCell.getedgeLeft() && !drakeCell.gethasBeenSelected())
                     {
-                        Drake.randomMove(rand);
+                        Drake.randomMove(4);
                         siker=true;
                     }
                 }
-                if(Drake.getcoordX() == Steve.getcoordX() && Drake.getcoordY() ==  Steve.getcoordY())
+                /*if(Drake.getcoordX() == Steve.getcoordX() && Drake.getcoordY() ==  Steve.getcoordY())
                     {
                         JOptionPane.showMessageDialog(null, "A sarkany elpusztitotta Steve-t. Vesztettel. Kattints az OK gombra az uj jatekhoz.");
                         data.storeHighScore(cells.size(), score);
@@ -135,7 +132,7 @@ public class AdventureGUI {
                         time = 0;
                         restartGame();
                     }
-                    
+                */  
                 switch (kk){
                     case KeyEvent.VK_LEFT:
                     if(cells.get(Steve.getcoordY()).get(Steve.getcoordX()).getedgeLeft())
@@ -162,7 +159,7 @@ public class AdventureGUI {
                     }  
                     Steve.move(0,-1,cells.size(),cells.get(0).size()); break;
                 }
-                if(Drake.getcoordX() == Steve.getcoordX() && Drake.getcoordY() ==  Steve.getcoordY())
+                /*if(Drake.getcoordX() == Steve.getcoordX() && Drake.getcoordY() ==  Steve.getcoordY())
                     {
                         timer.stop();
                         JOptionPane.showMessageDialog(null, "A sarkany elpusztitotta Steve-t. Vesztettel. Kattints az OK gombra az uj jatekhoz.");
@@ -170,10 +167,9 @@ public class AdventureGUI {
                         restartGame();
                         score = 0; 
                         time = 0;
-                        ;
                         return;
-                    }   
-                else if(Steve.getcoordX()==cells.get(0).size()-1 && Steve.getcoordY()==cells.size()-1)
+                    }  */
+                if(Steve.getcoordX()==cells.get(0).size()-1 && Steve.getcoordY()==cells.size()-1)
                 {
                     timer.stop();
                     JOptionPane.showMessageDialog(null, "Gratulalok, kijutottal a labirintusbol!, mar generaljuk is a kovetkezot!");

@@ -18,9 +18,9 @@ import javax.swing.JPanel;
  */
 public class Labyrinth extends JPanel{
     private ArrayList<ArrayList<Cell>> cells;
-    private AdventureGUI board;
-
-    public Labyrinth(AdventureGUI board)
+    private MapBuilder board;
+    
+        public Labyrinth(MapBuilder board)
     {
         this.board=board;
         cells = board.getCells();
@@ -34,6 +34,7 @@ public class Labyrinth extends JPanel{
     @Override
     protected void paintComponent(Graphics g)
     {
+        System.out.println(cells.size());
         int picsize = board.getFrame().getWidth()/cells.size() ;
         Graphics2D gr = (Graphics2D)g;
         BufferedImage darkness = null;
@@ -55,11 +56,12 @@ public class Labyrinth extends JPanel{
                 img = null;
                 try
                 {
-                    if(Math.abs(countDistance(board.getPlayer().getcoordX(),jdx)) > 2 || Math.abs(countDistance(board.getPlayer().getcoordY(),idx)) > 2)
+                   /* if(Math.abs(countDistance(board.getPlayer().getcoordX(),jdx)) > 2 || Math.abs(countDistance(board.getPlayer().getcoordY(),idx)) > 2)
                     {
                         img = darkness;
                     }
-                    else if(board.getDragon().getcoordY() == idx && board.getDragon().getcoordX() == jdx )
+                    */
+                  /*  if(board.getDragon().getcoordY() == idx && board.getDragon().getcoordX() == jdx )
                     {
                         img = cell.selectDragonImage();
                     }
@@ -69,8 +71,8 @@ public class Labyrinth extends JPanel{
                     }
                     else
                     {
-                        img = cell.selectImage();
-                    }
+                      */System.out.println("imgselect");  img = cell.selectImage();
+                   // }
                 }
                 catch(IOException e)
                 {

@@ -6,9 +6,10 @@ class LabyrinthBuilder
 {
     private ArrayList<ArrayList<Cell>> cells = new ArrayList<>();
     private Cell currentCell;
-
+    private Cell startingCell;
+    private Cell endingCell;
     
-    public LabyrinthBuilder()
+    public LabyrinthBuilder(boolean keepItEmpty)
     {
         for (int idx = 0; idx < 9 ; idx++)
         {
@@ -20,11 +21,23 @@ class LabyrinthBuilder
             cells.add(tmp);
         }
 
-        currentCell = cells.get(0).get(0);
-        currentCell.sethasBeenSelected();
-        while(!isEndOfGeneration())
+
+        if(!keepItEmpty)
         {
-            moveToAdjacentCell();
+                currentCell = cells.get(0).get(0);
+                currentCell.sethasBeenSelected();
+            while(!isEndOfGeneration())
+            {
+                moveToAdjacentCell();
+            }
+            for(ArrayList<Cell> currentRow : cells)
+            {
+                for(Cell current : currentRow)
+                {
+                    current.sethasBeenSelected();
+                }
+
+            }
         }
     }
     

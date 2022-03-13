@@ -331,6 +331,6 @@ public class Cell {
 
     public void sethasBeenSelected()
     {
-        hasBeenSelected = true;
+        hasBeenSelected = !hasBeenSelected;
     }
 }

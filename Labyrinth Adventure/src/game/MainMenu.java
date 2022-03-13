@@ -5,12 +5,14 @@
 package game;
 
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JMenuBar;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 import persistence.Database;
@@ -19,7 +21,7 @@ import persistence.Database;
  *
  * @author LUD1BP
  */
-public class Menu {
+public class MainMenu {
     private JFrame frame;
     private LabyrinthBuilder labyrinth;
     private final JLabel gameStatLabel = new JLabel("");
@@ -29,9 +31,24 @@ public class Menu {
     private JButton topListButton = new JButton("Toplist");
     private JButton mapBuilderButton = new JButton("Map Builder");
     private JPanel buttonPanel = new JPanel(new GridLayout(1,2,50,50));
-    public Menu() {
+    public MainMenu() {
         this.frame = new JFrame("Labyrinth Adventure");
+        mapBuilderButton.addActionListener(new ActionListener()
+        { @Override
+            public void actionPerformed (ActionEvent e) 
+            {
+                try
+                {
+                    new MapBuilder();  
+                }
+                catch(Exception m)
+                {
+                    m.printStackTrace();
+                }
 
+            }
+        });
+        
         buttonPanel.add(topListButton);
         buttonPanel.add(mapBuilderButton);
         frame.add(buttonPanel);
