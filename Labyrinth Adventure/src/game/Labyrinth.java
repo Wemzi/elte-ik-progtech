@@ -19,6 +19,7 @@ import javax.swing.JPanel;
 public class Labyrinth extends JPanel{
     private ArrayList<ArrayList<Cell>> cells;
     private MapBuilder board;
+    private int picsize;
     
         public Labyrinth(MapBuilder board)
     {
@@ -35,7 +36,7 @@ public class Labyrinth extends JPanel{
     protected void paintComponent(Graphics g)
     {
         System.out.println(cells.size());
-        int picsize = board.getFrame().getWidth()/cells.size() ;
+        picsize = board.getFrame().getHeight() > board.getFrame().getWidth() ?  board.getFrame().getWidth()/cells.size() : board.getFrame().getHeight()/cells.size();
         Graphics2D gr = (Graphics2D)g;
         BufferedImage darkness = null;
         try
@@ -81,6 +82,11 @@ public class Labyrinth extends JPanel{
                 gr.drawImage(img, jdx * picsize,(board.getFrame().getHeight()-(idx+2)*(picsize)), picsize, picsize, null);
             }
         }
+    }
+
+    public int getPicSize()
+    {
+        return picsize;
     }
     
 }

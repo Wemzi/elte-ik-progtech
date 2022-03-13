@@ -12,6 +12,9 @@ import javax.swing.JFrame;
 import java.io.IOException;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.util.Random;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
@@ -47,8 +50,20 @@ public class MapBuilder {
         frame.getContentPane().add(BorderLayout.SOUTH, bottomMenu);
         frame.getContentPane().add(BorderLayout.CENTER, mainPanel);
         frame.setVisible(true);
-        frame.setSize(600,660);
-        frame.setResizable(false);
+        frame.setSize(600,600);
+        mainPanel.addMouseListener(new MouseAdapter(){
+            @Override
+            public void mouseClicked(MouseEvent e)
+            {
+                        int picSize = mainPanel.getPicSize();
+                        int x = e.getX()/picSize;
+                        int y = e.getY()/picSize;
+                        Cell  ret = cells.get(x/picSize).get(y/picSize);
+                        System.out.println(ret);
+                        System.out.println(x + " " + y );
+            }
+        });
+       // frame.setResizable(false);
     }
 
     public JFrame getFrame()
