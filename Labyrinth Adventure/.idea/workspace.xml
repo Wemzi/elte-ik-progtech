@@ -1,30 +1,98 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2d198183-6036-4902-902a-616e7bbac25a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/build/classes/game/AdventureGUI$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/game/AdventureGUI$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/game/AdventureGUI$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/game/AdventureGUI$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/game/AdventureGUI$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/game/AdventureGUI$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/game/AdventureGUI$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/game/AdventureGUI$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/game/AdventureGUI$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/game/AdventureGUI$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/game/AdventureGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/game/AdventureGUI.class" afterDir="false" />
+    <list default="true" id="2d198183-6036-4902-902a-616e7bbac25a" name="Changes" comment="Moved to IntelliJ">
+      <change afterPath="$PROJECT_DIR$/.idea/Labyrinth Adventure.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Labyrinth Adventure/production/Labyrinth Adventure/assets/brick.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Labyrinth Adventure/production/Labyrinth Adventure/assets/darkness.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Labyrinth Adventure/production/Labyrinth Adventure/assets/desktop.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Labyrinth Adventure/production/Labyrinth Adventure/assets/edged.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Labyrinth Adventure/production/Labyrinth Adventure/assets/edgel.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Labyrinth Adventure/production/Labyrinth Adventure/assets/edgeld.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Labyrinth Adventure/production/Labyrinth Adventure/assets/edgelr.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Labyrinth Adventure/production/Labyrinth Adventure/assets/edgelrd.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Labyrinth Adventure/production/Labyrinth Adventure/assets/edgelud.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Labyrinth Adventure/production/Labyrinth Adventure/assets/edger.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Labyrinth Adventure/production/Labyrinth Adventure/assets/edgerd.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Labyrinth Adventure/production/Labyrinth Adventure/assets/edgeu.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Labyrinth Adventure/production/Labyrinth Adventure/assets/edgeud.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Labyrinth Adventure/production/Labyrinth Adventure/assets/edgeul.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Labyrinth Adventure/production/Labyrinth Adventure/assets/edgeur.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Labyrinth Adventure/production/Labyrinth Adventure/assets/edgeurd.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Labyrinth Adventure/production/Labyrinth Adventure/assets/edgeurl.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Labyrinth Adventure/production/Labyrinth Adventure/assets/grass.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Labyrinth Adventure/production/Labyrinth Adventure/assets/textureswithdragon/brick.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Labyrinth Adventure/production/Labyrinth Adventure/assets/textureswithdragon/dragon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Labyrinth Adventure/production/Labyrinth Adventure/assets/textureswithdragon/edged.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Labyrinth Adventure/production/Labyrinth Adventure/assets/textureswithdragon/edgel.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Labyrinth Adventure/production/Labyrinth Adventure/assets/textureswithdragon/edgeld.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Labyrinth Adventure/production/Labyrinth Adventure/assets/textureswithdragon/edgelr.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Labyrinth Adventure/production/Labyrinth Adventure/assets/textureswithdragon/edgelrd.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Labyrinth Adventure/production/Labyrinth Adventure/assets/textureswithdragon/edgelud.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Labyrinth Adventure/production/Labyrinth Adventure/assets/textureswithdragon/edger.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Labyrinth Adventure/production/Labyrinth Adventure/assets/textureswithdragon/edgerd.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Labyrinth Adventure/production/Labyrinth Adventure/assets/textureswithdragon/edgeu.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Labyrinth Adventure/production/Labyrinth Adventure/assets/textureswithdragon/edgeud.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Labyrinth Adventure/production/Labyrinth Adventure/assets/textureswithdragon/edgeul.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Labyrinth Adventure/production/Labyrinth Adventure/assets/textureswithdragon/edgeur.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Labyrinth Adventure/production/Labyrinth Adventure/assets/textureswithdragon/edgeurd.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Labyrinth Adventure/production/Labyrinth Adventure/assets/textureswithdragon/edgeurl.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Labyrinth Adventure/production/Labyrinth Adventure/assets/textureswithdragon/grass.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Labyrinth Adventure/production/Labyrinth Adventure/assets/textureswithplayer/brick.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Labyrinth Adventure/production/Labyrinth Adventure/assets/textureswithplayer/edged.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Labyrinth Adventure/production/Labyrinth Adventure/assets/textureswithplayer/edgel.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Labyrinth Adventure/production/Labyrinth Adventure/assets/textureswithplayer/edgeld.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Labyrinth Adventure/production/Labyrinth Adventure/assets/textureswithplayer/edgelr.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Labyrinth Adventure/production/Labyrinth Adventure/assets/textureswithplayer/edgelrd.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Labyrinth Adventure/production/Labyrinth Adventure/assets/textureswithplayer/edgelud.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Labyrinth Adventure/production/Labyrinth Adventure/assets/textureswithplayer/edger.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Labyrinth Adventure/production/Labyrinth Adventure/assets/textureswithplayer/edgerd.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Labyrinth Adventure/production/Labyrinth Adventure/assets/textureswithplayer/edgeu.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Labyrinth Adventure/production/Labyrinth Adventure/assets/textureswithplayer/edgeud.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Labyrinth Adventure/production/Labyrinth Adventure/assets/textureswithplayer/edgeul.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Labyrinth Adventure/production/Labyrinth Adventure/assets/textureswithplayer/edgeur.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Labyrinth Adventure/production/Labyrinth Adventure/assets/textureswithplayer/edgeurd.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Labyrinth Adventure/production/Labyrinth Adventure/assets/textureswithplayer/edgeurl.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Labyrinth Adventure/production/Labyrinth Adventure/assets/textureswithplayer/grass.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Labyrinth Adventure/production/Labyrinth Adventure/assets/textureswithplayer/player.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Labyrinth Adventure/production/Labyrinth Adventure/game/AdventureGUI$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Labyrinth Adventure/production/Labyrinth Adventure/game/AdventureGUI$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Labyrinth Adventure/production/Labyrinth Adventure/game/AdventureGUI$3.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Labyrinth Adventure/production/Labyrinth Adventure/game/AdventureGUI$4.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Labyrinth Adventure/production/Labyrinth Adventure/game/AdventureGUI$5.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Labyrinth Adventure/production/Labyrinth Adventure/game/AdventureGUI.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Labyrinth Adventure/production/Labyrinth Adventure/game/Cell.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Labyrinth Adventure/production/Labyrinth Adventure/game/Dragon.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Labyrinth Adventure/production/Labyrinth Adventure/game/HighScoreTableModel.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Labyrinth Adventure/production/Labyrinth Adventure/game/HighScoreWindow.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Labyrinth Adventure/production/Labyrinth Adventure/game/Labyrinth.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Labyrinth Adventure/production/Labyrinth Adventure/game/LabyrinthBuilder.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Labyrinth Adventure/production/Labyrinth Adventure/game/Main.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Labyrinth Adventure/production/Labyrinth Adventure/game/MainMenu$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Labyrinth Adventure/production/Labyrinth Adventure/game/MainMenu.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Labyrinth Adventure/production/Labyrinth Adventure/game/MapBuilder$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Labyrinth Adventure/production/Labyrinth Adventure/game/MapBuilder.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Labyrinth Adventure/production/Labyrinth Adventure/game/Player.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Labyrinth Adventure/production/Labyrinth Adventure/game/ResourceLoader.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Labyrinth Adventure/production/Labyrinth Adventure/persistence/ConnectionFactory.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Labyrinth Adventure/production/Labyrinth Adventure/persistence/Database.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Labyrinth Adventure/production/Labyrinth Adventure/persistence/HighScore.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/game/Direction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/game/Cell.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/game/Cell.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/game/Dragon.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/game/Dragon.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/game/HighScoreTableModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/game/HighScoreTableModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/game/HighScoreWindow.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/game/HighScoreWindow.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/game/Labyrinth.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/game/Labyrinth.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/game/LabyrinthBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/game/LabyrinthBuilder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/game/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/game/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/game/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/game/Player.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/game/ResourceLoader.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/game/ResourceLoader.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/persistence/ConnectionFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/persistence/ConnectionFactory.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/persistence/Database.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/persistence/Database.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/persistence/HighScore.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/persistence/HighScore.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nbproject/build-impl.xml" beforeDir="false" afterPath="$PROJECT_DIR$/nbproject/build-impl.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nbproject/genfiles.properties" beforeDir="false" afterPath="$PROJECT_DIR$/nbproject/genfiles.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nbproject/private/private.properties" beforeDir="false" afterPath="$PROJECT_DIR$/nbproject/private/private.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nbproject/project.properties" beforeDir="false" afterPath="$PROJECT_DIR$/nbproject/project.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nbproject/project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/nbproject/project.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nbproject/build-impl.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nbproject/genfiles.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nbproject/private/config.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nbproject/private/private.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nbproject/private/private.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nbproject/project.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nbproject/project.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/Cell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/Cell.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/Labyrinth.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/Labyrinth.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/LabyrinthBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/LabyrinthBuilder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/game/MapBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/MapBuilder.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -32,8 +100,27 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/game/LabyrinthBuilder.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/game/Main.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -49,42 +136,20 @@
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../westworld" />
-    <property name="project.structure.last.edited" value="Project" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="last_opened_file_path" value="$USER_HOME$/IdeaProjects/TimeMachine2" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
-  <component name="RunManager" selected="Application.Main">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="game.Main" />
       <module name="Labyrinth Adventure" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="game.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
-      <option name="ALTERNATIVE_JRE_PATH" value="17" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
-      <module name="Labyrinth Adventure" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <list>
-      <item itemvalue="Application.Unnamed" />
-      <item itemvalue="Application.Main" />
-    </list>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.Main" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -96,6 +161,51 @@
       <updated>1643918719117</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="1c6729c8-bd27-4d33-ba9e-f7379c09ae5b">
+          <value>
+            <State>
+              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="structure">
+                    <value>
+                      <list>
+                        <option value="dir:C:/Users/lud1bp/Documents/GitHub/progtech/Labyrinth Adventure/ojdbc11-full" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="OPEN_GENERIC_TABS">
+      <map>
+        <entry key="1c6729c8-bd27-4d33-ba9e-f7379c09ae5b" value="TOOL_WINDOW" />
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Moved to IntelliJ" />
+    <option name="LAST_COMMIT_MESSAGE" value="Moved to IntelliJ" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

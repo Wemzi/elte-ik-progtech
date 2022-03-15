@@ -35,8 +35,7 @@ public class Labyrinth extends JPanel{
     @Override
     protected void paintComponent(Graphics g)
     {
-        System.out.println(cells.size());
-        picsize = board.getFrame().getHeight() > board.getFrame().getWidth() ?  board.getFrame().getWidth()/cells.size() : board.getFrame().getHeight()/cells.size();
+        picsize = board.getLabyrinth().getHeight() > board.getLabyrinth().getWidth() ?  board.getLabyrinth().getWidth()/cells.size() : board.getLabyrinth().getHeight()/cells.size();
         Graphics2D gr = (Graphics2D)g;
         BufferedImage darkness = null;
         try
@@ -71,8 +70,8 @@ public class Labyrinth extends JPanel{
                         img = cell.selectPlayerImage();
                     }
                     else
-                    {
-                      */System.out.println("imgselect");  img = cell.selectImage();
+                    {*/
+                    img = cell.selectImage();
                    // }
                 }
                 catch(IOException e)

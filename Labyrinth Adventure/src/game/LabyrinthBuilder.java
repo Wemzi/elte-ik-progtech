@@ -40,8 +40,11 @@ class LabyrinthBuilder
             }
         }
     }
-    
-    
+
+    public void setCurrentCell(Cell currentCell) {
+        this.currentCell = currentCell;
+    }
+
     /** Aldous-Broder Algoritmusnak a szomszédos mezőt kiválasztó rész implementációja */
     private void moveToAdjacentCell()
     {
@@ -101,6 +104,38 @@ class LabyrinthBuilder
             currentCell = cells.get(currentCell.getcolIdx()-1).get(currentCell.getrowIdx());
         }
         else return;
+    }
+
+    public void moveToAdjacentCell(Direction dir)
+    {
+        switch(dir)
+        {
+            case RIGHT:{
+                currentCell.setedgeRight();
+                currentCell = cells.get(currentCell.getcolIdx()).get(currentCell.getrowIdx()+1);
+                //System.out.println("jobbra");
+                currentCell.setedgeLeft();
+                currentCell.sethasBeenSelected();
+            }
+            case LEFT:{
+                currentCell.setedgeLeft();
+                currentCell = cells.get(currentCell.getcolIdx()).get(currentCell.getrowIdx()-1);
+                currentCell.setedgeRight();
+                currentCell.sethasBeenSelected();
+            }
+            case UP:{
+                currentCell.setedgeDown();
+                currentCell.setedgeUp();
+                currentCell = cells.get(currentCell.getcolIdx()+1).get(currentCell.getrowIdx());
+                currentCell.sethasBeenSelected();
+            }
+            case DOWN:{
+                currentCell.setedgeDown();
+                currentCell = cells.get(currentCell.getcolIdx()-1).get(currentCell.getrowIdx());
+                currentCell.setedgeUp();
+                currentCell.sethasBeenSelected();
+            }
+        }
     }
     
     /** Eddig megy az algoritmusunk, tehát amíg nincs minden elem legalább egyszer megjelölve */

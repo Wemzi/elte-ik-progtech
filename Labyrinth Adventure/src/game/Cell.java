@@ -333,4 +333,9 @@ public class Cell {
     {
         hasBeenSelected = !hasBeenSelected;
     }
+    
+    public String toString()
+    {
+      return this.edgeUp + " " + this.edgeDown + " " + this.edgeRight + " " + this.edgeLeft;
+    }
 }

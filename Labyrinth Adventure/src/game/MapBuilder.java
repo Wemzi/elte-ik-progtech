@@ -21,6 +21,7 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import persistence.*;
 import javax.swing.Timer;
 
@@ -51,16 +52,63 @@ public class MapBuilder {
         frame.getContentPane().add(BorderLayout.CENTER, mainPanel);
         frame.setVisible(true);
         frame.setSize(600,600);
-        mainPanel.addMouseListener(new MouseAdapter(){
+        mainPanel.addMouseMotionListener(new MouseAdapter(){
+            Cell prevCell = null;
+            Cell currentCell = null;
+            public Cell getCurrentCell(MouseEvent e)
+            {
+                int picSize = mainPanel.getPicSize();
+                int x = (e.getX())/picSize;
+                int y = cells.size()-Math.round(e.getY()/picSize)-1;
+                Cell  ret = cells.get(y).get(x);
+                return ret;
+            }
+
             @Override
             public void mouseClicked(MouseEvent e)
             {
-                        int picSize = mainPanel.getPicSize();
-                        int x = e.getX()/picSize;
-                        int y = e.getY()/picSize;
-                        Cell  ret = cells.get(x/picSize).get(y/picSize);
-                        System.out.println(ret);
-                        System.out.println(x + " " + y );
+            }
+
+            @Override
+            public void mouseDragged(MouseEvent e) {
+                super.mouseDragged(e);
+                //System.out.println("called");
+                prevCell = currentCell;
+                currentCell = getCurrentCell(e);
+                if(prevCell != null )
+                {
+                    Direction dir = null;
+                    if(currentCell.getcolIdx()> prevCell.getcolIdx())
+                    {
+                        dir = Direction.UP;
+                        labyrinth.setCurrentCell(prevCell);
+                        labyrinth.moveToAdjacentCell(dir);
+                    }
+                    else if(currentCell.getcolIdx()< prevCell.getcolIdx())
+                    {
+                        dir = Direction.DOWN;
+                        labyrinth.setCurrentCell(prevCell);
+                        labyrinth.moveToAdjacentCell(dir);
+                    }
+                    else if(currentCell.getrowIdx() > prevCell.getrowIdx())
+                    {
+                        dir = Direction.RIGHT;
+                        labyrinth.setCurrentCell(prevCell);
+                        labyrinth.moveToAdjacentCell(dir);
+                    }
+                    else if(currentCell.getrowIdx()<prevCell.getrowIdx())
+                    {
+                        dir = Direction.LEFT;
+                        labyrinth.setCurrentCell(prevCell);
+                        labyrinth.moveToAdjacentCell(dir);
+                    }
+                    if(dir != null)
+                    {
+                        System.out.println(dir);
+                        mainPanel.repaint();
+                    }
+
+                }
             }
         });
        // frame.setResizable(false);
@@ -74,6 +122,10 @@ public class MapBuilder {
     public ArrayList<ArrayList<Cell>> getCells()
     {
         return cells;
+    }
+    public JPanel getLabyrinth()
+    {
+        return this.mainPanel;
     }
 
     
