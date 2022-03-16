@@ -55,7 +55,6 @@ class LabyrinthBuilder
             if(!cells.get(currentCell.getcolIdx()).get(currentCell.getrowIdx()+1).gethasBeenSelected())
             {
                 currentCell.setedgeRight();
-                cells.get(currentCell.getcolIdx()).get(currentCell.getrowIdx()+1).setedgeLeft();
                 //System.out.println("jobbra");
                 currentCell = cells.get(currentCell.getcolIdx()).get(currentCell.getrowIdx()+1);
                 currentCell.setedgeLeft();
@@ -113,9 +112,7 @@ class LabyrinthBuilder
             case RIGHT:{
                 currentCell.setedgeRight();
                 currentCell = cells.get(currentCell.getcolIdx()).get(currentCell.getrowIdx()+1);
-                //System.out.println("jobbra");
                 currentCell.setedgeLeft();
-                currentCell.sethasBeenSelected();
             }
             case LEFT:{
                 currentCell.setedgeLeft();
@@ -124,9 +121,9 @@ class LabyrinthBuilder
                 currentCell.sethasBeenSelected();
             }
             case UP:{
-                currentCell.setedgeDown();
                 currentCell.setedgeUp();
                 currentCell = cells.get(currentCell.getcolIdx()+1).get(currentCell.getrowIdx());
+                currentCell.setedgeDown();
                 currentCell.sethasBeenSelected();
             }
             case DOWN:{

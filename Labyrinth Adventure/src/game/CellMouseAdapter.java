@@ -1,0 +1,77 @@
+package game;
+
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.util.ArrayList;
+
+public class CellMouseAdapter extends MouseAdapter {
+    Cell prevCell = null;
+    Cell currentCell = null;
+    ArrayList<ArrayList<Cell>> cells;
+    Labyrinth mainPanel;
+    LabyrinthBuilder labyrinth;
+
+    public CellMouseAdapter(ArrayList<ArrayList<Cell>> cells, Labyrinth mainPanel, LabyrinthBuilder labyrinth) {
+        this.cells = cells;
+        this.mainPanel = mainPanel;
+        this.labyrinth = labyrinth;
+    }
+
+    public Cell getCurrentCell(MouseEvent e)
+    {
+        int picSize = mainPanel.getPicSize();
+        int x = (e.getX())/picSize;
+        int y = cells.size()-Math.round(e.getY()/picSize)-1;
+        Cell  ret = cells.get(y).get(x);
+        return ret;
+    }
+
+    @Override
+    public void mouseClicked(MouseEvent e)
+    {
+        Cell ret = getCurrentCell(e);
+        System.out.println(ret);
+    }
+
+    @Override
+    public void mouseDragged(MouseEvent e) {
+        super.mouseDragged(e);
+        //System.out.println("called");
+        prevCell = currentCell;
+        currentCell = getCurrentCell(e);
+        if(prevCell != null )
+        {
+            Direction dir = null;
+            if(currentCell.getcolIdx()> prevCell.getcolIdx())
+            {
+                dir = Direction.UP;
+                labyrinth.setCurrentCell(prevCell);
+                labyrinth.moveToAdjacentCell(dir);
+            }
+            else if(currentCell.getcolIdx()< prevCell.getcolIdx())
+            {
+                dir = Direction.DOWN;
+                labyrinth.setCurrentCell(prevCell);
+                labyrinth.moveToAdjacentCell(dir);
+            }
+            else if(currentCell.getrowIdx() > prevCell.getrowIdx())
+            {
+                dir = Direction.RIGHT;
+                labyrinth.setCurrentCell(prevCell);
+                labyrinth.moveToAdjacentCell(dir);
+            }
+            else if(currentCell.getrowIdx()<prevCell.getrowIdx())
+            {
+                dir = Direction.LEFT;
+                labyrinth.setCurrentCell(prevCell);
+                labyrinth.moveToAdjacentCell(dir);
+            }
+            if(dir != null)
+            {
+                System.out.println(dir);
+                mainPanel.repaint();
+            }
+
+        }
+    }
+}

@@ -67,6 +67,8 @@ public class MapBuilder {
             @Override
             public void mouseClicked(MouseEvent e)
             {
+                Cell ret = getCurrentCell(e);
+                System.out.println(ret);
             }
 
             @Override
