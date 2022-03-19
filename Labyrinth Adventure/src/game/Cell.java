@@ -20,83 +20,83 @@ public class Cell {
     {
         if(edgeRight && edgeLeft && edgeDown && edgeUp)
         {
-            BufferedImage i = ResourceLoader.loadImage("assets/brick.png");
-            return i;
+            return ResourceLoader.brick;
+
         }
         else if(edgeRight && edgeLeft && edgeDown )
         {
-            BufferedImage i = ResourceLoader.loadImage("assets/edgelrd.png");
-            return i;
+            return ResourceLoader.edgelrd;
+
         }
         else if(edgeRight && edgeLeft && edgeUp)
         {
-            BufferedImage i = ResourceLoader.loadImage("assets/edgeurl.png");
-            return i;
+            return ResourceLoader.edgeurl;
+
         }
         else if(edgeRight && edgeDown && edgeUp)
         {
-            BufferedImage i = ResourceLoader.loadImage("assets/edgeurd.png");
-            return i;
+            return ResourceLoader.edgeurd;
+
         }
         else if(edgeLeft && edgeDown && edgeUp)
         {
-            BufferedImage i = ResourceLoader.loadImage("assets/edgelud.png");
-            return i;
+            return ResourceLoader.edgelud;
+
         }
         else if(edgeLeft && edgeDown)
         {
-            BufferedImage i = ResourceLoader.loadImage("assets/edgeld.png");
-            return i;
+            return ResourceLoader.edgeld;
+
         }
         else if(edgeLeft && edgeUp)
         {
-            BufferedImage i = ResourceLoader.loadImage("assets/edgeul.png");
-            return i;
+            return ResourceLoader.edgeul;
+
         }
         else if(edgeLeft && edgeRight)
         {
-            BufferedImage i = ResourceLoader.loadImage("assets/edgelr.png");
-            return i;
+            return ResourceLoader.edgelr;
+
         }
         else if(edgeRight && edgeUp)
         {
-            BufferedImage i = ResourceLoader.loadImage("assets/edgeur.png");
-            return i;
+            return ResourceLoader.edgeur;
+
         }
         else if(edgeRight && edgeDown)
         {
-            BufferedImage i = ResourceLoader.loadImage("assets/edgerd.png");
-            return i;
+            return ResourceLoader.edgerd;
+
         }
         else if(edgeUp && edgeDown)
         {
-            BufferedImage i = ResourceLoader.loadImage("assets/edgeud.png");
-            return i;
+            return ResourceLoader.edgeud;
+
         }
         else if(edgeDown)
         {
-            BufferedImage i = ResourceLoader.loadImage("assets/edged.png");
-            return i;
+            return ResourceLoader.edged;
+
         }
         else if(edgeUp)
         {
-            BufferedImage i = ResourceLoader.loadImage("assets/edgeu.png");
-            return i;
+            return ResourceLoader.edgeu;
+
         }
         else if(edgeLeft)
         {
-            BufferedImage i = ResourceLoader.loadImage("assets/edgel.png");
-            return i;
+            return ResourceLoader.edgel;
+
         }
         else if(edgeRight)
         {
-            BufferedImage i = ResourceLoader.loadImage("assets/edger.png");
-            return i;
+            return ResourceLoader.edger;
+
         }
         else
         {
-            BufferedImage i = ResourceLoader.loadImage("assets/grass.png");
-            return i;
+            return ResourceLoader.grass;
+
         }
     }
 
@@ -303,7 +303,9 @@ public class Cell {
 
     public void setedgeUp()
     {
-         edgeUp = false;   }
+         edgeUp = false;
+         System.out.println("CALLED");
+    }
 
     public void setedgeDown()
     {

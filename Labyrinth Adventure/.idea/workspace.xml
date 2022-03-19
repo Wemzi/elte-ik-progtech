@@ -2,15 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2d198183-6036-4902-902a-616e7bbac25a" name="Changes" comment="Moved to IntelliJ">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/game/CellMouseAdapter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Labyrinth Adventure/production/Labyrinth Adventure/game/LabyrinthBuilder$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Labyrinth Adventure/production/Labyrinth Adventure/game/LabyrinthBuilder$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Labyrinth Adventure/production/Labyrinth Adventure/game/LabyrinthBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Labyrinth Adventure/production/Labyrinth Adventure/game/LabyrinthBuilder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Labyrinth Adventure/production/Labyrinth Adventure/game/MapBuilder$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Labyrinth Adventure/production/Labyrinth Adventure/game/MapBuilder$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Labyrinth Adventure/production/Labyrinth Adventure/game/MapBuilder$1.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Labyrinth Adventure/production/Labyrinth Adventure/game/MapBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Labyrinth Adventure/production/Labyrinth Adventure/game/MapBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/Cell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/Cell.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/CellMouseAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/CellMouseAdapter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/game/LabyrinthBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/LabyrinthBuilder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/game/MapBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/MapBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/ResourceLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/ResourceLoader.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

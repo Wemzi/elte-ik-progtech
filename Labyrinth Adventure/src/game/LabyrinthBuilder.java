@@ -107,6 +107,7 @@ class LabyrinthBuilder
 
     public void moveToAdjacentCell(Direction dir)
     {
+        System.out.println("Called with " + dir);
         switch(dir)
         {
             case RIGHT:{
