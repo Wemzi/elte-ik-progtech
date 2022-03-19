@@ -114,24 +114,28 @@ class LabyrinthBuilder
                 currentCell.setedgeRight();
                 currentCell = cells.get(currentCell.getcolIdx()).get(currentCell.getrowIdx()+1);
                 currentCell.setedgeLeft();
+                break;
             }
             case LEFT:{
                 currentCell.setedgeLeft();
                 currentCell = cells.get(currentCell.getcolIdx()).get(currentCell.getrowIdx()-1);
                 currentCell.setedgeRight();
                 currentCell.sethasBeenSelected();
+                break;
             }
             case UP:{
                 currentCell.setedgeUp();
                 currentCell = cells.get(currentCell.getcolIdx()+1).get(currentCell.getrowIdx());
                 currentCell.setedgeDown();
                 currentCell.sethasBeenSelected();
+                break;
             }
             case DOWN:{
                 currentCell.setedgeDown();
                 currentCell = cells.get(currentCell.getcolIdx()-1).get(currentCell.getrowIdx());
                 currentCell.setedgeUp();
                 currentCell.sethasBeenSelected();
+                break;
             }
         }
     }

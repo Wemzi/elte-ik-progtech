@@ -304,7 +304,7 @@ public class Cell {
     public void setedgeUp()
     {
          edgeUp = false;
-         System.out.println("CALLED");
+         System.out.println(Thread.currentThread().getStackTrace());
     }
 
     public void setedgeDown()
