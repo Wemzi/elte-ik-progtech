@@ -45,6 +45,7 @@ public class AdventureGUI extends MapBuilder {
         JMenuItem newGame = new JMenuItem("New Game");
         JMenuItem Help = new JMenuItem("Help");
         JMenuItem TopList = new JMenuItem("Toplist");
+        menu = new JMenu();
         Steve = new Player();
         Drake = new Dragon(cells.get(0).size(),cells.size());
         /** Toplista elindítója*/
@@ -178,8 +179,7 @@ public class AdventureGUI extends MapBuilder {
         gameStatLabel.setText("Pontszám: " + score);
         frame.getContentPane().add(BorderLayout.SOUTH, bottomMenu);
         frame.getContentPane().add(BorderLayout.CENTER, mainPanel);
-        frame.setSize(600,660);
-        frame.setResizable(false);
+        frame.setSize(1280,720);
         frame.setVisible(true);
     }
 

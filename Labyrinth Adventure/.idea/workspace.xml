@@ -2,15 +2,46 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2d198183-6036-4902-902a-616e7bbac25a" name="Changes" comment="Moved to IntelliJ">
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/built-jar.properties" beforeDir="false" afterPath="$PROJECT_DIR$/build/built-jar.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/game/AdventureGUI$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/game/AdventureGUI$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/game/AdventureGUI$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/game/AdventureGUI$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/game/AdventureGUI$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/game/AdventureGUI$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/game/AdventureGUI$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/game/AdventureGUI$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/game/AdventureGUI$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/game/AdventureGUI$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/game/AdventureGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/game/AdventureGUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/game/Cell.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/game/Cell.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/game/Dragon.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/game/Dragon.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/game/HighScoreTableModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/game/HighScoreTableModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/game/HighScoreWindow.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/game/HighScoreWindow.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/game/Labyrinth.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/game/Labyrinth.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/game/LabyrinthBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/game/LabyrinthBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/game/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/game/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/game/MapBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/game/MapBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/game/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/game/Player.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/game/ResourceLoader.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/game/ResourceLoader.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/persistence/ConnectionFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/persistence/ConnectionFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/persistence/Database.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/persistence/Database.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/persistence/HighScore.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/persistence/HighScore.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/Labyrinth_adventure.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/README.TXT" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/lib/mysql-connector-java-8.0.22.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nbproject/build-impl.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nbproject/genfiles.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nbproject/private/config.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nbproject/private/private.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nbproject/private/private.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nbproject/project.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nbproject/project.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/game/AdventureGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/AdventureGUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/game/Cell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/Cell.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/CellMouseAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/CellMouseAdapter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/game/Labyrinth.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/Labyrinth.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/game/LabyrinthBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/LabyrinthBuilder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/game/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/MainMenu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/game/MapBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/MapBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/MainMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/ResourceLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/ResourceLoader.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,7 +57,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitSEFilterConfiguration">
     <file-type-list>
@@ -37,8 +68,8 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/src/game/LabyrinthBuilder.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/game/Main.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/game/LabyrinthBuilder.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -56,7 +87,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="ignore.preview.features.used" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/IdeaProjects/TimeMachine2" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../TimeMachine2" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
