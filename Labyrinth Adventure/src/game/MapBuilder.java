@@ -27,16 +27,15 @@ import javax.swing.Timer;
 
 public class MapBuilder {
 
-    private JFrame frame;
-    private Labyrinth mainPanel;
-    private LabyrinthBuilder labyrinth;
-    private ArrayList<ArrayList<Cell>> cells = new ArrayList<ArrayList<Cell>>();
-    private Dragon Drake;
-    private JMenuBar bottomMenu;
-    private final JLabel gameStatLabel = new JLabel("");
-    private Database data = new Database();
-    private JMenu menu;
-    /** Grafikus UI konstruktora,, melyben meghívom a labirintusgenerálást, létrehozzuk az összes UI elemet, generáljuk a játékost és a sárkányt.*/
+    protected JFrame frame;
+    protected Labyrinth mainPanel;
+    protected LabyrinthBuilder labyrinth;
+    protected ArrayList<ArrayList<Cell>> cells = new ArrayList<ArrayList<Cell>>();
+    protected JMenuBar bottomMenu;
+    protected final JLabel gameStatLabel = new JLabel("");
+    protected Database data = new Database();
+    protected JMenu menu;
+    /** Grafikus UI konstruktora,, meghívom a labirintusgenerálást, létrehozzuk az összes UI elemet, generáljuk a játékost és a sárkányt.*/
     public MapBuilder() throws IOException
     {
         ResourceLoader.initResources();
@@ -51,18 +50,14 @@ public class MapBuilder {
         bottomMenu.add(gameStatLabel);
         frame.getContentPane().add(BorderLayout.SOUTH, bottomMenu);
         frame.getContentPane().add(BorderLayout.CENTER, mainPanel);
-        frame.setVisible(true);
-        frame.setSize(600,600);
-        mainPanel.addMouseMotionListener(new CellMouseAdapter(cells,mainPanel,labyrinth));
-        mainPanel.addMouseListener(new CellMouseAdapter(cells,mainPanel,labyrinth));
+        //frame.setVisible(true);
+        frame.setSize(1280,720);
        // frame.setResizable(false);
     }
-
     public JFrame getFrame()
     {
         return frame;
     }
-
     public ArrayList<ArrayList<Cell>> getCells()
     {
         return cells;

@@ -304,7 +304,6 @@ public class Cell {
     public void setedgeUp()
     {
          edgeUp = false;
-         System.out.println(Thread.currentThread().getStackTrace());
     }
 
     public void setedgeDown()
@@ -326,6 +325,7 @@ public class Cell {
     {
         return rowIdx;
     }
+
     public boolean gethasBeenSelected()
     {
         return hasBeenSelected;
@@ -338,6 +338,6 @@ public class Cell {
     
     public String toString()
     {
-      return this.edgeUp + " " + this.edgeDown + " " + this.edgeRight + " " + this.edgeLeft;
+      return this.colIdx + " " +  this.rowIdx + " " + this.edgeUp + " " + this.edgeDown + " " + this.edgeRight + " " + this.edgeLeft;
     }
 }

@@ -14,14 +14,12 @@ class LabyrinthBuilder
         for (int idx = 0; idx < 9 ; idx++)
         {
             ArrayList <Cell> tmp = new ArrayList<>();
-            for ( int jdx=0; jdx<9; jdx++)
+            for ( int jdx=0; jdx<16; jdx++)
             {
                 tmp.add(new Cell(idx,jdx));
             }
             cells.add(tmp);
         }
-
-
         if(!keepItEmpty)
         {
                 currentCell = cells.get(0).get(0);
@@ -29,15 +27,15 @@ class LabyrinthBuilder
             while(!isEndOfGeneration())
             {
                 moveToAdjacentCell();
+                System.out.println("vroom");
             }
-            for(ArrayList<Cell> currentRow : cells)
+            /*for(ArrayList<Cell> currentRow : cells)
             {
                 for(Cell current : currentRow)
                 {
                     current.sethasBeenSelected();
                 }
-
-            }
+            }*/
         }
     }
 
@@ -54,60 +52,36 @@ class LabyrinthBuilder
         {
             if(!cells.get(currentCell.getcolIdx()).get(currentCell.getrowIdx()+1).gethasBeenSelected())
             {
-                currentCell.setedgeRight();
-                //System.out.println("jobbra");
-                currentCell = cells.get(currentCell.getcolIdx()).get(currentCell.getrowIdx()+1);
-                currentCell.setedgeLeft();
-                currentCell.sethasBeenSelected();
-                return;
+                moveToAdjacentCell(Direction.RIGHT);
             }
-            currentCell = cells.get(currentCell.getcolIdx()).get(currentCell.getrowIdx()+1);
         }
         else if(random < 0.50 && currentCell.getcolIdx() < cells.size()-1)
         {
             if(!cells.get(currentCell.getcolIdx()+1).get(currentCell.getrowIdx()).gethasBeenSelected())
             {
-                //System.out.println("fel");
-                currentCell.setedgeUp();
-                currentCell = cells.get(currentCell.getcolIdx()+1).get(currentCell.getrowIdx());
-                currentCell.setedgeDown();
-                currentCell.sethasBeenSelected();
-                return;
+                moveToAdjacentCell(Direction.UP);
             }
-            currentCell = cells.get(currentCell.getcolIdx()+1).get(currentCell.getrowIdx());
         }
         else if(random < 0.75 && currentCell.getrowIdx() > 0)
         {
             if(!cells.get(currentCell.getcolIdx()).get(currentCell.getrowIdx()-1).gethasBeenSelected())
             {
-               // System.out.println("balra");
-                currentCell.setedgeLeft();
-                currentCell = cells.get(currentCell.getcolIdx()).get(currentCell.getrowIdx()-1);
-                currentCell.setedgeRight();
-                currentCell.sethasBeenSelected();
-                return;
+                moveToAdjacentCell(Direction.LEFT);
             }
-            currentCell = cells.get(currentCell.getcolIdx()).get(currentCell.getrowIdx()-1);
         }
         else if(random < 1.00 && currentCell.getcolIdx() > 0)
         {
             if(!cells.get(currentCell.getcolIdx()-1).get(currentCell.getrowIdx()).gethasBeenSelected())
             {
-               // System.out.println("le");
-                currentCell.setedgeDown();
-                currentCell = cells.get(currentCell.getcolIdx()-1).get(currentCell.getrowIdx());
-                currentCell.setedgeUp();
-                currentCell.sethasBeenSelected();
-                return;
+                moveToAdjacentCell(Direction.DOWN);
             }
-            currentCell = cells.get(currentCell.getcolIdx()-1).get(currentCell.getrowIdx());
         }
         else return;
     }
 
     public void moveToAdjacentCell(Direction dir)
     {
-        System.out.println("Called with " + dir);
+        currentCell.sethasBeenSelected();
         switch(dir)
         {
             case RIGHT:{
@@ -120,21 +94,18 @@ class LabyrinthBuilder
                 currentCell.setedgeLeft();
                 currentCell = cells.get(currentCell.getcolIdx()).get(currentCell.getrowIdx()-1);
                 currentCell.setedgeRight();
-                currentCell.sethasBeenSelected();
                 break;
             }
             case UP:{
                 currentCell.setedgeUp();
                 currentCell = cells.get(currentCell.getcolIdx()+1).get(currentCell.getrowIdx());
                 currentCell.setedgeDown();
-                currentCell.sethasBeenSelected();
                 break;
             }
             case DOWN:{
                 currentCell.setedgeDown();
                 currentCell = cells.get(currentCell.getcolIdx()-1).get(currentCell.getrowIdx());
                 currentCell.setedgeUp();
-                currentCell.sethasBeenSelected();
                 break;
             }
         }
@@ -144,11 +115,14 @@ class LabyrinthBuilder
     public boolean isEndOfGeneration()
     {
         boolean end = true;
-        for(int idx=0; idx < cells.size() ; idx++)
+        for(ArrayList<Cell> cellRow : cells)
         {
-            for ( int jdx=0; jdx < cells.get(0).size() ; jdx++)
+            for ( Cell cell : cellRow)
             {
-                end = end && cells.get(idx).get(jdx).gethasBeenSelected();
+                if(!cell.gethasBeenSelected())
+                {
+                    System.out.println(cell + "miatt megyunk tovabb");
+                }
             }
         }
         return end;

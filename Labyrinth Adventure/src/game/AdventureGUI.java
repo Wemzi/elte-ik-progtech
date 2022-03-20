@@ -19,14 +19,8 @@ import javax.swing.Timer;
 
 public class AdventureGUI extends MapBuilder {
 
-    private JFrame frame;
     private Player Steve;
-    private LabyrinthBuilder labyrinth;
-    private Labyrinth mainPanel;
-    private ArrayList<ArrayList<Cell>> cells;
     private Dragon Drake;
-    private JMenuBar bottomMenu;
-    private final JLabel gameStatLabel = new JLabel("");
     private static int score=0;
     private Database data = new Database();
     private static int time = 0;
@@ -44,19 +38,15 @@ public class AdventureGUI extends MapBuilder {
     /** Grafikus UI konstruktora,, melyben meghívom a labirintusgenerálást, létrehozzuk az összes UI elemet, generáljuk a játékost és a sárkányt.*/
     public AdventureGUI() throws IOException
     {
-        
-        frame = new JFrame("Labyrinth Adventure");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        super();
         labyrinth = new LabyrinthBuilder(false);
         cells = labyrinth.getCells();
-        
-        bottomMenu=new JMenuBar();
-        menu = new JMenu("Menu");
+        System.out.println("cell size: " + cells.size());
         JMenuItem newGame = new JMenuItem("New Game");
         JMenuItem Help = new JMenuItem("Help");
-        
-        
         JMenuItem TopList = new JMenuItem("Toplist");
+        Steve = new Player();
+        Drake = new Dragon(cells.get(0).size(),cells.size());
         /** Toplista elindítója*/
         TopList.addActionListener(new ActionListener()
         {
@@ -89,10 +79,6 @@ public class AdventureGUI extends MapBuilder {
            restartGame();
         }
         });
-        Steve = new Player();
-        
-        Drake = new Dragon(cells.get(0).size(),cells.size());
-        mainPanel = new Labyrinth(this);
         /** A billentyűlenyomáshoz kapcsolt eseménykezelő, mely elmozdítja a játékost, és a sárkányt is, megvizsgálja, hogy vége van e a játéknak,majd ha nem, újrarajzolja a pályát. */
         frame.addKeyListener(new KeyAdapter() {
             @Override
@@ -183,21 +169,18 @@ public class AdventureGUI extends MapBuilder {
                 mainPanel.repaint();
             }
         });
-        
         menu.add(newGame);
         menu.add(Help);
         menu.add(TopList);
-       
-        
         timer.start();
         bottomMenu.add(menu);
         bottomMenu.add(gameStatLabel);
         gameStatLabel.setText("Pontszám: " + score);
         frame.getContentPane().add(BorderLayout.SOUTH, bottomMenu);
         frame.getContentPane().add(BorderLayout.CENTER, mainPanel);
-        frame.setVisible(true);
         frame.setSize(600,660);
         frame.setResizable(false);
+        frame.setVisible(true);
     }
 
     public JFrame getFrame()
@@ -232,7 +215,6 @@ public class AdventureGUI extends MapBuilder {
           Drake = null; 
           bottomMenu = null;
           timer.stop();
-          
           new AdventureGUI();
             }
             catch (IOException f)

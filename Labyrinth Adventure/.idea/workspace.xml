@@ -3,9 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="2d198183-6036-4902-902a-616e7bbac25a" name="Changes" comment="Moved to IntelliJ">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Labyrinth Adventure/production/Labyrinth Adventure/game/LabyrinthBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Labyrinth Adventure/production/Labyrinth Adventure/game/LabyrinthBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/AdventureGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/AdventureGUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/game/Cell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/Cell.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/CellMouseAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/CellMouseAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/Labyrinth.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/Labyrinth.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/game/LabyrinthBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/LabyrinthBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/MainMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/MapBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/MapBuilder.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,6 +55,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="ignore.preview.features.used" value="true" />
     <property name="last_opened_file_path" value="$USER_HOME$/IdeaProjects/TimeMachine2" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -128,16 +134,6 @@
           <properties class="java.lang.IllegalArgumentException" package="java.lang" />
           <option name="timeStamp" value="1" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/game/Cell.java</url>
-          <line>305</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/game/LabyrinthBuilder.java</url>
-          <line>126</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

@@ -36,7 +36,6 @@ public class CellMouseAdapter extends MouseAdapter {
     @Override
     public void mouseDragged(MouseEvent e) {
         super.mouseDragged(e);
-        //System.out.println("called");
         prevCell = currentCell;
         currentCell = getCurrentCell(e);
         if(prevCell != null )
@@ -64,7 +63,6 @@ public class CellMouseAdapter extends MouseAdapter {
                 labyrinth.moveToAdjacentCell(dir);
                 mainPanel.repaint();
             }
-
         }
     }
 }

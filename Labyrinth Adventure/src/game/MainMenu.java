@@ -7,6 +7,7 @@ package game;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -30,6 +31,7 @@ public class MainMenu {
     private static int time = 0;
     private JButton topListButton = new JButton("Toplist");
     private JButton mapBuilderButton = new JButton("Map Builder");
+    private JButton freePlayButton = new JButton("Free Play");
     private JPanel buttonPanel = new JPanel(new GridLayout(1,2,50,50));
     public MainMenu() {
         this.frame = new JFrame("Labyrinth Adventure");
@@ -48,9 +50,20 @@ public class MainMenu {
 
             }
         });
-        
+        freePlayButton.addActionListener(new ActionListener()
+        {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    new AdventureGUI();
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
+            }
+        });
         buttonPanel.add(topListButton);
         buttonPanel.add(mapBuilderButton);
+        buttonPanel.add(freePlayButton);
         frame.add(buttonPanel);
         frame.pack();
         frame.setSize(1280,720);

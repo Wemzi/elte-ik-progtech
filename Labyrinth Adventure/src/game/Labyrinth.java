@@ -21,7 +21,7 @@ public class Labyrinth extends JPanel{
     private MapBuilder board;
     private int picsize;
     
-        public Labyrinth(MapBuilder board)
+    public Labyrinth(MapBuilder board)
     {
         this.board=board;
         cells = board.getCells();
@@ -35,7 +35,8 @@ public class Labyrinth extends JPanel{
     @Override
     protected void paintComponent(Graphics g)
     {
-        picsize = board.getLabyrinth().getHeight() > board.getLabyrinth().getWidth() ?  board.getLabyrinth().getWidth()/cells.size() : board.getLabyrinth().getHeight()/cells.size();
+        System.out.println(cells.size());
+        picsize = getHeight() > getWidth() ?  getWidth()/cells.size() : getHeight()/cells.size();
         Graphics2D gr = (Graphics2D)g;
         BufferedImage darkness = null;
         try
