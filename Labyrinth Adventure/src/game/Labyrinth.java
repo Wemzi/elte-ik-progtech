@@ -35,7 +35,6 @@ public class Labyrinth extends JPanel{
     @Override
     protected void paintComponent(Graphics g)
     {
-        System.out.println(cells.size());
         picsize = getHeight() > getWidth() ?  getWidth()/cells.size() : getHeight()/cells.size();
         Graphics2D gr = (Graphics2D)g;
         BufferedImage darkness = null;

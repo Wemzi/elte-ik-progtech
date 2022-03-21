@@ -6,7 +6,6 @@ import java.io.IOException;
 
 
 public class Cell {
-    private boolean hasBeenSelected=false;
     private int colIdx;
     private int rowIdx;
 
@@ -328,16 +327,19 @@ public class Cell {
 
     public boolean gethasBeenSelected()
     {
-        return hasBeenSelected;
+        return !(edgeUp &&edgeDown && edgeLeft && edgeRight);
     }
 
-    public void sethasBeenSelected()
-    {
-        hasBeenSelected = !hasBeenSelected;
-    }
-    
-    public String toString()
-    {
-      return this.colIdx + " " +  this.rowIdx + " " + this.edgeUp + " " + this.edgeDown + " " + this.edgeRight + " " + this.edgeLeft;
+    @Override
+    public String toString() {
+        return "Cell{" +
+                "hasBeenSelected=" + gethasBeenSelected() +
+                ", colIdx=" + colIdx +
+                ", rowIdx=" + rowIdx +
+                ", edgeRight=" + edgeRight +
+                ", edgeLeft=" + edgeLeft +
+                ", edgeDown=" + edgeDown +
+                ", edgeUp=" + edgeUp +
+                '}';
     }
 }

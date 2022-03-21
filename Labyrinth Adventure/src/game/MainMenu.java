@@ -41,7 +41,9 @@ public class MainMenu {
             {
                 try
                 {
-                    new MapBuilder();  
+                    MapBuilder mapBuilderWindow = new MapBuilder();
+                    mapBuilderWindow.buildMap();
+
                 }
                 catch(Exception m)
                 {

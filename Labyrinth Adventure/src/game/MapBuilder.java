@@ -34,6 +34,7 @@ public class MapBuilder {
     protected JMenuBar bottomMenu;
     protected final JLabel gameStatLabel = new JLabel("");
     protected Database data = new Database();
+    Timer refresher;
     protected JMenu menu;
     /** Grafikus UI konstruktora,, meghívom a labirintusgenerálást, létrehozzuk az összes UI elemet, generáljuk a játékost és a sárkányt.*/
     public MapBuilder() throws IOException
@@ -50,9 +51,31 @@ public class MapBuilder {
         bottomMenu.add(gameStatLabel);
         frame.getContentPane().add(BorderLayout.SOUTH, bottomMenu);
         frame.getContentPane().add(BorderLayout.CENTER, mainPanel);
-        //frame.setVisible(true);
         frame.setSize(1280,720);
-       // frame.setResizable(false);
+        refresher = new Timer(16,new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                for(ArrayList<Cell> cellRow : cells)
+                {
+                    for(Cell cell : cellRow)
+                    {
+                        try {
+                            cell.selectImage();
+                        } catch (IOException ex) {
+                            ex.printStackTrace();
+                        }
+                    }
+                }
+                mainPanel.repaint();
+            }
+        });
+        refresher.start();
+    }
+    public void buildMap()
+    {
+        mainPanel.addMouseMotionListener(new CellMouseAdapter(cells,mainPanel,labyrinth));
+        mainPanel.addMouseListener(new CellMouseAdapter(cells,mainPanel,labyrinth));
+        frame.setVisible(true);
     }
     public JFrame getFrame()
     {

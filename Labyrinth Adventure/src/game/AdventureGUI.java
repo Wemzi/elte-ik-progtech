@@ -8,6 +8,7 @@ import javax.swing.JFrame;
 import java.io.IOException;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.util.Arrays;
 import java.util.Random;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
@@ -41,6 +42,7 @@ public class AdventureGUI extends MapBuilder {
         super();
         labyrinth = new LabyrinthBuilder(false);
         cells = labyrinth.getCells();
+        mainPanel = new Labyrinth(this);
         System.out.println("cell size: " + cells.size());
         JMenuItem newGame = new JMenuItem("New Game");
         JMenuItem Help = new JMenuItem("Help");
@@ -167,7 +169,6 @@ public class AdventureGUI extends MapBuilder {
                     return;
                     
                 }
-                mainPanel.repaint();
             }
         });
         menu.add(newGame);
@@ -180,7 +181,10 @@ public class AdventureGUI extends MapBuilder {
         frame.getContentPane().add(BorderLayout.SOUTH, bottomMenu);
         frame.getContentPane().add(BorderLayout.CENTER, mainPanel);
         frame.setSize(1280,720);
+
         frame.setVisible(true);
+        mainPanel.repaint();
+        System.out.println();
     }
 
     public JFrame getFrame()

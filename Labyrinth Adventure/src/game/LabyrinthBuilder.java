@@ -20,14 +20,13 @@ class LabyrinthBuilder
             }
             cells.add(tmp);
         }
+
         if(!keepItEmpty)
         {
-                currentCell = cells.get(0).get(0);
-                currentCell.sethasBeenSelected();
+            currentCell = cells.get(0).get(0);
             while(!isEndOfGeneration())
             {
                 moveToAdjacentCell();
-                System.out.println("vroom");
             }
             /*for(ArrayList<Cell> currentRow : cells)
             {
@@ -47,13 +46,17 @@ class LabyrinthBuilder
     private void moveToAdjacentCell()
     {
         double random = Math.random();
-        currentCell.sethasBeenSelected();
         if(random < 0.25 && currentCell.getrowIdx() < cells.get(0).size()-1)
         {
             if(!cells.get(currentCell.getcolIdx()).get(currentCell.getrowIdx()+1).gethasBeenSelected())
             {
                 moveToAdjacentCell(Direction.RIGHT);
             }
+            else
+            {
+                currentCell = cells.get(currentCell.getcolIdx()).get(currentCell.getrowIdx()+1);
+            }
+
         }
         else if(random < 0.50 && currentCell.getcolIdx() < cells.size()-1)
         {
@@ -61,6 +64,11 @@ class LabyrinthBuilder
             {
                 moveToAdjacentCell(Direction.UP);
             }
+            else
+            {
+                currentCell = cells.get(currentCell.getcolIdx()+1).get(currentCell.getrowIdx());
+            }
+
         }
         else if(random < 0.75 && currentCell.getrowIdx() > 0)
         {
@@ -68,6 +76,11 @@ class LabyrinthBuilder
             {
                 moveToAdjacentCell(Direction.LEFT);
             }
+            else
+            {
+                currentCell = cells.get(currentCell.getcolIdx()).get(currentCell.getrowIdx()-1);
+            }
+
         }
         else if(random < 1.00 && currentCell.getcolIdx() > 0)
         {
@@ -75,13 +88,16 @@ class LabyrinthBuilder
             {
                 moveToAdjacentCell(Direction.DOWN);
             }
+            else
+            {
+                currentCell = cells.get(currentCell.getcolIdx()-1).get(currentCell.getrowIdx());
+            }
         }
-        else return;
     }
-
+    static int counter = 0;
     public void moveToAdjacentCell(Direction dir)
     {
-        currentCell.sethasBeenSelected();
+        System.out.println("Called with " + dir);
         switch(dir)
         {
             case RIGHT:{
@@ -114,18 +130,20 @@ class LabyrinthBuilder
     /** Eddig megy az algoritmusunk, tehát amíg nincs minden elem legalább egyszer megjelölve */
     public boolean isEndOfGeneration()
     {
-        boolean end = true;
         for(ArrayList<Cell> cellRow : cells)
         {
             for ( Cell cell : cellRow)
             {
+
                 if(!cell.gethasBeenSelected())
                 {
-                    System.out.println(cell + "miatt megyunk tovabb");
+                    counter++;
+                    if(counter>10000) return true;
+                    return false;
                 }
             }
         }
-        return end;
+        return true;
     }
 
     public ArrayList<ArrayList<Cell>> getCells()
