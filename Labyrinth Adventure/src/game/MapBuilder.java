@@ -34,7 +34,6 @@ public class MapBuilder {
     protected ArrayList<ArrayList<Cell>> cells = new ArrayList<ArrayList<Cell>>();
     protected JMenuBar bottomMenu;
     protected final JLabel gameStatLabel = new JLabel("");
-   // protected Database data = new Database();
     Timer refresher;
     protected JMenu menu;
     /** Grafikus UI konstruktora,, meghívom a labirintusgenerálást, létrehozzuk az összes UI elemet, generáljuk a játékost és a sárkányt.*/
@@ -88,6 +87,15 @@ public class MapBuilder {
     public JPanel getLabyrinth()
     {
         return this.mainPanel;
+    }
+
+    public Cell getCurrentCell(Player Steve)
+    {
+        int picSize = mainPanel.getPicSize();
+        int x = (Steve.getPixelX())/picSize;
+        int y = cells.size()-Math.round(Steve.getPixelY()/picSize)-1;
+        Cell  ret = cells.get(y).get(x);
+        return ret;
     }
 
     

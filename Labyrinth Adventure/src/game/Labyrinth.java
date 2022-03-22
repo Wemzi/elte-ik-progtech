@@ -21,7 +21,6 @@ public class Labyrinth extends JPanel{
     private ArrayList<ArrayList<Cell>> cells;
     private MapBuilder board;
     private int picsize;
-    private Player Steve;
 
     public Cell getStartingCell()
     {
@@ -61,8 +60,7 @@ public class Labyrinth extends JPanel{
         cells = board.getCells();
         if(board instanceof AdventureGUI)
         {
-            Player Steve = ((AdventureGUI) board).getPlayer();
-            Steve.move(getStartingCell().getrowIdx(),getStartingCell().getcolIdx(),cells.get(0).size(),cells.size());
+         ((AdventureGUI) board).getPlayer().setCoords(getStartingCell().getrowIdx(),getStartingCell().getcolIdx(),getStartingCell().getcolIdx()* picsize, getStartingCell().getrowIdx()* picsize);
         }
         else
         {
@@ -125,7 +123,7 @@ public class Labyrinth extends JPanel{
                 gr.drawImage(img, jdx * picsize,(board.getFrame().getHeight()-(idx+2)*(picsize)), picsize, picsize, null);
                 if(board instanceof AdventureGUI) // player
                 {
-                    gr.drawImage(ResourceLoader.steve,((AdventureGUI) board).getPlayer().getcoordX() * picsize,(board.getFrame().getHeight()-(((AdventureGUI) board).getPlayer().getcoordY()+2)*(picsize)), picsize, picsize, null);
+                    gr.drawImage(ResourceLoader.steve,((AdventureGUI) board).getPlayer().getPixelX(),(board.getFrame().getHeight()-(((AdventureGUI) board).getPlayer().getPixelY()+2)), picsize, picsize, null);
                 }
             }
         }

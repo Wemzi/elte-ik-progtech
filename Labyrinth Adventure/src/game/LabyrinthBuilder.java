@@ -33,14 +33,6 @@ class LabyrinthBuilder
                 moveToAdjacentCell();
             }
             currentCell.setEndingCell(true);
-
-            /*for(ArrayList<Cell> currentRow : cells)
-            {
-                for(Cell current : currentRow)
-                {
-                    current.sethasBeenSelected();
-                }
-            }*/
         }
     }
 

@@ -94,43 +94,24 @@ public class AdventureGUI extends MapBuilder {
                         time = 0;
                         restartGame();
                     }
-                */  
+                */
+                Cell currentCell = getCurrentCell(Steve);
+                Steve.setCoords(currentCell.getrowIdx(), currentCell.getcolIdx(),currentCell.getcolIdx()* mainPanel.getPicSize(), currentCell.getrowIdx()* mainPanel.getPicSize());
+                System.out.println(Steve);
                 switch (kk){
                     case KeyEvent.VK_LEFT:
-                    if(cells.get(Steve.getcoordY()).get(Steve.getcoordX()).getedgeLeft())
-                    {
-                        break;
-                    }  
-                    Steve.move(-1,0,cells.size(),cells.get(0).size()); break;
+                    if(cells.get(Steve.getcoordY()).get(Steve.getcoordX()).getedgeLeft()) break;
+                    Steve.move(Direction.LEFT,cells.get(0).size(),cells.size()); break;
                     case KeyEvent.VK_RIGHT:
-                    if(cells.get(Steve.getcoordY()).get(Steve.getcoordX()).getedgeRight())
-                    {
-                        break;
-                    }  
-                    Steve.move(+1,0,cells.size(),cells.get(0).size()); break;
+                    if(cells.get(Steve.getcoordY()).get(Steve.getcoordX()).getedgeRight()) break;
+                    Steve.move(Direction.RIGHT,cells.get(0).size(),cells.size()); break;
                     case KeyEvent.VK_UP: 
-                    if(cells.get(Steve.getcoordY()).get(Steve.getcoordX()).getedgeUp())
-                    {
-                        break;
-                    }
-                    Steve.move(0,+1,cells.size(),cells.get(0).size()); break;
+                    if(cells.get(Steve.getcoordY()).get(Steve.getcoordX()).getedgeUp()) break;
+                    Steve.move(Direction.UP,cells.get(0).size(),cells.size()); break;
                     case KeyEvent.VK_DOWN: 
-                    if(cells.get(Steve.getcoordY()).get(Steve.getcoordX()).getedgeDown())
-                    {
-                        break;
-                    }  
-                    Steve.move(0,-1,cells.size(),cells.get(0).size()); break;
+                    if(cells.get(Steve.getcoordY()).get(Steve.getcoordX()).getedgeDown()) break;
+                    Steve.move(Direction.DOWN,cells.get(0).size(),cells.size()); break;
                 }
-                /*if(Drake.getcoordX() == Steve.getcoordX() && Drake.getcoordY() ==  Steve.getcoordY())
-                    {
-                        timer.stop();
-                        JOptionPane.showMessageDialog(null, "A sarkany elpusztitotta Steve-t. Vesztettel. Kattints az OK gombra az uj jatekhoz.");
-                        data.storeHighScore(cells.size(), score);
-                        restartGame();
-                        score = 0; 
-                        time = 0;
-                        return;
-                    }  */
                 if(Steve.getcoordX()==cells.get(0).size()-1 && Steve.getcoordY()==cells.size()-1)
                 {
                     timer.stop();
