@@ -7,6 +7,7 @@ package game;
 
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -20,11 +21,54 @@ public class Labyrinth extends JPanel{
     private ArrayList<ArrayList<Cell>> cells;
     private MapBuilder board;
     private int picsize;
+    private Player Steve;
+
+    public Cell getStartingCell()
+    {
+        for(ArrayList<Cell> cellRow : cells)
+        {
+            for(Cell cell : cellRow)
+            {
+                if(cell.isStartingCell())return cell;
+            }
+        }
+        return null;
+    }
+
+    public Cell getEndingCell()
+    {
+        for(ArrayList<Cell> cellRow : cells)
+        {
+            for(Cell cell : cellRow)
+            {
+                if(cell.isEndingCell())return cell;
+            }
+        }
+        return null;
+    }
+
+    public Cell getCurrentCell(MouseEvent e)
+    {
+        int x = (e.getX())/picsize;
+        int y = cells.size()-Math.round(e.getY()/picsize)-1;
+        Cell  ret = cells.get(y).get(x);
+        return ret;
+    }
     
     public Labyrinth(MapBuilder board)
     {
         this.board=board;
         cells = board.getCells();
+        if(board instanceof AdventureGUI)
+        {
+            Player Steve = ((AdventureGUI) board).getPlayer();
+            Steve.move(getStartingCell().getrowIdx(),getStartingCell().getcolIdx(),cells.get(0).size(),cells.size());
+        }
+        else
+        {
+            System.out.println("false");
+        }
+
     }
 
     public int countDistance(int szam1, int szam2)
@@ -79,6 +123,10 @@ public class Labyrinth extends JPanel{
                     System.out.println("Error loading file");
                 }
                 gr.drawImage(img, jdx * picsize,(board.getFrame().getHeight()-(idx+2)*(picsize)), picsize, picsize, null);
+                if(board instanceof AdventureGUI) // player
+                {
+                    gr.drawImage(ResourceLoader.steve,((AdventureGUI) board).getPlayer().getcoordX() * picsize,(board.getFrame().getHeight()-(((AdventureGUI) board).getPlayer().getcoordY()+2)*(picsize)), picsize, picsize, null);
+                }
             }
         }
     }

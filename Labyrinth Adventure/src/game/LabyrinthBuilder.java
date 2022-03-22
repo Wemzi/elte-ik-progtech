@@ -1,6 +1,8 @@
 package game;
 
 import java.util.ArrayList;
+import java.util.Random;
+
 /** tkp egy Aldous-Broder algoritmus */
 class LabyrinthBuilder
 {
@@ -23,11 +25,15 @@ class LabyrinthBuilder
 
         if(!keepItEmpty)
         {
-            currentCell = cells.get(0).get(0);
+            Random random = new Random();
+            currentCell = cells.get(random.nextInt(cells.size())).get(random.nextInt(cells.get(0).size()));
+            currentCell.setStartingCell(true);
             while(!isEndOfGeneration())
             {
                 moveToAdjacentCell();
             }
+            currentCell.setEndingCell(true);
+
             /*for(ArrayList<Cell> currentRow : cells)
             {
                 for(Cell current : currentRow)

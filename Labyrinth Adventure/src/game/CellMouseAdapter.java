@@ -38,7 +38,11 @@ public class CellMouseAdapter extends MouseAdapter {
         super.mouseDragged(e);
         prevCell = currentCell;
         currentCell = getCurrentCell(e);
-        if(prevCell != null )
+        if(prevCell == null)
+        {
+            currentCell.setStartingCell(true);
+        }
+        else if(prevCell != null )
         {
             Direction dir = null;
             if(currentCell.getcolIdx()> prevCell.getcolIdx())

@@ -2,14 +2,17 @@ package game;
 
 class Player
 {
-    private int coordX=0;
-    private int coordY=0;
-
+    private int coordX;
+    private int coordY;
+    private int pixelX;
+    private int pixelY;
 
     public Player()
     {
         coordX=0;
-        coordY=0; 
+        coordY=0;
+        pixelX=0;
+        pixelY=0;
     }
 
     /** A játékos mozgató metódusa, támogatja esetleg később az átlós mozgás implementálását is */
@@ -17,27 +20,27 @@ class Player
     {
         if(coordX < maxX-1 && coordX > 0 )
         {
-            coordX += moveX;
+            coordX = moveX;
         }
         else if(coordX==0 && moveX>0)
         {
-            coordX += moveX;
+            coordX = moveX;
         }
         else if(coordX>0 && moveX<0)
         {
-            coordX += moveX;
+            coordX = moveX;
         }
         if(coordY< maxY-1 && coordY > 0 )
         {
-            coordY += moveY;
+            coordY = moveY;
         }
         else if(coordY==0 && moveY>0)
         {
-            coordY += moveY;
+            coordY = moveY;
         }
         else if(coordY>0 && moveY<0)
         {
-            coordY += moveY;
+            coordY = moveY;
         }
     }
 

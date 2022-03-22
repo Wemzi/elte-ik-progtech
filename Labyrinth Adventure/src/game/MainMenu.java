@@ -27,7 +27,7 @@ public class MainMenu {
     private LabyrinthBuilder labyrinth;
     private final JLabel gameStatLabel = new JLabel("");
     private static int score=0;
-    private Database data = new Database();
+    //private Database data = new Database();
     private static int time = 0;
     private JButton topListButton = new JButton("Toplist");
     private JButton mapBuilderButton = new JButton("Map Builder");

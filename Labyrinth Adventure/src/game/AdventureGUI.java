@@ -20,10 +20,9 @@ import javax.swing.Timer;
 
 public class AdventureGUI extends MapBuilder {
 
-    private Player Steve;
     private Dragon Drake;
     private static int score=0;
-    private Database data = new Database();
+    //private Database data = new Database();
     private static int time = 0;
     private Timer timer = new Timer(1000, new ActionListener()
         {
@@ -48,15 +47,13 @@ public class AdventureGUI extends MapBuilder {
         JMenuItem Help = new JMenuItem("Help");
         JMenuItem TopList = new JMenuItem("Toplist");
         menu = new JMenu();
-        Steve = new Player();
-        Drake = new Dragon(cells.get(0).size(),cells.size());
         /** Toplista elindítója*/
         TopList.addActionListener(new ActionListener()
         {
             @Override
             public void actionPerformed(ActionEvent e)
             {
-                new HighScoreWindow(data.getHighScores(),null);
+                //new HighScoreWindow(data.getHighScores(),null);
             }
         });
         /** Kis help menüpont plusznak */
@@ -76,7 +73,7 @@ public class AdventureGUI extends MapBuilder {
            /** newgame indítás menüből */
         public void actionPerformed (ActionEvent e) 
         {
-           data.storeHighScore(cells.size(), score);
+           //data.storeHighScore(cells.size(), score);
            score=0;
            time = 0;
            restartGame();
@@ -89,30 +86,6 @@ public class AdventureGUI extends MapBuilder {
                 super.keyPressed(ke); 
                 int kk = ke.getKeyCode();
                 boolean siker = false;
-                while(!siker)
-                {
-                    Cell drakeCell = cells.get(Drake.getcoordY()).get(Drake.getcoordX());
-                    if(!drakeCell.getedgeRight() && !drakeCell.gethasBeenSelected())
-                    {
-                        Drake.randomMove(1);
-                        siker=true;
-                    }
-                    else if (!drakeCell.getedgeUp() && !drakeCell.gethasBeenSelected() )
-                    {
-                        Drake.randomMove(2);
-                        siker=true;
-                    }
-                    else if(!drakeCell.getedgeDown() && !drakeCell.gethasBeenSelected() )
-                    {
-                        Drake.randomMove(3);
-                        siker=true;
-                    }
-                    else if(!drakeCell.getedgeLeft() && !drakeCell.gethasBeenSelected())
-                    {
-                        Drake.randomMove(4);
-                        siker=true;
-                    }
-                }
                 /*if(Drake.getcoordX() == Steve.getcoordX() && Drake.getcoordY() ==  Steve.getcoordY())
                     {
                         JOptionPane.showMessageDialog(null, "A sarkany elpusztitotta Steve-t. Vesztettel. Kattints az OK gombra az uj jatekhoz.");
@@ -181,10 +154,8 @@ public class AdventureGUI extends MapBuilder {
         frame.getContentPane().add(BorderLayout.SOUTH, bottomMenu);
         frame.getContentPane().add(BorderLayout.CENTER, mainPanel);
         frame.setSize(1280,720);
-
         frame.setVisible(true);
-        mainPanel.repaint();
-        System.out.println();
+        refresher.start();
     }
 
     public JFrame getFrame()

@@ -30,10 +30,11 @@ public class MapBuilder {
     protected JFrame frame;
     protected Labyrinth mainPanel;
     protected LabyrinthBuilder labyrinth;
+    protected Player Steve = new Player();
     protected ArrayList<ArrayList<Cell>> cells = new ArrayList<ArrayList<Cell>>();
     protected JMenuBar bottomMenu;
     protected final JLabel gameStatLabel = new JLabel("");
-    protected Database data = new Database();
+   // protected Database data = new Database();
     Timer refresher;
     protected JMenu menu;
     /** Grafikus UI konstruktora,, meghívom a labirintusgenerálást, létrehozzuk az összes UI elemet, generáljuk a játékost és a sárkányt.*/
@@ -44,13 +45,10 @@ public class MapBuilder {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         labyrinth = new LabyrinthBuilder(true);
         cells = labyrinth.getCells();
-        mainPanel = new Labyrinth(this);
         bottomMenu=new JMenuBar();
         menu = new JMenu("Menu");
         bottomMenu.add(menu);
-        bottomMenu.add(gameStatLabel);
         frame.getContentPane().add(BorderLayout.SOUTH, bottomMenu);
-        frame.getContentPane().add(BorderLayout.CENTER, mainPanel);
         frame.setSize(1280,720);
         refresher = new Timer(16,new ActionListener(){
             @Override
@@ -69,13 +67,15 @@ public class MapBuilder {
                 mainPanel.repaint();
             }
         });
-        refresher.start();
     }
     public void buildMap()
     {
+        mainPanel = new Labyrinth(this);
         mainPanel.addMouseMotionListener(new CellMouseAdapter(cells,mainPanel,labyrinth));
         mainPanel.addMouseListener(new CellMouseAdapter(cells,mainPanel,labyrinth));
+        frame.getContentPane().add(BorderLayout.CENTER, mainPanel);
         frame.setVisible(true);
+        refresher.start();
     }
     public JFrame getFrame()
     {

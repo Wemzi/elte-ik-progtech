@@ -11,7 +11,9 @@ public class ResourceLoader {
      {
          return ResourceLoader.class.getClassLoader().getResourceAsStream(resName);
      }
-
+    public static BufferedImage steve ;
+    public static BufferedImage end ;
+    public static BufferedImage start ;
     public static BufferedImage brick ;
     public static BufferedImage edgelrd ;
     public static BufferedImage edgeurl ;
@@ -31,6 +33,9 @@ public class ResourceLoader {
 
     public static void initResources() throws IOException
     {
+        steve = ImageIO.read(ResourceLoader.class.getClassLoader().getResource("assets/player.png"));
+        start = ImageIO.read(ResourceLoader.class.getClassLoader().getResource("assets/start.png"));
+        end = ImageIO.read(ResourceLoader.class.getClassLoader().getResource("assets/end.png"));
         brick = ImageIO.read(ResourceLoader.class.getClassLoader().getResource("assets/brick.png"));
         edgelrd = ImageIO.read(ResourceLoader.class.getClassLoader().getResource("assets/edgelrd.png"));
         edgeurl = ImageIO.read(ResourceLoader.class.getClassLoader().getResource("assets/edgeurl.png"));
