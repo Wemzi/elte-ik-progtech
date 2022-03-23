@@ -24,6 +24,7 @@ public class AdventureGUI extends MapBuilder {
     private static int score=0;
     //private Database data = new Database();
     private static int time = 0;
+    private KeyHandler keyHandler = new KeyHandler();
     private Timer timer = new Timer(1000, new ActionListener()
         {
             @Override
@@ -47,27 +48,6 @@ public class AdventureGUI extends MapBuilder {
         JMenuItem Help = new JMenuItem("Help");
         JMenuItem TopList = new JMenuItem("Toplist");
         menu = new JMenu();
-        /** Toplista elindítója*/
-        TopList.addActionListener(new ActionListener()
-        {
-            @Override
-            public void actionPerformed(ActionEvent e)
-            {
-                //new HighScoreWindow(data.getHighScores(),null);
-            }
-        });
-        /** Kis help menüpont plusznak */
-        Help.addActionListener(new ActionListener()
-        { @Override
-            public void actionPerformed (ActionEvent e) 
-            {
-               JOptionPane.showMessageDialog(null,"A jatek soran egy veletlenszeruen generalt labirintusban ebredsz, ehesen, vilagitas nelkul. \n"
-                       + "A feladatod, hogy kijuss a labirintusbol, amiben egy sarkany is lapul. \n"
-                       + "A sarkanytol legalabb egy blokknyi tavolsagot erdemes tartani, kulonben akarmelyik pillanatban felfalhat. \n"
-                       + "A kezdo poziciod mindig a bal also sarok, a labirintus kijarata a jobb felso sarokban talalhato. \n"
-                       + "Jo jatekot! ");                                     
-            } 
-        });
         newGame.addActionListener(new ActionListener(){
            @Override
            /** newgame indítás menüből */
@@ -85,34 +65,24 @@ public class AdventureGUI extends MapBuilder {
             public void keyPressed(KeyEvent ke) {
                 super.keyPressed(ke); 
                 int kk = ke.getKeyCode();
-                boolean siker = false;
-                /*if(Drake.getcoordX() == Steve.getcoordX() && Drake.getcoordY() ==  Steve.getcoordY())
-                    {
-                        JOptionPane.showMessageDialog(null, "A sarkany elpusztitotta Steve-t. Vesztettel. Kattints az OK gombra az uj jatekhoz.");
-                        data.storeHighScore(cells.size(), score);
-                        score =0;
-                        time = 0;
-                        restartGame();
-                    }
-                */
                 Cell currentCell = getCurrentCell(Steve);
-                Steve.setCoords(currentCell.getrowIdx(), currentCell.getcolIdx(),currentCell.getcolIdx()* mainPanel.getPicSize(), currentCell.getrowIdx()* mainPanel.getPicSize());
                 System.out.println(Steve);
                 switch (kk){
                     case KeyEvent.VK_LEFT:
                     if(cells.get(Steve.getcoordY()).get(Steve.getcoordX()).getedgeLeft()) break;
-                    Steve.move(Direction.LEFT,cells.get(0).size(),cells.size()); break;
+                    Steve.move(Direction.LEFT,cells.size(),cells.get(0).size()); break;
                     case KeyEvent.VK_RIGHT:
                     if(cells.get(Steve.getcoordY()).get(Steve.getcoordX()).getedgeRight()) break;
-                    Steve.move(Direction.RIGHT,cells.get(0).size(),cells.size()); break;
+                    Steve.move(Direction.RIGHT,cells.size(),cells.get(0).size()); break;
                     case KeyEvent.VK_UP: 
                     if(cells.get(Steve.getcoordY()).get(Steve.getcoordX()).getedgeUp()) break;
-                    Steve.move(Direction.UP,cells.get(0).size(),cells.size()); break;
+                    Steve.move(Direction.UP,cells.size(),cells.get(0).size()); break;
                     case KeyEvent.VK_DOWN: 
                     if(cells.get(Steve.getcoordY()).get(Steve.getcoordX()).getedgeDown()) break;
-                    Steve.move(Direction.DOWN,cells.get(0).size(),cells.size()); break;
+                    Steve.move(Direction.DOWN,cells.size(),cells.get(0).size()); break;
                 }
-                if(Steve.getcoordX()==cells.get(0).size()-1 && Steve.getcoordY()==cells.size()-1)
+                Steve.setCoords(currentCell.getrowIdx(), currentCell.getcolIdx());
+               /* if(Steve.getcoordX()==cells.get(0).size()-1 && Steve.getcoordY()==cells.size()-1)
                 {
                     timer.stop();
                     JOptionPane.showMessageDialog(null, "Gratulalok, kijutottal a labirintusbol!, mar generaljuk is a kovetkezot!");
@@ -122,7 +92,7 @@ public class AdventureGUI extends MapBuilder {
                     restartGame();
                     return;
                     
-                }
+                }*/
             }
         });
         menu.add(newGame);

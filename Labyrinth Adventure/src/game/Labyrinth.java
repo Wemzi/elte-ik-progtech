@@ -60,7 +60,7 @@ public class Labyrinth extends JPanel{
         cells = board.getCells();
         if(board instanceof AdventureGUI)
         {
-         ((AdventureGUI) board).getPlayer().setCoords(getStartingCell().getrowIdx(),getStartingCell().getcolIdx(),getStartingCell().getcolIdx()* picsize, getStartingCell().getrowIdx()* picsize);
+         ((AdventureGUI) board).getPlayer().setCoords(getStartingCell().getrowIdx(),getStartingCell().getcolIdx());
         }
         else
         {
@@ -123,7 +123,7 @@ public class Labyrinth extends JPanel{
                 gr.drawImage(img, jdx * picsize,(board.getFrame().getHeight()-(idx+2)*(picsize)), picsize, picsize, null);
                 if(board instanceof AdventureGUI) // player
                 {
-                    gr.drawImage(ResourceLoader.steve,((AdventureGUI) board).getPlayer().getPixelX(),(board.getFrame().getHeight()-(((AdventureGUI) board).getPlayer().getPixelY()+2)), picsize, picsize, null);
+                    gr.drawImage(ResourceLoader.steve,((AdventureGUI) board).getPlayer().getPixelX(),(board.getFrame().getHeight()-(((AdventureGUI) board).getPlayer().getPixelY()+(2*picsize))), picsize, picsize, null);
                 }
             }
         }

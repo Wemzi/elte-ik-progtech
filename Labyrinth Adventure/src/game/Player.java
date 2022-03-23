@@ -56,12 +56,11 @@ class Player
         }
     }
 
-    public void setCoords(int coordX, int coordY,int pixelX, int pixelY)
+    public void setCoords(int coordX, int coordY)
     {
         this.coordX = coordX;
         this.coordY = coordY;
-        this.pixelX = pixelX;
-        this.pixelY = pixelY;
+
     }
 
     public int getcoordX()
