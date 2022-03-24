@@ -1,0 +1,8 @@
+Az elõadáson bemutatott garázsajtós példa az egyetemen fejlesztés alatt lévõ
+ txtUML nevû eszözzel lett bemutatva.
+Az eszöz használatához keresse fel a http://txtuml.inf.elte.hu webhelyet!
+A fejlesztésben való részvételhez Dr. Gregorics Tibor tanárurat keresse meg!
+
+Alternatív executable UML eszközök:
+ - Bridgepoint : https://xtuml.org/
+ - Topcased : https://www.polarsys.org/topcased

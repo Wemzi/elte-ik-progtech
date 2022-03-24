@@ -87,6 +87,10 @@ public class AmobaGUI {
         
     }
     
+
+    /**Reagál a megnyomott gombra, és a szövegéből megszerzi a pályamérethez szükséges információt,
+     *  ami után egy ciklus során folyamatosan új, üres szövegű gombokat hoz létre,
+     *  míg el nem készül a pálya. Ezt megelőzően természetesen eltünteti a főmenü elemeit, hisz azokra már nincsen szükség. */
     class SizeSelectActionListener implements ActionListener 
     {
         private final int size;
@@ -131,6 +135,14 @@ public class AmobaGUI {
                 }
     }
     
+
+    /**A felső állapotjelzőnk setterje, 
+        * illetve ennek megfelelően megváltoztatja a megnyomott gomb szövegét O-ra vagy X-re, 
+        * és hozzáadja a megfelelő player ownButtons gyűjteményéhez.
+        *  Ezentúl lefuttatja minden gombnyomásnál a determineWinner metódust,
+        *  hiszen egy új gombnyomással lehetséges, hogy új nyertesünk is lesz. 
+        *  Ha nyertest talál, meghívja a restartGame metódust.
+        */
     class XOActionListener implements ActionListener
     {
         private XOButton thisButton;
