@@ -30,7 +30,7 @@ public class MapBuilder {
     protected JFrame frame;
     protected Labyrinth mainPanel;
     protected LabyrinthBuilder labyrinth;
-    protected Player Steve = new Player();
+    protected Player Steve;
     protected ArrayList<ArrayList<Cell>> cells = new ArrayList<ArrayList<Cell>>();
     protected JMenuBar bottomMenu;
     protected final JLabel gameStatLabel = new JLabel("");
@@ -40,6 +40,7 @@ public class MapBuilder {
     public MapBuilder() throws IOException
     {
         ResourceLoader.initResources();
+        Steve = new Player();
         frame = new JFrame("Labyrinth Adventure");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         labyrinth = new LabyrinthBuilder(true);
@@ -49,7 +50,8 @@ public class MapBuilder {
         bottomMenu.add(menu);
         frame.getContentPane().add(BorderLayout.SOUTH, bottomMenu);
         frame.setSize(1280,720);
-        refresher = new Timer(16,new ActionListener(){
+        refresher = new Timer(15,new ActionListener(){
+            int ticks = 0;
             @Override
             public void actionPerformed(ActionEvent e) {
                 for(ArrayList<Cell> cellRow : cells)
@@ -64,6 +66,12 @@ public class MapBuilder {
                     }
                 }
                 mainPanel.repaint();
+                ticks++;
+                if(ticks==60)
+                {
+                    System.out.println(60);
+                    ticks = 0;
+                }
             }
         });
     }
@@ -92,9 +100,10 @@ public class MapBuilder {
     public Cell getCurrentCell(Player Steve)
     {
         int picSize = mainPanel.getPicSize();
-        int x = (Steve.getPixelX())/picSize;
-        int y = cells.size()-Math.round(Steve.getPixelY()/picSize)-1;
+        int x = (Steve.getPixelX()+Steve.myLook.getWidth()/2)/picSize;
+        int y = (Steve.getPixelY()+Steve.myLook.getHeight())/picSize;
         Cell  ret = cells.get(y).get(x);
+        //System.out.println(ret + " " + Steve.getPixelY() + " "  +  Steve.getPixelX() );
         return ret;
     }
 

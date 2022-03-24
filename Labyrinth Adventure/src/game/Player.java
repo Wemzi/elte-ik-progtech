@@ -1,6 +1,7 @@
 package game;
 
 import java.awt.*;
+import java.awt.image.BufferedImage;
 
 class Player
 {
@@ -8,7 +9,7 @@ class Player
     private int coordY;
     private int pixelX;
     private int pixelY;
-    public Rectangle solidArea;
+    public BufferedImage myLook = ResourceLoader.steve;
 
     public void setPixelX(int pixelX) {
         this.pixelX = pixelX;
@@ -38,19 +39,19 @@ class Player
     public void move(Direction dir,int maxX, int maxY) {
         switch (dir) {
             case RIGHT: {
-                if (coordX < maxX - 1) pixelX+=3;
+                pixelX+=3;
                 break;
             }
             case UP: {
-                if (coordY < maxY - 1) pixelY+=3;
+                pixelY+=3;
                 break;
             }
             case LEFT: {
-                if (coordX > 0) pixelX-=3;
+                pixelX-=3;
                 break;
             }
             case DOWN: {
-                if (coordY > 0) pixelY-=3;
+                pixelY-=3;
                 break;
             }
         }
@@ -79,7 +80,6 @@ class Player
                 ", coordY=" + coordY +
                 ", pixelX=" + pixelX +
                 ", pixelY=" + pixelY +
-                ", solidArea=" + solidArea +
                 '}';
     }
 }

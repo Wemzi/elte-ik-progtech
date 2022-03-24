@@ -49,7 +49,7 @@ public class Labyrinth extends JPanel{
     public Cell getCurrentCell(MouseEvent e)
     {
         int x = (e.getX())/picsize;
-        int y = cells.size()-Math.round(e.getY()/picsize)-1;
+        int y = (cells.size())-Math.round(e.getY()/picsize);
         Cell  ret = cells.get(y).get(x);
         return ret;
     }
@@ -80,15 +80,6 @@ public class Labyrinth extends JPanel{
         picsize = getHeight() > getWidth() ?  getWidth()/cells.size() : getHeight()/cells.size();
         Graphics2D gr = (Graphics2D)g;
         BufferedImage darkness = null;
-        try
-        {
-            darkness = ResourceLoader.loadImage("assets/darkness.png");
-        }
-        catch(IOException e)
-        {
-            System.out.println(e.getMessage());
-        }
-        
         BufferedImage img = null;
         for(int idx=cells.size()-1; idx>=0;idx--)
         {
@@ -98,34 +89,21 @@ public class Labyrinth extends JPanel{
                 img = null;
                 try
                 {
-                   /* if(Math.abs(countDistance(board.getPlayer().getcoordX(),jdx)) > 2 || Math.abs(countDistance(board.getPlayer().getcoordY(),idx)) > 2)
-                    {
-                        img = darkness;
-                    }
-                    */
-                  /*  if(board.getDragon().getcoordY() == idx && board.getDragon().getcoordX() == jdx )
-                    {
-                        img = cell.selectDragonImage();
-                    }
-                    else if(board.getPlayer().getcoordY() == idx && board.getPlayer().getcoordX() == jdx )
-                    {
-                        img = cell.selectPlayerImage();
-                    }
-                    else
-                    {*/
                     img = cell.selectImage();
-                   // }
                 }
                 catch(IOException e)
                 {
                     System.out.println("Error loading file");
                 }
-                gr.drawImage(img, jdx * picsize,(board.getFrame().getHeight()-(idx+2)*(picsize)), picsize, picsize, null);
-                if(board instanceof AdventureGUI) // player
-                {
-                    gr.drawImage(ResourceLoader.steve,((AdventureGUI) board).getPlayer().getPixelX(),(board.getFrame().getHeight()-(((AdventureGUI) board).getPlayer().getPixelY()+(2*picsize))), picsize, picsize, null);
-                }
+                gr.drawImage(img, jdx * picsize,(board.getLabyrinth().getHeight()-(idx+1)*(picsize)), picsize, picsize, null);
+                cell.setPixelX(jdx*picsize);
+                cell.setPixelY((idx+1)*(picsize));
             }
+        }
+        if(board instanceof AdventureGUI) // player
+        {
+            ((AdventureGUI) board).updatePlayer();
+            gr.drawImage(ResourceLoader.steve,((AdventureGUI) board).getPlayer().getPixelX(),(board.getLabyrinth().getHeight()-(((AdventureGUI) board).getPlayer().getPixelY()+(picsize))), ResourceLoader.steve.getWidth(), ResourceLoader.steve.getHeight(), null);
         }
     }
 

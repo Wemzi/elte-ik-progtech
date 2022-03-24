@@ -8,6 +8,8 @@ import java.io.IOException;
 public class Cell {
     private int colIdx;
     private int rowIdx;
+    private int pixelX;
+    private int pixelY;
 
     private boolean edgeRight=  true;
     private boolean edgeLeft =  true;
@@ -55,96 +57,13 @@ public class Cell {
         else return ResourceLoader.grass;
     }
 
-    /** Képkiválasztó metódus, csak a sárkánnyal. */
-    public BufferedImage selectDragonImage() throws IOException
-    {
-        if(edgeRight && edgeLeft && edgeDown && edgeUp)
-        {
-            BufferedImage i = ResourceLoader.loadImage("assets/textureswithdragon/brick.png");
-            return i;
-        }
-        else if(edgeRight && edgeLeft && edgeDown )
-        {
-            BufferedImage i = ResourceLoader.loadImage("assets/textureswithdragon/edgelrd.png");
-            return i;
-        }
-        else if(edgeRight && edgeLeft && edgeUp)
-        {
-            BufferedImage i = ResourceLoader.loadImage("assets/textureswithdragon/edgeurl.png");
-            return i;
-        }
-        else if(edgeRight && edgeDown && edgeUp)
-        {
-            BufferedImage i = ResourceLoader.loadImage("assets/textureswithdragon/edgeurd.png");
-            return i;
-        }
-        else if(edgeLeft && edgeDown && edgeUp)
-        {
-            BufferedImage i = ResourceLoader.loadImage("assets/textureswithdragon/edgelud.png");
-            return i;
-        }
-        else if(edgeLeft && edgeDown)
-        {
-            BufferedImage i = ResourceLoader.loadImage("assets/textureswithdragon/edgeld.png");
-            return i;
-        }
-        else if(edgeLeft && edgeUp)
-        {
-            BufferedImage i = ResourceLoader.loadImage("assets/textureswithdragon/edgeul.png");
-            return i;
-        }
-        else if(edgeLeft && edgeRight)
-        {
-            BufferedImage i = ResourceLoader.loadImage("assets/textureswithdragon/edgelr.png");
-            return i;
-        }
-        else if(edgeRight && edgeUp)
-        {
-            BufferedImage i = ResourceLoader.loadImage("assets/textureswithdragon/edgeur.png");
-            return i;
-        }
-        else if(edgeRight && edgeDown)
-        {
-            BufferedImage i = ResourceLoader.loadImage("assets/textureswithdragon/edgerd.png");
-            return i;
-        }
-        else if(edgeUp && edgeDown)
-        {
-            BufferedImage i = ResourceLoader.loadImage("assets/textureswithdragon/edgeud.png");
-            return i;
-        }
-        else if(edgeDown)
-        {
-            BufferedImage i = ResourceLoader.loadImage("assets/textureswithdragon/edged.png");
-            return i;
-        }
-        else if(edgeUp)
-        {
-            BufferedImage i = ResourceLoader.loadImage("assets/textureswithdragon/edgeu.png");
-            return i;
-        }
-        else if(edgeLeft)
-        {
-            BufferedImage i = ResourceLoader.loadImage("assets/textureswithdragon/edgel.png");
-            return i;
-        }
-        else if(edgeRight)
-        {
-            BufferedImage i = ResourceLoader.loadImage("assets/textureswithdragon/edger.png");
-            return i;
-        }
-        else
-        {
-            BufferedImage i = ResourceLoader.loadImage("assets/textureswithdragon/grass.png");
-            return i;
-        }
-    }
-
     public Cell(int colIdx, int rowIdx)
     {
         this.colIdx = colIdx;
         this.rowIdx = rowIdx;
     }
+
+
 
     public boolean getedgeRight()
     {
@@ -201,16 +120,35 @@ public class Cell {
         return !(edgeUp &&edgeDown && edgeLeft && edgeRight);
     }
 
+    public int getPixelX() {
+        return pixelX;
+    }
+
+    public void setPixelX(int pixelX) {
+        this.pixelX = pixelX;
+    }
+
+    public int getPixelY() {
+        return pixelY;
+    }
+
+    public void setPixelY(int pixelY) {
+        this.pixelY = pixelY;
+    }
+
     @Override
     public String toString() {
         return "Cell{" +
-                "hasBeenSelected=" + gethasBeenSelected() +
-                ", colIdx=" + colIdx +
+                "colIdx=" + colIdx +
                 ", rowIdx=" + rowIdx +
+                ", pixelX=" + pixelX +
+                ", pixelY=" + pixelY +
                 ", edgeRight=" + edgeRight +
                 ", edgeLeft=" + edgeLeft +
                 ", edgeDown=" + edgeDown +
                 ", edgeUp=" + edgeUp +
+                ", isStartingCell=" + isStartingCell +
+                ", isEndingCell=" + isEndingCell +
                 '}';
     }
 }

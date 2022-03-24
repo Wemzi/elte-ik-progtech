@@ -60,41 +60,7 @@ public class AdventureGUI extends MapBuilder {
         }
         });
         /** A billentyűlenyomáshoz kapcsolt eseménykezelő, mely elmozdítja a játékost, és a sárkányt is, megvizsgálja, hogy vége van e a játéknak,majd ha nem, újrarajzolja a pályát. */
-        frame.addKeyListener(new KeyAdapter() {
-            @Override
-            public void keyPressed(KeyEvent ke) {
-                super.keyPressed(ke); 
-                int kk = ke.getKeyCode();
-                Cell currentCell = getCurrentCell(Steve);
-                System.out.println(Steve);
-                switch (kk){
-                    case KeyEvent.VK_LEFT:
-                    if(cells.get(Steve.getcoordY()).get(Steve.getcoordX()).getedgeLeft()) break;
-                    Steve.move(Direction.LEFT,cells.size(),cells.get(0).size()); break;
-                    case KeyEvent.VK_RIGHT:
-                    if(cells.get(Steve.getcoordY()).get(Steve.getcoordX()).getedgeRight()) break;
-                    Steve.move(Direction.RIGHT,cells.size(),cells.get(0).size()); break;
-                    case KeyEvent.VK_UP: 
-                    if(cells.get(Steve.getcoordY()).get(Steve.getcoordX()).getedgeUp()) break;
-                    Steve.move(Direction.UP,cells.size(),cells.get(0).size()); break;
-                    case KeyEvent.VK_DOWN: 
-                    if(cells.get(Steve.getcoordY()).get(Steve.getcoordX()).getedgeDown()) break;
-                    Steve.move(Direction.DOWN,cells.size(),cells.get(0).size()); break;
-                }
-                Steve.setCoords(currentCell.getrowIdx(), currentCell.getcolIdx());
-               /* if(Steve.getcoordX()==cells.get(0).size()-1 && Steve.getcoordY()==cells.size()-1)
-                {
-                    timer.stop();
-                    JOptionPane.showMessageDialog(null, "Gratulalok, kijutottal a labirintusbol!, mar generaljuk is a kovetkezot!");
-                    ++score;
-                    
-                    gameStatLabel.setText("Pontszám: " + score + "Idő: " + time);
-                    restartGame();
-                    return;
-                    
-                }*/
-            }
-        });
+        frame.addKeyListener(keyHandler);
         menu.add(newGame);
         menu.add(Help);
         menu.add(TopList);
@@ -107,6 +73,28 @@ public class AdventureGUI extends MapBuilder {
         frame.setSize(1280,720);
         frame.setVisible(true);
         refresher.start();
+    }
+
+    public void updatePlayer()
+    {
+        Cell cell = getCurrentCell(Steve);
+        if(keyHandler.downPressed && !(cell.getedgeDown() && DistanceManager.isClosetoEdges(Steve,cell, mainPanel.getPicSize(),Direction.DOWN)))
+        {
+            Steve.move(Direction.DOWN,cells.size(),cells.get(0).size());
+        }
+        else if(keyHandler.leftPressed && !(cell.getedgeLeft() && DistanceManager.isClosetoEdges(Steve,cell, mainPanel.getPicSize(),Direction.LEFT)))
+        {
+            Steve.move(Direction.LEFT,cells.size(),cells.get(0).size());
+        }
+        else if(keyHandler.upPressed && !(cell.getedgeUp() && DistanceManager.isClosetoEdges(Steve,cell, mainPanel.getPicSize(),Direction.UP)))
+        {
+            Steve.move(Direction.UP,cells.size(),cells.get(0).size());
+        }
+        else if(keyHandler.rightPressed &&  !(cell.getedgeRight() && DistanceManager.isClosetoEdges(Steve,cell, mainPanel.getPicSize(),Direction.RIGHT)))
+        {
+            Steve.move(Direction.RIGHT,cells.size(),cells.get(0).size());
+        }
+        Steve.setCoords(getCurrentCell(Steve).getrowIdx(),getCurrentCell(Steve).getcolIdx());
     }
 
     public JFrame getFrame()
