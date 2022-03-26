@@ -1,31 +1,119 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="2d198183-6036-4902-902a-616e7bbac25a" name="Changes" comment="Moved to IntelliJ">
-      <change afterPath="$PROJECT_DIR$/src/game/DistanceManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/game/KeyHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/game/AdventureGUI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/game/Cell.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/game/CellMouseAdapter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/game/Direction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/game/DistanceManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/game/KeyHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/game/Labyrinth.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/game/MapBuilder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/game/Player.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/game/ResourceLoader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/persistence/FireBaseService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/resources/desktop.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/resources/dragon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/resources/edged.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/resources/edgel.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/resources/edgeld.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/resources/edgelr.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/resources/edgelrd.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/resources/edgelud.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/resources/edger.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/resources/edgerd.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/resources/edgeu.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/resources/edgeud.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/resources/edgeul.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/resources/edgeur.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/resources/edgeurd.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/resources/edgeurl.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/resources/end.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/resources/grass.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/resources/player.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/resources/start.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/test/java/Labyrinth/Adventure/AppTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/built-jar.properties" beforeDir="false" afterPath="$PROJECT_DIR$/build/built-jar.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/game/AdventureGUI$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/game/AdventureGUI$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/game/AdventureGUI$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/game/AdventureGUI$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/game/AdventureGUI$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/game/AdventureGUI$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/game/AdventureGUI$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/game/AdventureGUI$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/game/AdventureGUI$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/game/AdventureGUI$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/game/AdventureGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/game/AdventureGUI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/game/Cell.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/game/Cell.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/game/Dragon.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/game/Dragon.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/game/HighScoreTableModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/game/HighScoreTableModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/game/HighScoreWindow.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/game/HighScoreWindow.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/game/Labyrinth.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/game/Labyrinth.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/game/LabyrinthBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/game/LabyrinthBuilder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/game/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/game/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/game/MapBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/game/MapBuilder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/game/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/game/Player.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/game/ResourceLoader.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/game/ResourceLoader.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/persistence/ConnectionFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/persistence/ConnectionFactory.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/persistence/Database.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/persistence/Database.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/persistence/HighScore.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/persistence/HighScore.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/built-jar.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/.netbeans_automatic_build" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/resources/brick.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/.netbeans_update_resources" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/resources/darkness.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/assets/brick.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/assets/darkness.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/assets/desktop.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/assets/edged.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/assets/edgel.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/assets/edgeld.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/assets/edgelr.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/assets/edgelrd.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/assets/edgelud.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/assets/edger.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/assets/edgerd.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/assets/edgeu.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/assets/edgeud.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/assets/edgeul.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/assets/edgeur.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/assets/edgeurd.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/assets/edgeurl.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/assets/grass.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/assets/textureswithdragon/brick.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/assets/textureswithdragon/dragon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/assets/textureswithdragon/edged.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/assets/textureswithdragon/edgel.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/assets/textureswithdragon/edgeld.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/assets/textureswithdragon/edgelr.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/assets/textureswithdragon/edgelrd.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/assets/textureswithdragon/edgelud.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/assets/textureswithdragon/edger.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/assets/textureswithdragon/edgerd.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/assets/textureswithdragon/edgeu.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/assets/textureswithdragon/edgeud.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/assets/textureswithdragon/edgeul.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/assets/textureswithdragon/edgeur.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/assets/textureswithdragon/edgeurd.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/assets/textureswithdragon/edgeurl.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/assets/textureswithdragon/grass.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/assets/textureswithplayer/brick.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/assets/textureswithplayer/edged.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/assets/textureswithplayer/edgel.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/assets/textureswithplayer/edgeld.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/assets/textureswithplayer/edgelr.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/assets/textureswithplayer/edgelrd.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/assets/textureswithplayer/edgelud.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/assets/textureswithplayer/edger.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/assets/textureswithplayer/edgerd.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/assets/textureswithplayer/edgeu.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/assets/textureswithplayer/edgeud.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/assets/textureswithplayer/edgeul.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/assets/textureswithplayer/edgeur.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/assets/textureswithplayer/edgeurd.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/assets/textureswithplayer/edgeurl.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/assets/textureswithplayer/grass.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/assets/textureswithplayer/player.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/game/AdventureGUI$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/game/AdventureGUI$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/game/AdventureGUI$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/game/AdventureGUI$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/game/AdventureGUI$5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/game/AdventureGUI.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/game/Cell.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/game/Dragon.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/game/HighScoreTableModel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/game/HighScoreWindow.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/game/Labyrinth.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/game/LabyrinthBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/game/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/game/MapBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/game/Player.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/game/ResourceLoader.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/persistence/ConnectionFactory.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/persistence/Database.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/persistence/HighScore.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/Labyrinth_adventure.jar" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/README.TXT" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/lib/mysql-connector-java-8.0.22.jar" beforeDir="false" />
@@ -36,6 +124,41 @@
       <change beforePath="$PROJECT_DIR$/nbproject/private/private.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/nbproject/project.properties" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/nbproject/project.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ojdbc11-full/BASIC_LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ojdbc11-full/PaxHeader/BASIC_LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ojdbc11-full/PaxHeader/ojdbc.policy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ojdbc11-full/ojdbc.policy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ojdbc11-full/ojdbc11.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ojdbc11-full/ons.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ojdbc11-full/oraclepki.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ojdbc11-full/orai18n.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ojdbc11-full/osdt_cert.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ojdbc11-full/osdt_core.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ojdbc11-full/rsi.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ojdbc11-full/simplefan.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ojdbc11-full/ucp11.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ojdbc11-full/xdb.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ojdbc11-full/xmlparserv2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ojdbc11-full/xmlparserv2_sans_jaxp_services.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Labyrinth Adventure/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/brick.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/darkness.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/desktop.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/edged.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/edgel.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/edgeld.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/edgelr.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/edgelrd.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/edgelud.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/edger.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/edgerd.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/edgeu.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/edgeud.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/edgeul.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/edgeur.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/edgeurd.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/edgeurl.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/grass.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/assets/textureswithdragon/brick.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/assets/textureswithdragon/dragon.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/assets/textureswithdragon/edged.png" beforeDir="false" />
@@ -70,20 +193,198 @@
       <change beforePath="$PROJECT_DIR$/src/assets/textureswithplayer/edgeurl.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/assets/textureswithplayer/grass.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/assets/textureswithplayer/player.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/AdventureGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/AdventureGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/Cell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/Cell.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/Labyrinth.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/Labyrinth.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/LabyrinthBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/LabyrinthBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/MapBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/MapBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/MainMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/ResourceLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/ResourceLoader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/AdventureGUI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/Cell.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/Dragon.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/game/Dragon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/HighScoreTableModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/game/HighScoreTableModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/HighScoreWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/game/HighScoreWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/Labyrinth.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/LabyrinthBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/game/LabyrinthBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/game/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/MapBuilder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/game/MainMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/Player.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/ResourceLoader.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/persistence/ConnectionFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/persistence/ConnectionFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/persistence/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/persistence/Database.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/persistence/HighScore.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/persistence/HighScore.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <task path="$PROJECT_DIR$/app">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Labyrinth Adventure" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Labyrinth Adventure" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Labyrinth Adventure" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="application" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Labyrinth Adventure" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="other" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Labyrinth Adventure" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="verification" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Labyrinth Adventure" type="f1a62948:ProjectNode" />
+                <item name="Run Configurations" type="7b0102dc:RunConfigurationsNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Labyrinth Adventure" type="f1a62948:ProjectNode" />
+                <item name="app" type="2d1252cf:ModuleNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Labyrinth Adventure" type="f1a62948:ProjectNode" />
+                <item name="app" type="2d1252cf:ModuleNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Labyrinth Adventure" type="f1a62948:ProjectNode" />
+                <item name="app" type="2d1252cf:ModuleNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="application" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Labyrinth Adventure" type="f1a62948:ProjectNode" />
+                <item name="app" type="2d1252cf:ModuleNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="build" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Labyrinth Adventure" type="f1a62948:ProjectNode" />
+                <item name="app" type="2d1252cf:ModuleNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="distribution" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Labyrinth Adventure" type="f1a62948:ProjectNode" />
+                <item name="app" type="2d1252cf:ModuleNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="documentation" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Labyrinth Adventure" type="f1a62948:ProjectNode" />
+                <item name="app" type="2d1252cf:ModuleNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="help" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Labyrinth Adventure" type="f1a62948:ProjectNode" />
+                <item name="app" type="2d1252cf:ModuleNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="other" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Labyrinth Adventure" type="f1a62948:ProjectNode" />
+                <item name="app" type="2d1252cf:ModuleNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="verification" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Labyrinth Adventure" type="f1a62948:ProjectNode" />
+                <item name="app" type="2d1252cf:ModuleNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Labyrinth Adventure" type="f1a62948:ProjectNode" />
+                <item name="app" type="2d1252cf:ModuleNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+                <item name="compileClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Labyrinth Adventure" type="f1a62948:ProjectNode" />
+                <item name="app" type="2d1252cf:ModuleNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+                <item name="compileClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
+                <item name="com.google.guava:guava:30.1.1-jre" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Labyrinth Adventure" type="f1a62948:ProjectNode" />
+                <item name="app" type="2d1252cf:ModuleNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+                <item name="runtimeClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Labyrinth Adventure" type="f1a62948:ProjectNode" />
+                <item name="app" type="2d1252cf:ModuleNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+                <item name="runtimeClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
+                <item name="com.google.guava:guava:30.1.1-jre" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Labyrinth Adventure" type="f1a62948:ProjectNode" />
+                <item name="app" type="2d1252cf:ModuleNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+                <item name="testCompileClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Labyrinth Adventure" type="f1a62948:ProjectNode" />
+                <item name="app" type="2d1252cf:ModuleNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+                <item name="testRuntimeClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Labyrinth Adventure" type="f1a62948:ProjectNode" />
+                <item name="app" type="2d1252cf:ModuleNode" />
+                <item name="Run Configurations" type="7b0102dc:RunConfigurationsNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -105,14 +406,19 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/src/game/Main.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/game/LabyrinthBuilder.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/public/index.html" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/public/app.js" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectId" id="24c8s9besaBToJ09ok8uf70BKqY" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -122,20 +428,28 @@
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="ignore.preview.features.used" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/game" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/src/main/resources" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\lkcsdvd\IdeaProjects\progtech\Labyrinth Adventure\app\src\main\resources" />
+      <recent name="C:\Users\lkcsdvd\IdeaProjects\progtech\Labyrinth Adventure\app\src\main\java" />
       <recent name="C:\Users\lkcsdvd\IdeaProjects\progtech\Labyrinth Adventure\src\game" />
+      <recent name="C:\Users\lkcsdvd\IdeaProjects\progtech\Labyrinth Adventure\app\src\main\java\Labyrinth\Adventure" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\lkcsdvd\IdeaProjects\progtech\Labyrinth Adventure\app\src\main" />
+      <recent name="C:\Users\lkcsdvd\IdeaProjects\progtech\Labyrinth Adventure\app\src" />
+      <recent name="C:\Users\lkcsdvd\IdeaProjects\progtech\Labyrinth Adventure\app" />
+      <recent name="C:\Users\lkcsdvd\IdeaProjects\progtech\Labyrinth Adventure\app\src\main\java\Labyrinth\Adventure" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Gradle.Labyrinth Adventure [run]">
     <configuration name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="game.Main" />
       <module name="Labyrinth Adventure" />
@@ -143,6 +457,174 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Labyrinth Adventure [build]" type="GradleRunConfiguration" factoryName="Gradle" nameIsGenerated="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="build" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="Labyrinth Adventure [check]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="check" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="Labyrinth Adventure [processResources]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="processResources" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="Labyrinth Adventure [run]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="run" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>true</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="Labyrinth Adventure [startScripts]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--debug" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="startScripts" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="Labyrinth Adventure [test]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="Unnamed" type="MavenRunConfiguration" factoryName="Maven">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list />
+            </option>
+            <option name="pomFileName" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Application.Main" />
+      <item itemvalue="Gradle.Labyrinth Adventure [build]" />
+      <item itemvalue="Gradle.Labyrinth Adventure [startScripts]" />
+      <item itemvalue="Gradle.Labyrinth Adventure [test]" />
+      <item itemvalue="Gradle.Labyrinth Adventure [check]" />
+      <item itemvalue="Gradle.Labyrinth Adventure [run]" />
+      <item itemvalue="Maven.Unnamed" />
+      <item itemvalue="Gradle.Labyrinth Adventure [processResources]" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.Labyrinth Adventure [run]" />
+        <item itemvalue="Gradle.Labyrinth Adventure [processResources]" />
+        <item itemvalue="Gradle.Labyrinth Adventure [startScripts]" />
+        <item itemvalue="Gradle.Labyrinth Adventure [check]" />
+        <item itemvalue="Gradle.Labyrinth Adventure [test]" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
