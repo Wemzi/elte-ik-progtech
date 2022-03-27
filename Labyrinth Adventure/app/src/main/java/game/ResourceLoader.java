@@ -1,6 +1,7 @@
 package game;
 
 import java.awt.image.BufferedImage;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
@@ -33,6 +34,7 @@ public class ResourceLoader {
 
     public static void initResources() throws IOException
     {
+        System.out.println("yes");
         steve = ImageIO.read(ResourceLoader.class.getClassLoader().getResource("player.png"));
         start = ImageIO.read(ResourceLoader.class.getClassLoader().getResource("start.png"));
         end = ImageIO.read(ResourceLoader.class.getClassLoader().getResource("end.png"));

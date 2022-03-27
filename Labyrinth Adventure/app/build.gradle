@@ -31,7 +31,10 @@ repositories {
 
 dependencies {
     // This dependency is used by the application.
+    implementation platform('com.google.firebase:firebase-bom:29.3.0')
     implementation 'com.google.guava:guava:30.1.1-jre'
+    implementation 'com.google.firebase:firebase-admin:8.1.0'
+    implementation 'com.google.firebase:firebase-firestore'
 }
 
 testing {

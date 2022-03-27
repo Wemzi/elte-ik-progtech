@@ -16,6 +16,7 @@
       <change afterPath="$PROJECT_DIR$/app/src/main/java/game/Player.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/java/game/ResourceLoader.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/java/persistence/FireBaseService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/resources/app-secret.json" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/resources/desktop.ini" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/resources/dragon.png" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/resources/edged.png" afterDir="false" />
@@ -205,8 +206,8 @@
       <change beforePath="$PROJECT_DIR$/src/game/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/game/MainMenu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/game/Player.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/game/ResourceLoader.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/persistence/ConnectionFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/persistence/ConnectionFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/persistence/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/persistence/Database.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/persistence/ConnectionFactory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/persistence/Database.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/persistence/HighScore.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/persistence/HighScore.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -373,12 +374,6 @@
                 <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
                 <item name="testRuntimeClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
               </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="Labyrinth Adventure" type="f1a62948:ProjectNode" />
-                <item name="app" type="2d1252cf:ModuleNode" />
-                <item name="Run Configurations" type="7b0102dc:RunConfigurationsNode" />
-              </path>
             </expand>
             <select />
           </tree_state>
@@ -406,8 +401,12 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/app/build.gradle" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/public/index.html" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/public/app.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/app/src/main/java/game/ResourceLoader.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/app/src/main/java/persistence/FireBaseService.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/settings.gradle" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -426,14 +425,18 @@
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="ignore.preview.features.used" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/src/main/resources" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="last_opened_file_path" value="$MAVEN_REPOSITORY$/org/slf4j/slf4j-api/1.7.32" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
+    <property name="project.structure.side.proportion" value="0.27011493" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -478,7 +481,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="Labyrinth Adventure [check]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="Labyrinth Adventure [dependentComponents]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -489,28 +492,7 @@
         </option>
         <option name="taskNames">
           <list>
-            <option value="check" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="Labyrinth Adventure [processResources]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="processResources" />
+            <option value="dependentComponents" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -541,18 +523,18 @@
       <DebugAllEnabled>true</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="Labyrinth Adventure [startScripts]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="Labyrinth Adventure:app [assemble]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/app" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--debug" />
+        <option name="scriptParameters" />
         <option name="taskDescriptions">
           <list />
         </option>
         <option name="taskNames">
           <list>
-            <option value="startScripts" />
+            <option value="assemble" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -562,10 +544,10 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="Labyrinth Adventure [test]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="Labyrinth Adventure:app [buildDependents]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/app" />
         <option name="externalSystemIdString" value="GRADLE" />
         <option name="scriptParameters" />
         <option name="taskDescriptions">
@@ -573,7 +555,28 @@
         </option>
         <option name="taskNames">
           <list>
-            <option value="test" />
+            <option value="buildDependents" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="Labyrinth Adventure:app [properties]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/app" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="properties" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -609,20 +612,20 @@
     <list>
       <item itemvalue="Application.Main" />
       <item itemvalue="Gradle.Labyrinth Adventure [build]" />
-      <item itemvalue="Gradle.Labyrinth Adventure [startScripts]" />
-      <item itemvalue="Gradle.Labyrinth Adventure [test]" />
-      <item itemvalue="Gradle.Labyrinth Adventure [check]" />
       <item itemvalue="Gradle.Labyrinth Adventure [run]" />
       <item itemvalue="Maven.Unnamed" />
-      <item itemvalue="Gradle.Labyrinth Adventure [processResources]" />
+      <item itemvalue="Gradle.Labyrinth Adventure [dependentComponents]" />
+      <item itemvalue="Gradle.Labyrinth Adventure:app [properties]" />
+      <item itemvalue="Gradle.Labyrinth Adventure:app [buildDependents]" />
+      <item itemvalue="Gradle.Labyrinth Adventure:app [assemble]" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.Labyrinth Adventure [run]" />
-        <item itemvalue="Gradle.Labyrinth Adventure [processResources]" />
-        <item itemvalue="Gradle.Labyrinth Adventure [startScripts]" />
-        <item itemvalue="Gradle.Labyrinth Adventure [check]" />
-        <item itemvalue="Gradle.Labyrinth Adventure [test]" />
+        <item itemvalue="Gradle.Labyrinth Adventure:app [assemble]" />
+        <item itemvalue="Gradle.Labyrinth Adventure:app [buildDependents]" />
+        <item itemvalue="Gradle.Labyrinth Adventure:app [properties]" />
+        <item itemvalue="Gradle.Labyrinth Adventure [dependentComponents]" />
       </list>
     </recent_temporary>
   </component>
