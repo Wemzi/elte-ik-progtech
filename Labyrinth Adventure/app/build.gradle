@@ -32,9 +32,11 @@ repositories {
 dependencies {
     // This dependency is used by the application.
     implementation platform('com.google.firebase:firebase-bom:29.3.0')
-    implementation 'com.google.guava:guava:30.1.1-jre'
     implementation 'com.google.firebase:firebase-admin:8.1.0'
     implementation 'com.google.firebase:firebase-firestore'
+    implementation fileTree(dir: '/libs', include:'*.jar')
+    implementation 'com.google.cloud.sql:mysql-socket-factory-connector-j-8:1.4.4'
+    implementation 'mysql:mysql-connector-java:5.1.23'
 }
 
 testing {

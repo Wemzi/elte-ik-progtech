@@ -5,22 +5,14 @@
 package game;
 
 import com.google.auth.oauth2.GoogleCredentials;
-import com.google.auth.oauth2.OAuth2Credentials;
-import com.google.cloud.firestore.Firestore;
-import com.google.cloud.firestore.FirestoreFactory;
-import com.google.firebase.cloud.FirestoreClient;
-import com.google.firestore.v1.*;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.FirebaseOptions;
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.*;
-import persistence.FireBaseService;
+
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
 import javax.swing.JButton;
@@ -50,7 +42,6 @@ public class MainMenu {
             public void actionPerformed(ActionEvent e) {
                 try {
                     ScriptEngineManager manager = new ScriptEngineManager();
-                    GoogleCredentials.
                     ScriptEngine engine = manager.getEngineByName("JavaScript");
                     FirebaseOptions options = new FirebaseOptions.Builder()
                             .setCredentials(GoogleCredentials.fromStream(ResourceLoader.class.getClassLoader().getResource("app-secret.json").openStream()))

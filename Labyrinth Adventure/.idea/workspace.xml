@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2d198183-6036-4902-902a-616e7bbac25a" name="Changes" comment="Moved to IntelliJ">
+      <change afterPath="$PROJECT_DIR$/app/libs/mysql-connector-java-8.0.27.jar" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/java/game/AdventureGUI.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/java/game/Cell.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/java/game/CellMouseAdapter.java" afterDir="false" />
@@ -15,7 +16,7 @@
       <change afterPath="$PROJECT_DIR$/app/src/main/java/game/MapBuilder.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/java/game/Player.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/java/game/ResourceLoader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/persistence/FireBaseService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/persistence/ConnectionFactory.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/resources/app-secret.json" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/resources/desktop.ini" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/resources/dragon.png" afterDir="false" />
@@ -38,7 +39,7 @@
       <change afterPath="$PROJECT_DIR$/app/src/main/resources/player.png" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/resources/start.png" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/test/java/Labyrinth/Adventure/AppTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/app.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tomcat/web.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/built-jar.properties" beforeDir="false" />
@@ -342,23 +343,7 @@
                 <item name="Labyrinth Adventure" type="f1a62948:ProjectNode" />
                 <item name="app" type="2d1252cf:ModuleNode" />
                 <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
-                <item name="compileClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
-                <item name="com.google.guava:guava:30.1.1-jre" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="Labyrinth Adventure" type="f1a62948:ProjectNode" />
-                <item name="app" type="2d1252cf:ModuleNode" />
-                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
                 <item name="runtimeClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="Labyrinth Adventure" type="f1a62948:ProjectNode" />
-                <item name="app" type="2d1252cf:ModuleNode" />
-                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
-                <item name="runtimeClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
-                <item name="com.google.guava:guava:30.1.1-jre" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
               </path>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
@@ -402,10 +387,9 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/app/build.gradle" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/public/index.html" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/public/app.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/app/src/main/java/game/ResourceLoader.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/app/src/main/java/persistence/FireBaseService.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/public/app.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/public/index.html" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/settings.gradle" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -432,23 +416,25 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="ignore.preview.features.used" value="true" />
-    <property name="last_opened_file_path" value="$MAVEN_REPOSITORY$/org/slf4j/slf4j-api/1.7.32" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/libs/mysql-connector-java-8.0.27.jar" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.27011493" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="com.poratu.idea.plugins.tomcat.setting.TomcatSettingConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\lkcsdvd\IdeaProjects\progtech\Labyrinth Adventure\app\libs" />
       <recent name="C:\Users\lkcsdvd\IdeaProjects\progtech\Labyrinth Adventure\app\src\main\resources" />
       <recent name="C:\Users\lkcsdvd\IdeaProjects\progtech\Labyrinth Adventure\app\src\main\java" />
       <recent name="C:\Users\lkcsdvd\IdeaProjects\progtech\Labyrinth Adventure\src\game" />
       <recent name="C:\Users\lkcsdvd\IdeaProjects\progtech\Labyrinth Adventure\app\src\main\java\Labyrinth\Adventure" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\lkcsdvd\IdeaProjects\progtech\Labyrinth Adventure\app" />
+      <recent name="C:\Users\lkcsdvd\IdeaProjects\progtech\Labyrinth Adventure\app\src\main\libs" />
       <recent name="C:\Users\lkcsdvd\IdeaProjects\progtech\Labyrinth Adventure\app\src\main" />
       <recent name="C:\Users\lkcsdvd\IdeaProjects\progtech\Labyrinth Adventure\app\src" />
-      <recent name="C:\Users\lkcsdvd\IdeaProjects\progtech\Labyrinth Adventure\app" />
       <recent name="C:\Users\lkcsdvd\IdeaProjects\progtech\Labyrinth Adventure\app\src\main\java\Labyrinth\Adventure" />
     </key>
   </component>
@@ -481,7 +467,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="Labyrinth Adventure [dependentComponents]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="Labyrinth Adventure [compileJava]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -492,7 +478,7 @@
         </option>
         <option name="taskNames">
           <list>
-            <option value="dependentComponents" />
+            <option value="compileJava" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -507,7 +493,7 @@
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
+        <option name="scriptParameters" value="--stacktrace" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -609,23 +595,46 @@
       </MavenSettings>
       <method v="2" />
     </configuration>
+    <configuration name="Unnamed" type="com.poratu.idea.plugins.tomcat" factoryName="SMART_TOMCAT_FACTORY" nameIsGenerated="true">
+      <option name="adminPort" value="8005" />
+      <option name="contextPath" value="/Labyrinth_Adventure.app" />
+      <option name="docBase" value="C:\Users\lkcsdvd\IdeaProjects\progtech\Labyrinth Adventure\app" />
+      <option name="envOptions">
+        <map />
+      </option>
+      <option name="passParentEnvironmentVariables" value="true" />
+      <option name="port" value="8080" />
+      <option name="tomcatInfo">
+        <TomcatInfo>
+          <option name="name" value="Apache Tomcat/10.0.18" />
+          <option name="number" value="0" />
+          <option name="path" value="C:\Users\lkcsdvd\Tomcat server for Labyrinth Adventure\apache-tomcat-10.0.18" />
+          <option name="version" value="10.0.18.0" />
+        </TomcatInfo>
+      </option>
+      <option name="vmOptions" value="" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Application.Main" />
       <item itemvalue="Gradle.Labyrinth Adventure [build]" />
       <item itemvalue="Gradle.Labyrinth Adventure [run]" />
-      <item itemvalue="Maven.Unnamed" />
-      <item itemvalue="Gradle.Labyrinth Adventure [dependentComponents]" />
       <item itemvalue="Gradle.Labyrinth Adventure:app [properties]" />
       <item itemvalue="Gradle.Labyrinth Adventure:app [buildDependents]" />
       <item itemvalue="Gradle.Labyrinth Adventure:app [assemble]" />
+      <item itemvalue="Maven.Unnamed" />
+      <item itemvalue="Smart Tomcat.Unnamed" />
+      <item itemvalue="Gradle.Labyrinth Adventure [compileJava]" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.Labyrinth Adventure [run]" />
+        <item itemvalue="Gradle.Labyrinth Adventure [compileJava]" />
         <item itemvalue="Gradle.Labyrinth Adventure:app [assemble]" />
         <item itemvalue="Gradle.Labyrinth Adventure:app [buildDependents]" />
         <item itemvalue="Gradle.Labyrinth Adventure:app [properties]" />
-        <item itemvalue="Gradle.Labyrinth Adventure [dependentComponents]" />
       </list>
     </recent_temporary>
   </component>
@@ -699,7 +708,12 @@
       </breakpoints>
     </breakpoint-manager>
   </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Labyrinth_Adventure$.ic" NAME=" Coverage Results" MODIFIED="1648495301431" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/Labyrinth_Adventure$Main.ic" NAME="Main Coverage Results" MODIFIED="1647889488051" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>
