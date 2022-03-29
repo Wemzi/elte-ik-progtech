@@ -37,6 +37,9 @@ dependencies {
     implementation fileTree(dir: '/libs', include:'*.jar')
     implementation 'com.google.cloud.sql:mysql-socket-factory-connector-j-8:1.4.4'
     implementation 'mysql:mysql-connector-java:5.1.23'
+    implementation group: 'com.zaxxer', name: 'HikariCP', version: '3.1.0'
+    // https://mvnrepository.com/artifact/com.google.guava/guava
+    implementation 'com.jcraft:jsch:0.1.55'
 }
 
 testing {

@@ -5,7 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2d198183-6036-4902-902a-616e7bbac25a" name="Changes" comment="Moved to IntelliJ">
+      <change afterPath="$PROJECT_DIR$/app/libs/HikariCP-5.0.1.jar" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/libs/mysql-connector-java-8.0.27.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/libs/slf4j-api-2.0.0-alpha1.jar" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/java/game/AdventureGUI.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/java/game/Cell.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/java/game/CellMouseAdapter.java" afterDir="false" />
@@ -16,7 +18,7 @@
       <change afterPath="$PROJECT_DIR$/app/src/main/java/game/MapBuilder.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/java/game/Player.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/java/game/ResourceLoader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/persistence/ConnectionFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/persistence/OracleSqlManager.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/resources/app-secret.json" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/resources/desktop.ini" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/resources/dragon.png" afterDir="false" />
@@ -39,7 +41,6 @@
       <change afterPath="$PROJECT_DIR$/app/src/main/resources/player.png" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/resources/start.png" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/test/java/Labyrinth/Adventure/AppTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tomcat/web.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/built-jar.properties" beforeDir="false" />
@@ -416,7 +417,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="ignore.preview.features.used" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/libs/mysql-connector-java-8.0.27.jar" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/libs" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.27011493" />
@@ -490,6 +491,11 @@
     </configuration>
     <configuration name="Labyrinth Adventure [run]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
+        <option name="env">
+          <map>
+            <entry key="GOOGLE_APPLICATION_CREDENTIALS" value="C:\Users\lkcsdvd\IdeaProjects\progtech\Labyrinth Adventure\app\src\main\resources\app-secret.json" />
+          </map>
+        </option>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
@@ -599,9 +605,7 @@
       <option name="adminPort" value="8005" />
       <option name="contextPath" value="/Labyrinth_Adventure.app" />
       <option name="docBase" value="C:\Users\lkcsdvd\IdeaProjects\progtech\Labyrinth Adventure\app" />
-      <option name="envOptions">
-        <map />
-      </option>
+      <option name="envOptions" />
       <option name="passParentEnvironmentVariables" value="true" />
       <option name="port" value="8080" />
       <option name="tomcatInfo">
@@ -624,9 +628,9 @@
       <item itemvalue="Gradle.Labyrinth Adventure:app [properties]" />
       <item itemvalue="Gradle.Labyrinth Adventure:app [buildDependents]" />
       <item itemvalue="Gradle.Labyrinth Adventure:app [assemble]" />
+      <item itemvalue="Gradle.Labyrinth Adventure [compileJava]" />
       <item itemvalue="Maven.Unnamed" />
       <item itemvalue="Smart Tomcat.Unnamed" />
-      <item itemvalue="Gradle.Labyrinth Adventure [compileJava]" />
     </list>
     <recent_temporary>
       <list>

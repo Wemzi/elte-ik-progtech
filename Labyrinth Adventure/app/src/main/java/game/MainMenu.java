@@ -37,39 +37,6 @@ public class MainMenu {
     private JPanel buttonPanel = new JPanel(new GridLayout(1,2,50,50));
     public MainMenu() {
         this.frame = new JFrame("Labyrinth Adventure");
-        topListButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                try {
-                    ScriptEngineManager manager = new ScriptEngineManager();
-                    ScriptEngine engine = manager.getEngineByName("JavaScript");
-                    FirebaseOptions options = new FirebaseOptions.Builder()
-                            .setCredentials(GoogleCredentials.fromStream(ResourceLoader.class.getClassLoader().getResource("app-secret.json").openStream()))
-                            .setDatabaseUrl("https://labyrinth-adventure-9a289-default-rtdb.europe-west1.firebasedatabase.app")
-                            .build();
-
-                    FirebaseApp.initializeApp(options);
-                    DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Maps/map1");
-                    System.out.println(ref.getKey());
-
-
-                   System.out.println(ref.addValueEventListener(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(DataSnapshot snapshot) {
-                            System.out.println("Megvaltozott az ertek! " + snapshot.getValue());
-                        }
-
-                        @Override
-                        public void onCancelled(DatabaseError error) {
-
-                        }
-                    }));
-                } catch (IOException ex) {
-                    ex.printStackTrace();
-                }
-            }
-
-        });
         mapBuilderButton.addActionListener(new ActionListener()
         { @Override
             public void actionPerformed (ActionEvent e) 
