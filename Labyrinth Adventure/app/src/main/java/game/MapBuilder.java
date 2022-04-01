@@ -33,6 +33,7 @@ public class MapBuilder {
     protected Player Steve;
     protected ArrayList<ArrayList<Cell>> cells = new ArrayList<ArrayList<Cell>>();
     protected JMenuBar bottomMenu;
+    private JMenuItem saveMap = new JMenuItem("Save Map");
     protected final JLabel gameStatLabel = new JLabel("");
     Timer refresher;
     protected JMenu menu;
@@ -47,11 +48,20 @@ public class MapBuilder {
         cells = labyrinth.getCells();
         bottomMenu=new JMenuBar();
         menu = new JMenu("Menu");
+        saveMap.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                labyrinth.getCurrentCell().setEndingCell(true);
+                System.out.println(mainPanel.toMapDataString());
+
+            }
+        });
+        menu.add(saveMap);
         bottomMenu.add(menu);
         frame.getContentPane().add(BorderLayout.SOUTH, bottomMenu);
         frame.setSize(1280,720);
         refresher = new Timer(15,new ActionListener(){
-            int ticks = 0;
             @Override
             public void actionPerformed(ActionEvent e) {
                 for(ArrayList<Cell> cellRow : cells)
@@ -66,15 +76,11 @@ public class MapBuilder {
                     }
                 }
                 mainPanel.repaint();
-                ticks++;
-                if(ticks==60)
-                {
-                    System.out.println(60);
-                    ticks = 0;
-                }
             }
         });
     }
+
+
     public void buildMap()
     {
         mainPanel = new Labyrinth(this);

@@ -22,7 +22,6 @@ public class AdventureGUI extends MapBuilder {
 
     private Dragon Drake;
     private static int score=0;
-    //private Database data = new Database();
     private static int time = 0;
     private KeyHandler keyHandler = new KeyHandler();
     private Timer timer = new Timer(1000, new ActionListener()
@@ -58,6 +57,45 @@ public class AdventureGUI extends MapBuilder {
            time = 0;
            restartGame();
         }
+        });
+        /** A billentyűlenyomáshoz kapcsolt eseménykezelő, mely elmozdítja a játékost, és a sárkányt is, megvizsgálja, hogy vége van e a játéknak,majd ha nem, újrarajzolja a pályát. */
+        frame.addKeyListener(keyHandler);
+        menu.add(newGame);
+        menu.add(Help);
+        menu.add(TopList);
+        timer.start();
+        bottomMenu.add(menu);
+        bottomMenu.add(gameStatLabel);
+        gameStatLabel.setText("Pontszám: " + score);
+        frame.getContentPane().add(BorderLayout.SOUTH, bottomMenu);
+        frame.getContentPane().add(BorderLayout.CENTER, mainPanel);
+        frame.setSize(1280,720);
+        frame.setVisible(true);
+        refresher.start();
+    }
+
+
+    public AdventureGUI(String mapData) throws IOException
+    {
+        super();
+        labyrinth = new LabyrinthBuilder(mapData);
+        cells = labyrinth.getCells();
+        mainPanel = new Labyrinth(this);
+        System.out.println("cell size: " + cells.size());
+        JMenuItem newGame = new JMenuItem("New Game");
+        JMenuItem Help = new JMenuItem("Help");
+        JMenuItem TopList = new JMenuItem("Toplist");
+        menu = new JMenu();
+        newGame.addActionListener(new ActionListener(){
+            @Override
+            /** newgame indítás menüből */
+            public void actionPerformed (ActionEvent e)
+            {
+                //data.storeHighScore(cells.size(), score);
+                score=0;
+                time = 0;
+                restartGame();
+            }
         });
         /** A billentyűlenyomáshoz kapcsolt eseménykezelő, mely elmozdítja a játékost, és a sárkányt is, megvizsgálja, hogy vége van e a játéknak,majd ha nem, újrarajzolja a pályát. */
         frame.addKeyListener(keyHandler);

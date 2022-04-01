@@ -9,6 +9,7 @@ import com.jcraft.jsch.*;
 import java.util.logging.Level;
 
 public class OracleSqlManager {
+    java.sql.Connection connection = null;
 
     // Logger
     private final static Logger LOGGER =
@@ -17,20 +18,32 @@ public class OracleSqlManager {
     public OracleSqlManager() {
        super();
         try {
-            this.connect();
+            this.connect("idu27k","almafa");
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public void connect() throws Exception{
+    public void executeCommand(String query)
+    {
+        try {
+            java.sql.Statement stmt = connection.createStatement();
+            ResultSet rs = null;
+            rs = stmt.executeQuery(query);
+            if (!rs.next()) return;
+            System.out.println(rs.getString(2));
+        }catch(Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void connect(String username, String pw) throws Exception{
 
         //
         int assigned_port;
         final int local_port=64531;
         final int remote_port=1521;
         final String remote_host="caesar.elte.hu";
-
         try {
             JSch jsch = new JSch();
             Session session = jsch.getSession("lkcsdvd", remote_host, 22);
@@ -51,19 +64,11 @@ public class OracleSqlManager {
             LOGGER.log(Level.SEVERE, "Port forwarding failed !");
             return;
         }
-        final String database_user="idu27k";
-        final String database_password="almafa";
+        final String database_user=username;
+        final String database_password=pw;
         String url = "jdbc:oracle:thin:"+ database_user+ "/" + database_password + "@//localhost:64531/aramis";
-        java.sql.Connection connection = java.sql.DriverManager.getConnection(url);
+        connection = java.sql.DriverManager.getConnection(url);
                     Class.forName("oracle.jdbc.driver.OracleDriver");
-
-                java.sql.Statement stmt = connection.createStatement();
-                String Sql = "INSERT INTO YES(CUSTOMER_ID,CUSTOMER_NAME,CITY) VALUES(213,'MAMA','BUDAPEST')";
-                ResultSet rs = null;
-                    rs = stmt.executeQuery(Sql);
-                   if(!rs.next()) return;
-                    System.out.println(rs.getString(2));
-                Thread.sleep(1000);
         }
 }
 

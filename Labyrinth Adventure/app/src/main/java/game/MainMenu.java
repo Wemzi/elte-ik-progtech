@@ -29,11 +29,11 @@ public class MainMenu {
     private LabyrinthBuilder labyrinth;
     private final JLabel gameStatLabel = new JLabel("");
     private static int score=0;
-    //private Database data = new Database();
     private static int time = 0;
     private JButton topListButton = new JButton("Toplist");
     private JButton mapBuilderButton = new JButton("Map Builder");
-    private JButton freePlayButton = new JButton("Free Play");
+    private JButton freePlayButton = new JButton("Offline Play");
+    private JButton onlinePlayButton = new JButton("Online Play");
     private JPanel buttonPanel = new JPanel(new GridLayout(1,2,50,50));
     public MainMenu() {
         this.frame = new JFrame("Labyrinth Adventure");
@@ -45,13 +45,11 @@ public class MainMenu {
                 {
                     MapBuilder mapBuilderWindow = new MapBuilder();
                     mapBuilderWindow.buildMap();
-
                 }
                 catch(Exception m)
                 {
                     m.printStackTrace();
                 }
-
             }
         });
         freePlayButton.addActionListener(new ActionListener()
@@ -65,9 +63,20 @@ public class MainMenu {
                 }
             }
         });
+        onlinePlayButton.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    try {
+                        new AdventureGUI("1110s 1100 1100 1100 1100 1100 0101 1111 1111 1111 1111 1111 0110 0101 1111 1111 1111 1111 1111 1111 1111 1111 1010 0101 1111 1111 0110 1100 1001 1010 0101 1111 1111 1111 1111 1111 1111 1111 1111 0011 1111 0110 1001 1111 1111 1111 1010 0101 1111 1111 1111 1111 1111 1111 1111 0011 1111 0011 1111 1111 1111 1111 1111 0011 1111 1111 1111 1111 1111 0110 1100 1001 1111 1010 1100 0101 1111 1111 1111 0011 1111 1111 0110 1100 1100 1001 1111 1111 1111 1111 1111 0011 1111 1111 0110 1001 1111 1111 0011 1111 1111 1110 1100e 1100 1100 1100 1100 1001 1111 0110 1001 1111 1111 1111 1010 1100 1100 1100 1100 1100 1100 1100 1100 1100 1100 1001 1111 1111 1111 1111 1111 1111 1111 1111 1111 1111 1111 1111 1111 1111 1111 1111 1111 1111 ");
+                    } catch (IOException ex) {
+                        ex.printStackTrace();
+                    }
+                }
+        });
         buttonPanel.add(topListButton);
         buttonPanel.add(mapBuilderButton);
         buttonPanel.add(freePlayButton);
+        buttonPanel.add(onlinePlayButton);
         frame.add(buttonPanel);
         frame.pack();
         frame.setSize(1280,720);
