@@ -42,28 +42,28 @@ public class CellMouseAdapter extends MouseAdapter {
         {
             currentCell.setStartingCell(true);
         }
-        else if(prevCell != null )
+        else if(prevCell != null)
         {
             Direction dir = null;
             if(currentCell.getcolIdx()> prevCell.getcolIdx())
             {
-                dir = Direction.DOWN;
+                dir = Direction.UP;
             }
             else if(currentCell.getcolIdx()< prevCell.getcolIdx())
             {
-                dir = Direction.UP;
+                dir = Direction.DOWN;
             }
             else if(currentCell.getrowIdx()>prevCell.getrowIdx())
             {
-                dir = Direction.LEFT;
+                dir = Direction.RIGHT;
             }
             else if(currentCell.getrowIdx()<prevCell.getrowIdx())
             {
-                dir = Direction.RIGHT;
+                dir = Direction.LEFT;
             }
             if(dir != null)
             {
-                labyrinth.setCurrentCell(currentCell);
+                labyrinth.setCurrentCell(prevCell);
                 labyrinth.moveToAdjacentCell(dir);
                 mainPanel.repaint();
             }

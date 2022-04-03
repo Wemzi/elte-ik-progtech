@@ -5,8 +5,8 @@ public class DistanceManager {
     public static boolean isClosetoEdges(Player steve, Cell currentCell, int picsize, Direction DIR)
     {
         int xdist = Math.abs(currentCell.getPixelX() -steve.getPixelX());
-        int ydist = Math.abs((currentCell.getPixelY() - picsize) -steve.getPixelY()) ;
-        int ydistend = Math.abs((currentCell.getPixelY()-picsize) - (steve.getPixelY() + steve.myLook.getHeight()));
+        int ydist = Math.abs((currentCell.getPixelY()) -steve.getPixelY()) ;
+        int ydistend = Math.abs((currentCell.getPixelY()) - (steve.getPixelY() + steve.myLook.getHeight()));
         int xdistend = Math.abs(currentCell.getPixelX() + picsize  - (steve.getPixelX() + steve.myLook.getWidth()));
         int threshold = 10;
         System.out.println(xdist + " " + ydist + " " + xdistend + " " + ydistend) ;

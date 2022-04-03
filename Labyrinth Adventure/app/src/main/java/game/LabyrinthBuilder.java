@@ -42,49 +42,47 @@ class LabyrinthBuilder
     public LabyrinthBuilder(String mapData)
     {
         String[] mapDataSplit = mapData.split(" ");
-        int StringIdx=0;
         for (int idx = 0; idx < 9 ; idx++)
         {
             ArrayList <Cell> tmp = new ArrayList<>();
             for ( int jdx=0; jdx<16; jdx++)
             {
                 Cell currentCell = new Cell(idx,jdx);
-                char[] cellData = mapDataSplit[StringIdx].toCharArray();
-                if(cellData.length > 3 && cellData.length < 6)
-                {
-                    if(cellData[0]=='0')
-                    {
-                        moveToAdjacentCell(Direction.UP);
+                tmp.add(currentCell);
+            }
+            cells.add(tmp);
+        }
+        int StringIdx=0;
+        for(ArrayList<Cell> cellRow :cells)
+        {
+            for(Cell currentCell : cellRow) {
+                char[] cellData = mapDataSplit[StringIdx++].toCharArray();
+                if (cellData.length > 3 && cellData.length < 6) {
+                    if (cellData[0] == '0') {
+                        currentCell.setedgeUp();
                     }
-                    if(cellData[1]=='0')
-                    {
-                        moveToAdjacentCell();
-                    }
-                    if(cellData[2]=='0')
-                    {
-                        currentCell.setedgeLeft();
-                    }
-                    if(cellData[3]=='0')
-                    {
+                    if (cellData[1] == '0') {
                         currentCell.setedgeDown();
                     }
-                    if(cellData.length==5)
-                    {
-                        if(cellData[4]=='s')
-                        {
+                    if (cellData[2] == '0') {
+                        currentCell.setedgeLeft();
+                    }
+                    if (cellData[3] == '0') {
+                        currentCell.setedgeRight();
+                    }
+                    if (cellData.length == 5) {
+                        if (cellData[4] == 's') {
                             currentCell.setStartingCell(true);
-                        }
-                        else if(cellData[4]=='e')
-                        {
+                        } else if (cellData[4] == 'e') {
                             currentCell.setEndingCell(true);
                         }
                     }
                 }
-                tmp.add(currentCell);
-                StringIdx++;
             }
-            cells.add(tmp);
         }
+
+
+
     }
 
     public void setCurrentCell(Cell currentCell) {

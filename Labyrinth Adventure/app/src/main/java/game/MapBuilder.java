@@ -33,7 +33,6 @@ public class MapBuilder {
     protected Player Steve;
     protected ArrayList<ArrayList<Cell>> cells = new ArrayList<ArrayList<Cell>>();
     protected JMenuBar bottomMenu;
-    private JMenuItem saveMap = new JMenuItem("Save Map");
     protected final JLabel gameStatLabel = new JLabel("");
     Timer refresher;
     protected JMenu menu;
@@ -41,40 +40,18 @@ public class MapBuilder {
     public MapBuilder() throws IOException
     {
         ResourceLoader.initResources();
-        Steve = new Player();
         frame = new JFrame("Labyrinth Adventure");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         labyrinth = new LabyrinthBuilder(true);
         cells = labyrinth.getCells();
         bottomMenu=new JMenuBar();
         menu = new JMenu("Menu");
-        saveMap.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-                labyrinth.getCurrentCell().setEndingCell(true);
-                System.out.println(mainPanel.toMapDataString());
-
-            }
-        });
-        menu.add(saveMap);
         bottomMenu.add(menu);
         frame.getContentPane().add(BorderLayout.SOUTH, bottomMenu);
         frame.setSize(1280,720);
         refresher = new Timer(15,new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
-                for(ArrayList<Cell> cellRow : cells)
-                {
-                    for(Cell cell : cellRow)
-                    {
-                        try {
-                            cell.selectImage();
-                        } catch (IOException ex) {
-                            ex.printStackTrace();
-                        }
-                    }
-                }
                 mainPanel.repaint();
             }
         });
@@ -83,6 +60,18 @@ public class MapBuilder {
 
     public void buildMap()
     {
+        JMenuItem saveMap = new JMenuItem("Save Map");
+        saveMap.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                labyrinth.getCurrentCell().toString();
+                System.out.println("Hello");
+                labyrinth.getCurrentCell().setEndingCell(true);
+                System.out.println(mainPanel.toMapDataString());
+
+            }
+        });
+        menu.add(saveMap);
         mainPanel = new Labyrinth(this);
         mainPanel.addMouseMotionListener(new CellMouseAdapter(cells,mainPanel,labyrinth));
         mainPanel.addMouseListener(new CellMouseAdapter(cells,mainPanel,labyrinth));

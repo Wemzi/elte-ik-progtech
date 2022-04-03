@@ -19,10 +19,9 @@ import persistence.*;
 import javax.swing.Timer;
 
 public class AdventureGUI extends MapBuilder {
-
-    private Dragon Drake;
     private static int score=0;
     private static int time = 0;
+    private Player Steve = new Player();
     private KeyHandler keyHandler = new KeyHandler();
     private Timer timer = new Timer(1000, new ActionListener()
         {
@@ -47,6 +46,10 @@ public class AdventureGUI extends MapBuilder {
         JMenuItem Help = new JMenuItem("Help");
         JMenuItem TopList = new JMenuItem("Toplist");
         menu = new JMenu();
+        Steve.setCoords(mainPanel.getStartingCell().getrowIdx(), mainPanel.getStartingCell().getcolIdx());
+        Steve.setPixelX(mainPanel.getStartingCell().getPixelX());
+        Steve.setPixelY(mainPanel.getStartingCell().getPixelY());
+        System.out.println(Steve);
         newGame.addActionListener(new ActionListener(){
            @Override
            /** newgame indítás menüből */
@@ -81,23 +84,22 @@ public class AdventureGUI extends MapBuilder {
         labyrinth = new LabyrinthBuilder(mapData);
         cells = labyrinth.getCells();
         mainPanel = new Labyrinth(this);
-        System.out.println("cell size: " + cells.size());
         JMenuItem newGame = new JMenuItem("New Game");
         JMenuItem Help = new JMenuItem("Help");
         JMenuItem TopList = new JMenuItem("Toplist");
         menu = new JMenu();
+        mainPanel.addMouseListener(new CellMouseAdapter(cells,mainPanel,labyrinth));
         newGame.addActionListener(new ActionListener(){
             @Override
             /** newgame indítás menüből */
             public void actionPerformed (ActionEvent e)
             {
-                //data.storeHighScore(cells.size(), score);
                 score=0;
                 time = 0;
                 restartGame();
             }
         });
-        /** A billentyűlenyomáshoz kapcsolt eseménykezelő, mely elmozdítja a játékost, és a sárkányt is, megvizsgálja, hogy vége van e a játéknak,majd ha nem, újrarajzolja a pályát. */
+        refresher.start();
         frame.addKeyListener(keyHandler);
         menu.add(newGame);
         menu.add(Help);
@@ -110,7 +112,6 @@ public class AdventureGUI extends MapBuilder {
         frame.getContentPane().add(BorderLayout.CENTER, mainPanel);
         frame.setSize(1280,720);
         frame.setVisible(true);
-        refresher.start();
     }
 
     public void updatePlayer()
@@ -149,11 +150,6 @@ public class AdventureGUI extends MapBuilder {
     {
         return Steve;
     }
-
-    public Dragon getDragon()
-    {
-        return Drake;
-    }
     /** újraindító metódus */
     public void restartGame()
     {
@@ -164,7 +160,6 @@ public class AdventureGUI extends MapBuilder {
           labyrinth = null;
           mainPanel = null;
           cells = null;
-          Drake = null; 
           bottomMenu = null;
           timer.stop();
           new AdventureGUI();
