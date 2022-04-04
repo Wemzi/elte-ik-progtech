@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Logger;
 import com.jcraft.jsch.*;
+import com.mysql.cj.protocol.Resultset;
 
 import java.util.logging.Level;
 
@@ -14,7 +15,6 @@ public class OracleSqlManager {
     // Logger
     private final static Logger LOGGER =
             Logger.getLogger(OracleSqlManager.class.getName());
-
     public OracleSqlManager() {
        super();
         try {
@@ -24,22 +24,52 @@ public class OracleSqlManager {
         }
     }
 
-    public void executeCommand(String query)
+    public ResultSet executeQuery(String query)
     {
+        ResultSet rs = null;
         try {
             java.sql.Statement stmt = connection.createStatement();
-            ResultSet rs = null;
             rs = stmt.executeQuery(query);
-            if (!rs.next()) return;
-            System.out.println(rs.getString(2));
-        }catch(Exception e) {
+        }catch(SQLException e) {
             e.printStackTrace();
         }
+        return rs;
     }
 
-    public void connect(String username, String pw) throws Exception{
+    public void createMapsTable()
+    {
+        executeQuery("CREATE TABLE idu27k.maps(\n" +
+                "\tmapData VARCHAR2(2048) NOT NULL,\n" +
+                "\tusername VARCHAR2(6) NOT NULL\n" +
+                ")");
+    }
 
-        //
+    public void createUsersTable()
+    {
+        executeQuery("CREATE TABLE IDU27K.highscores(\n" +
+                "\tusername VARCHAR2(6),\n" +
+                "\tscore int\n" +
+                ")\n");
+    }
+
+    public String getRandomMap()
+    {
+        String ret = "";
+        ResultSet rs = executeQuery("SELECT * FROM(\n" +
+                "SELECT * FROM idu27k.maps \n" +
+                "ORDER BY DBMS_RANDOM.RANDOM)\n" +
+                "WHERE ROWNUM=1;");
+        try {
+        if(!rs.next()) throw new SQLException("No map available!");
+                ret += rs.getString("mapData");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return ret;
+    }
+
+
+    public void connect(String username, String pw) throws Exception{
         int assigned_port;
         final int local_port=64531;
         final int remote_port=1521;
