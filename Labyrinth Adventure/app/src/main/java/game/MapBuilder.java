@@ -30,16 +30,37 @@ public class MapBuilder {
     protected JFrame frame;
     protected Labyrinth mainPanel;
     protected LabyrinthBuilder labyrinth;
-    protected Player Steve;
     protected ArrayList<ArrayList<Cell>> cells = new ArrayList<ArrayList<Cell>>();
     protected JMenuBar bottomMenu;
     protected final JLabel gameStatLabel = new JLabel("");
+    protected OracleSqlManager dbConnection;
     Timer refresher;
     protected JMenu menu;
     /** Grafikus UI konstruktora,, meghívom a labirintusgenerálást, létrehozzuk az összes UI elemet, generáljuk a játékost és a sárkányt.*/
     public MapBuilder() throws IOException
     {
         ResourceLoader.initResources();
+        frame = new JFrame("Labyrinth Adventure");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        labyrinth = new LabyrinthBuilder(true);
+        cells = labyrinth.getCells();
+        bottomMenu=new JMenuBar();
+        menu = new JMenu("Menu");
+        bottomMenu.add(menu);
+        frame.getContentPane().add(BorderLayout.SOUTH, bottomMenu);
+        frame.setSize(1280,720);
+        refresher = new Timer(15,new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                mainPanel.repaint();
+            }
+        });
+    }
+
+    public MapBuilder(OracleSqlManager dbConnection) throws IOException
+    {
+        ResourceLoader.initResources();
+        this.dbConnection = dbConnection;
         frame = new JFrame("Labyrinth Adventure");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         labyrinth = new LabyrinthBuilder(true);
@@ -64,11 +85,9 @@ public class MapBuilder {
         saveMap.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                labyrinth.getCurrentCell().toString();
                 System.out.println("Hello");
                 labyrinth.getCurrentCell().setEndingCell(true);
-                System.out.println(mainPanel.toMapDataString());
-
+                dbConnection.saveMap(mainPanel.toMapDataString());
             }
         });
         menu.add(saveMap);

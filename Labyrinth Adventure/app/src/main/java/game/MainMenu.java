@@ -8,6 +8,7 @@ import com.google.auth.oauth2.GoogleCredentials;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.FirebaseOptions;
 import com.google.firebase.database.*;
+import persistence.OracleSqlManager;
 
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -25,6 +26,7 @@ import javax.swing.JPanel;
  * @author LUD1BP
  */
 public class MainMenu {
+    public OracleSqlManager dbConnection = new OracleSqlManager("idu27k","almafa");
     private JFrame frame;
     private LabyrinthBuilder labyrinth;
     private final JLabel gameStatLabel = new JLabel("");
@@ -43,7 +45,7 @@ public class MainMenu {
             {
                 try
                 {
-                    MapBuilder mapBuilderWindow = new MapBuilder();
+                    MapBuilder mapBuilderWindow = new MapBuilder(dbConnection);
                     mapBuilderWindow.buildMap();
                 }
                 catch(Exception m)
@@ -52,22 +54,22 @@ public class MainMenu {
                 }
             }
         });
-        freePlayButton.addActionListener(new ActionListener()
+        onlinePlayButton.addActionListener(new ActionListener()
         {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    new AdventureGUI();
+                    new AdventureGUI(dbConnection.getRandomMap());
                 } catch (IOException ex) {
                     ex.printStackTrace();
                 }
             }
         });
-        onlinePlayButton.addActionListener(new ActionListener() {
+        freePlayButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     try {
-                        new AdventureGUI( "1111 0110 1100 1100 1100 1100 1100 1100 1100 1100 1100 1100 1100 0101 1110e 0101 1111 0011 1111 1111 1111 1111 0110 1100 1100 0101 1111 1111 1111 1010 0101 0011 0110 1001 1111 1111 1111 1111 0011 1111 1111 0011 1111 1111 1111 1111 0011 0011 0011 1111 1111 1111 1111 1111 0011 1111 1111 0011 1111 1111 1111 1111 0011 0011 1010 0101 1111 1111 1111 1111 1011s 1111 1111 0011 1111 1111 1111 1111 0011 0011 1111 0011 1111 1111 1111 1111 1111 1111 1111 0011 1111 1111 1111 1111 0011 0011 1111 1010 1100 1100 1100 1100 0101 1111 1111 0011 1111 1111 1111 1111 0011 0011 1111 1111 1111 1111 1111 1111 1010 1100 1100 1001 1111 1111 1111 1111 0011 0011 1111 1111 1111 1111 1111 1111 1111 1111 1111 1111 1111 1111 1111 1111 1010 1001");
+                        new AdventureGUI();
                     } catch (IOException ex) {
                         ex.printStackTrace();
                     }

@@ -11,20 +11,22 @@ import java.util.logging.Level;
 
 public class OracleSqlManager {
     java.sql.Connection connection = null;
+    String user;
 
     // Logger
     private final static Logger LOGGER =
             Logger.getLogger(OracleSqlManager.class.getName());
-    public OracleSqlManager() {
+    public OracleSqlManager(String username, String password) {
        super();
         try {
-            this.connect("idu27k","almafa");
+            this.connect(username, password);
+            this.user = username;
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public ResultSet executeQuery(String query)
+    private ResultSet executeQuery(String query)
     {
         ResultSet rs = null;
         try {
@@ -36,9 +38,21 @@ public class OracleSqlManager {
         return rs;
     }
 
+    private int executeUpdate(String query)
+    {
+        int ret = 0;
+        try {
+            java.sql.Statement stmt = connection.createStatement();
+             ret = stmt.executeUpdate(query);
+        }catch(SQLException e) {
+            e.printStackTrace();
+        }
+        return ret;
+    }
+
     public void createMapsTable()
     {
-        executeQuery("CREATE TABLE idu27k.maps(\n" +
+        executeUpdate("CREATE TABLE idu27k.maps(\n" +
                 "\tmapData VARCHAR2(2048) NOT NULL,\n" +
                 "\tusername VARCHAR2(6) NOT NULL\n" +
                 ")");
@@ -46,7 +60,7 @@ public class OracleSqlManager {
 
     public void createUsersTable()
     {
-        executeQuery("CREATE TABLE IDU27K.highscores(\n" +
+        executeUpdate("CREATE TABLE IDU27K.highscores(\n" +
                 "\tusername VARCHAR2(6),\n" +
                 "\tscore int\n" +
                 ")\n");
@@ -58,7 +72,7 @@ public class OracleSqlManager {
         ResultSet rs = executeQuery("SELECT * FROM(\n" +
                 "SELECT * FROM idu27k.maps \n" +
                 "ORDER BY DBMS_RANDOM.RANDOM)\n" +
-                "WHERE ROWNUM=1;");
+                "WHERE ROWNUM=1");
         try {
         if(!rs.next()) throw new SQLException("No map available!");
                 ret += rs.getString("mapData");
@@ -66,6 +80,12 @@ public class OracleSqlManager {
             e.printStackTrace();
         }
         return ret;
+    }
+
+    public int saveMap(String mapData)
+    {
+        return executeUpdate("INSERT INTO idu27k.maps\n" +
+                "VALUES('"+mapData+"','" + this.user + "')");
     }
 
 
