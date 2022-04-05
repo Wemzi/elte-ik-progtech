@@ -66,16 +66,17 @@ public class OracleSqlManager {
                 ")\n");
     }
 
-    public String getRandomMap()
+    public String[] getRandomMap()
     {
-        String ret = "";
+        String[] ret = new String[2];
         ResultSet rs = executeQuery("SELECT * FROM(\n" +
                 "SELECT * FROM idu27k.maps \n" +
                 "ORDER BY DBMS_RANDOM.RANDOM)\n" +
                 "WHERE ROWNUM=1");
         try {
         if(!rs.next()) throw new SQLException("No map available!");
-                ret += rs.getString("mapData");
+                ret[0] = rs.getString("mapData");
+                ret[1] = this.user;
         } catch (SQLException e) {
             e.printStackTrace();
         }

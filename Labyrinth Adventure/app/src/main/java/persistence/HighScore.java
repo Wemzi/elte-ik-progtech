@@ -3,17 +3,17 @@ package persistence;
 import java.util.Objects;
 
 public class HighScore {
-    public final int labSize;
+    public final String user;
     public final int score;
     
-    public HighScore(int labSize, int score){
-        this.labSize = labSize;
+    public HighScore(String user, int score){
+        this.user = user;
         this.score = score;
     }
 
     @Override
     public int hashCode() {
-       return Objects.hash(this.labSize,this.score);
+       return Objects.hash(this.user,this.score);
     }
 
     @Override
@@ -31,7 +31,7 @@ public class HighScore {
         if (this.score != other.score) {
             return false;
         }
-        if (this.labSize != other.labSize) {
+        if (this.user != other.user) {
             return false;
         }
         return true;
@@ -39,7 +39,7 @@ public class HighScore {
 
     @Override
     public String toString() {
-            return "labSize : " + labSize + " x " + labSize + " score: "+ score;
+            return "user:" + user + " score: "+ score;
     }
     
     

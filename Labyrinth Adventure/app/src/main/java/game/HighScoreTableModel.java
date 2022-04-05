@@ -31,8 +31,6 @@ public class HighScoreTableModel extends AbstractTableModel{
     @Override
     public Object getValueAt(int r, int c) {
         HighScore h = highScores.get(r);
-        if      (c == 0) return h.labSize;
-        else if (c == 1) return h.score;
         return h.score;
     }
 

@@ -21,6 +21,7 @@ import javax.swing.Timer;
 public class AdventureGUI extends MapBuilder {
     private static int score=0;
     private static int time = 0;
+    private String mapCreator = "Aldous-Broder Algorithm";
     private Player Steve = new Player();
     private KeyHandler keyHandler = new KeyHandler();
     private Timer timer = new Timer(1000, new ActionListener()
@@ -29,7 +30,7 @@ public class AdventureGUI extends MapBuilder {
             public void actionPerformed(ActionEvent e)
             {
                 
-                gameStatLabel.setText("Pontszám: " + score + " Idő: " + time++);
+                gameStatLabel.setText("Score: " + score + " Creator: " + mapCreator + " Time: " + time++);
                 menu.repaint();
             }
         });
@@ -69,7 +70,7 @@ public class AdventureGUI extends MapBuilder {
         timer.start();
         bottomMenu.add(menu);
         bottomMenu.add(gameStatLabel);
-        gameStatLabel.setText("Pontszám: " + score);
+        gameStatLabel.setText("Score: " + score);
         frame.getContentPane().add(BorderLayout.SOUTH, bottomMenu);
         frame.getContentPane().add(BorderLayout.CENTER, mainPanel);
         frame.setSize(1280,720);
@@ -78,10 +79,10 @@ public class AdventureGUI extends MapBuilder {
     }
 
 
-    public AdventureGUI(String mapData) throws IOException
+    public AdventureGUI(String[] mapData) throws IOException
     {
         super();
-        labyrinth = new LabyrinthBuilder(mapData);
+        labyrinth = new LabyrinthBuilder(mapData[0]);
         cells = labyrinth.getCells();
         mainPanel = new Labyrinth(this);
         JMenuItem newGame = new JMenuItem("New Game");
@@ -107,7 +108,8 @@ public class AdventureGUI extends MapBuilder {
         timer.start();
         bottomMenu.add(menu);
         bottomMenu.add(gameStatLabel);
-        gameStatLabel.setText("Pontszám: " + score);
+        mapCreator = mapData[1];
+        gameStatLabel.setText("Score: " + score + " Creator: " + mapCreator);
         frame.getContentPane().add(BorderLayout.SOUTH, bottomMenu);
         frame.getContentPane().add(BorderLayout.CENTER, mainPanel);
         frame.setSize(1280,720);

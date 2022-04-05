@@ -4,18 +4,13 @@
  */
 package game;
 
-import com.google.auth.oauth2.GoogleCredentials;
-import com.google.firebase.FirebaseApp;
-import com.google.firebase.FirebaseOptions;
-import com.google.firebase.database.*;
+
 import persistence.OracleSqlManager;
 
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
-import javax.script.ScriptEngine;
-import javax.script.ScriptEngineManager;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
