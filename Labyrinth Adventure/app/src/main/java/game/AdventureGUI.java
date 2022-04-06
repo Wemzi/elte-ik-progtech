@@ -29,7 +29,10 @@ public class AdventureGUI extends MapBuilder {
             @Override
             public void actionPerformed(ActionEvent e)
             {
-                
+                if(isWon())
+                {
+                    restartGame();
+                }
                 gameStatLabel.setText("Score: " + score + " Creator: " + mapCreator + " Time: " + time++);
                 menu.repaint();
             }
@@ -79,9 +82,10 @@ public class AdventureGUI extends MapBuilder {
     }
 
 
-    public AdventureGUI(String[] mapData) throws IOException
+    public AdventureGUI(OracleSqlManager dbConnection) throws IOException
     {
-        super();
+        super(dbConnection);
+        String[] mapData = dbConnection.getRandomMap();
         labyrinth = new LabyrinthBuilder(mapData[0]);
         cells = labyrinth.getCells();
         mainPanel = new Labyrinth(this);
@@ -138,6 +142,11 @@ public class AdventureGUI extends MapBuilder {
         Steve.setCoords(getCurrentCell(Steve).getrowIdx(),getCurrentCell(Steve).getcolIdx());
     }
 
+    public boolean isWon()
+    {
+        return getCurrentCell(Steve) == mainPanel.getEndingCell();
+    }
+
     public JFrame getFrame()
     {
         return frame;
@@ -157,6 +166,7 @@ public class AdventureGUI extends MapBuilder {
     {
         try
             {
+                refresher.stop();
           frame.dispose();
           Steve = null;
           labyrinth = null;
@@ -164,7 +174,7 @@ public class AdventureGUI extends MapBuilder {
           cells = null;
           bottomMenu = null;
           timer.stop();
-          new AdventureGUI();
+          new AdventureGUI(dbConnection);
             }
             catch (IOException f)
             {

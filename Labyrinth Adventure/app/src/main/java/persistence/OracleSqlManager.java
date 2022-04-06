@@ -4,6 +4,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Locale;
 import java.util.logging.Logger;
 import com.jcraft.jsch.*;
 import com.mysql.cj.protocol.Resultset;
@@ -21,7 +22,7 @@ public class OracleSqlManager {
        super();
         try {
             this.connect(username, password);
-            this.user = username;
+            this.user = username.toUpperCase(Locale.ROOT);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -99,20 +100,32 @@ public class OracleSqlManager {
         return 0;
     }
 
-    public String getHighScores()
+    public String[][] getHighScores()
     {
-        ResultSet rs = executeQuery("SELECT * FROM HIGHSCORES WHERE ROWNUM<=10");
 
-           String result = "RANK    USER   SCORE\n";
+        ResultSet rs = executeQuery("SELECT * FROM IDU27K.HIGHSCORES WHERE ROWNUM<=10");
+        ResultSet myrs = executeQuery("SELECT * FROM IDU27K.HIGHSCORES WHERE USERNAME='"+this.user+"'");
+
             try {
+                String[][] highScoreData = new String[11][3];
+                int idx=0;
                 while(rs.next())
                 {
-                 result += rs.getRow()+ "       " + rs.getString(1) + "   " + rs.getString(2) + "\n";
+                    highScoreData[idx][0] = ""+ rs.getRow();
+                    highScoreData[idx][1] = rs.getString(1);
+                    highScoreData[idx++][2] = rs.getString(2);
                 }
+                while(myrs.next())
+                {
+                    highScoreData[idx][0] = ""+ myrs.getRow();
+                    highScoreData[idx][1] = myrs.getString(1);
+                    highScoreData[idx++][2] = myrs.getString(2);
+                }
+                return highScoreData;
             } catch (SQLException e) {
                 e.printStackTrace();
             }
-            return result;
+            return null;
     }
 
 

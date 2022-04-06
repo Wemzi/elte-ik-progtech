@@ -41,7 +41,7 @@ public class MapBuilder {
     {
         ResourceLoader.initResources();
         frame = new JFrame("Labyrinth Adventure");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         labyrinth = new LabyrinthBuilder(true);
         cells = labyrinth.getCells();
         bottomMenu=new JMenuBar();
@@ -62,7 +62,7 @@ public class MapBuilder {
         ResourceLoader.initResources();
         this.dbConnection = dbConnection;
         frame = new JFrame("Labyrinth Adventure");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         labyrinth = new LabyrinthBuilder(true);
         cells = labyrinth.getCells();
         bottomMenu=new JMenuBar();
@@ -88,6 +88,7 @@ public class MapBuilder {
                 System.out.println("Hello");
                 labyrinth.getCurrentCell().setEndingCell(true);
                 dbConnection.saveMap(mainPanel.toMapDataString());
+                frame.dispose();
             }
         });
         menu.add(saveMap);

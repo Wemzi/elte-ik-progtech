@@ -21,7 +21,7 @@ import javax.swing.JPanel;
  * @author LUD1BP
  */
 public class MainMenu {
-    public OracleSqlManager dbConnection = new OracleSqlManager("idu27k","almafa");
+    public OracleSqlManager dbConnection = new OracleSqlManager("IDU27K","almafa");
     private JFrame frame;
     private LabyrinthBuilder labyrinth;
     private final JLabel gameStatLabel = new JLabel("");
@@ -54,7 +54,7 @@ public class MainMenu {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    new AdventureGUI(dbConnection.getRandomMap());
+                    new AdventureGUI(dbConnection);
                 } catch (IOException ex) {
                     ex.printStackTrace();
                 }
@@ -73,7 +73,8 @@ public class MainMenu {
         topListButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println(dbConnection.getHighScores());
+
+                new TopList(dbConnection);
             }
         });
         buttonPanel.add(topListButton);

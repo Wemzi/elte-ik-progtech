@@ -9,7 +9,7 @@ public class DistanceManager {
         int ydistend = Math.abs((currentCell.getPixelY()) - (steve.getPixelY() + steve.myLook.getHeight()));
         int xdistend = Math.abs(currentCell.getPixelX() + picsize  - (steve.getPixelX() + steve.myLook.getWidth()));
         int threshold = 10;
-        System.out.println(xdist + " " + ydist + " " + xdistend + " " + ydistend) ;
+        //System.out.println(xdist + " " + ydist + " " + xdistend + " " + ydistend) ;
         boolean ret = false;
         if(xdist < threshold && DIR == Direction.LEFT) ret = true;
         if(ydist < threshold && DIR == Direction.UP) ret = true;
