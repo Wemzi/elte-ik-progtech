@@ -3,6 +3,7 @@ package persistence;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Logger;
 import com.jcraft.jsch.*;
 import com.mysql.cj.protocol.Resultset;
@@ -38,32 +39,36 @@ public class OracleSqlManager {
         return rs;
     }
 
-    private int executeUpdate(String query)
+    private int executeUpdate(String query) throws SQLException
     {
         int ret = 0;
-        try {
             java.sql.Statement stmt = connection.createStatement();
              ret = stmt.executeUpdate(query);
-        }catch(SQLException e) {
-            e.printStackTrace();
-        }
         return ret;
     }
 
     public void createMapsTable()
     {
-        executeUpdate("CREATE TABLE idu27k.maps(\n" +
-                "\tmapData VARCHAR2(2048) NOT NULL,\n" +
-                "\tusername VARCHAR2(6) NOT NULL\n" +
-                ")");
+        try {
+            executeUpdate("CREATE TABLE idu27k.maps(\n" +
+                    "\tmapData VARCHAR2(2048) NOT NULL,\n" +
+                    "\tusername VARCHAR2(6) NOT NULL\n" +
+                    ")");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     public void createUsersTable()
     {
-        executeUpdate("CREATE TABLE IDU27K.highscores(\n" +
-                "\tusername VARCHAR2(6),\n" +
-                "\tscore int\n" +
-                ")\n");
+        try {
+            executeUpdate("CREATE TABLE IDU27K.highscores(\n" +
+                    "\tusername VARCHAR2(6),\n" +
+                    "\tscore int\n" +
+                    ")\n");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     public String[] getRandomMap()
@@ -85,10 +90,60 @@ public class OracleSqlManager {
 
     public int saveMap(String mapData)
     {
-        return executeUpdate("INSERT INTO idu27k.maps\n" +
-                "VALUES('"+mapData+"','" + this.user + "')");
+        try {
+            return executeUpdate("INSERT INTO idu27k.maps\n" +
+                    "VALUES('"+mapData+"','" + this.user + "')");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 0;
     }
 
+    public String getHighScores()
+    {
+        ResultSet rs = executeQuery("SELECT * FROM HIGHSCORES WHERE ROWNUM<=10");
+
+           String result = "RANK    USER   SCORE\n";
+            try {
+                while(rs.next())
+                {
+                 result += rs.getRow()+ "       " + rs.getString(1) + "   " + rs.getString(2) + "\n";
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            return result;
+    }
+
+
+    public int getHighScore()
+    {
+        ResultSet rs = executeQuery("SELECT score from IDU27K.HIGHSCORES WHERE USERNAME='" + this.user + "'");
+        try {
+            if(rs.next())
+            {
+                System.out.println(rs.getInt(1));
+            return rs.getInt(1);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
+    public int saveHighScore(String user, int value)
+    {
+        try{
+            return executeUpdate("INSERT INTO IDU27K.HIGHSCORES VALUES('"+ user + "',"+ value + ")");
+            } catch (SQLException ex) {
+            try {
+                return executeUpdate("UPDATE (SELECT SCORE FROM HIGHSCORES WHERE USERNAME='"+this.user +"') SET SCORE="+value);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return 0;
+    }
 
     public void connect(String username, String pw) throws Exception{
         int assigned_port;

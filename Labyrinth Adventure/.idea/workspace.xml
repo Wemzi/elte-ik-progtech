@@ -18,6 +18,7 @@
       <change afterPath="$PROJECT_DIR$/app/src/main/java/game/MapBuilder.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/java/game/Player.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/java/game/ResourceLoader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/game/TopList.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/java/persistence/OracleSqlManager.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/resources/desktop.ini" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/resources/dragon.png" afterDir="false" />

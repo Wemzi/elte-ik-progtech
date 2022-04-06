@@ -70,6 +70,12 @@ public class MainMenu {
                     }
                 }
         });
+        topListButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println(dbConnection.getHighScores());
+            }
+        });
         buttonPanel.add(topListButton);
         buttonPanel.add(mapBuilderButton);
         buttonPanel.add(freePlayButton);
