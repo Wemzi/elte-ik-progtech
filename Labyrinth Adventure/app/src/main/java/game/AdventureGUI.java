@@ -174,7 +174,8 @@ public class AdventureGUI extends MapBuilder {
           cells = null;
           bottomMenu = null;
           timer.stop();
-          new AdventureGUI(dbConnection);
+          if(dbConnection != null) new AdventureGUI(dbConnection);
+          else new AdventureGUI();
             }
             catch (IOException f)
             {

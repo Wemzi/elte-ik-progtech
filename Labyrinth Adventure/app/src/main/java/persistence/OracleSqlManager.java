@@ -89,11 +89,11 @@ public class OracleSqlManager {
         return ret;
     }
 
-    public int saveMap(String mapData)
+    public int saveMap(String mapData,String alias)
     {
         try {
             return executeUpdate("INSERT INTO idu27k.maps\n" +
-                    "VALUES('"+mapData+"','" + this.user + "')");
+                    "VALUES('"+mapData+"','" + this.user + "','"+ alias + "')");
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -126,6 +126,40 @@ public class OracleSqlManager {
                 e.printStackTrace();
             }
             return null;
+    }
+
+    public String[][] getMyMaps()
+    {
+        int size = 0;
+        ResultSet rscount = executeQuery("SELECT COUNT(*) FROM IDU27K.MAPS WHERE USERNAME='"+this.user+"'");
+        try {
+            if(!rscount.next()) return null;
+            size = rscount.getInt(1);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        ResultSet rs = executeQuery("SELECT * FROM MAPS WHERE USERNAME='"+this.user+"'");
+        String[][] ret = new String[size][3];
+            try {
+                int idx=0;
+                while(rs.next())
+                {
+                    ret[idx][0] = rs.getString(1);
+                    ret[idx][1] = rs.getString(2);
+                    if(rs.getFetchSize() == 3)
+                    {
+                        ret[idx++][2] = rs.getString(3);
+                    }
+                    else
+                    {
+                        ret[idx++][2] = "";
+                    }
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            return ret;
     }
 
 

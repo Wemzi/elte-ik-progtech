@@ -31,6 +31,7 @@ public class MainMenu {
     private JButton mapBuilderButton = new JButton("Map Builder");
     private JButton freePlayButton = new JButton("Offline Play");
     private JButton onlinePlayButton = new JButton("Online Play");
+    private JButton myMapsButton = new JButton("My maps");
     private JPanel buttonPanel = new JPanel(new GridLayout(1,2,50,50));
     public MainMenu() {
         this.frame = new JFrame("Labyrinth Adventure");
@@ -47,6 +48,12 @@ public class MainMenu {
                 {
                     m.printStackTrace();
                 }
+            }
+        });
+        myMapsButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new MapList(dbConnection);
             }
         });
         onlinePlayButton.addActionListener(new ActionListener()
@@ -81,6 +88,7 @@ public class MainMenu {
         buttonPanel.add(mapBuilderButton);
         buttonPanel.add(freePlayButton);
         buttonPanel.add(onlinePlayButton);
+        buttonPanel.add(myMapsButton);
         frame.add(buttonPanel);
         frame.pack();
         frame.setSize(1280,720);

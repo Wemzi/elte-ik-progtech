@@ -87,7 +87,8 @@ public class MapBuilder {
             public void actionPerformed(ActionEvent e) {
                 System.out.println("Hello");
                 labyrinth.getCurrentCell().setEndingCell(true);
-                dbConnection.saveMap(mainPanel.toMapDataString());
+                String alias = JOptionPane.showInputDialog("Please enter an alias for the map","alias");
+                dbConnection.saveMap(mainPanel.toMapDataString(),alias);
                 frame.dispose();
             }
         });
