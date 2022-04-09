@@ -7,21 +7,20 @@ package game;
 
 import persistence.OracleSqlManager;
 
-import java.awt.GridLayout;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
+import java.util.Hashtable;
+import javax.swing.*;
+import javax.swing.border.Border;
 
 /**
  *
  * @author LUD1BP
  */
 public class MainMenu {
-    public OracleSqlManager dbConnection = new OracleSqlManager("IDU27K","almafa");
+    public OracleSqlManager dbConnection;
     private JFrame frame;
     private LabyrinthBuilder labyrinth;
     private final JLabel gameStatLabel = new JLabel("");
@@ -35,6 +34,8 @@ public class MainMenu {
     private JPanel buttonPanel = new JPanel(new GridLayout(1,2,50,50));
     public MainMenu() {
         this.frame = new JFrame("Labyrinth Adventure");
+        Hashtable<String,String> credentials = this.login(frame);
+        dbConnection = new OracleSqlManager(credentials.get("user"),credentials.get("pass"));
         mapBuilderButton.addActionListener(new ActionListener()
         { @Override
             public void actionPerformed (ActionEvent e) 
@@ -93,6 +94,31 @@ public class MainMenu {
         frame.pack();
         frame.setSize(1280,720);
         frame.setVisible(true);
+    }
+
+
+    public Hashtable<String, String> login(JFrame frame) {
+        Hashtable<String, String> logininformation = new Hashtable<String, String>();
+
+        JPanel panel = new JPanel(new BorderLayout(5, 5));
+
+        JPanel label = new JPanel(new GridLayout(0, 1, 2, 2));
+        label.add(new JLabel("User name", SwingConstants.RIGHT));
+        label.add(new JLabel("Password", SwingConstants.RIGHT));
+        panel.add(label, BorderLayout.WEST);
+
+        JPanel controls = new JPanel(new GridLayout(0, 1, 2, 2));
+        JTextField username = new JTextField();
+        controls.add(username);
+        JPasswordField password = new JPasswordField();
+        controls.add(password);
+        panel.add(controls, BorderLayout.CENTER);
+
+        JOptionPane.showMessageDialog(frame, panel, "Login into ELTE Aramis DB", JOptionPane.OK_CANCEL_OPTION);
+
+        logininformation.put("user", username.getText());
+        logininformation.put("pass", new String(password.getPassword()));
+        return logininformation;
     }
 
    

@@ -139,7 +139,7 @@ public class OracleSqlManager {
             e.printStackTrace();
         }
 
-        ResultSet rs = executeQuery("SELECT * FROM MAPS WHERE USERNAME='"+this.user+"'");
+        ResultSet rs = executeQuery("SELECT * FROM IDU27K.MAPS WHERE USERNAME='"+this.user+"'");
         String[][] ret = new String[size][3];
             try {
                 int idx=0;
@@ -147,14 +147,7 @@ public class OracleSqlManager {
                 {
                     ret[idx][0] = rs.getString(1);
                     ret[idx][1] = rs.getString(2);
-                    if(rs.getFetchSize() == 3)
-                    {
-                        ret[idx++][2] = rs.getString(3);
-                    }
-                    else
-                    {
-                        ret[idx++][2] = "";
-                    }
+                    ret[idx++][2] = rs.getString(3);
                 }
             } catch (SQLException e) {
                 e.printStackTrace();

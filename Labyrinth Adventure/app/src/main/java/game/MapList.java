@@ -16,7 +16,7 @@ public class MapList extends JFrame {
         mapData = dbConnection.getMyMaps();
         this.dbConnection = dbConnection;
         mapTable = new JTable(mapData,columns);
-        mapTable.setModel(new DefaultTableModel());
+        //mapTable.setModel(new DefaultTableModel());
         mapTable.setBounds(30,40,200,300);
         sp = new JScrollPane(mapTable);
         add(sp);
