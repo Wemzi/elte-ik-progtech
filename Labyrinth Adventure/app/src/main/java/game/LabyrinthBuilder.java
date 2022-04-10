@@ -9,20 +9,21 @@ class LabyrinthBuilder
 {
     private ArrayList<ArrayList<Cell>> cells = new ArrayList<>();
     private Cell currentCell;
+    private final int NUMBER_OF_ROWS = 9;
+    private final int NUMBER_OF_COLS = 16;
     
-    public LabyrinthBuilder(boolean keepItEmpty)
-    {
-        for (int idx = 0; idx < 9 ; idx++)
+    public LabyrinthBuilder(boolean isMapGenerationNeeded,String mapData) throws IncorrectMapSizeException {
+        for (int idx = 0; idx < NUMBER_OF_ROWS ; idx++)
         {
             ArrayList <Cell> tmp = new ArrayList<>();
-            for ( int jdx=0; jdx<16; jdx++)
+            for ( int jdx=0; jdx<NUMBER_OF_COLS; jdx++)
             {
                 tmp.add(new Cell(idx,jdx));
             }
             cells.add(tmp);
         }
 
-        if(!keepItEmpty)
+        if(isMapGenerationNeeded)
         {
             Random random = new Random();
             currentCell = cells.get(random.nextInt(cells.size())).get(random.nextInt(cells.get(0).size()));
@@ -33,56 +34,38 @@ class LabyrinthBuilder
             }
             currentCell.setEndingCell(true);
         }
-    }
-
-    public Cell getCurrentCell() {
-        return currentCell;
-    }
-
-    public LabyrinthBuilder(String mapData)
-    {
-        String[] mapDataSplit = mapData.split(" ");
-        for (int idx = 0; idx < 9 ; idx++)
-        {
-            ArrayList <Cell> tmp = new ArrayList<>();
-            for ( int jdx=0; jdx<16; jdx++)
+        else if(!mapData.equals("")) {
+            String[] mapDataSplit = mapData.split(" ");
+            if(mapDataSplit.length != NUMBER_OF_ROWS * NUMBER_OF_COLS) throw new IncorrectMapSizeException("Incorrect map format!");
+            int StringIdx=0;
+            for(ArrayList<Cell> cellRow :cells)
             {
-                Cell currentCell = new Cell(idx,jdx);
-                tmp.add(currentCell);
-            }
-            cells.add(tmp);
-        }
-        int StringIdx=0;
-        for(ArrayList<Cell> cellRow :cells)
-        {
-            for(Cell currentCell : cellRow) {
-                char[] cellData = mapDataSplit[StringIdx++].toCharArray();
-                if (cellData.length > 3 && cellData.length < 6) {
-                    if (cellData[0] == '0') {
-                        currentCell.setedgeUp();
-                    }
-                    if (cellData[1] == '0') {
-                        currentCell.setedgeDown();
-                    }
-                    if (cellData[2] == '0') {
-                        currentCell.setedgeLeft();
-                    }
-                    if (cellData[3] == '0') {
-                        currentCell.setedgeRight();
-                    }
-                    if (cellData.length == 5) {
-                        if (cellData[4] == 's') {
-                            currentCell.setStartingCell(true);
-                        } else if (cellData[4] == 'e') {
-                            currentCell.setEndingCell(true);
+                for(Cell currentCell : cellRow) {
+                    char[] cellData = mapDataSplit[StringIdx++].toCharArray();
+                    if (cellData.length > 3 && cellData.length < 6) {
+                        if (cellData[0] == '0') {
+                            currentCell.setedgeUp();
+                        }
+                        if (cellData[1] == '0') {
+                            currentCell.setedgeDown();
+                        }
+                        if (cellData[2] == '0') {
+                            currentCell.setedgeLeft();
+                        }
+                        if (cellData[3] == '0') {
+                            currentCell.setedgeRight();
+                        }
+                        if (cellData.length == 5) {
+                            if (cellData[4] == 's') {
+                                currentCell.setStartingCell(true);
+                            } else if (cellData[4] == 'e') {
+                                currentCell.setEndingCell(true);
+                            }
                         }
                     }
                 }
             }
         }
-
-
-
     }
 
     public void setCurrentCell(Cell currentCell) {
@@ -144,7 +127,7 @@ class LabyrinthBuilder
     static int counter = 0;
     public void moveToAdjacentCell(Direction dir)
     {
-        System.out.println("Called with " + dir);
+        //System.out.println("Called with " + dir);
         switch(dir)
         {
             case RIGHT:{
@@ -191,6 +174,11 @@ class LabyrinthBuilder
             }
         }
         return true;
+    }
+
+    public Cell getCurrentCell()
+    {
+        return currentCell;
     }
 
     public ArrayList<ArrayList<Cell>> getCells()

@@ -15,17 +15,12 @@ public class OracleSqlManager {
     java.sql.Connection connection = null;
     String user;
 
-    // Logger
     private final static Logger LOGGER =
             Logger.getLogger(OracleSqlManager.class.getName());
-    public OracleSqlManager(String username, String password) {
+    public OracleSqlManager(String username, String password) throws SQLException,JSchException{
        super();
-        try {
             this.connect(username, password);
             this.user = username.toUpperCase(Locale.ROOT);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 
     private ResultSet executeQuery(String query)
@@ -38,6 +33,15 @@ public class OracleSqlManager {
             e.printStackTrace();
         }
         return rs;
+    }
+
+    private void deleteTable(String mapData)
+    {
+        try {
+            executeUpdate("DELETE FROM IDU27K.MAPS WHERE mapdata='"+mapData+ "'");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     private int executeUpdate(String query) throws SQLException
@@ -185,12 +189,11 @@ public class OracleSqlManager {
         return 0;
     }
 
-    public void connect(String username, String pw) throws Exception{
+    public void connect(String username, String pw) throws SQLException, JSchException{
         int assigned_port;
-        final int local_port=64531;
+        final int local_port=2345;
         final int remote_port=1521;
         final String remote_host="caesar.elte.hu";
-        try {
             JSch jsch = new JSch();
             Session session = jsch.getSession("lkcsdvd", remote_host, 22);
             session.setPassword("Barby990113");
@@ -203,18 +206,14 @@ public class OracleSqlManager {
             assigned_port = session.setPortForwardingL(local_port,
                     "aramis.inf.elte.hu", remote_port);
             System.out.println(assigned_port);
-        } catch (JSchException e) {
-            LOGGER.log(Level.SEVERE, e.getMessage()); return;
-        }
         if (assigned_port == 0) {
             LOGGER.log(Level.SEVERE, "Port forwarding failed !");
             return;
         }
         final String database_user=username;
         final String database_password=pw;
-        String url = "jdbc:oracle:thin:"+ database_user+ "/" + database_password + "@//localhost:64531/aramis";
+        String url = "jdbc:oracle:thin:"+ database_user+ "/" + database_password + "@//localhost:2345/aramis";
         connection = java.sql.DriverManager.getConnection(url);
-                    Class.forName("oracle.jdbc.driver.OracleDriver");
         }
 }
 

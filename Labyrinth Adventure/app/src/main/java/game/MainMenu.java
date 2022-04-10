@@ -15,10 +15,6 @@ import java.util.Hashtable;
 import javax.swing.*;
 import javax.swing.border.Border;
 
-/**
- *
- * @author LUD1BP
- */
 public class MainMenu {
     public OracleSqlManager dbConnection;
     private JFrame frame;
@@ -35,7 +31,17 @@ public class MainMenu {
     public MainMenu() {
         this.frame = new JFrame("Labyrinth Adventure");
         Hashtable<String,String> credentials = this.login(frame);
-        dbConnection = new OracleSqlManager(credentials.get("user"),credentials.get("pass"));
+        try
+        {
+            dbConnection = new OracleSqlManager(credentials.get("user"),credentials.get("pass"));
+        }
+        catch(Exception e)
+        {
+            dbConnection = null;
+            e.printStackTrace();
+            System.out.println("connection wasn't successful, switching to offline mode ");
+        }
+
         mapBuilderButton.addActionListener(new ActionListener()
         { @Override
             public void actionPerformed (ActionEvent e) 
@@ -63,7 +69,7 @@ public class MainMenu {
             public void actionPerformed(ActionEvent e) {
                 try {
                     new AdventureGUI(dbConnection);
-                } catch (IOException ex) {
+                } catch (IOException | IncorrectMapSizeException ex) {
                     ex.printStackTrace();
                 }
             }
@@ -73,7 +79,7 @@ public class MainMenu {
                 public void actionPerformed(ActionEvent e) {
                     try {
                         new AdventureGUI();
-                    } catch (IOException ex) {
+                    } catch (IOException | IncorrectMapSizeException ex) {
                         ex.printStackTrace();
                     }
                 }
@@ -85,11 +91,14 @@ public class MainMenu {
                 new TopList(dbConnection);
             }
         });
-        buttonPanel.add(topListButton);
-        buttonPanel.add(mapBuilderButton);
+        if(dbConnection != null)
+        {
+            buttonPanel.add(topListButton);
+            buttonPanel.add(mapBuilderButton);
+            buttonPanel.add(onlinePlayButton);
+            buttonPanel.add(myMapsButton);
+        }
         buttonPanel.add(freePlayButton);
-        buttonPanel.add(onlinePlayButton);
-        buttonPanel.add(myMapsButton);
         frame.add(buttonPanel);
         frame.pack();
         frame.setSize(1280,720);

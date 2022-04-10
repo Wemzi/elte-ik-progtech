@@ -37,12 +37,12 @@ public class MapBuilder {
     Timer refresher;
     protected JMenu menu;
     /** Grafikus UI konstruktora,, meghívom a labirintusgenerálást, létrehozzuk az összes UI elemet, generáljuk a játékost és a sárkányt.*/
-    public MapBuilder() throws IOException
+    public MapBuilder() throws IOException,IncorrectMapSizeException
     {
         ResourceLoader.initResources();
         frame = new JFrame("Labyrinth Adventure");
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        labyrinth = new LabyrinthBuilder(true);
+        labyrinth = new LabyrinthBuilder(false,"");
         cells = labyrinth.getCells();
         bottomMenu=new JMenuBar();
         menu = new JMenu("Menu");
@@ -57,13 +57,13 @@ public class MapBuilder {
         });
     }
 
-    public MapBuilder(OracleSqlManager dbConnection) throws IOException
+    public MapBuilder(OracleSqlManager dbConnection) throws IOException,IncorrectMapSizeException
     {
         ResourceLoader.initResources();
         this.dbConnection = dbConnection;
         frame = new JFrame("Labyrinth Adventure");
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        labyrinth = new LabyrinthBuilder(true);
+        labyrinth = new LabyrinthBuilder(false,"");
         cells = labyrinth.getCells();
         bottomMenu=new JMenuBar();
         menu = new JMenu("Menu");

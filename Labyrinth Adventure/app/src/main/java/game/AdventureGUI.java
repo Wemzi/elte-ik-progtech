@@ -31,7 +31,11 @@ public class AdventureGUI extends MapBuilder {
             {
                 if(isWon())
                 {
-                    restartGame();
+                    try {
+                        restartGame();
+                    } catch (IncorrectMapSizeException ex) {
+                        ex.printStackTrace();
+                    }
                 }
                 gameStatLabel.setText("Score: " + score + " Creator: " + mapCreator + " Time: " + time++);
                 menu.repaint();
@@ -39,13 +43,13 @@ public class AdventureGUI extends MapBuilder {
         });
     private JMenu menu;
     /** Grafikus UI konstruktora,, melyben meghívom a labirintusgenerálást, létrehozzuk az összes UI elemet, generáljuk a játékost és a sárkányt.*/
-    public AdventureGUI() throws IOException
+    public AdventureGUI() throws IOException,IncorrectMapSizeException
     {
         super();
-        labyrinth = new LabyrinthBuilder(false);
+        labyrinth = new LabyrinthBuilder(true,"");
         cells = labyrinth.getCells();
         mainPanel = new Labyrinth(this);
-        System.out.println("cell size: " + cells.size());
+        //System.out.println("cell size: " + cells.size());
         JMenuItem newGame = new JMenuItem("New Game");
         JMenuItem Help = new JMenuItem("Help");
         JMenuItem TopList = new JMenuItem("Toplist");
@@ -53,16 +57,19 @@ public class AdventureGUI extends MapBuilder {
         Steve.setCoords(mainPanel.getStartingCell().getrowIdx(), mainPanel.getStartingCell().getcolIdx());
         Steve.setPixelX(mainPanel.getStartingCell().getPixelX());
         Steve.setPixelY(mainPanel.getStartingCell().getPixelY());
-        System.out.println(Steve);
+        //System.out.println(Steve);
         newGame.addActionListener(new ActionListener(){
            @Override
            /** newgame indítás menüből */
         public void actionPerformed (ActionEvent e) 
         {
-           //data.storeHighScore(cells.size(), score);
            score=0;
            time = 0;
-           restartGame();
+            try {
+                restartGame();
+            } catch (IncorrectMapSizeException ex) {
+                ex.printStackTrace();
+            }
         }
         });
         /** A billentyűlenyomáshoz kapcsolt eseménykezelő, mely elmozdítja a játékost, és a sárkányt is, megvizsgálja, hogy vége van e a játéknak,majd ha nem, újrarajzolja a pályát. */
@@ -76,17 +83,18 @@ public class AdventureGUI extends MapBuilder {
         gameStatLabel.setText("Score: " + score);
         frame.getContentPane().add(BorderLayout.SOUTH, bottomMenu);
         frame.getContentPane().add(BorderLayout.CENTER, mainPanel);
-        frame.setSize(1280,720);
+        frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        frame.setUndecorated(true);
         frame.setVisible(true);
         refresher.start();
     }
 
 
-    public AdventureGUI(OracleSqlManager dbConnection) throws IOException
+    public AdventureGUI(OracleSqlManager dbConnection) throws IOException,IncorrectMapSizeException
     {
         super(dbConnection);
         String[] mapData = dbConnection.getRandomMap();
-        labyrinth = new LabyrinthBuilder(mapData[0]);
+        labyrinth = new LabyrinthBuilder(false,mapData[0]);
         cells = labyrinth.getCells();
         mainPanel = new Labyrinth(this);
         JMenuItem newGame = new JMenuItem("New Game");
@@ -101,7 +109,11 @@ public class AdventureGUI extends MapBuilder {
             {
                 score=0;
                 time = 0;
-                restartGame();
+                try {
+                    restartGame();
+                } catch (IncorrectMapSizeException ex) {
+                    ex.printStackTrace();
+                }
             }
         });
         refresher.start();
@@ -116,7 +128,8 @@ public class AdventureGUI extends MapBuilder {
         gameStatLabel.setText("Score: " + score + " Creator: " + mapCreator);
         frame.getContentPane().add(BorderLayout.SOUTH, bottomMenu);
         frame.getContentPane().add(BorderLayout.CENTER, mainPanel);
-        frame.setSize(1280,720);
+        frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        frame.setUndecorated(true);
         frame.setVisible(true);
     }
 
@@ -162,18 +175,18 @@ public class AdventureGUI extends MapBuilder {
         return Steve;
     }
     /** újraindító metódus */
-    public void restartGame()
+    public void restartGame() throws IncorrectMapSizeException
     {
         try
-            {
-                refresher.stop();
-          frame.dispose();
-          Steve = null;
-          labyrinth = null;
-          mainPanel = null;
-          cells = null;
-          bottomMenu = null;
-          timer.stop();
+        {
+            refresher.stop();
+            frame.dispose();
+            Steve = null;
+            labyrinth = null;
+            mainPanel = null;
+            cells = null;
+            bottomMenu = null;
+            timer.stop();
           if(dbConnection != null) new AdventureGUI(dbConnection);
           else new AdventureGUI();
             }
