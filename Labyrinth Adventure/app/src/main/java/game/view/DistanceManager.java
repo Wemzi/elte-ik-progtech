@@ -1,4 +1,8 @@
-package game;
+package game.view;
+
+import game.Direction;
+import game.model.Cell;
+import game.model.Player;
 
 public class DistanceManager {
 
@@ -8,7 +12,7 @@ public class DistanceManager {
         int ydist = Math.abs((currentCell.getPixelY()) -steve.getPixelY()) ;
         int ydistend = Math.abs((currentCell.getPixelY()) - (steve.getPixelY() + steve.myLook.getHeight()));
         int xdistend = Math.abs(currentCell.getPixelX() + picsize  - (steve.getPixelX() + steve.myLook.getWidth()));
-        int threshold = 13;
+        int threshold = 8;
         //System.out.println(xdist + " " + ydist + " " + xdistend + " " + ydistend) ;
         boolean ret = false;
         if(xdist < threshold && DIR == Direction.LEFT) ret = true;

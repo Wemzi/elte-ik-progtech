@@ -1,7 +1,7 @@
 package game;
 
 public class IncorrectMapSizeException extends Exception{
-    IncorrectMapSizeException(String desc)
+    public IncorrectMapSizeException(String desc)
     {
         super(desc);
     }

@@ -1,6 +1,7 @@
-package game;
+package game.model;
 
-import java.awt.Image;
+import game.view.ResourceLoader;
+
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 

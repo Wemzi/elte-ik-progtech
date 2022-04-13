@@ -1,5 +1,9 @@
 package game;
 
+import game.model.Cell;
+import game.view.Labyrinth;
+import game.model.LabyrinthBuilder;
+
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;

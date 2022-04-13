@@ -3,7 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package game;
+package game.view;
+
+import game.model.Cell;
+import game.model.Player;
 
 import java.awt.Graphics;
 import java.awt.Graphics2D;

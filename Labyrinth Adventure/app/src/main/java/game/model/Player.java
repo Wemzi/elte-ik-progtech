@@ -1,9 +1,11 @@
-package game;
+package game.model;
 
-import java.awt.*;
+import game.Direction;
+import game.view.ResourceLoader;
+
 import java.awt.image.BufferedImage;
 
-class Player
+public class Player
 {
     private int coordX;
     private int coordY;
@@ -36,7 +38,7 @@ class Player
     }
 
     /** A játékos mozgató metódusa, támogatja esetleg később az átlós mozgás implementálását is */
-    public void move(Direction dir,int maxX, int maxY) {
+    public void move(Direction dir, int maxX, int maxY) {
         switch (dir) {
             case RIGHT: {
                 pixelX+=3;

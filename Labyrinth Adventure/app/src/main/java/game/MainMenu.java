@@ -5,6 +5,9 @@
 package game;
 
 
+import game.view.AdventureGUI;
+import game.model.LabyrinthBuilder;
+import game.view.MapBuilder;
 import persistence.OracleSqlManager;
 
 import java.awt.*;
@@ -13,7 +16,6 @@ import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.util.Hashtable;
 import javax.swing.*;
-import javax.swing.border.Border;
 
 public class MainMenu {
     public OracleSqlManager dbConnection;

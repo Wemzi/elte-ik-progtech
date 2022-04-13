@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package game;
+package game.view;
 
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
@@ -10,18 +10,17 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import javax.swing.JFrame;
 import java.io.IOException;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.util.Random;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+
+import game.*;
+import game.model.Cell;
+import game.model.LabyrinthBuilder;
+import game.model.Player;
 import persistence.*;
 import javax.swing.Timer;
 
@@ -37,7 +36,7 @@ public class MapBuilder {
     Timer refresher;
     protected JMenu menu;
     /** Grafikus UI konstruktora,, meghívom a labirintusgenerálást, létrehozzuk az összes UI elemet, generáljuk a játékost és a sárkányt.*/
-    public MapBuilder() throws IOException,IncorrectMapSizeException
+    public MapBuilder() throws IOException, IncorrectMapSizeException
     {
         ResourceLoader.initResources();
         frame = new JFrame("Labyrinth Adventure");

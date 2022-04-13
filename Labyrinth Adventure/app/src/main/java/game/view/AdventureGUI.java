@@ -1,4 +1,4 @@
-package game;
+package game.view;
 
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
@@ -6,15 +6,13 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import javax.swing.JFrame;
 import java.io.IOException;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
-import java.util.Arrays;
-import java.util.Random;
-import javax.swing.JLabel;
 import javax.swing.JMenu;
-import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
-import javax.swing.JOptionPane;
+
+import game.*;
+import game.model.Cell;
+import game.model.LabyrinthBuilder;
+import game.model.Player;
 import persistence.*;
 import javax.swing.Timer;
 

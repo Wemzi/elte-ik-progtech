@@ -1,11 +1,14 @@
-package game;
+package game.model;
+
+import game.model.Cell;
+import game.Direction;
+import game.IncorrectMapSizeException;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Random;
 
 /** tkp egy Aldous-Broder algoritmus */
-class LabyrinthBuilder
+public class LabyrinthBuilder
 {
     private ArrayList<ArrayList<Cell>> cells = new ArrayList<>();
     private Cell currentCell;
