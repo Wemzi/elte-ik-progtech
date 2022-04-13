@@ -83,7 +83,6 @@ public class Labyrinth extends JPanel{
     {
         picsize = getHeight() > getWidth() ?  getWidth()/cells.size() : getHeight()/cells.size();
         Graphics2D gr = (Graphics2D)g;
-        BufferedImage darkness = null;
         BufferedImage img = null;
         for(int idx=cells.size()-1; idx>=0;idx--)
         {

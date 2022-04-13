@@ -1,27 +1,28 @@
 package game.view;
 
-import java.awt.BorderLayout;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-import javax.swing.JFrame;
+import javax.swing.*;
 import java.io.IOException;
-import javax.swing.JMenu;
-import javax.swing.JMenuItem;
 
 import game.*;
 import game.model.Cell;
 import game.model.LabyrinthBuilder;
 import game.model.Player;
 import persistence.*;
-import javax.swing.Timer;
 
 public class AdventureGUI extends MapBuilder {
     private static int score=0;
     private static int time = 0;
     private String mapCreator = "Aldous-Broder Algorithm";
+    private JMenuItem newGame = new JMenuItem("New Game");
+    private JMenuItem backToMainMenu = new JMenuItem("Back to main menu");
+    private JMenuItem help = new JMenuItem("Help");
     private Player Steve = new Player();
     private KeyHandler keyHandler = new KeyHandler();
+    private JMenu menu;
     private Timer timer = new Timer(1000, new ActionListener()
         {
             @Override
@@ -39,19 +40,23 @@ public class AdventureGUI extends MapBuilder {
                 menu.repaint();
             }
         });
-    private JMenu menu;
     /** Grafikus UI konstruktora,, melyben meghívom a labirintusgenerálást, létrehozzuk az összes UI elemet, generáljuk a játékost és a sárkányt.*/
     public AdventureGUI() throws IOException,IncorrectMapSizeException
     {
         super();
         labyrinth = new LabyrinthBuilder(true,"");
         cells = labyrinth.getCells();
+        refresher = new Timer(15,new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                mainPanel.repaint();
+                updateVisibleCells();
+            }
+        });
         mainPanel = new Labyrinth(this);
-        //System.out.println("cell size: " + cells.size());
-        JMenuItem newGame = new JMenuItem("New Game");
-        JMenuItem Help = new JMenuItem("Help");
-        JMenuItem TopList = new JMenuItem("Toplist");
-        menu = new JMenu();
+        //System.out.println("cell size: " + cells.size();
+        menu = new JMenu("Menu");
+        bottomMenu = new JMenuBar();
         Steve.setCoords(mainPanel.getStartingCell().getrowIdx(), mainPanel.getStartingCell().getcolIdx());
         Steve.setPixelX(mainPanel.getStartingCell().getPixelX());
         Steve.setPixelY(mainPanel.getStartingCell().getPixelY());
@@ -73,11 +78,22 @@ public class AdventureGUI extends MapBuilder {
         /** A billentyűlenyomáshoz kapcsolt eseménykezelő, mely elmozdítja a játékost, és a sárkányt is, megvizsgálja, hogy vége van e a játéknak,majd ha nem, újrarajzolja a pályát. */
         frame.addKeyListener(keyHandler);
         menu.add(newGame);
-        menu.add(Help);
-        menu.add(TopList);
+        menu.add(help);
+        menu.add(backToMainMenu);
         timer.start();
         bottomMenu.add(menu);
         bottomMenu.add(gameStatLabel);
+        backToMainMenu.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int response = JOptionPane.showConfirmDialog(frame,"Are you sure you want to quit? Any unsaved progress will be lost.","Confirmation", JOptionPane.OK_CANCEL_OPTION);
+                if(response == JOptionPane.OK_OPTION)
+                {
+                    frame.dispose();
+
+                }
+            }
+        });
         gameStatLabel.setText("Score: " + score);
         frame.getContentPane().add(BorderLayout.SOUTH, bottomMenu);
         frame.getContentPane().add(BorderLayout.CENTER, mainPanel);
@@ -98,6 +114,13 @@ public class AdventureGUI extends MapBuilder {
         JMenuItem newGame = new JMenuItem("New Game");
         JMenuItem Help = new JMenuItem("Help");
         JMenuItem TopList = new JMenuItem("Toplist");
+        refresher = new Timer(15,new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                updateVisibleCells();
+                mainPanel.repaint();
+            }
+        });
         menu = new JMenu();
         mainPanel.addMouseListener(new CellMouseAdapter(cells,mainPanel,labyrinth));
         newGame.addActionListener(new ActionListener(){
@@ -153,6 +176,34 @@ public class AdventureGUI extends MapBuilder {
         Steve.setCoords(getCurrentCell(Steve).getrowIdx(),getCurrentCell(Steve).getcolIdx());
     }
 
+    public void updateVisibleCells()
+    {
+        Cell currentCell = getCurrentCell(Steve);
+        for(int idx=currentCell.getrowIdx(); idx<cells.get(currentCell.getcolIdx()).size();idx++) {
+            Cell cell = cells.get(currentCell.getcolIdx()).get(idx);
+            cell.setVisibleForPlayer(true);
+            if(cell.getedgeRight()) break;
+        }
+        for(int idx=currentCell.getrowIdx(); idx>=0;idx--)
+        {
+            Cell cell = cells.get(currentCell.getcolIdx()).get(idx);
+            cell.setVisibleForPlayer(true);
+            if(cell.getedgeLeft()) break;
+        }
+        for(int idx=currentCell.getcolIdx();idx>=0; idx--)
+        {
+            Cell cell = cells.get(idx).get(currentCell.getrowIdx());
+            cell.setVisibleForPlayer(true);
+            if(cell.getedgeDown()) break;
+        }
+        for(int idx=currentCell.getcolIdx();idx<cells.size(); idx++)
+        {
+            Cell cell = cells.get(idx).get(currentCell.getrowIdx());
+            cell.setVisibleForPlayer(true);
+            if(cell.getedgeUp()) break;
+        }
+    }
+
     public boolean isWon()
     {
         return getCurrentCell(Steve) == mainPanel.getEndingCell();
@@ -184,7 +235,8 @@ public class AdventureGUI extends MapBuilder {
             mainPanel = null;
             cells = null;
             bottomMenu = null;
-            timer.stop();
+            refresher = null;
+            timer = null;
           if(dbConnection != null) new AdventureGUI(dbConnection);
           else new AdventureGUI();
             }

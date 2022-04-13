@@ -11,14 +11,13 @@ public class Cell {
     private int rowIdx;
     private int pixelX;
     private int pixelY;
-
     private boolean edgeRight=  true;
     private boolean edgeLeft =  true;
     private boolean edgeDown =  true;
     private boolean edgeUp   =  true;
     private boolean isStartingCell = false;
     private boolean isEndingCell = false;
-
+    private boolean isVisibleForPlayer = false;
     public boolean isStartingCell() {
         return isStartingCell;
     }
@@ -38,7 +37,8 @@ public class Cell {
     /** Képkiválasztó metódus, az éleket jelentő boolokat vizsgáljuk. Ha egy bool true, akkor van edge (fal) , ha false, akkor nincs. */
     public BufferedImage selectImage() throws IOException
     {
-        if(isStartingCell) return ResourceLoader.start;
+        if(!isVisibleForPlayer)return ResourceLoader.brick;
+        else if(isStartingCell) return ResourceLoader.start;
         else if(isEndingCell) return ResourceLoader.end;
         else if(edgeRight && edgeLeft && edgeDown && edgeUp) return ResourceLoader.brick;
         else if(edgeRight && edgeLeft && edgeDown ) return ResourceLoader.edgelrd;
@@ -135,6 +135,14 @@ public class Cell {
 
     public void setPixelY(int pixelY) {
         this.pixelY = pixelY;
+    }
+
+    public boolean isVisibleForPlayer() {
+        return isVisibleForPlayer;
+    }
+
+    public void setVisibleForPlayer(boolean visibleForPlayer) {
+        isVisibleForPlayer = visibleForPlayer;
     }
 
     @Override

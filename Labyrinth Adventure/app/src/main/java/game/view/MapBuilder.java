@@ -69,12 +69,6 @@ public class MapBuilder {
         bottomMenu.add(menu);
         frame.getContentPane().add(BorderLayout.SOUTH, bottomMenu);
         frame.setSize(1280,720);
-        refresher = new Timer(15,new ActionListener(){
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                mainPanel.repaint();
-            }
-        });
     }
 
 
@@ -89,6 +83,12 @@ public class MapBuilder {
                 String alias = JOptionPane.showInputDialog("Please enter an alias for the map","alias");
                 dbConnection.saveMap(mainPanel.toMapDataString(),alias);
                 frame.dispose();
+            }
+        });
+        refresher = new Timer(15,new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                mainPanel.repaint();
             }
         });
         menu.add(saveMap);

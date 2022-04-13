@@ -68,6 +68,7 @@ public class CellMouseAdapter extends MouseAdapter {
             if(dir != null)
             {
                 labyrinth.setCurrentCell(prevCell);
+                labyrinth.getCurrentCell().setVisibleForPlayer(true);
                 labyrinth.moveToAdjacentCell(dir);
                 mainPanel.repaint();
             }
