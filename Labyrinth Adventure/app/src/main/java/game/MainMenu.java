@@ -8,6 +8,8 @@ package game;
 import game.view.AdventureGUI;
 import game.model.LabyrinthBuilder;
 import game.view.MapBuilder;
+import game.view.MapList;
+import game.view.TopList;
 import persistence.OracleSqlManager;
 
 import java.awt.*;
@@ -21,6 +23,7 @@ public class MainMenu {
     public OracleSqlManager dbConnection;
     private JFrame frame;
     private LabyrinthBuilder labyrinth;
+    private AdventureGUI gameInstance;
     private final JLabel gameStatLabel = new JLabel("");
     private static int score=0;
     private static int time = 0;
@@ -68,22 +71,14 @@ public class MainMenu {
         onlinePlayButton.addActionListener(new ActionListener()
         {
             @Override
-            public void actionPerformed(ActionEvent e) {
-                try {
-                    new AdventureGUI(dbConnection);
-                } catch (IOException | IncorrectMapSizeException ex) {
-                    ex.printStackTrace();
-                }
+            public void actionPerformed(ActionEvent e){
+                startNewOnlineGame();
             }
         });
         freePlayButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    try {
-                        new AdventureGUI();
-                    } catch (IOException | IncorrectMapSizeException ex) {
-                        ex.printStackTrace();
-                    }
+                    startNewOfflineGame();
                 }
         });
         topListButton.addActionListener(new ActionListener() {
@@ -130,6 +125,34 @@ public class MainMenu {
         logininformation.put("user", username.getText());
         logininformation.put("pass", new String(password.getPassword()));
         return logininformation;
+    }
+
+    public void newGame()
+    {
+        if(dbConnection != null) startNewOnlineGame();
+        else startNewOfflineGame();
+    }
+
+    private void startNewOnlineGame()
+    {
+        try {
+            this.gameInstance = new AdventureGUI(this,dbConnection);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (IncorrectMapSizeException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void startNewOfflineGame()
+    {
+        try {
+            this.gameInstance = new AdventureGUI(this);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (IncorrectMapSizeException e) {
+            e.printStackTrace();
+        }
     }
 
    

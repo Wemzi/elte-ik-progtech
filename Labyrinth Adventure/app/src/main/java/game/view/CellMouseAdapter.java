@@ -1,7 +1,6 @@
-package game;
+package game.view;
 
 import game.model.Cell;
-import game.view.Labyrinth;
 import game.model.LabyrinthBuilder;
 
 import java.awt.event.MouseAdapter;

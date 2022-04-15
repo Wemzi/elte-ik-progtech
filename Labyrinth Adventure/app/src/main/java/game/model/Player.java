@@ -1,6 +1,6 @@
 package game.model;
 
-import game.Direction;
+import game.view.Direction;
 import game.view.ResourceLoader;
 
 import java.awt.image.BufferedImage;

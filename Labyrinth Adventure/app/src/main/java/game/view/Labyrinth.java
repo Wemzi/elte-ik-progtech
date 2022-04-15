@@ -24,7 +24,7 @@ public class Labyrinth extends JPanel{
     private ArrayList<ArrayList<Cell>> cells;
     private MapBuilder board;
     private int picsize;
-    public boolean startOfGame=true;
+    private boolean startOfGame;
 
     public Cell getStartingCell()
     {
@@ -61,16 +61,16 @@ public class Labyrinth extends JPanel{
     public Labyrinth(MapBuilder board)
     {
         this.board=board;
+
+        System.out.println(board.frame.getHeight());
         cells = board.getCells();
+        System.out.println(getHeight());
+        picsize = getHeight() > getWidth() ?  getWidth()/cells.size() : getHeight()/cells.size();
+        startOfGame = true;
         if(board instanceof AdventureGUI)
         {
          ((AdventureGUI) board).getPlayer().setCoords(getStartingCell().getrowIdx(),getStartingCell().getcolIdx());
         }
-        else
-        {
-            System.out.println("false");
-        }
-
     }
 
     public int countDistance(int szam1, int szam2)
@@ -89,7 +89,6 @@ public class Labyrinth extends JPanel{
             for (int jdx=0; jdx<cells.get(0).size(); jdx++)
             {
                 Cell cell = cells.get(idx).get(jdx);
-                img = null;
                 try
                 {
                     img = cell.selectImage();

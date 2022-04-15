@@ -16,6 +16,9 @@ import persistence.*;
 public class AdventureGUI extends MapBuilder {
     private static int score=0;
     private static int time = 0;
+    private final int REFRESH_TIME_FOR_60FPS=15;
+    private final int SECONDINMS=1000;
+    private MainMenu parentMenu;
     private String mapCreator = "Aldous-Broder Algorithm";
     private JMenuItem newGame = new JMenuItem("New Game");
     private JMenuItem backToMainMenu = new JMenuItem("Back to main menu");
@@ -41,9 +44,10 @@ public class AdventureGUI extends MapBuilder {
             }
         });
     /** Grafikus UI konstruktora,, melyben meghívom a labirintusgenerálást, létrehozzuk az összes UI elemet, generáljuk a játékost és a sárkányt.*/
-    public AdventureGUI() throws IOException,IncorrectMapSizeException
+    public AdventureGUI(MainMenu parentMenu) throws IOException,IncorrectMapSizeException
     {
         super();
+        this.parentMenu = parentMenu;
         labyrinth = new LabyrinthBuilder(true,"");
         cells = labyrinth.getCells();
         refresher = new Timer(15,new ActionListener(){
@@ -80,7 +84,6 @@ public class AdventureGUI extends MapBuilder {
         menu.add(newGame);
         menu.add(help);
         menu.add(backToMainMenu);
-        timer.start();
         bottomMenu.add(menu);
         bottomMenu.add(gameStatLabel);
         backToMainMenu.addActionListener(new ActionListener() {
@@ -90,7 +93,6 @@ public class AdventureGUI extends MapBuilder {
                 if(response == JOptionPane.OK_OPTION)
                 {
                     frame.dispose();
-
                 }
             }
         });
@@ -100,13 +102,15 @@ public class AdventureGUI extends MapBuilder {
         frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         frame.setUndecorated(true);
         frame.setVisible(true);
+        timer.start();
         refresher.start();
     }
 
 
-    public AdventureGUI(OracleSqlManager dbConnection) throws IOException,IncorrectMapSizeException
+    public AdventureGUI(MainMenu parentMenu,OracleSqlManager dbConnection) throws IOException,IncorrectMapSizeException
     {
         super(dbConnection);
+        this.parentMenu = parentMenu;
         String[] mapData = dbConnection.getRandomMap();
         labyrinth = new LabyrinthBuilder(false,mapData[0]);
         cells = labyrinth.getCells();
@@ -137,12 +141,10 @@ public class AdventureGUI extends MapBuilder {
                 }
             }
         });
-        refresher.start();
         frame.addKeyListener(keyHandler);
         menu.add(newGame);
         menu.add(Help);
         menu.add(TopList);
-        timer.start();
         bottomMenu.add(menu);
         bottomMenu.add(gameStatLabel);
         mapCreator = mapData[1];
@@ -152,6 +154,8 @@ public class AdventureGUI extends MapBuilder {
         frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         frame.setUndecorated(true);
         frame.setVisible(true);
+        timer.start();
+        refresher.start();
     }
 
     public void updatePlayer()
@@ -226,24 +230,25 @@ public class AdventureGUI extends MapBuilder {
     /** újraindító metódus */
     public void restartGame() throws IncorrectMapSizeException
     {
-        try
-        {
-            refresher.stop();
-            frame.dispose();
-            Steve = null;
-            labyrinth = null;
-            mainPanel = null;
-            cells = null;
-            bottomMenu = null;
-            refresher = null;
-            timer = null;
-          if(dbConnection != null) new AdventureGUI(dbConnection);
-          else new AdventureGUI();
-            }
-            catch (IOException f)
-            {
-                System.out.println(f.getMessage());
-            }
+        refresher.stop();
+        timer.stop();
+        Dimension prevWindowDimensions = mainPanel.getSize();
+        frame.getContentPane().remove(mainPanel);
+        frame.getContentPane().remove(bottomMenu);
+        labyrinth = new LabyrinthBuilder(true,"");
+        cells = labyrinth.getCells();
+        mainPanel = new Labyrinth(this);
+        frame.setExtendedState(Frame.MAXIMIZED_BOTH);
+        frame.getContentPane().add(BorderLayout.SOUTH, bottomMenu);
+        frame.getContentPane().add(BorderLayout.CENTER, mainPanel);
+        mainPanel.setSize(prevWindowDimensions);
+        Steve.setCoords(mainPanel.getStartingCell().getrowIdx(), mainPanel.getStartingCell().getcolIdx());
+        Steve.setPixelX(mainPanel.getStartingCell().getPixelX());
+        Steve.setPixelY(mainPanel.getStartingCell().getPixelY());
+        System.out.println(mainPanel.getHeight());
+        refresher.start();
+        timer.start();
+        System.out.println("minden elindult");
     }
     
 }

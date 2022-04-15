@@ -1,6 +1,5 @@
 package game.view;
 
-import game.Direction;
 import game.model.Cell;
 import game.model.Player;
 

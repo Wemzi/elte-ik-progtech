@@ -1,7 +1,6 @@
 package game.model;
 
-import game.model.Cell;
-import game.Direction;
+import game.view.Direction;
 import game.IncorrectMapSizeException;
 
 import java.util.ArrayList;
@@ -16,6 +15,7 @@ public class LabyrinthBuilder
     private final int NUMBER_OF_COLS = 16;
     
     public LabyrinthBuilder(boolean isMapGenerationNeeded,String mapData) throws IncorrectMapSizeException {
+        int iterations = 0;
         for (int idx = 0; idx < NUMBER_OF_ROWS ; idx++)
         {
             ArrayList <Cell> tmp = new ArrayList<>();
@@ -25,7 +25,6 @@ public class LabyrinthBuilder
             }
             cells.add(tmp);
         }
-
         if(isMapGenerationNeeded)
         {
             Random random = new Random();
@@ -34,8 +33,10 @@ public class LabyrinthBuilder
             while(!isEndOfGeneration())
             {
                 moveToAdjacentCell();
+                iterations++;
             }
             currentCell.setEndingCell(true);
+            System.out.println("ended generation after " + iterations + " steps");
         }
         else if(!mapData.equals("")) {
             String[] mapDataSplit = mapData.split(" ");
@@ -170,8 +171,6 @@ public class LabyrinthBuilder
 
                 if(!cell.gethasBeenSelected())
                 {
-                    counter++;
-                    if(counter>10000) return true;
                     return false;
                 }
             }
