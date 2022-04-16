@@ -13,7 +13,7 @@ import game.model.LabyrinthBuilder;
 import game.model.Player;
 import persistence.*;
 
-public class AdventureGUI extends MapBuilder {
+public class AdventureGUI extends GUIWindow {
     private static int score=0;
     private static int time = 0;
     private final int REFRESH_TIME_FOR_60FPS=15;
@@ -109,7 +109,7 @@ public class AdventureGUI extends MapBuilder {
 
     public AdventureGUI(MainMenu parentMenu,OracleSqlManager dbConnection) throws IOException,IncorrectMapSizeException
     {
-        super(dbConnection);
+        this.dbConnection = dbConnection;
         this.parentMenu = parentMenu;
         String[] mapData = dbConnection.getRandomMap();
         labyrinth = new LabyrinthBuilder(false,mapData[0]);
@@ -157,6 +157,17 @@ public class AdventureGUI extends MapBuilder {
         timer.start();
         refresher.start();
     }
+
+    public Cell getCurrentCell(Player Steve)
+    {
+        int picSize = mainPanel.getPicSize();
+        int x = (Steve.getPixelX()+Steve.myLook.getWidth()/2)/picSize;
+        int y = (Steve.getPixelY()+Steve.myLook.getHeight())/picSize;
+        Cell  ret = cells.get(y).get(x);
+        //System.out.println(ret + " " + Steve.getPixelY() + " "  +  Steve.getPixelX() );
+        return ret;
+    }
+
 
     public void updatePlayer()
     {

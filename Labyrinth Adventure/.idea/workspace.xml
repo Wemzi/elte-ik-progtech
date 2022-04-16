@@ -183,7 +183,7 @@
     <setting file="file://$PROJECT_DIR$/app/src/main/java/game/MainMenu.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/app/src/main/java/game/view/Labyrinth.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/app/src/main/java/persistence/OracleSqlManager.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/app/src/main/java/game/view/MapBuilder.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/app/src/main/java/game/view/MapBuilderGUI.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/app/build.gradle" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/app/src/main/java/game/view/AdventureGUI.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/app/src/main/java/game/view/ResourceLoader.java" root0="FORCE_HIGHLIGHTING" />

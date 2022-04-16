@@ -16,82 +16,36 @@ import java.util.Vector;
 public class MapList extends JFrame {
     OracleSqlManager dbConnection;
     String[][] mapData;
-    JTable mapTable;
+    MapTable myMapsTable;
     String[] columns = {"MAP DATA","USER","ALIAS"};
     JScrollPane sp;
-    JToolBar tb;
-    DeleteRowFromTableAction deleteAction;
+    JToolBar toolBar;
     public MapList(OracleSqlManager dbConnection)
     {
         mapData = dbConnection.getMyMaps();
         this.dbConnection = dbConnection;
+        myMapsTable = new MapTable(mapData, columns);
+        myMapsTable.setBounds(30,40,200,300);
+        toolBar = new JToolBar();
+        toolBar.add(new AbstractAction("Delete Map") {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int rowNum = myMapsTable.getSelectedRow();
+                String mapData = null;
+                Object mapDataobj = myMapsTable.getValueAt(rowNum,0);
+                if(mapDataobj instanceof String ){
+                    mapData = (String)mapDataobj;
+                    dbConnection.deleteMap(mapData);
+                    JOptionPane.showConfirmDialog(myMapsTable,"Your map has been deleted succesfully, the data shall be refreshed the next time you open this menu.","Map deletion",JOptionPane.OK_OPTION);
+                }
 
-        mapTable = new JTable(mapData,columns);
-        DefaultTableModel model = (DefaultTableModel) mapTable.getModel();
-        deleteAction = new DeleteRowFromTableAction(mapTable,model);
-        mapTable.setBounds(30,40,200,300);
-        tb = new JToolBar();
-        tb.add(deleteAction);
-        add(tb, BorderLayout.NORTH);
-        sp = new JScrollPane(mapTable);
+
+            }
+        });
+        add(toolBar, BorderLayout.NORTH);
+        sp = new JScrollPane(myMapsTable);
         add(sp);
         setSize(300,400);
         setVisible(true);
-    }
-
-    public abstract class AbstractTableAction<T extends JTable, M extends TableModel> extends AbstractAction {
-
-        private T table;
-        private M model;
-
-        public AbstractTableAction(T table, M model) {
-            this.table = table;
-            this.model = model;
-        }
-
-        public T getTable() {
-            return table;
-        }
-
-        public M getModel() {
-            return model;
-        }
-
-    }
-
-    public class DeleteRowFromTableAction extends AbstractTableAction<JTable, DefaultTableModel> {
-
-        public DeleteRowFromTableAction(JTable table, DefaultTableModel model) {
-            super(table, model);
-            putValue(NAME, "Delete selected rows");
-            putValue(SHORT_DESCRIPTION, "Delete selected rows");
-            table.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
-                @Override
-                public void valueChanged(ListSelectionEvent e) {
-                    setEnabled(getTable().getSelectedRowCount() > 0);
-                }
-            });
-            setEnabled(getTable().getSelectedRowCount() > 0);
-        }
-
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            System.out.println("...");
-            JTable table = getTable();
-            if (table.getSelectedRowCount() > 0) {
-                List<Vector> selectedRows = new ArrayList<>(25);
-                DefaultTableModel model = getModel();
-                Vector rowData = model.getDataVector();
-                for (int row : table.getSelectedRows()) {
-                    int modelRow = table.convertRowIndexToModel(row);
-                    Vector rowValue = (Vector) rowData.get(modelRow);
-                    selectedRows.add(rowValue);
-                }
-                for (Vector rowValue : selectedRows) {
-                    int rowIndex = rowData.indexOf(rowValue);
-                    model.removeRow(rowIndex);
-                }
-            }
-        }
     }
 }

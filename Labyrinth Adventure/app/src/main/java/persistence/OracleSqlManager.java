@@ -35,10 +35,10 @@ public class OracleSqlManager {
         return rs;
     }
 
-    private void deleteTable(String mapData)
+    public void deleteMap(String mapData)
     {
         try {
-            executeUpdate("DELETE FROM IDU27K.MAPS WHERE mapdata='"+mapData+ "'");
+            executeUpdate("DELETE FROM IDU27K.MAPS WHERE mapdata='"+mapData+ "' AND USER='" + this.user +"'");
         } catch (SQLException e) {
             e.printStackTrace();
         }

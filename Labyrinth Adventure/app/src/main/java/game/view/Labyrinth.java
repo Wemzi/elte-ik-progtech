@@ -22,7 +22,7 @@ import javax.swing.JPanel;
  */
 public class Labyrinth extends JPanel{
     private ArrayList<ArrayList<Cell>> cells;
-    private MapBuilder board;
+    private GUIWindow board;
     private int picsize;
     private boolean startOfGame;
 
@@ -58,10 +58,9 @@ public class Labyrinth extends JPanel{
         return ret;
     }
     
-    public Labyrinth(MapBuilder board)
+    public Labyrinth(GUIWindow board)
     {
         this.board=board;
-
         System.out.println(board.frame.getHeight());
         cells = board.getCells();
         System.out.println(getHeight());

@@ -7,7 +7,7 @@ package game;
 
 import game.view.AdventureGUI;
 import game.model.LabyrinthBuilder;
-import game.view.MapBuilder;
+import game.view.MapBuilderGUI;
 import game.view.MapList;
 import game.view.TopList;
 import persistence.OracleSqlManager;
@@ -53,8 +53,7 @@ public class MainMenu {
             {
                 try
                 {
-                    MapBuilder mapBuilderWindow = new MapBuilder(dbConnection);
-                    mapBuilderWindow.buildMap();
+                    MapBuilderGUI mapBuilderWindow = new MapBuilderGUI(dbConnection);
                 }
                 catch(Exception m)
                 {
@@ -105,23 +104,18 @@ public class MainMenu {
 
     public Hashtable<String, String> login(JFrame frame) {
         Hashtable<String, String> logininformation = new Hashtable<String, String>();
-
         JPanel panel = new JPanel(new BorderLayout(5, 5));
-
         JPanel label = new JPanel(new GridLayout(0, 1, 2, 2));
         label.add(new JLabel("User name", SwingConstants.RIGHT));
         label.add(new JLabel("Password", SwingConstants.RIGHT));
         panel.add(label, BorderLayout.WEST);
-
         JPanel controls = new JPanel(new GridLayout(0, 1, 2, 2));
         JTextField username = new JTextField();
         controls.add(username);
         JPasswordField password = new JPasswordField();
         controls.add(password);
         panel.add(controls, BorderLayout.CENTER);
-
         JOptionPane.showMessageDialog(frame, panel, "Login into ELTE Aramis DB", JOptionPane.OK_CANCEL_OPTION);
-
         logininformation.put("user", username.getText());
         logininformation.put("pass", new String(password.getPassword()));
         return logininformation;
