@@ -16,17 +16,15 @@ import persistence.*;
 public class AdventureGUI extends GUIWindow {
     private static int score=0;
     private static int time = 0;
-    private final int REFRESH_TIME_FOR_60FPS=15;
-    private final int SECONDINMS=1000;
-    private MainMenu parentMenu;
+    private final MainMenu parentMenu;
     private String mapCreator = "Aldous-Broder Algorithm";
-    private JMenuItem newGame = new JMenuItem("New Game");
-    private JMenuItem backToMainMenu = new JMenuItem("Back to main menu");
-    private JMenuItem help = new JMenuItem("Help");
-    private Player Steve = new Player();
-    private KeyHandler keyHandler = new KeyHandler();
-    private JMenu menu;
-    private Timer timer = new Timer(1000, new ActionListener()
+    private final JMenuItem newGame = new JMenuItem("New Game");
+    private final JMenuItem backToMainMenu = new JMenuItem("Back to main menu");
+    private final JMenuItem help = new JMenuItem("Help");
+    private final Player Steve = new Player();
+    private final KeyHandler keyHandler = new KeyHandler();
+    private final JMenu menu;
+    private Timer timer = new Timer(SECONDINMS, new ActionListener()
         {
             @Override
             public void actionPerformed(ActionEvent e)
@@ -35,9 +33,16 @@ public class AdventureGUI extends GUIWindow {
                 {
                     try {
                         restartGame();
+                        score++;
                     } catch (IncorrectMapSizeException ex) {
                         ex.printStackTrace();
                     }
+                }
+                else if(isLost())
+                {
+                    JOptionPane.showConfirmDialog(frame,"You lost. The score you earned is:" + score + " if you have internet connection available, it should synch automatically.","Lost game",JOptionPane.OK_OPTION);
+                    dbConnection.saveHighScore(score);
+                    score = 0;
                 }
                 gameStatLabel.setText("Score: " + score + " Creator: " + mapCreator + " Time: " + time++);
                 menu.repaint();
@@ -50,7 +55,7 @@ public class AdventureGUI extends GUIWindow {
         this.parentMenu = parentMenu;
         labyrinth = new LabyrinthBuilder(true,"");
         cells = labyrinth.getCells();
-        refresher = new Timer(15,new ActionListener(){
+        refresher = new Timer(REFRESH_TIME_FOR_60FPS,new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
                 mainPanel.repaint();
@@ -219,6 +224,11 @@ public class AdventureGUI extends GUIWindow {
         }
     }
 
+    public boolean isLost()
+    {
+        return score == 5; // TODO: implement AI
+    }
+
     public boolean isWon()
     {
         return getCurrentCell(Steve) == mainPanel.getEndingCell();
@@ -246,7 +256,16 @@ public class AdventureGUI extends GUIWindow {
         Dimension prevWindowDimensions = mainPanel.getSize();
         frame.getContentPane().remove(mainPanel);
         frame.getContentPane().remove(bottomMenu);
-        labyrinth = new LabyrinthBuilder(true,"");
+        if(dbConnection == null)
+        {
+            labyrinth = new LabyrinthBuilder(true,"");
+        }
+        else
+        {
+            String[] mapData = dbConnection.getRandomMap();
+            labyrinth = new LabyrinthBuilder(false,mapData[0]);
+            mapCreator = mapData[1];
+        }
         cells = labyrinth.getCells();
         mainPanel = new Labyrinth(this);
         frame.setExtendedState(Frame.MAXIMIZED_BOTH);

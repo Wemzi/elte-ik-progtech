@@ -19,6 +19,8 @@ public abstract class GUIWindow {
     protected OracleSqlManager dbConnection;
     protected Timer refresher;
     protected JMenu menu;
+    protected final int REFRESH_TIME_FOR_60FPS=15;
+    protected final int SECONDINMS=1000;
 
     protected GUIWindow() throws IOException
     {

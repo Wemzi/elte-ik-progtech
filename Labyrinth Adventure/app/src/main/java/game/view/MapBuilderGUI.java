@@ -28,6 +28,7 @@ public class MapBuilderGUI extends GUIWindow {
 
     public MapBuilderGUI(OracleSqlManager dbConnection) throws IOException,IncorrectMapSizeException
     {
+        super();
         this.dbConnection = dbConnection;
         labyrinth = new LabyrinthBuilder(false,"");
         cells = labyrinth.getCells();
@@ -43,7 +44,7 @@ public class MapBuilderGUI extends GUIWindow {
                 frame.dispose();
             }
         });
-        refresher = new Timer(15,new ActionListener(){
+        refresher = new Timer(REFRESH_TIME_FOR_60FPS,new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
                 mainPanel.repaint();

@@ -175,10 +175,10 @@ public class OracleSqlManager {
         return 0;
     }
 
-    public int saveHighScore(String user, int value)
+    public int saveHighScore(int value)
     {
         try{
-            return executeUpdate("INSERT INTO IDU27K.HIGHSCORES VALUES('"+ user + "',"+ value + ")");
+            return executeUpdate("INSERT INTO IDU27K.HIGHSCORES VALUES('"+ this.user + "',"+ value + ")");
             } catch (SQLException ex) {
             try {
                 return executeUpdate("UPDATE (SELECT SCORE FROM HIGHSCORES WHERE USERNAME='"+this.user +"') SET SCORE="+value);
