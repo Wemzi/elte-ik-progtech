@@ -85,8 +85,8 @@ public class OracleSqlManager {
                 "WHERE ROWNUM=1");
         try {
         if(!rs.next()) throw new SQLException("No map available!");
-                ret[0] = rs.getString("mapData");
-                ret[1] = this.user;
+                ret[0] = rs.getString(1);
+                ret[1] = rs.getString(2);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -107,23 +107,15 @@ public class OracleSqlManager {
     public String[][] getHighScores()
     {
 
-        ResultSet rs = executeQuery("SELECT * FROM IDU27K.HIGHSCORES WHERE ROWNUM<=10");
-        ResultSet myrs = executeQuery("SELECT * FROM IDU27K.HIGHSCORES WHERE USERNAME='"+this.user+"'");
-
+        ResultSet rs = executeQuery("SELECT * FROM IDU27K.HIGHSCORES WHERE ROWNUM<=10 ORDER BY SCORE DESC");
             try {
-                String[][] highScoreData = new String[11][3];
+                String[][] highScoreData = new String[10][3];
                 int idx=0;
                 while(rs.next())
                 {
                     highScoreData[idx][0] = ""+ rs.getRow();
                     highScoreData[idx][1] = rs.getString(1);
                     highScoreData[idx++][2] = rs.getString(2);
-                }
-                while(myrs.next())
-                {
-                    highScoreData[idx][0] = ""+ myrs.getRow();
-                    highScoreData[idx][1] = myrs.getString(1);
-                    highScoreData[idx++][2] = myrs.getString(2);
                 }
                 return highScoreData;
             } catch (SQLException e) {
