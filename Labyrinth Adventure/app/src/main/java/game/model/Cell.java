@@ -11,6 +11,9 @@ public class Cell {
     private int rowIdx;
     private int pixelX;
     private int pixelY;
+    private boolean hasBeenVisitedByDragon = false;
+    private boolean isDeadEnd = false;
+
     private boolean edgeRight=  true;
     private boolean edgeLeft =  true;
     private boolean edgeDown =  true;
@@ -123,6 +126,23 @@ public class Cell {
 
     public int getPixelX() {
         return pixelX;
+    }
+
+
+    public boolean isHasBeenVisitedByDragon() {
+        return hasBeenVisitedByDragon;
+    }
+
+    public void setHasBeenVisitedByDragon(boolean hasBeenVisitedByDragon) {
+        this.hasBeenVisitedByDragon = hasBeenVisitedByDragon;
+    }
+
+    public boolean isDeadEnd() {
+        return isDeadEnd;
+    }
+
+    public void setDeadEnd(boolean deadEnd) {
+        isDeadEnd = deadEnd;
     }
 
     public void setPixelX(int pixelX) {

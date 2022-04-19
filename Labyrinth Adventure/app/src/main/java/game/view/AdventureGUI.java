@@ -34,7 +34,7 @@ public class AdventureGUI extends GUIWindow {
                 frame.dispose();
             }
         }
-    });
+    };
     private Timer timer = new Timer(SECONDINMS, new ActionListener()
         {
             @Override
@@ -75,7 +75,7 @@ public class AdventureGUI extends GUIWindow {
         newGame.addActionListener(new ActionListener(){
            @Override
            /** newgame indítás menüből */
-        public void actionPerformed (ActionEvent e) 
+        public void actionPerformed (ActionEvent e)
         {
            score=0;
            time = 0;
@@ -84,9 +84,7 @@ public class AdventureGUI extends GUIWindow {
             } catch (IncorrectMapSizeException ex) {
                 ex.printStackTrace();
             }
-        }
-        });
-
+        }});
         refresher = new Timer(15,new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -122,6 +120,13 @@ public class AdventureGUI extends GUIWindow {
         cells = labyrinth.getCells();
         mainPanel = new Labyrinth(this);
         mainPanel.addMouseListener(new CellMouseAdapter(cells,mainPanel,labyrinth));
+        refresher = new Timer(15,new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                updateVisibleCells();
+                mainPanel.repaint();
+            }
+        });
         newGame.addActionListener(new ActionListener(){
             @Override
             /** newgame indítás menüből */
