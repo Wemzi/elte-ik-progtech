@@ -85,6 +85,22 @@ public class Dragon {
         return false;
     }
 
+    public int getCountOfPossibleDirections()
+    {
+        int retVal = 0;
+        if(currentCell.getedgeDown()) retVal++;
+        if(currentCell.getedgeUp()) retVal++;
+        if(currentCell.getedgeLeft()) retVal++;
+        if(currentCell.getedgeRight()) retVal++;
+    }
+
+    public boolean isJunction()
+    {
+        return getCountOfPossibleDirections()>2;
+    }
+
+
+
     public boolean isValidMove(Direction dir)
     {
         int currentRowIdx = currentCell.getrowIdx();
@@ -100,6 +116,19 @@ public class Dragon {
         }
         return false;
     }
+
+    public boolean isDeadEnd()
+    {
+        switch(currentDirection)
+        {
+            case RIGHT: return currentCell.getedgeRight() && currentCell.getedgeUp() && currentCell.getedgeDown() && !currentCell.getedgeLeft();
+            case LEFT: return currentCell.getedgeLeft() && currentCell.getedgeUp() && currentCell.getedgeDown() && !currentCell.getedgeRight();
+            case UP: return currentCell.getedgeUp() && currentCell.getedgeRight() && currentCell.getedgeDown() && !currentCell.getedgeDown();
+            case DOWN: return currentCell.getedgeDown() && currentCell.getedgeUp() && currentCell.getedgeDown() && !currentCell.getedgeLeft();
+        }
+    }
+
+    pu
 
     public void selectNewCell()
     {
