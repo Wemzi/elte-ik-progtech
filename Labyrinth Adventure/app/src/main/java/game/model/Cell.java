@@ -40,7 +40,7 @@ public class Cell {
     /** Képkiválasztó metódus, az éleket jelentő boolokat vizsgáljuk. Ha egy bool true, akkor van edge (fal) , ha false, akkor nincs. */
     public BufferedImage selectImage() throws IOException
     {
-        if(!isVisibleForPlayer)return ResourceLoader.brick;
+        if(isHasBeenVisitedByDragon())return ResourceLoader.darkness;
         else if(isStartingCell) return ResourceLoader.start;
         else if(isEndingCell) return ResourceLoader.end;
         else if(edgeRight && edgeLeft && edgeDown && edgeUp) return ResourceLoader.brick;
@@ -170,14 +170,13 @@ public class Cell {
         return "Cell{" +
                 "colIdx=" + colIdx +
                 ", rowIdx=" + rowIdx +
-                ", pixelX=" + pixelX +
-                ", pixelY=" + pixelY +
                 ", edgeRight=" + edgeRight +
                 ", edgeLeft=" + edgeLeft +
                 ", edgeDown=" + edgeDown +
                 ", edgeUp=" + edgeUp +
-                ", isStartingCell=" + isStartingCell +
+                ", isDeadEnd=" + isDeadEnd +
                 ", isEndingCell=" + isEndingCell +
+                ", HasBeenVisitedByDragon" + hasBeenVisitedByDragon +
                 '}';
     }
 }

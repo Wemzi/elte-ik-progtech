@@ -188,7 +188,7 @@ public class OracleSqlManager {
         final String remote_host="caesar.elte.hu";
             JSch jsch = new JSch();
             Session session = jsch.getSession("lkcsdvd", remote_host, 22);
-            session.setPassword("Barby990113");
+            session.setPassword("szakdolgozatmiattipublikusjelszo1");
             java.util.Properties config = new java.util.Properties();
             config.put("StrictHostKeyChecking", "no");
             config.put("Compression", "yes");

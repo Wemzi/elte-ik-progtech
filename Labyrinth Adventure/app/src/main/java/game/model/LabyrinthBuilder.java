@@ -16,7 +16,7 @@ public class LabyrinthBuilder
     
     public LabyrinthBuilder(boolean isMapGenerationNeeded,String mapData) throws IncorrectMapSizeException {
         int iterations = 0;
-        for (int idx = 0; idx < NUMBER_OF_ROWS ; idx++)
+        for (int idx = 0; idx < NUMBER_OF_ROWS; idx++)
         {
             ArrayList <Cell> tmp = new ArrayList<>();
             for ( int jdx=0; jdx<NUMBER_OF_COLS; jdx++)
@@ -36,6 +36,7 @@ public class LabyrinthBuilder
                 iterations++;
             }
             currentCell.setEndingCell(true);
+            System.out.println("ENDING CELL: " + currentCell);
             System.out.println("ended generation after " + iterations + " steps");
         }
         else if(!mapData.equals("")) {

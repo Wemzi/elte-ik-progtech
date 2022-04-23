@@ -9,6 +9,7 @@ import java.io.IOException;
 
 import game.*;
 import game.model.Cell;
+import game.model.Dragon;
 import game.model.LabyrinthBuilder;
 import game.model.Player;
 import persistence.*;
@@ -17,6 +18,7 @@ public class AdventureGUI extends GUIWindow {
     private static int score=0;
     private static int time = 0;
     private final MainMenu parentMenu;
+    private Dragon drake;
     private String mapCreator = "Aldous-Broder Algorithm";
     private final JMenuItem newGame = new JMenuItem("New Game");
     private final JMenuItem backToMainMenu = new JMenuItem("Back to main menu");
@@ -107,6 +109,15 @@ public class AdventureGUI extends GUIWindow {
         frame.setVisible(true);
         timer.start();
         refresher.start();
+        drake = new Dragon(mainPanel.getStartingCell(),cells);
+            Thread thread = new Thread(()-> {
+                try {
+                    drake.doTremauxPathFinding();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            });
+            thread.start();
     }
 
 
