@@ -1,5 +1,6 @@
 package game.model;
 
+import game.view.Direction;
 import game.view.ResourceLoader;
 
 import java.awt.image.BufferedImage;
@@ -12,7 +13,7 @@ public class Cell {
     private int pixelX;
     private int pixelY;
     private boolean hasBeenVisitedByDragon = false;
-    private boolean isDeadEnd = false;
+    private boolean MarkedAsDeadEndByDragon = false;
 
     private boolean edgeRight=  true;
     private boolean edgeLeft =  true;
@@ -40,7 +41,9 @@ public class Cell {
     /** Képkiválasztó metódus, az éleket jelentő boolokat vizsgáljuk. Ha egy bool true, akkor van edge (fal) , ha false, akkor nincs. */
     public BufferedImage selectImage() throws IOException
     {
-        if(isHasBeenVisitedByDragon())return ResourceLoader.darkness;
+        //if(!isVisibleForPlayer) return ResourceLoader.brick;
+        if(MarkedAsDeadEndByDragon) return ResourceLoader.blue;
+        else if(hasBeenVisitedByDragon)return ResourceLoader.darkness;
         else if(isStartingCell) return ResourceLoader.start;
         else if(isEndingCell) return ResourceLoader.end;
         else if(edgeRight && edgeLeft && edgeDown && edgeUp) return ResourceLoader.brick;
@@ -137,12 +140,12 @@ public class Cell {
         this.hasBeenVisitedByDragon = hasBeenVisitedByDragon;
     }
 
-    public boolean isDeadEnd() {
-        return isDeadEnd;
+    public boolean isMarkedAsDeadEndByDragon() {
+        return MarkedAsDeadEndByDragon;
     }
 
-    public void setDeadEnd(boolean deadEnd) {
-        isDeadEnd = deadEnd;
+    public void setMarkedAsDeadEndByDragon(boolean MarkedAsDeadEndByDragon) {
+        this.MarkedAsDeadEndByDragon = MarkedAsDeadEndByDragon;
     }
 
     public void setPixelX(int pixelX) {
@@ -165,6 +168,26 @@ public class Cell {
         isVisibleForPlayer = visibleForPlayer;
     }
 
+    public boolean isJunction()
+    {
+        return getCountOfPossibleDirections()>2;
+    }
+
+    public boolean isDeadEnd()
+    {
+        return getCountOfPossibleDirections() == 1;
+    }
+
+    public int getCountOfPossibleDirections()
+    {
+        int retVal = 0;
+        if(!getedgeDown()) retVal++;
+        if(!getedgeUp()) retVal++;
+        if(!getedgeLeft()) retVal++;
+        if(!getedgeRight()) retVal++;
+        return retVal;
+    }
+
     @Override
     public String toString() {
         return "Cell{" +
@@ -174,7 +197,7 @@ public class Cell {
                 ", edgeLeft=" + edgeLeft +
                 ", edgeDown=" + edgeDown +
                 ", edgeUp=" + edgeUp +
-                ", isDeadEnd=" + isDeadEnd +
+                ", isMarkedAsDeadEndByDragon=" + MarkedAsDeadEndByDragon +
                 ", isEndingCell=" + isEndingCell +
                 ", HasBeenVisitedByDragon" + hasBeenVisitedByDragon +
                 '}';

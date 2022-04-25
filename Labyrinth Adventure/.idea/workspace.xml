@@ -4,7 +4,204 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2d198183-6036-4902-902a-616e7bbac25a" name="Changes" comment="Moved to IntelliJ" />
+    <list default="true" id="2d198183-6036-4902-902a-616e7bbac25a" name="Changes" comment="Moved to IntelliJ">
+      <change afterPath="$PROJECT_DIR$/app/libs/HikariCP-5.0.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/libs/mysql-connector-java-8.0.27.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/libs/slf4j-api-2.0.0-alpha1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/persistence/OracleSqlManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/resources/desktop.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/resources/dragon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/resources/edged.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/resources/edgel.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/resources/edgeld.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/resources/edgelr.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/resources/edgelrd.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/resources/edgelud.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/resources/edger.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/resources/edgerd.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/resources/edgeu.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/resources/edgeud.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/resources/edgeul.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/resources/edgeur.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/resources/edgeurd.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/resources/edgeurl.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/resources/end.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/resources/grass.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/resources/player.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/resources/start.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/test/java/Labyrinth/Adventure/AppTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bead3 IDU27K.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/built-jar.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/.netbeans_automatic_build" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/resources/brick.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/.netbeans_update_resources" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/resources/darkness.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/assets/brick.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/assets/darkness.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/assets/desktop.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/assets/edged.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/assets/edgel.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/assets/edgeld.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/assets/edgelr.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/assets/edgelrd.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/assets/edgelud.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/assets/edger.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/assets/edgerd.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/assets/edgeu.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/assets/edgeud.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/assets/edgeul.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/assets/edgeur.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/assets/edgeurd.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/assets/edgeurl.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/assets/grass.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/assets/textureswithdragon/brick.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/assets/textureswithdragon/dragon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/assets/textureswithdragon/edged.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/assets/textureswithdragon/edgel.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/assets/textureswithdragon/edgeld.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/assets/textureswithdragon/edgelr.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/assets/textureswithdragon/edgelrd.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/assets/textureswithdragon/edgelud.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/assets/textureswithdragon/edger.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/assets/textureswithdragon/edgerd.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/assets/textureswithdragon/edgeu.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/assets/textureswithdragon/edgeud.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/assets/textureswithdragon/edgeul.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/assets/textureswithdragon/edgeur.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/assets/textureswithdragon/edgeurd.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/assets/textureswithdragon/edgeurl.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/assets/textureswithdragon/grass.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/assets/textureswithplayer/brick.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/assets/textureswithplayer/edged.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/assets/textureswithplayer/edgel.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/assets/textureswithplayer/edgeld.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/assets/textureswithplayer/edgelr.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/assets/textureswithplayer/edgelrd.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/assets/textureswithplayer/edgelud.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/assets/textureswithplayer/edger.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/assets/textureswithplayer/edgerd.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/assets/textureswithplayer/edgeu.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/assets/textureswithplayer/edgeud.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/assets/textureswithplayer/edgeul.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/assets/textureswithplayer/edgeur.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/assets/textureswithplayer/edgeurd.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/assets/textureswithplayer/edgeurl.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/assets/textureswithplayer/grass.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/assets/textureswithplayer/player.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/game/AdventureGUI$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/game/AdventureGUI$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/game/AdventureGUI$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/game/AdventureGUI$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/game/AdventureGUI$5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/game/AdventureGUI.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/game/Cell.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/game/Dragon.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/game/HighScoreTableModel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/game/HighScoreWindow.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/game/Labyrinth.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/game/LabyrinthBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/game/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/game/MapBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/game/Player.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/game/ResourceLoader.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/persistence/ConnectionFactory.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/persistence/Database.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/persistence/HighScore.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/Labyrinth_adventure.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/README.TXT" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/lib/mysql-connector-java-8.0.22.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nbproject/build-impl.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nbproject/genfiles.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nbproject/private/config.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nbproject/private/private.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nbproject/private/private.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nbproject/project.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nbproject/project.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ojdbc11-full/BASIC_LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ojdbc11-full/PaxHeader/BASIC_LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ojdbc11-full/PaxHeader/ojdbc.policy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ojdbc11-full/ojdbc.policy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ojdbc11-full/ojdbc11.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ojdbc11-full/ons.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ojdbc11-full/oraclepki.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ojdbc11-full/orai18n.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ojdbc11-full/osdt_cert.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ojdbc11-full/osdt_core.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ojdbc11-full/rsi.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ojdbc11-full/simplefan.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ojdbc11-full/ucp11.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ojdbc11-full/xdb.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ojdbc11-full/xmlparserv2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ojdbc11-full/xmlparserv2_sans_jaxp_services.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Labyrinth Adventure/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/brick.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/darkness.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/desktop.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/edged.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/edgel.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/edgeld.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/edgelr.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/edgelrd.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/edgelud.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/edger.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/edgerd.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/edgeu.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/edgeud.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/edgeul.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/edgeur.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/edgeurd.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/edgeurl.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/grass.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/textureswithdragon/brick.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/textureswithdragon/dragon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/textureswithdragon/edged.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/textureswithdragon/edgel.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/textureswithdragon/edgeld.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/textureswithdragon/edgelr.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/textureswithdragon/edgelrd.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/textureswithdragon/edgelud.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/textureswithdragon/edger.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/textureswithdragon/edgerd.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/textureswithdragon/edgeu.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/textureswithdragon/edgeud.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/textureswithdragon/edgeul.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/textureswithdragon/edgeur.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/textureswithdragon/edgeurd.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/textureswithdragon/edgeurl.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/textureswithdragon/grass.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/textureswithplayer/brick.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/textureswithplayer/edged.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/textureswithplayer/edgel.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/textureswithplayer/edgeld.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/textureswithplayer/edgelr.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/textureswithplayer/edgelrd.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/textureswithplayer/edgelud.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/textureswithplayer/edger.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/textureswithplayer/edgerd.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/textureswithplayer/edgeu.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/textureswithplayer/edgeud.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/textureswithplayer/edgeul.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/textureswithplayer/edgeur.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/textureswithplayer/edgeurd.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/textureswithplayer/edgeurl.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/textureswithplayer/grass.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/textureswithplayer/player.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/AdventureGUI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/Cell.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/Dragon.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/HighScoreTableModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/HighScoreWindow.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/Labyrinth.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/LabyrinthBuilder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/game/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/MapBuilder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/game/MainMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/Player.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/ResourceLoader.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/persistence/ConnectionFactory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/persistence/Database.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/persistence/HighScore.java" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -169,7 +366,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitSEFilterConfiguration">
     <file-type-list>
@@ -180,18 +377,20 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/app/src/main/java/game/MainMenu.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/app/src/main/java/game/view/Labyrinth.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/app/src/main/java/persistence/OracleSqlManager.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/app/src/main/java/game/view/MapBuilderGUI.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/app/build.gradle" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/app/src/main/java/game/view/AdventureGUI.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/app/src/main/java/game/view/ResourceLoader.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/app/src/main/java/game/model/Player.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/app/src/main/java/game/Main.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/app/src/main/java/game/view/DistanceManager.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/app/src/main/java/game/model/LabyrinthBuilder.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/settings.gradle" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/app/src/main/java/game/Main.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/app/src/main/java/game/MainMenu.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/app/src/main/java/game/model/Dragon.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/app/src/main/java/game/model/Cell.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/app/src/main/java/game/model/Player.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/app/src/main/java/game/model/LabyrinthBuilder.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/app/src/main/java/persistence/OracleSqlManager.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/app/src/main/java/game/view/AdventureGUI.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/app/src/main/java/game/view/DistanceManager.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/app/src/main/java/game/view/MapBuilderGUI.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/app/src/main/java/game/view/Labyrinth.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/app/build.gradle" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/app/src/main/java/game/view/ResourceLoader.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -430,6 +629,7 @@
       <item itemvalue="Gradle.Labyrinth Adventure:app [assemble]" />
       <item itemvalue="Gradle.Labyrinth Adventure [compileJava]" />
       <item itemvalue="Maven.Unnamed" />
+      <item itemvalue="Smart Tomcat.Unnamed" />
     </list>
     <recent_temporary>
       <list>
@@ -513,7 +713,7 @@
         </breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/game/model/Dragon.java</url>
-          <line>278</line>
+          <line>289</line>
           <option name="timeStamp" value="18" />
         </line-breakpoint>
       </breakpoints>
@@ -524,8 +724,8 @@
     <select />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Labyrinth_Adventure$Labyrinth_Adventure__run_.ic" NAME="Labyrinth Adventure [run] Coverage Results" MODIFIED="1650925580170" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/Labyrinth_Adventure$.ic" NAME=" Coverage Results" MODIFIED="1648495301431" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/Labyrinth_Adventure$Labyrinth_Adventure__run_.ic" NAME="Labyrinth Adventure [run] Coverage Results" MODIFIED="1650522849689" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/Labyrinth_Adventure$Main.ic" NAME="Main Coverage Results" MODIFIED="1647889488051" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>
