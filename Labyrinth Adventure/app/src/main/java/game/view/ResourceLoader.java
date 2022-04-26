@@ -27,11 +27,9 @@ public class ResourceLoader {
     public static BufferedImage edgel;
     public static BufferedImage edger;
     public static BufferedImage grass;
-    public static BufferedImage blue;
 
     public static void initResources() throws IOException
     {
-        blue = ImageIO.read(ResourceLoader.class.getClassLoader().getResource("blue.png"));
         darkness = ImageIO.read(ResourceLoader.class.getClassLoader().getResource("darkness.png"));
         steve = ImageIO.read(ResourceLoader.class.getClassLoader().getResource("player.png"));
         start = ImageIO.read(ResourceLoader.class.getClassLoader().getResource("start.png"));
