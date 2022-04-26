@@ -40,6 +40,7 @@ public class Cell {
     /** Képkiválasztó metódus, az éleket jelentő boolokat vizsgáljuk. Ha egy bool true, akkor van edge (fal) , ha false, akkor nincs. */
     public BufferedImage selectImage() throws IOException
     {
+        if(isDeadEnd) return ResourceLoader.blue;
         if(isHasBeenVisitedByDragon())return ResourceLoader.darkness;
         else if(isStartingCell) return ResourceLoader.start;
         else if(isEndingCell) return ResourceLoader.end;

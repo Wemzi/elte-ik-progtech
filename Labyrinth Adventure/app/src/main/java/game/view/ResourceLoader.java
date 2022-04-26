@@ -7,6 +7,7 @@ import java.net.URL;
 import javax.imageio.ImageIO;
 
 public class ResourceLoader {
+    public static BufferedImage blue;
     public static BufferedImage darkness;
     public static BufferedImage steve;
     public static BufferedImage end;
@@ -30,6 +31,7 @@ public class ResourceLoader {
 
     public static void initResources() throws IOException
     {
+        blue = ImageIO.read(ResourceLoader.class.getClassLoader().getResource("blue.png"));
         darkness = ImageIO.read(ResourceLoader.class.getClassLoader().getResource("darkness.png"));
         steve = ImageIO.read(ResourceLoader.class.getClassLoader().getResource("player.png"));
         start = ImageIO.read(ResourceLoader.class.getClassLoader().getResource("start.png"));
