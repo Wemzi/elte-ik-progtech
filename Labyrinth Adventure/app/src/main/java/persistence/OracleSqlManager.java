@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.Locale;
 import java.util.logging.Logger;
 import com.jcraft.jsch.*;
-import com.mysql.cj.protocol.Resultset;
 
 import java.util.logging.Level;
 

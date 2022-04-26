@@ -170,14 +170,6 @@ public class Cell {
     public String toString() {
         return "Cell{" +
                 "colIdx=" + colIdx +
-                ", rowIdx=" + rowIdx +
-                ", edgeRight=" + edgeRight +
-                ", edgeLeft=" + edgeLeft +
-                ", edgeDown=" + edgeDown +
-                ", edgeUp=" + edgeUp +
-                ", isDeadEnd=" + isDeadEnd +
-                ", isEndingCell=" + isEndingCell +
-                ", HasBeenVisitedByDragon" + hasBeenVisitedByDragon +
-                '}';
+                ", rowIdx=" + rowIdx ;
     }
 }

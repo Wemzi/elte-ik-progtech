@@ -1,8 +1,10 @@
 package game.model;
 
 import game.view.Direction;
-
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 public class Dragon {
     private Cell currentCell;
@@ -21,26 +23,24 @@ public class Dragon {
         currentCell.setHasBeenVisitedByDragon(true);
         while(!currentCell.isEndingCell())
         {
-            if(!isJunction())
+            if(!isJunction() || isThereUnVisitedRoad())
             {
                 goUntilJunction();
+                System.out.println("gountiljunction returned");
+            }
+            else if(isDeadEnd())
+            {
+                System.out.println("Turning back, dead end");
+                currentDirection = getOppositeDirection();
             }
             else
             {
                 System.out.println("We are in junction, have to make decision" + currentCell);
-                selectNewCell(makeChoiceInJunction());
-                /*{
-                    currentCell.setDeadEnd(true);
-                }*/
-            }
-            if(isDeadEnd())
-            {
-                System.out.println("Turning back, dead end");
-                currentDirection = getOppositeDirection();
-                goUntilJunction();
+                currentDirection = makeChoiceInJunction();
+                selectNewCell(currentDirection);
             }
             retList.add(currentCell);
-            Thread.sleep(2000);
+            //Thread.sleep(2000);
             System.out.println(currentCell);
         }
         System.out.println("VICTORY");
@@ -94,6 +94,14 @@ public class Dragon {
         return retVal;
     }
 
+    public boolean isThereUnVisitedRoad()
+    {
+        return !currentCell.getedgeDown() && getNeighbour(Direction.DOWN) != null && !getNeighbour(Direction.DOWN).isHasBeenVisitedByDragon()
+         || !currentCell.getedgeUp() && getNeighbour(Direction.UP) != null && !getNeighbour(Direction.UP).isHasBeenVisitedByDragon()
+         || !currentCell.getedgeLeft() && getNeighbour(Direction.LEFT) != null && !getNeighbour(Direction.LEFT).isHasBeenVisitedByDragon()
+         || !currentCell.getedgeRight() && getNeighbour(Direction.RIGHT) != null && !getNeighbour(Direction.RIGHT).isHasBeenVisitedByDragon();
+    }
+
     public boolean isJunction()
     {
         return getCountOfPossibleDirections()>2;
@@ -103,13 +111,13 @@ public class Dragon {
     {
         Direction possibleBest = null;
         int possibleBestCount =0;
-        Direction[] directions = { Direction.UP, Direction.RIGHT,Direction.DOWN, Direction.LEFT};
+        Direction[] dirs = { Direction.UP, Direction.RIGHT,Direction.DOWN, Direction.LEFT};
+        List<Direction> directions = Arrays.asList(dirs);
+        Collections.shuffle(directions);
         for(Direction dir : directions)
         {
             Cell neighBour = getNeighbour(dir);
-            //System.out.println("got neighbour: " + neighBour);
             if(neighBour == null) continue;
-            System.out.println("blocked? : " + isMoveBlockedByWall(dir));
             if(!neighBour.isHasBeenVisitedByDragon() && !isMoveBlockedByWall(dir)) {
                 System.out.println("direction returned because it hasn't been visited yet " + dir +
                         currentCell);
@@ -120,7 +128,7 @@ public class Dragon {
                 possibleBestCount++;
             }
         }
-        System.out.println("possible best count : " + possibleBestCount);
+        //System.out.println("possible best count : " + possibleBestCount);
         if(possibleBestCount ==1)
         {
             currentCell.setDeadEnd(true);
@@ -174,11 +182,15 @@ public class Dragon {
 
     public void goUntilJunction()
     {
-        //ArrayList<Cell>
+
         System.out.println("hey" + currentCell);
         int numberOfTries=0;
-        while(!isJunction())
+        while(!isJunction() || isThereUnVisitedRoad())
         {
+            if(isThereUnVisitedRoad())
+            {
+                currentDirection = getDirectionOfUnvisitedRoad();
+            }
             if(!selectNewCell(currentDirection))
             {
                 Direction prevDir = currentDirection;
@@ -206,18 +218,26 @@ public class Dragon {
                     }
                 }
             }
-            if (currentCell.isEndingCell())
+            else if (currentCell.isEndingCell())
             {
                 return;
             }
+            else if(isThereUnVisitedRoad() && isJunction())
+            {
+
+            }
+            else
+            {
+                System.out.println("moved to " + currentCell + isThereUnVisitedRoad());
+            }
+            /*try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }*/
         }
-        System.out.println("found junction, stopping");
     }
 
-    public boolean isNewJunction()
-    {
-        return currentCell.isHasBeenVisitedByDragon();
-    }
 
     public Direction selectNewDirection()
     {
@@ -237,7 +257,6 @@ public class Dragon {
         switch(currentDirection)
         {
             case RIGHT: return Direction.LEFT;
-            case LEFT: return Direction.RIGHT;
             case UP: return Direction.DOWN;
             case DOWN: return Direction.UP;
             default: return Direction.RIGHT;
@@ -261,22 +280,38 @@ public class Dragon {
         return null;
     }
 
+    public Direction getDirectionOfUnvisitedRoad()
+    {
+        if(!currentCell.getedgeDown() && getNeighbour(Direction.DOWN) != null && !getNeighbour(Direction.DOWN).isHasBeenVisitedByDragon()) return Direction.DOWN;
+        else if(!currentCell.getedgeUp() && getNeighbour(Direction.UP) != null && !getNeighbour(Direction.UP).isHasBeenVisitedByDragon()) return Direction.UP;
+        else if(!currentCell.getedgeLeft() && getNeighbour(Direction.LEFT) != null && !getNeighbour(Direction.LEFT).isHasBeenVisitedByDragon()) return Direction.LEFT;
+        else if(!currentCell.getedgeRight() && getNeighbour(Direction.RIGHT) != null && !getNeighbour(Direction.RIGHT).isHasBeenVisitedByDragon()) return Direction.RIGHT;
+        else return null;
+    }
+
     public boolean selectNewCell(Direction dir)
     {
         boolean isMoveSuccessful = false;
-            if(isValidMove(dir))
-            {
-                isMoveSuccessful = tryGoingToNeighbourCell(dir);}
+        if(isValidMove(dir))
+        {
+            isMoveSuccessful = tryGoingToNeighbourCell(dir);
+        }
         if(isJunction()){
             currentCell.setHasBeenVisitedByDragon(true);
+            if(isThereUnVisitedRoad())
+            {
+                currentDirection = getDirectionOfUnvisitedRoad();
+            }
         }
         else if(currentCell.isHasBeenVisitedByDragon() && !isJunction() && getCountOfPossibleDirections() == 1)
         {
             currentCell.setDeadEnd(true);
-            System.out.println("Set to deadend: " + currentCell);
+            //System.out.println("Set to deadend: " + currentCell);
         }
-        else if(isJunction() && !currentCell.isHasBeenVisitedByDragon()){
+        else if(isJunction() && !currentCell.isHasBeenVisitedByDragon())
+        {
             currentCell.setHasBeenVisitedByDragon(true);
-        }return isMoveSuccessful;
+        }
+        return isMoveSuccessful;
     }
 }
