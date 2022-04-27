@@ -33,7 +33,7 @@ public class AdventureGUI extends GUIWindow {
             int response = JOptionPane.showConfirmDialog(frame,"Are you sure you want to quit? Any unsaved progress will be lost.","Confirmation", JOptionPane.OK_CANCEL_OPTION);
             if(response == JOptionPane.OK_OPTION)
             {
-                frame.dispose();
+                stopGame();
             }
         }
     };
@@ -53,9 +53,10 @@ public class AdventureGUI extends GUIWindow {
                 }
                 else if(isLost())
                 {
-                    JOptionPane.showConfirmDialog(frame,"You lost. The score you earned is:" + score + " if you have internet connection available, it should synch automatically.","Lost game",JOptionPane.OK_OPTION);
-                    dbConnection.saveHighScore(score);
-                    score = 0;
+                    String[] buttons = {"OK"};
+                    JOptionPane.showOptionDialog(frame,"You lost. The score you earned is:" + score + " if you have internet connection available, it should synch automatically.","Lost game",JOptionPane.NO_OPTION,JOptionPane.OK_OPTION,null,buttons,buttons[0]);
+                    if(dbConnection != null) dbConnection.saveHighScore(score);
+                    stopGame();
                 }
                 gameStatLabel.setText("Score: " + score + " Creator: " + mapCreator + " Time: " + time++);
                 menu.repaint();
@@ -68,12 +69,10 @@ public class AdventureGUI extends GUIWindow {
         this.parentMenu = parentMenu;
         labyrinth = new LabyrinthBuilder(true,"");
         cells = labyrinth.getCells();
-        mainPanel = new Labyrinth(this);
-        //System.out.println("cell size: " + cells.size();
+        mainPanel = new Labyrinth(this,true);
         Steve.setCoords(mainPanel.getStartingCell().getrowIdx(), mainPanel.getStartingCell().getcolIdx());
         Steve.setPixelX(mainPanel.getStartingCell().getPixelX());
         Steve.setPixelY(mainPanel.getStartingCell().getPixelY());
-        //System.out.println(Steve);
         newGame.addActionListener(new ActionListener(){
            @Override
            /** newgame indítás menüből */
@@ -110,14 +109,14 @@ public class AdventureGUI extends GUIWindow {
         timer.start();
         refresher.start();
         drake = new Dragon(mainPanel.getStartingCell(),cells);
-            Thread thread = new Thread(()-> {
+            Thread drakeThread = new Thread(()-> {
                 try {
                     drake.doTremauxPathFinding();
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
             });
-            thread.start();
+            drakeThread.start();
     }
 
 
@@ -129,7 +128,7 @@ public class AdventureGUI extends GUIWindow {
         String[] mapData = dbConnection.getRandomMap();
         labyrinth = new LabyrinthBuilder(false,mapData[0]);
         cells = labyrinth.getCells();
-        mainPanel = new Labyrinth(this);
+        mainPanel = new Labyrinth(this,true);
         mainPanel.addMouseListener(new CellMouseAdapter(cells,mainPanel,labyrinth));
         refresher = new Timer(15,new ActionListener(){
             @Override
@@ -167,6 +166,15 @@ public class AdventureGUI extends GUIWindow {
         frame.setVisible(true);
         timer.start();
         refresher.start();
+    }
+
+    private void stopGame()
+    {
+        time = 0;
+        score = 0;
+        timer.stop();
+        refresher.stop();
+        frame.dispose();
     }
 
     public Cell getCurrentCell(Player Steve)
@@ -232,7 +240,7 @@ public class AdventureGUI extends GUIWindow {
 
     public boolean isLost()
     {
-        return score == 5; // TODO: implement AI
+        return score == 1; // TODO: implement AI
     }
 
     public boolean isWon()
@@ -273,7 +281,8 @@ public class AdventureGUI extends GUIWindow {
             mapCreator = mapData[1];
         }
         cells = labyrinth.getCells();
-        mainPanel = new Labyrinth(this);
+        mainPanel = new Labyrinth(this,true);
+
         frame.setExtendedState(Frame.MAXIMIZED_BOTH);
         frame.getContentPane().add(BorderLayout.SOUTH, bottomMenu);
         frame.getContentPane().add(BorderLayout.CENTER, mainPanel);
@@ -281,6 +290,12 @@ public class AdventureGUI extends GUIWindow {
         Steve.setCoords(mainPanel.getStartingCell().getrowIdx(), mainPanel.getStartingCell().getcolIdx());
         Steve.setPixelX(mainPanel.getStartingCell().getPixelX());
         Steve.setPixelY(mainPanel.getStartingCell().getPixelY());
+        drake = new Dragon(mainPanel.getStartingCell(),cells);
+        try {
+            drake.doTremauxPathFinding();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         System.out.println(mainPanel.getHeight());
         refresher.start();
         timer.start();

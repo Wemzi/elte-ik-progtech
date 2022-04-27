@@ -10,6 +10,7 @@ public class ResourceLoader {
     public static BufferedImage blue;
     public static BufferedImage darkness;
     public static BufferedImage steve;
+    public static BufferedImage drake;
     public static BufferedImage end;
     public static BufferedImage start;
     public static BufferedImage brick;
@@ -34,6 +35,7 @@ public class ResourceLoader {
         blue = ImageIO.read(ResourceLoader.class.getClassLoader().getResource("blue.png"));
         darkness = ImageIO.read(ResourceLoader.class.getClassLoader().getResource("darkness.png"));
         steve = ImageIO.read(ResourceLoader.class.getClassLoader().getResource("player.png"));
+        drake = ImageIO.read(ResourceLoader.class.getClassLoader().getResource("dragon.png"));
         start = ImageIO.read(ResourceLoader.class.getClassLoader().getResource("start.png"));
         end = ImageIO.read(ResourceLoader.class.getClassLoader().getResource("end.png"));
         brick = ImageIO.read(ResourceLoader.class.getClassLoader().getResource("brick.png"));

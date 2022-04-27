@@ -19,6 +19,7 @@ import javax.swing.JPanel;
 
 import game.*;
 import game.model.Cell;
+import game.model.Dragon;
 import game.model.LabyrinthBuilder;
 import game.model.Player;
 import persistence.*;
@@ -40,7 +41,20 @@ public class MapBuilderGUI extends GUIWindow {
             public void actionPerformed(ActionEvent e) {
                 labyrinth.getCurrentCell().setEndingCell(true);
                 String alias = JOptionPane.showInputDialog("Please enter an alias for the map","alias");
-                dbConnection.saveMap(mainPanel.toMapDataString(),alias);
+                Dragon drake = new Dragon(mainPanel.getStartingCell(),cells);
+                try {
+                    String[] buttons = {"OK"};
+                    if(drake.doTremauxPathFinding())
+                    {
+                        dbConnection.saveMap(mainPanel.toMapDataString(),alias);
+                    }
+                    else
+                    {
+                        JOptionPane.showOptionDialog(frame,"The AI didn't found a way out of your maze. Please start again, and make sure there is a way out of your maze.","Lost game",JOptionPane.NO_OPTION,JOptionPane.OK_OPTION,null,buttons,buttons[0]);
+                    }
+                } catch (InterruptedException ex) {
+                    ex.printStackTrace();
+                }
                 frame.dispose();
             }
         });
@@ -51,7 +65,7 @@ public class MapBuilderGUI extends GUIWindow {
             }
         });
         menu.add(saveMap);
-        mainPanel = new Labyrinth(this);
+        mainPanel = new Labyrinth(this,false);
         mainPanel.addMouseMotionListener(new CellMouseAdapter(cells,mainPanel,labyrinth));
         mainPanel.addMouseListener(new CellMouseAdapter(cells,mainPanel,labyrinth));
         frame.getContentPane().add(BorderLayout.CENTER, mainPanel);

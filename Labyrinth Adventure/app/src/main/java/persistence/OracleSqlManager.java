@@ -196,7 +196,6 @@ public class OracleSqlManager {
             session.connect();
             assigned_port = session.setPortForwardingL(local_port,
                     "aramis.inf.elte.hu", remote_port);
-            System.out.println(assigned_port);
         if (assigned_port == 0) {
             LOGGER.log(Level.SEVERE, "Port forwarding failed !");
             return;

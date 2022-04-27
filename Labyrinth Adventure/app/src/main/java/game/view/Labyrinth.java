@@ -25,6 +25,7 @@ public class Labyrinth extends JPanel{
     private GUIWindow board;
     private int picsize;
     private boolean startOfGame;
+    private boolean debugMode;
 
     public Cell getStartingCell()
     {
@@ -58,10 +59,10 @@ public class Labyrinth extends JPanel{
         return ret;
     }
     
-    public Labyrinth(GUIWindow board)
+    public Labyrinth(GUIWindow board, boolean debugMode)
     {
+        this.debugMode = debugMode;
         this.board=board;
-        System.out.println(board.frame.getHeight());
         cells = board.getCells();
         System.out.println(getHeight());
         picsize = getHeight() > getWidth() ?  getWidth()/cells.size() : getHeight()/cells.size();
@@ -90,7 +91,7 @@ public class Labyrinth extends JPanel{
                 Cell cell = cells.get(idx).get(jdx);
                 try
                 {
-                    img = cell.selectImage();
+                    img = cell.selectImage(debugMode);
                 }
                 catch(IOException e)
                 {
