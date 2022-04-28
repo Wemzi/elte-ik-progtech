@@ -27,6 +27,7 @@ public class AdventureGUI extends GUIWindow {
     private final KeyHandler keyHandler = new KeyHandler();
     private final JMenu menu = new JMenu("Menu");
     private int waitTimeBetWeenAIIterations=1500;
+    private boolean didDrakeFindThePath;
     private final JMenuBar bottomMenu = new JMenuBar();
     private final ActionListener backToMainMenuAction = new ActionListener() {
         @Override
@@ -112,7 +113,7 @@ public class AdventureGUI extends GUIWindow {
         drake = new Dragon(mainPanel.getStartingCell(),cells,waitTimeBetWeenAIIterations);
             Thread drakeThread = new Thread(()-> {
                 try {
-                    drake.doTremauxPathFinding();
+                    didDrakeFindThePath = drake.doTremauxPathFinding();
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -241,7 +242,7 @@ public class AdventureGUI extends GUIWindow {
 
     public boolean isLost()
     {
-        return score == 1; // TODO: implement AI
+        return didDrakeFindThePath == true;
     }
 
     public boolean isWon()
