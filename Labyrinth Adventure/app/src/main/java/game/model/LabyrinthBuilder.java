@@ -73,6 +73,18 @@ public class LabyrinthBuilder
         }
     }
 
+    public Cell getStartingCell()
+    {
+        for(ArrayList<Cell> cellRow : cells)
+        {
+            for(Cell cell : cellRow)
+            {
+                if(cell.isStartingCell())return cell;
+            }
+        }
+        return null;
+    }
+
     public void setCurrentCell(Cell currentCell) {
         this.currentCell = currentCell;
     }

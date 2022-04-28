@@ -122,6 +122,7 @@ public class AdventureGUI extends GUIWindow {
     }
 
 
+
     public AdventureGUI(MainMenu parentMenu,OracleSqlManager dbConnection) throws IOException,IncorrectMapSizeException
     {
         super();
@@ -177,6 +178,18 @@ public class AdventureGUI extends GUIWindow {
         timer.stop();
         refresher.stop();
         frame.dispose();
+    }
+
+    public Cell getStartingCell()
+    {
+        for(ArrayList<Cell> cellRow : cells)
+        {
+            for(Cell cell : cellRow)
+            {
+                if(cell.isStartingCell())return cell;
+            }
+        }
+        return null;
     }
 
     public Cell getCurrentCell(Player Steve)

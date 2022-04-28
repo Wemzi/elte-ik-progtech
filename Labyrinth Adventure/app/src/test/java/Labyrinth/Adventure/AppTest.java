@@ -3,12 +3,68 @@
  */
 package Labyrinth.Adventure;
 
+import com.jcraft.jsch.JSchException;
+import game.IncorrectMapSizeException;
 import game.Main;
+import game.MainMenu;
+import game.model.Dragon;
+import game.model.LabyrinthBuilder;
+import game.view.AdventureGUI;
+import game.view.Labyrinth;
 import org.junit.Test;
+import persistence.OracleSqlManager;
+
+import java.io.IOException;
+import java.sql.SQLException;
+
 import static org.junit.Assert.*;
 
 public class AppTest {
     @Test public void appHasAGreeting() {
         Main classUnderTest = new Main();
     }
+
+    @Test public void connectWithSQLIsSuccessful()
+    {
+        OracleSqlManager sqlManager = null;
+        try {
+            sqlManager = new OracleSqlManager("rnyr2f","rnyr2f");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (JSchException e) {
+            e.printStackTrace();
+        }
+        assert sqlManager != null;
+    }
+
+    @Test public void buildLabyrinthWithAldousBroder()
+    {
+        try {
+            for(int idx=0; idx<100;idx++)
+            {
+                LabyrinthBuilder labyrinth  = new LabyrinthBuilder(true,"");
+                assert true == new Dragon(labyrinth.getStartingCell(),labyrinth.getCells(),0).doTremauxPathFinding();
+            }
+        } catch ( InterruptedException | IncorrectMapSizeException e ) {
+            e.printStackTrace();
+        }
+    }
+
+
+    @Test public void EmptyLabyrinthCantPass()
+    {
+        try {
+            LabyrinthBuilder labyrinth = new LabyrinthBuilder(false,"");
+            assert false == new Dragon(labyrinth.getCells().get(0).get(0),labyrinth.getCells(),0).doTremauxPathFinding();
+        } catch ( InterruptedException | IncorrectMapSizeException e ) {
+            e.printStackTrace();
+        }
+    }
+
+
+   @Test public void IncorrectStringThrowsException()
+    {
+            assertThrows(IncorrectMapSizeException.class, () -> new LabyrinthBuilder(false,"1010 0110 1010"));
+    }
+
 }
