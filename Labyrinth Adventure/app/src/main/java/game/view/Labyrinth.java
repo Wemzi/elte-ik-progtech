@@ -6,6 +6,7 @@
 package game.view;
 
 import game.model.Cell;
+import game.model.Dragon;
 import game.model.Player;
 
 import java.awt.Graphics;
@@ -100,6 +101,14 @@ public class Labyrinth extends JPanel{
                 gr.drawImage(img, jdx * picsize,(board.getLabyrinth().getHeight()-(idx+1)*(picsize)), picsize, picsize, null);
                 cell.setPixelX(jdx*picsize);
                 cell.setPixelY((idx)*(picsize));
+                if(board instanceof AdventureGUI)
+                {
+                    Dragon drake = ((AdventureGUI) board).getDrake();
+                    if(drake.getCurrentCell().equals(cell) && cell.isVisibleForPlayer())
+                    {
+                        gr.drawImage(ResourceLoader.drake, jdx * picsize,(board.getLabyrinth().getHeight()-(idx+1)*(picsize)), picsize, picsize, null);
+                    }
+                }
             }
         }
         if(board instanceof AdventureGUI) // player

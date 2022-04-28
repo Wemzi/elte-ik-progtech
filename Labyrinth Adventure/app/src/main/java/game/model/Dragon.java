@@ -10,12 +10,16 @@ public class Dragon {
     private Cell currentCell;
     private ArrayList<ArrayList<Cell>> cells;
     private Direction currentDirection = Direction.RIGHT;
+    private int waitTimeBetweenIterationsInMs;
 
-    public Dragon(Cell startingCell,ArrayList<ArrayList<Cell>> cells)
+    public Dragon(Cell startingCell,ArrayList<ArrayList<Cell>> cells, int waitTimeBetweenIterationsInMs)
     {
         this.cells = cells;
         this.currentCell = startingCell;
+        this.waitTimeBetweenIterationsInMs = waitTimeBetweenIterationsInMs;
     }
+
+    public Cell getCurrentCell(){ return currentCell;}
 
     public boolean doTremauxPathFinding() throws InterruptedException {
         ArrayList<Cell> retList = new ArrayList<>();
@@ -254,6 +258,13 @@ public class Dragon {
         if(isValidMove(dir))
         {
             isMoveSuccessful = tryGoingToNeighbourCell(dir);
+        }
+        if(isMoveSuccessful) {
+            try {
+                Thread.sleep(waitTimeBetweenIterationsInMs);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
         if(isJunction())
         {

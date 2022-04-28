@@ -26,6 +26,7 @@ public class AdventureGUI extends GUIWindow {
     private final Player Steve = new Player();
     private final KeyHandler keyHandler = new KeyHandler();
     private final JMenu menu = new JMenu("Menu");
+    private int waitTimeBetWeenAIIterations=1500;
     private final JMenuBar bottomMenu = new JMenuBar();
     private final ActionListener backToMainMenuAction = new ActionListener() {
         @Override
@@ -69,7 +70,7 @@ public class AdventureGUI extends GUIWindow {
         this.parentMenu = parentMenu;
         labyrinth = new LabyrinthBuilder(true,"");
         cells = labyrinth.getCells();
-        mainPanel = new Labyrinth(this,true);
+        mainPanel = new Labyrinth(this,false);
         Steve.setCoords(mainPanel.getStartingCell().getrowIdx(), mainPanel.getStartingCell().getcolIdx());
         Steve.setPixelX(mainPanel.getStartingCell().getPixelX());
         Steve.setPixelY(mainPanel.getStartingCell().getPixelY());
@@ -108,7 +109,7 @@ public class AdventureGUI extends GUIWindow {
         frame.setVisible(true);
         timer.start();
         refresher.start();
-        drake = new Dragon(mainPanel.getStartingCell(),cells);
+        drake = new Dragon(mainPanel.getStartingCell(),cells,waitTimeBetWeenAIIterations);
             Thread drakeThread = new Thread(()-> {
                 try {
                     drake.doTremauxPathFinding();
@@ -248,6 +249,8 @@ public class AdventureGUI extends GUIWindow {
         return getCurrentCell(Steve) == mainPanel.getEndingCell();
     }
 
+    public Dragon getDrake() { return drake;}
+
     public JFrame getFrame()
     {
         return frame;
@@ -281,8 +284,7 @@ public class AdventureGUI extends GUIWindow {
             mapCreator = mapData[1];
         }
         cells = labyrinth.getCells();
-        mainPanel = new Labyrinth(this,true);
-
+        mainPanel = new Labyrinth(this,false);
         frame.setExtendedState(Frame.MAXIMIZED_BOTH);
         frame.getContentPane().add(BorderLayout.SOUTH, bottomMenu);
         frame.getContentPane().add(BorderLayout.CENTER, mainPanel);
@@ -290,7 +292,7 @@ public class AdventureGUI extends GUIWindow {
         Steve.setCoords(mainPanel.getStartingCell().getrowIdx(), mainPanel.getStartingCell().getcolIdx());
         Steve.setPixelX(mainPanel.getStartingCell().getPixelX());
         Steve.setPixelY(mainPanel.getStartingCell().getPixelY());
-        drake = new Dragon(mainPanel.getStartingCell(),cells);
+        drake = new Dragon(mainPanel.getStartingCell(),cells,waitTimeBetWeenAIIterations);
         try {
             drake.doTremauxPathFinding();
         } catch (InterruptedException e) {
