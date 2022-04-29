@@ -1,7 +1,7 @@
 package game.model;
 
+import game.IncorrectMapException;
 import game.view.Direction;
-import game.IncorrectMapSizeException;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -14,7 +14,7 @@ public class LabyrinthBuilder
     private final int NUMBER_OF_ROWS = 9;
     private final int NUMBER_OF_COLS = 16;
     
-    public LabyrinthBuilder(boolean isMapGenerationNeeded,String mapData) throws IncorrectMapSizeException {
+    public LabyrinthBuilder(boolean isMapGenerationNeeded,String mapData) throws IncorrectMapException {
         int iterations = 0;
         for (int idx = 0; idx < NUMBER_OF_ROWS; idx++)
         {
@@ -41,7 +41,7 @@ public class LabyrinthBuilder
         }
         else if(!mapData.equals("")) {
             String[] mapDataSplit = mapData.split(" ");
-            if(mapDataSplit.length != NUMBER_OF_ROWS * NUMBER_OF_COLS) throw new IncorrectMapSizeException("Incorrect map format!");
+            if(mapDataSplit.length != NUMBER_OF_ROWS * NUMBER_OF_COLS) throw new IncorrectMapException("Incorrect map format!");
             int StringIdx=0;
             for(ArrayList<Cell> cellRow :cells)
             {

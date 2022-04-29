@@ -49,7 +49,7 @@ public class AdventureGUI extends GUIWindow {
                     try {
                         restartGame();
                         score++;
-                    } catch (IncorrectMapSizeException ex) {
+                    } catch (IncorrectMapException ex) {
                         ex.printStackTrace();
                     }
                 }
@@ -65,7 +65,7 @@ public class AdventureGUI extends GUIWindow {
             }
         });
     /** Grafikus UI konstruktora,, melyben meghívom a labirintusgenerálást, létrehozzuk az összes UI elemet, generáljuk a játékost és a sárkányt.*/
-    public AdventureGUI(MainMenu parentMenu) throws IOException,IncorrectMapSizeException
+    public AdventureGUI(MainMenu parentMenu) throws IOException,IncorrectMapException
     {
         super();
         this.parentMenu = parentMenu;
@@ -84,7 +84,7 @@ public class AdventureGUI extends GUIWindow {
            time = 0;
             try {
                 restartGame();
-            } catch (IncorrectMapSizeException ex) {
+            } catch (IncorrectMapException ex) {
                 ex.printStackTrace();
             }
         }});
@@ -123,7 +123,7 @@ public class AdventureGUI extends GUIWindow {
 
 
 
-    public AdventureGUI(MainMenu parentMenu,OracleSqlManager dbConnection) throws IOException,IncorrectMapSizeException
+    public AdventureGUI(MainMenu parentMenu,OracleSqlManager dbConnection) throws IOException,IncorrectMapException
     {
         super();
         this.dbConnection = dbConnection;
@@ -149,7 +149,7 @@ public class AdventureGUI extends GUIWindow {
                 time = 0;
                 try {
                     restartGame();
-                } catch (IncorrectMapSizeException ex) {
+                } catch (IncorrectMapException ex) {
                     ex.printStackTrace();
                 }
             }
@@ -280,7 +280,7 @@ public class AdventureGUI extends GUIWindow {
         return Steve;
     }
     /** újraindító metódus */
-    public void restartGame() throws IncorrectMapSizeException
+    public void restartGame() throws IncorrectMapException
     {
         refresher.stop();
         timer.stop();

@@ -4,6 +4,7 @@
 package Labyrinth.Adventure;
 
 import com.jcraft.jsch.JSchException;
+import game.IncorrectMapException;
 import game.IncorrectMapSizeException;
 import game.Main;
 import game.MainMenu;
@@ -45,7 +46,7 @@ public class AppTest {
                 LabyrinthBuilder labyrinth  = new LabyrinthBuilder(true,"");
                 assert true == new Dragon(labyrinth.getStartingCell(),labyrinth.getCells(),0).doTremauxPathFinding();
             }
-        } catch ( InterruptedException | IncorrectMapSizeException e ) {
+        } catch ( InterruptedException | IncorrectMapException e ) {
             e.printStackTrace();
         }
     }
@@ -56,7 +57,7 @@ public class AppTest {
         try {
             LabyrinthBuilder labyrinth = new LabyrinthBuilder(false,"");
             assert false == new Dragon(labyrinth.getCells().get(0).get(0),labyrinth.getCells(),0).doTremauxPathFinding();
-        } catch ( InterruptedException | IncorrectMapSizeException e ) {
+        } catch ( InterruptedException | IncorrectMapException e ) {
             e.printStackTrace();
         }
     }

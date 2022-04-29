@@ -27,7 +27,7 @@ import javax.swing.Timer;
 
 public class MapBuilderGUI extends GUIWindow {
 
-    public MapBuilderGUI(OracleSqlManager dbConnection) throws IOException,IncorrectMapSizeException
+    public MapBuilderGUI(OracleSqlManager dbConnection) throws IOException,IncorrectMapException
     {
         super();
         this.dbConnection = dbConnection;

@@ -133,7 +133,7 @@ public class MainMenu {
             this.gameInstance = new AdventureGUI(this,dbConnection);
         } catch (IOException e) {
             e.printStackTrace();
-        } catch (IncorrectMapSizeException e) {
+        } catch (IncorrectMapException e) {
             e.printStackTrace();
         }
     }
@@ -144,7 +144,7 @@ public class MainMenu {
             this.gameInstance = new AdventureGUI(this);
         } catch (IOException e) {
             e.printStackTrace();
-        } catch (IncorrectMapSizeException e) {
+        } catch (IncorrectMapException e) {
             e.printStackTrace();
         }
     }
