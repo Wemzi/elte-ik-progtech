@@ -5,7 +5,6 @@ package Labyrinth.Adventure;
 
 import com.jcraft.jsch.JSchException;
 import game.IncorrectMapException;
-import game.IncorrectMapSizeException;
 import game.Main;
 import game.MainMenu;
 import game.model.Dragon;
@@ -65,7 +64,6 @@ public class AppTest {
 
    @Test public void IncorrectStringThrowsException()
     {
-            assertThrows(IncorrectMapSizeException.class, () -> new LabyrinthBuilder(false,"1010 0110 1010"));
+            assertThrows(IncorrectMapException.class, () -> new LabyrinthBuilder(false,"1010 0110 1010"));
     }
-
 }

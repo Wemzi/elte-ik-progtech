@@ -17,7 +17,6 @@ import persistence.*;
 public class AdventureGUI extends GUIWindow {
     private static int score=0;
     private static int time = 0;
-    private final MainMenu parentMenu;
     private Dragon drake;
     private String mapCreator = "Aldous-Broder Algorithm";
     private final JMenuItem newGame = new JMenuItem("New Game");
@@ -39,6 +38,7 @@ public class AdventureGUI extends GUIWindow {
             }
         }
     };
+    private Thread drakeThread;
     private Timer timer = new Timer(SECONDINMS, new ActionListener()
         {
             @Override
@@ -47,8 +47,10 @@ public class AdventureGUI extends GUIWindow {
                 if(isWon())
                 {
                     try {
+                        waitTimeBetWeenAIIterations *= 0.95;
                         restartGame();
                         score++;
+
                     } catch (IncorrectMapException ex) {
                         ex.printStackTrace();
                     }
@@ -68,7 +70,6 @@ public class AdventureGUI extends GUIWindow {
     public AdventureGUI(MainMenu parentMenu) throws IOException,IncorrectMapException
     {
         super();
-        this.parentMenu = parentMenu;
         labyrinth = new LabyrinthBuilder(true,"");
         cells = labyrinth.getCells();
         mainPanel = new Labyrinth(this,false);
@@ -111,14 +112,13 @@ public class AdventureGUI extends GUIWindow {
         timer.start();
         refresher.start();
         drake = new Dragon(mainPanel.getStartingCell(),cells,waitTimeBetWeenAIIterations);
-            Thread drakeThread = new Thread(()-> {
-                try {
-                    didDrakeFindThePath = drake.doTremauxPathFinding();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            });
-            drakeThread.start();
+        drakeThread = new Thread(()-> {
+        try {
+            didDrakeFindThePath = drake.doTremauxPathFinding();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }});
+        drakeThread.start();
     }
 
 
@@ -127,8 +127,8 @@ public class AdventureGUI extends GUIWindow {
     {
         super();
         this.dbConnection = dbConnection;
-        this.parentMenu = parentMenu;
         String[] mapData = dbConnection.getRandomMap();
+
         labyrinth = new LabyrinthBuilder(false,mapData[0]);
         cells = labyrinth.getCells();
         mainPanel = new Labyrinth(this,true);
@@ -167,6 +167,15 @@ public class AdventureGUI extends GUIWindow {
         frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         frame.setUndecorated(true);
         frame.setVisible(true);
+        drake = new Dragon(mainPanel.getStartingCell(),cells,waitTimeBetWeenAIIterations);
+        drakeThread = new Thread(()-> {
+            try {
+                didDrakeFindThePath = drake.doTremauxPathFinding();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        });
+        drakeThread.start();
         timer.start();
         refresher.start();
     }
@@ -284,6 +293,7 @@ public class AdventureGUI extends GUIWindow {
     {
         refresher.stop();
         timer.stop();
+        drakeThread.stop();
         Dimension prevWindowDimensions = mainPanel.getSize();
         frame.getContentPane().remove(mainPanel);
         frame.getContentPane().remove(bottomMenu);
@@ -307,12 +317,13 @@ public class AdventureGUI extends GUIWindow {
         Steve.setPixelX(mainPanel.getStartingCell().getPixelX());
         Steve.setPixelY(mainPanel.getStartingCell().getPixelY());
         drake = new Dragon(mainPanel.getStartingCell(),cells,waitTimeBetWeenAIIterations);
-        try {
-            drake.doTremauxPathFinding();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        System.out.println(mainPanel.getHeight());
+        drakeThread = new Thread(()-> {
+            try {
+                didDrakeFindThePath = drake.doTremauxPathFinding();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }});
+        drakeThread.start();
         refresher.start();
         timer.start();
         System.out.println("minden elindult");

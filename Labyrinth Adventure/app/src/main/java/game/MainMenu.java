@@ -35,17 +35,16 @@ public class MainMenu {
     private JPanel buttonPanel = new JPanel(new GridLayout(1,2,50,50));
     public MainMenu() {
         this.frame = new JFrame("Labyrinth Adventure");
-        Hashtable<String,String> credentials = this.login(frame);
-        try
-        {
-            dbConnection = new OracleSqlManager(credentials.get("user"),credentials.get("pass"));
-        }
-        catch(Exception e)
-        {
-            dbConnection = null;
-            e.printStackTrace();
-            System.out.println("connection wasn't successful, switching to offline mode ");
-        }
+        int tries = 0;
+            Hashtable<String, String> credentials = this.login(frame);
+            try {
+                if(credentials.get("user") != null)
+                {
+                    dbConnection = new OracleSqlManager(credentials.get("user"), credentials.get("pass"));
+                }
+            } catch (Exception e) {
+                dbConnection = null;
+            }
 
         mapBuilderButton.addActionListener(new ActionListener()
         { @Override
@@ -115,7 +114,7 @@ public class MainMenu {
         JPasswordField password = new JPasswordField();
         controls.add(password);
         panel.add(controls, BorderLayout.CENTER);
-        JOptionPane.showMessageDialog(frame, panel, "Login into ELTE Aramis DB", JOptionPane.OK_CANCEL_OPTION);
+        JOptionPane.showMessageDialog(frame, panel, "Login into ELTE Aramis for Online features", JOptionPane.OK_CANCEL_OPTION);
         logininformation.put("user", username.getText());
         logininformation.put("pass", new String(password.getPassword()));
         return logininformation;

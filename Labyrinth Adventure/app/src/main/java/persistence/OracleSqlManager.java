@@ -17,7 +17,7 @@ public class OracleSqlManager {
     private final static Logger LOGGER =
             Logger.getLogger(OracleSqlManager.class.getName());
     public OracleSqlManager(String username, String password) throws SQLException,JSchException{
-       super();
+            super();
             this.connect(username, password);
             this.user = username.toUpperCase(Locale.ROOT);
     }
