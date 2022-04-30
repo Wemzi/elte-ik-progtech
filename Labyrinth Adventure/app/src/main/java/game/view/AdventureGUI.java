@@ -106,8 +106,7 @@ public class AdventureGUI extends GUIWindow {
         backToMainMenu.addActionListener(backToMainMenuAction);
         frame.getContentPane().add(BorderLayout.SOUTH, bottomMenu);
         frame.getContentPane().add(BorderLayout.CENTER, mainPanel);
-        frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
-        frame.setUndecorated(true);
+        frame.setSize(1280,720);
         frame.setVisible(true);
         timer.start();
         refresher.start();
@@ -164,8 +163,7 @@ public class AdventureGUI extends GUIWindow {
         bottomMenu.add(gameStatLabel);
         frame.getContentPane().add(BorderLayout.SOUTH, bottomMenu);
         frame.getContentPane().add(BorderLayout.CENTER, mainPanel);
-        frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
-        frame.setUndecorated(true);
+        frame.setSize(1280,720);
         frame.setVisible(true);
         drake = new Dragon(mainPanel.getStartingCell(),cells,waitTimeBetWeenAIIterations);
         drakeThread = new Thread(()-> {
@@ -309,7 +307,7 @@ public class AdventureGUI extends GUIWindow {
         }
         cells = labyrinth.getCells();
         mainPanel = new Labyrinth(this,false);
-        frame.setExtendedState(Frame.MAXIMIZED_BOTH);
+        frame.setSize(1280,720);
         frame.getContentPane().add(BorderLayout.SOUTH, bottomMenu);
         frame.getContentPane().add(BorderLayout.CENTER, mainPanel);
         mainPanel.setSize(prevWindowDimensions);
