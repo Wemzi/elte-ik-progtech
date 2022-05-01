@@ -33,6 +33,7 @@
       <change afterPath="$PROJECT_DIR$/app/src/test/java/Labyrinth/Adventure/AppTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dokumentáció IDU27K.docx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/bead3 IDU27K.zip" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build/built-jar.properties" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/.netbeans_automatic_build" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/resources/brick.png" afterDir="false" />
@@ -111,6 +112,7 @@
       <change beforePath="$PROJECT_DIR$/dist/Labyrinth_adventure.jar" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/README.TXT" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/lib/mysql-connector-java-8.0.22.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/labyrinthadventure.sql" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/nbproject/build-impl.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/nbproject/genfiles.properties" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/nbproject/private/config.properties" beforeDir="false" />
