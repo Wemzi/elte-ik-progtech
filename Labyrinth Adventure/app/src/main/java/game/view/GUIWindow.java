@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 public abstract class GUIWindow {
     protected JFrame frame;
-    protected Labyrinth mainPanel;
+    protected LabyrinthPanel mainPanel;
     protected LabyrinthBuilder labyrinth;
     protected ArrayList<ArrayList<Cell>> cells = new ArrayList<ArrayList<Cell>>();
     protected JMenuBar bottomMenu;
@@ -19,6 +19,7 @@ public abstract class GUIWindow {
     protected OracleSqlManager dbConnection;
     protected Timer refresher;
     protected JMenu menu;
+    protected final int SPRITE_UPDATE_FREQUENCY=100;
     protected final int REFRESH_TIME_FOR_60FPS=15;
     protected final int SECONDINMS=1000;
 

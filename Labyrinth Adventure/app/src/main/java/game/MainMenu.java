@@ -5,101 +5,134 @@
 package game;
 
 
-import game.view.AdventureGUI;
+import game.view.*;
 import game.model.LabyrinthBuilder;
-import game.view.MapBuilderGUI;
-import game.view.MapList;
-import game.view.TopList;
 import persistence.OracleSqlManager;
 
 import java.awt.*;
+import java.awt.color.ColorSpace;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.Hashtable;
 import javax.swing.*;
+import javax.imageio.ImageIO;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.color.ColorSpace;
+import java.awt.event.FocusEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
-public class MainMenu {
+public class MainMenu extends JFrame {
     public OracleSqlManager dbConnection;
-    private JFrame frame;
     private LabyrinthBuilder labyrinth;
     private AdventureGUI gameInstance;
     private final JLabel gameStatLabel = new JLabel("");
     private static int score=0;
     private static int time = 0;
-    private JButton topListButton = new JButton("Toplist");
-    private JButton mapBuilderButton = new JButton("Map Builder");
-    private JButton freePlayButton = new JButton("Offline Play");
-    private JButton onlinePlayButton = new JButton("Online Play");
-    private JButton myMapsButton = new JButton("My maps");
-    private JPanel buttonPanel = new JPanel(new GridLayout(1,2,50,50));
-    public MainMenu() {
-        this.frame = new JFrame("Labyrinth Adventure");
-        int tries = 0;
-            Hashtable<String, String> credentials = this.login(frame);
-            try {
-                if(credentials.get("user") != null)
-                {
-                    dbConnection = new OracleSqlManager(credentials.get("user"), credentials.get("pass"));
-                }
-            } catch (Exception e) {
-                dbConnection = null;
-            }
+    private BufferedImage background;
+    private BufferedImage playOnlineImg;
+    private BufferedImage playOfflineImg;
+    private BufferedImage topListImg;
+    private BufferedImage myMapsImg;
+    private BufferedImage mapBuilderImg;
+    private BufferedImage exitImg;
+    private final Rectangle mapBuilderArea;
+    private final Rectangle playOfflineArea;
+    private final Rectangle playOnlineArea;
+    private final Rectangle myMapsArea;
+    private final Rectangle topListArea;
+    private final Rectangle exitArea;
 
-        mapBuilderButton.addActionListener(new ActionListener()
-        { @Override
-            public void actionPerformed (ActionEvent e) 
-            {
-                try
-                {
-                    MapBuilderGUI mapBuilderWindow = new MapBuilderGUI(dbConnection);
-                }
-                catch(Exception m)
-                {
-                    m.printStackTrace();
-                }
+    public MainMenu() {
+        try {
+            ResourceLoader.initResources();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Hashtable<String, String> credentials = this.login(this);
+        try {
+            if (credentials.get("user") != null) {
+                dbConnection = new OracleSqlManager(credentials.get("user"), credentials.get("pass"));
             }
-        });
-        myMapsButton.addActionListener(new ActionListener() {
+        } catch (Exception e) {
+            dbConnection = null;
+        }
+        background = ResourceLoader.bg;
+        topListImg = ResourceLoader.toplist;
+        myMapsImg = ResourceLoader.mymaps;
+        playOfflineImg = ResourceLoader.playoffline;
+        playOnlineImg = ResourceLoader.playonline;
+        mapBuilderImg = ResourceLoader.mapbuilder;
+        exitImg = ResourceLoader.exit;
+        int width = 1920;
+        int height = 1080;
+        mapBuilderArea = new Rectangle(width / 7, 3 * height / 5, mapBuilderImg.getWidth(), mapBuilderImg.getHeight());
+        playOnlineArea = new Rectangle(2 * width / 7, 3 * height / 5, playOnlineImg.getWidth(), playOnlineImg.getHeight());
+        playOfflineArea = new Rectangle( 3 * width / 7, 3 * height / 5, playOfflineImg.getWidth(), playOfflineImg.getHeight());
+        topListArea = new Rectangle(4 * width / 7, 3 * height / 5, topListImg.getWidth(), topListImg.getHeight());
+        myMapsArea = new Rectangle(5 * width / 7, 3 * height / 5, myMapsImg.getWidth(), myMapsImg.getHeight());
+        exitArea = new Rectangle(5 * width / 7, 4 * height / 5, exitImg.getWidth(), exitImg.getHeight());
+
+        addMouseListener(new MouseAdapter() {
             @Override
-            public void actionPerformed(ActionEvent e) {
-                new MapList(dbConnection);
-            }
-        });
-        onlinePlayButton.addActionListener(new ActionListener()
-        {
-            @Override
-            public void actionPerformed(ActionEvent e){
-                startNewOnlineGame();
-            }
-        });
-        freePlayButton.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+                if (dbConnection != null) {
+                    if (mapBuilderArea.contains(e.getPoint())) {
+                        try {
+                            new MapBuilderGUI(dbConnection);
+                        } catch (IOException ex) {
+                            ex.printStackTrace();
+                        } catch (IncorrectMapException ex) {
+                            ex.printStackTrace();
+                        }
+                    } else if (playOnlineArea.contains(e.getPoint())) {
+                        startNewOnlineGame();
+                    } else if (topListArea.contains(e.getPoint())) {
+                        new TopList(dbConnection);
+                    } else if (myMapsArea.contains(e.getPoint())) {
+                        new MapList(dbConnection);
+                    }
+                }
+                if (playOfflineArea.contains(e.getPoint())) {
                     startNewOfflineGame();
                 }
-        });
-        topListButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
+                if (exitArea.contains(e.getPoint())) {
+                    dispose();
+                    return;
 
-                new TopList(dbConnection);
+                }
             }
+
         });
-        if(dbConnection != null)
-        {
-            buttonPanel.add(topListButton);
-            buttonPanel.add(mapBuilderButton);
-            buttonPanel.add(onlinePlayButton);
-            buttonPanel.add(myMapsButton);
-        }
-        buttonPanel.add(freePlayButton);
-        frame.add(buttonPanel);
-        frame.pack();
-        frame.setSize(1280,720);
-        frame.setVisible(true);
+        dispose();
+        setResizable(false);
+        setUndecorated(true);
+        setVisible(true);
+        setExtendedState(MAXIMIZED_BOTH);
     }
 
+    @Override
+    public void paint(Graphics g) {
+        super.paint(g);
+        g.drawImage(background,0,0,getHeight()/9*16,getHeight(),null);
+        g.drawImage(playOfflineImg,playOfflineArea.x,playOfflineArea.y,null);
+        g.drawImage(exitImg,exitArea.x,exitArea.y,null);
+        if(dbConnection != null)
+        {
+            g.drawImage(playOnlineImg,playOnlineArea.x,playOnlineArea.y,null);
+            g.drawImage(myMapsImg,myMapsArea.x,myMapsArea.y,null);
+            g.drawImage(topListImg,topListArea.x,topListArea.y,null);
+            g.drawImage(mapBuilderImg,mapBuilderArea.x,mapBuilderArea.y,null);
+        }
+
+    }
 
     public Hashtable<String, String> login(JFrame frame) {
         Hashtable<String, String> logininformation = new Hashtable<String, String>();

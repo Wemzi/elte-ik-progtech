@@ -21,7 +21,7 @@ import javax.swing.JPanel;
  *
  * @author lkcsdvd
  */
-public class Labyrinth extends JPanel{
+public class LabyrinthPanel extends JPanel{
     private ArrayList<ArrayList<Cell>> cells;
     private GUIWindow board;
     private int picsize;
@@ -60,7 +60,7 @@ public class Labyrinth extends JPanel{
         return ret;
     }
     
-    public Labyrinth(GUIWindow board, boolean debugMode)
+    public LabyrinthPanel(GUIWindow board, boolean debugMode)
     {
         this.debugMode = debugMode;
         this.board=board;
@@ -84,6 +84,7 @@ public class Labyrinth extends JPanel{
     {
         picsize = getHeight() > getWidth() ?  getWidth()/cells.size() : getHeight()/cells.size();
         Graphics2D gr = (Graphics2D)g;
+        int sizeMultiplier = picsize / ResourceLoader.brick.getHeight();
         BufferedImage img = null;
         for(int idx=cells.size()-1; idx>=0;idx--)
         {
@@ -113,12 +114,12 @@ public class Labyrinth extends JPanel{
         }
         if(board instanceof AdventureGUI) // player
         {
+            Player Steve = ((AdventureGUI) board).getPlayer();
             ((AdventureGUI) board).updatePlayer();
-            gr.drawImage(ResourceLoader.steve,((AdventureGUI) board).getPlayer().getPixelX(),(board.getLabyrinth().getHeight()-(((AdventureGUI) board).getPlayer().getPixelY()+(picsize))), ResourceLoader.steve.getWidth(), ResourceLoader.steve.getHeight(), null);
+            gr.drawImage(Steve.myLook,((AdventureGUI) board).getPlayer().getPixelX(),(board.getLabyrinth().getHeight()-(((AdventureGUI) board).getPlayer().getPixelY()+Steve.myLook.getHeight())), Steve.myLook.getWidth(), Steve.myLook.getHeight(), null);
             if(startOfGame)
             {
                 startOfGame = false;
-                Player Steve = ((AdventureGUI) board).getPlayer();
                 Steve.setCoords(getStartingCell().getrowIdx(),getStartingCell().getcolIdx());
                 Steve.setPixelX(getStartingCell().getPixelX());
                 Steve.setPixelY(getStartingCell().getPixelY());

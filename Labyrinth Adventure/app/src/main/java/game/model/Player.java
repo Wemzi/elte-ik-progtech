@@ -11,7 +11,18 @@ public class Player
     private int coordY;
     private int pixelX;
     private int pixelY;
-    public BufferedImage myLook = ResourceLoader.steve;
+    private Direction myDirection = Direction.UP;
+    private boolean amIMoving = false;
+    public BufferedImage[] myLooks = ResourceLoader.steved;
+    public BufferedImage myLook = ResourceLoader.steved[0];
+
+    public boolean isAmIMoving() {
+        return amIMoving;
+    }
+
+    public void setAmIMoving(boolean amIMoving) {
+        this.amIMoving = amIMoving;
+    }
 
     public void setPixelX(int pixelX) {
         this.pixelX = pixelX;
@@ -29,6 +40,21 @@ public class Player
         return pixelY;
     }
 
+    public void updateLook()
+    {
+        switch(myDirection)
+        {
+            case RIGHT:myLooks = ResourceLoader.stever; break;
+            case LEFT: myLooks = ResourceLoader.stevel; break;
+            case UP:   myLooks = ResourceLoader.steveu ; break;
+            case DOWN: myLooks = ResourceLoader.steved; break;
+        }
+        if(amIMoving)
+        {
+            myLook = myLook == myLooks[0] ? myLooks[1] : myLooks[0];
+        }
+    }
+
     public Player()
     {
         coordX=0;
@@ -39,9 +65,11 @@ public class Player
 
     /** A játékos mozgató metódusa, támogatja esetleg később az átlós mozgás implementálását is */
     public void move(Direction dir, int maxX, int maxY) {
+        myDirection = dir;
         switch (dir) {
             case RIGHT: {
                 pixelX+=3;
+
                 break;
             }
             case UP: {

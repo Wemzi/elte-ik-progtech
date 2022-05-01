@@ -11,10 +11,10 @@ public class CellMouseAdapter extends MouseAdapter {
     Cell prevCell = null;
     Cell currentCell = null;
     ArrayList<ArrayList<Cell>> cells;
-    Labyrinth mainPanel;
+    LabyrinthPanel mainPanel;
     LabyrinthBuilder labyrinth;
 
-    public CellMouseAdapter(ArrayList<ArrayList<Cell>> cells, Labyrinth mainPanel, LabyrinthBuilder labyrinth) {
+    public CellMouseAdapter(ArrayList<ArrayList<Cell>> cells, LabyrinthPanel mainPanel, LabyrinthBuilder labyrinth) {
         this.cells = cells;
         this.mainPanel = mainPanel;
         this.labyrinth = labyrinth;

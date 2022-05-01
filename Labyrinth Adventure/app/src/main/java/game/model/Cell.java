@@ -44,6 +44,7 @@ public class Cell {
     {
         if(debugMode && isDeadEnd) return ResourceLoader.blue;
         else if(debugMode && isHasBeenVisitedByDragon())return ResourceLoader.darkness;
+        else if(!isVisibleForPlayer) return ResourceLoader.brick;
         else if(isStartingCell) return ResourceLoader.start;
         else if(isEndingCell) return ResourceLoader.end;
         else if(edgeRight && edgeLeft && edgeDown && edgeUp) return ResourceLoader.brick;
@@ -172,6 +173,8 @@ public class Cell {
     public String toString() {
         return "Cell{" +
                 "colIdx=" + colIdx +
-                ", rowIdx=" + rowIdx ;
+                ", rowIdx=" + rowIdx +
+                " pixelY = " + pixelY;
+
     }
 }

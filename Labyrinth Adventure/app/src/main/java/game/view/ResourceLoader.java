@@ -9,7 +9,10 @@ import javax.imageio.ImageIO;
 public class ResourceLoader {
     public static BufferedImage blue;
     public static BufferedImage darkness;
-    public static BufferedImage steve;
+    public static BufferedImage[] stever;
+    public static BufferedImage[]steveu;
+    public static BufferedImage[]steved;
+    public static BufferedImage[] stevel;
     public static BufferedImage drake;
     public static BufferedImage end;
     public static BufferedImage start;
@@ -29,12 +32,31 @@ public class ResourceLoader {
     public static BufferedImage edgel;
     public static BufferedImage edger;
     public static BufferedImage grass;
+    public static BufferedImage bg;
+    public static BufferedImage mapbuilder;
+    public static BufferedImage mymaps;
+    public static BufferedImage playoffline;
+    public static BufferedImage playonline;
+    public static BufferedImage toplist;
+    public static BufferedImage exit;
+
+
 
     public static void initResources() throws IOException
     {
+        bg = ImageIO.read(ResourceLoader.class.getClassLoader().getResource("bg.png"));
+        mapbuilder = ImageIO.read(ResourceLoader.class.getClassLoader().getResource("mapbuilderbutton.png"));
+        mymaps = ImageIO.read(ResourceLoader.class.getClassLoader().getResource("mymapsbutton.png"));
+        playoffline = ImageIO.read(ResourceLoader.class.getClassLoader().getResource("playofflinebutton.png"));
+        playonline = ImageIO.read(ResourceLoader.class.getClassLoader().getResource("playonlinebutton.png"));
+        toplist = ImageIO.read(ResourceLoader.class.getClassLoader().getResource("toplistbutton.png"));
+        exit = ImageIO.read(ResourceLoader.class.getClassLoader().getResource("exitgamebutton.png"));
         blue = ImageIO.read(ResourceLoader.class.getClassLoader().getResource("blue.png"));
-        darkness = ImageIO.read(ResourceLoader.class.getClassLoader().getResource("darkness.png"));
-        steve = ImageIO.read(ResourceLoader.class.getClassLoader().getResource("player.png"));
+        darkness = ImageIO.read(ResourceLoader.class.getClassLoader().getResource("darkness.png"))  ;
+        stever = new BufferedImage[]{ImageIO.read(ResourceLoader.class.getClassLoader().getResource("boy_right_1.png")), ImageIO.read(ResourceLoader.class.getClassLoader().getResource("boy_right_2.png"))};
+        steveu = new BufferedImage[]{ImageIO.read(ResourceLoader.class.getClassLoader().getResource("boy_up_1.png")), ImageIO.read(ResourceLoader.class.getClassLoader().getResource("boy_up_2.png"))};
+        steved = new BufferedImage[]{ImageIO.read(ResourceLoader.class.getClassLoader().getResource("boy_down_1.png")), ImageIO.read(ResourceLoader.class.getClassLoader().getResource("boy_down_2.png"))};
+        stevel = new BufferedImage[]{ImageIO.read(ResourceLoader.class.getClassLoader().getResource("boy_left_1.png")), ImageIO.read(ResourceLoader.class.getClassLoader().getResource("boy_left_2.png"))};
         drake = ImageIO.read(ResourceLoader.class.getClassLoader().getResource("dragon.png"));
         start = ImageIO.read(ResourceLoader.class.getClassLoader().getResource("start.png"));
         end = ImageIO.read(ResourceLoader.class.getClassLoader().getResource("end.png"));

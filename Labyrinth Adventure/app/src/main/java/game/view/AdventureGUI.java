@@ -3,15 +3,13 @@ package game.view;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.beans.PropertyChangeListener;
 import java.util.ArrayList;
 import javax.swing.*;
 import java.io.IOException;
 
 import game.*;
-import game.model.Cell;
-import game.model.Dragon;
-import game.model.LabyrinthBuilder;
-import game.model.Player;
+import game.model.*;
 import persistence.*;
 
 public class AdventureGUI extends GUIWindow {
@@ -27,6 +25,7 @@ public class AdventureGUI extends GUIWindow {
     private final JMenu menu = new JMenu("Menu");
     private int waitTimeBetWeenAIIterations=1500;
     private boolean didDrakeFindThePath;
+    private boolean isPlayerMoving;
     private final JMenuBar bottomMenu = new JMenuBar();
     private final ActionListener backToMainMenuAction = new ActionListener() {
         @Override
@@ -38,6 +37,13 @@ public class AdventureGUI extends GUIWindow {
             }
         }
     };
+    private Timer spriteUpdater = new Timer(SPRITE_UPDATE_FREQUENCY, new ActionListener() {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            Steve.updateLook();
+        }
+    });
     private Thread drakeThread;
     private Timer timer = new Timer(SECONDINMS, new ActionListener()
         {
@@ -64,6 +70,7 @@ public class AdventureGUI extends GUIWindow {
                 }
                 gameStatLabel.setText("Score: " + score + " Creator: " + mapCreator + " Time: " + time++);
                 menu.repaint();
+                //System.out.println("called");
             }
         });
     /** Grafikus UI konstruktora,, melyben meghívom a labirintusgenerálást, létrehozzuk az összes UI elemet, generáljuk a játékost és a sárkányt.*/
@@ -72,7 +79,7 @@ public class AdventureGUI extends GUIWindow {
         super();
         labyrinth = new LabyrinthBuilder(true,"");
         cells = labyrinth.getCells();
-        mainPanel = new Labyrinth(this,false);
+        mainPanel = new LabyrinthPanel(this,false);
         Steve.setCoords(mainPanel.getStartingCell().getrowIdx(), mainPanel.getStartingCell().getcolIdx());
         Steve.setPixelX(mainPanel.getStartingCell().getPixelX());
         Steve.setPixelY(mainPanel.getStartingCell().getPixelY());
@@ -106,10 +113,12 @@ public class AdventureGUI extends GUIWindow {
         backToMainMenu.addActionListener(backToMainMenuAction);
         frame.getContentPane().add(BorderLayout.SOUTH, bottomMenu);
         frame.getContentPane().add(BorderLayout.CENTER, mainPanel);
-        frame.setSize(1280,720);
+        frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        frame.setUndecorated(true);
         frame.setVisible(true);
         timer.start();
         refresher.start();
+        spriteUpdater.start();
         drake = new Dragon(mainPanel.getStartingCell(),cells,waitTimeBetWeenAIIterations);
         drakeThread = new Thread(()-> {
         try {
@@ -130,7 +139,7 @@ public class AdventureGUI extends GUIWindow {
 
         labyrinth = new LabyrinthBuilder(false,mapData[0]);
         cells = labyrinth.getCells();
-        mainPanel = new Labyrinth(this,true);
+        mainPanel = new LabyrinthPanel(this,false);
         mainPanel.addMouseListener(new CellMouseAdapter(cells,mainPanel,labyrinth));
         refresher = new Timer(15,new ActionListener(){
             @Override
@@ -156,6 +165,7 @@ public class AdventureGUI extends GUIWindow {
         menu.add(newGame);
         menu.add(help);
         menu.add(backToMainMenu);
+        backToMainMenu.addActionListener(backToMainMenuAction);
         bottomMenu.add(menu);
         frame.addKeyListener(keyHandler);
         mapCreator = mapData[1];
@@ -163,7 +173,8 @@ public class AdventureGUI extends GUIWindow {
         bottomMenu.add(gameStatLabel);
         frame.getContentPane().add(BorderLayout.SOUTH, bottomMenu);
         frame.getContentPane().add(BorderLayout.CENTER, mainPanel);
-        frame.setSize(1280,720);
+        frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        frame.setUndecorated(true);
         frame.setVisible(true);
         drake = new Dragon(mainPanel.getStartingCell(),cells,waitTimeBetWeenAIIterations);
         drakeThread = new Thread(()-> {
@@ -176,6 +187,7 @@ public class AdventureGUI extends GUIWindow {
         drakeThread.start();
         timer.start();
         refresher.start();
+        spriteUpdater.start();
     }
 
     private void stopGame()
@@ -184,6 +196,7 @@ public class AdventureGUI extends GUIWindow {
         score = 0;
         timer.stop();
         refresher.stop();
+        spriteUpdater.stop();
         frame.dispose();
     }
 
@@ -203,7 +216,7 @@ public class AdventureGUI extends GUIWindow {
     {
         int picSize = mainPanel.getPicSize();
         int x = (Steve.getPixelX()+Steve.myLook.getWidth()/2)/picSize;
-        int y = (Steve.getPixelY()+Steve.myLook.getHeight())/picSize;
+        int y = (Steve.getPixelY()+Steve.myLook.getHeight()/2)/picSize;
         Cell  ret = cells.get(y).get(x);
         //System.out.println(ret + " " + Steve.getPixelY() + " "  +  Steve.getPixelX() );
         return ret;
@@ -215,19 +228,27 @@ public class AdventureGUI extends GUIWindow {
         Cell cell = getCurrentCell(Steve);
         if(keyHandler.downPressed && !(cell.getedgeDown() && DistanceManager.isClosetoEdges(Steve,cell, mainPanel.getPicSize(),Direction.DOWN)))
         {
+            Steve.setAmIMoving(true);
             Steve.move(Direction.DOWN,cells.size(),cells.get(0).size());
         }
         else if(keyHandler.leftPressed && !(cell.getedgeLeft() && DistanceManager.isClosetoEdges(Steve,cell, mainPanel.getPicSize(),Direction.LEFT)))
         {
+            Steve.setAmIMoving(true);
             Steve.move(Direction.LEFT,cells.size(),cells.get(0).size());
         }
         else if(keyHandler.upPressed && !(cell.getedgeUp() && DistanceManager.isClosetoEdges(Steve,cell, mainPanel.getPicSize(),Direction.UP)))
         {
+            Steve.setAmIMoving(true);
             Steve.move(Direction.UP,cells.size(),cells.get(0).size());
         }
         else if(keyHandler.rightPressed &&  !(cell.getedgeRight() && DistanceManager.isClosetoEdges(Steve,cell, mainPanel.getPicSize(),Direction.RIGHT)))
         {
+            Steve.setAmIMoving(true);
             Steve.move(Direction.RIGHT,cells.size(),cells.get(0).size());
+        }
+        else
+        {
+            Steve.setAmIMoving(false);
         }
         Steve.setCoords(getCurrentCell(Steve).getrowIdx(),getCurrentCell(Steve).getcolIdx());
     }
@@ -291,6 +312,7 @@ public class AdventureGUI extends GUIWindow {
     {
         refresher.stop();
         timer.stop();
+        spriteUpdater.stop();
         drakeThread.stop();
         Dimension prevWindowDimensions = mainPanel.getSize();
         frame.getContentPane().remove(mainPanel);
@@ -306,11 +328,12 @@ public class AdventureGUI extends GUIWindow {
             mapCreator = mapData[1];
         }
         cells = labyrinth.getCells();
-        mainPanel = new Labyrinth(this,false);
-        frame.setSize(1280,720);
+        mainPanel = new LabyrinthPanel(this,false);
         frame.getContentPane().add(BorderLayout.SOUTH, bottomMenu);
         frame.getContentPane().add(BorderLayout.CENTER, mainPanel);
-        mainPanel.setSize(prevWindowDimensions);
+        frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        frame.dispose();
+        frame.setUndecorated(true);
         Steve.setCoords(mainPanel.getStartingCell().getrowIdx(), mainPanel.getStartingCell().getcolIdx());
         Steve.setPixelX(mainPanel.getStartingCell().getPixelX());
         Steve.setPixelY(mainPanel.getStartingCell().getPixelY());
@@ -323,6 +346,7 @@ public class AdventureGUI extends GUIWindow {
             }});
         drakeThread.start();
         refresher.start();
+        spriteUpdater.start();
         timer.start();
         System.out.println("minden elindult");
     }

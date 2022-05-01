@@ -6,15 +6,11 @@ package Labyrinth.Adventure;
 import com.jcraft.jsch.JSchException;
 import game.IncorrectMapException;
 import game.Main;
-import game.MainMenu;
 import game.model.Dragon;
 import game.model.LabyrinthBuilder;
-import game.view.AdventureGUI;
-import game.view.Labyrinth;
 import org.junit.Test;
 import persistence.OracleSqlManager;
 
-import java.io.IOException;
 import java.sql.SQLException;
 
 import static org.junit.Assert.*;
