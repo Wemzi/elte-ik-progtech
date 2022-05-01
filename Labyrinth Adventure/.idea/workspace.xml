@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="Labyrinth Adventure:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2d198183-6036-4902-902a-616e7bbac25a" name="Changes" comment="Moved to IntelliJ">
       <change afterPath="$PROJECT_DIR$/app/src/main/java/persistence/OracleSqlManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/resources/META-INF/MANIFEST.MF" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/resources/dragon.png" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/resources/edged.png" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/resources/edgel.png" afterDir="false" />
@@ -226,29 +232,6 @@
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="Labyrinth Adventure" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="Labyrinth Adventure" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-                <item name="application" type="c8890929:TasksNode$1" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="Labyrinth Adventure" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-                <item name="other" type="c8890929:TasksNode$1" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="Labyrinth Adventure" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-                <item name="verification" type="c8890929:TasksNode$1" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="Labyrinth Adventure" type="f1a62948:ProjectNode" />
                 <item name="Run Configurations" type="7b0102dc:RunConfigurationsNode" />
               </path>
               <path>
@@ -308,42 +291,7 @@
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="Labyrinth Adventure" type="f1a62948:ProjectNode" />
                 <item name="app" type="2d1252cf:ModuleNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-                <item name="verification" type="c8890929:TasksNode$1" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="Labyrinth Adventure" type="f1a62948:ProjectNode" />
-                <item name="app" type="2d1252cf:ModuleNode" />
-                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="Labyrinth Adventure" type="f1a62948:ProjectNode" />
-                <item name="app" type="2d1252cf:ModuleNode" />
-                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
-                <item name="compileClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="Labyrinth Adventure" type="f1a62948:ProjectNode" />
-                <item name="app" type="2d1252cf:ModuleNode" />
-                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
-                <item name="runtimeClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="Labyrinth Adventure" type="f1a62948:ProjectNode" />
-                <item name="app" type="2d1252cf:ModuleNode" />
-                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
-                <item name="testCompileClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="Labyrinth Adventure" type="f1a62948:ProjectNode" />
-                <item name="app" type="2d1252cf:ModuleNode" />
-                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
-                <item name="testRuntimeClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
+                <item name="Run Configurations" type="7b0102dc:RunConfigurationsNode" />
               </path>
             </expand>
             <select />
@@ -403,7 +351,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="ignore.preview.features.used" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/app/libs" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.27011493" />
     <property name="settings.editor.selected.configurable" value="com.poratu.idea.plugins.tomcat.setting.TomcatSettingConfigurable" />
@@ -425,13 +373,6 @@
     </key>
   </component>
   <component name="RunManager" selected="Gradle.Labyrinth Adventure [run]">
-    <configuration name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="game.Main" />
-      <module name="Labyrinth Adventure" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="Labyrinth Adventure [build]" type="GradleRunConfiguration" factoryName="Gradle" nameIsGenerated="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -458,7 +399,7 @@
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
+        <option name="scriptParameters" value="" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -474,7 +415,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="Labyrinth Adventure [run]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="Labyrinth Adventure [run]" type="GradleRunConfiguration" factoryName="Gradle">
       <ExternalSystemSettings>
         <option name="env">
           <map>
@@ -500,7 +441,28 @@
       <DebugAllEnabled>true</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="Labyrinth Adventure:app [assemble]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="Labyrinth Adventure [shadowJar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="shadowJar" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="Labyrinth Adventure:app [customFatJar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/app" />
@@ -511,7 +473,7 @@
         </option>
         <option name="taskNames">
           <list>
-            <option value="assemble" />
+            <option value="customFatJar" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -521,7 +483,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="Labyrinth Adventure:app [buildDependents]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="Labyrinth Adventure:app [jar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/app" />
@@ -532,7 +494,7 @@
         </option>
         <option name="taskNames">
           <list>
-            <option value="buildDependents" />
+            <option value="jar" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -542,7 +504,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="Labyrinth Adventure:app [properties]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="Labyrinth Adventure:app [runShadow]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/app" />
@@ -553,7 +515,7 @@
         </option>
         <option name="taskNames">
           <list>
-            <option value="properties" />
+            <option value="runShadow" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -562,68 +524,23 @@
       <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
-    </configuration>
-    <configuration name="Unnamed" type="MavenRunConfiguration" factoryName="Maven">
-      <MavenSettings>
-        <option name="myGeneralSettings" />
-        <option name="myRunnerSettings" />
-        <option name="myRunnerParameters">
-          <MavenRunnerParameters>
-            <option name="profiles">
-              <set />
-            </option>
-            <option name="goals">
-              <list />
-            </option>
-            <option name="pomFileName" />
-            <option name="profilesMap">
-              <map />
-            </option>
-            <option name="resolveToWorkspace" value="false" />
-            <option name="workingDirPath" value="" />
-          </MavenRunnerParameters>
-        </option>
-      </MavenSettings>
-      <method v="2" />
-    </configuration>
-    <configuration name="Unnamed" type="com.poratu.idea.plugins.tomcat" factoryName="SMART_TOMCAT_FACTORY" nameIsGenerated="true">
-      <option name="adminPort" value="8005" />
-      <option name="contextPath" value="/Labyrinth_Adventure.app" />
-      <option name="docBase" value="C:\Users\lkcsdvd\IdeaProjects\progtech\Labyrinth Adventure\app" />
-      <option name="envOptions" />
-      <option name="passParentEnvironmentVariables" value="true" />
-      <option name="port" value="8080" />
-      <option name="tomcatInfo">
-        <TomcatInfo>
-          <option name="name" value="Apache Tomcat/10.0.18" />
-          <option name="number" value="0" />
-          <option name="path" value="C:\Users\lkcsdvd\Tomcat server for Labyrinth Adventure\apache-tomcat-10.0.18" />
-          <option name="version" value="10.0.18.0" />
-        </TomcatInfo>
-      </option>
-      <option name="vmOptions" value="" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
     </configuration>
     <list>
-      <item itemvalue="Application.Main" />
       <item itemvalue="Gradle.Labyrinth Adventure [build]" />
       <item itemvalue="Gradle.Labyrinth Adventure [run]" />
-      <item itemvalue="Gradle.Labyrinth Adventure:app [properties]" />
-      <item itemvalue="Gradle.Labyrinth Adventure:app [buildDependents]" />
-      <item itemvalue="Gradle.Labyrinth Adventure:app [assemble]" />
       <item itemvalue="Gradle.Labyrinth Adventure [compileJava]" />
-      <item itemvalue="Maven.Unnamed" />
-      <item itemvalue="Smart Tomcat.Unnamed" />
+      <item itemvalue="Gradle.Labyrinth Adventure:app [jar]" />
+      <item itemvalue="Gradle.Labyrinth Adventure [shadowJar]" />
+      <item itemvalue="Gradle.Labyrinth Adventure:app [runShadow]" />
+      <item itemvalue="Gradle.Labyrinth Adventure:app [customFatJar]" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.Labyrinth Adventure [run]" />
+        <item itemvalue="Gradle.Labyrinth Adventure:app [customFatJar]" />
+        <item itemvalue="Gradle.Labyrinth Adventure:app [runShadow]" />
+        <item itemvalue="Gradle.Labyrinth Adventure [shadowJar]" />
+        <item itemvalue="Gradle.Labyrinth Adventure:app [jar]" />
         <item itemvalue="Gradle.Labyrinth Adventure [compileJava]" />
-        <item itemvalue="Gradle.Labyrinth Adventure:app [assemble]" />
-        <item itemvalue="Gradle.Labyrinth Adventure:app [buildDependents]" />
-        <item itemvalue="Gradle.Labyrinth Adventure:app [properties]" />
       </list>
     </recent_temporary>
   </component>

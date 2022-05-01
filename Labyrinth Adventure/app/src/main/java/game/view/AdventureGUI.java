@@ -3,13 +3,15 @@ package game.view;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.beans.PropertyChangeListener;
 import java.util.ArrayList;
 import javax.swing.*;
 import java.io.IOException;
 
 import game.*;
-import game.model.*;
+import game.model.Cell;
+import game.model.Dragon;
+import game.model.LabyrinthBuilder;
+import game.model.Player;
 import persistence.*;
 
 public class AdventureGUI extends GUIWindow {
@@ -108,7 +110,7 @@ public class AdventureGUI extends GUIWindow {
         };
         getContentPane().add(BorderLayout.SOUTH, bottomMenu);
         getContentPane().add(BorderLayout.CENTER, mainPanel);
-        setExtendedState(JFrame.MAXIMIZED_BOTH);
+        setExtendedState(MAXIMIZED_BOTH);
         setUndecorated(true);
         setVisible(true);
         timer.start();
@@ -177,7 +179,7 @@ public class AdventureGUI extends GUIWindow {
         bottomMenu.add(gameStatLabel);
         getContentPane().add(BorderLayout.SOUTH, bottomMenu);
         getContentPane().add(BorderLayout.CENTER, mainPanel);
-        setExtendedState(JFrame.MAXIMIZED_BOTH);
+        setExtendedState(MAXIMIZED_BOTH);
         setUndecorated(true);
         setVisible(true);
         drake = new Dragon(mainPanel.getStartingCell(),cells,waitTimeBetWeenAIIterations);

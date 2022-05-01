@@ -3,15 +3,8 @@ package game.view;
 import persistence.OracleSqlManager;
 
 import javax.swing.*;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Vector;
 
 public class MapList extends JFrame {
     OracleSqlManager dbConnection;

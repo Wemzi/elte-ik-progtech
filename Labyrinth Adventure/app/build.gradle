@@ -9,6 +9,12 @@
 buildscript{
     System.setProperty( "user.dir", project.projectDir.toString() )
     println  "  project dir:  "+ System.getProperty("user.dir");
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.github.jengelman.gradle.plugins:shadow:2.0.1'
+    }
 }
 
 
@@ -19,6 +25,7 @@ plugins {
     id 'application'
 }
 apply plugin : "java"
+apply plugin: 'com.github.johnrengelman.shadow'
 ext{
     javaMainClass = 'game.Main'
 }
@@ -32,7 +39,15 @@ repositories {
 dependencies {
     // This dependency is used by the application.
     implementation fileTree(dir: '/libs', include:'*.jar')
-    implementation 'com.jcraft:jsch:0.1.55'
+}
+
+task customFatJar(type: Jar) {
+    manifest {
+        attributes 'Main-Class': 'game.Main'
+    }
+    baseName = 'all-in-one-jar'
+    from { configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
 }
 
 testing {

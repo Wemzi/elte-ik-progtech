@@ -12,8 +12,10 @@ import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 
 import game.*;
-import game.model.*;
+import game.model.Dragon;
+import game.model.LabyrinthBuilder;
 import persistence.*;
+
 import javax.swing.Timer;
 
 public class MapBuilderGUI extends GUIWindow {
