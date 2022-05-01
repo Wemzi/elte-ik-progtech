@@ -41,7 +41,8 @@ public class MapList extends JFrame {
                 if(mapDataobj instanceof String ){
                     mapData = (String)mapDataobj;
                     dbConnection.deleteMap(mapData);
-                    JOptionPane.showConfirmDialog(myMapsTable,"Your map has been deleted succesfully, the data shall be refreshed the next time you open this menu.","Map deletion",JOptionPane.OK_OPTION);
+                    JOptionPane.showConfirmDialog(myMapsTable,"Your map has been deleted succesfully," +
+                            " the data shall be refreshed the next time you open this menu.","Map deletion",JOptionPane.OK_OPTION);
                 }
 
 

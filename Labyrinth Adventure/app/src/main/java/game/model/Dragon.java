@@ -299,10 +299,14 @@ public class Dragon {
      */
     private Direction getDirectionOfUnvisitedRoad()
     {
-        if(!currentCell.getedgeDown() && getNeighbour(Direction.DOWN) != null && !getNeighbour(Direction.DOWN).isHasBeenVisitedByDragon()) return Direction.DOWN;
-        else if(!currentCell.getedgeUp() && getNeighbour(Direction.UP) != null && !getNeighbour(Direction.UP).isHasBeenVisitedByDragon()) return Direction.UP;
-        else if(!currentCell.getedgeLeft() && getNeighbour(Direction.LEFT) != null && !getNeighbour(Direction.LEFT).isHasBeenVisitedByDragon()) return Direction.LEFT;
-        else if(!currentCell.getedgeRight() && getNeighbour(Direction.RIGHT) != null && !getNeighbour(Direction.RIGHT).isHasBeenVisitedByDragon()) return Direction.RIGHT;
+        if(!currentCell.getedgeDown() && getNeighbour(Direction.DOWN) != null &&
+                !getNeighbour(Direction.DOWN).isHasBeenVisitedByDragon()) return Direction.DOWN;
+        else if(!currentCell.getedgeUp() && getNeighbour(Direction.UP) != null &&
+                !getNeighbour(Direction.UP).isHasBeenVisitedByDragon()) return Direction.UP;
+        else if(!currentCell.getedgeLeft() && getNeighbour(Direction.LEFT) != null
+                && !getNeighbour(Direction.LEFT).isHasBeenVisitedByDragon()) return Direction.LEFT;
+        else if(!currentCell.getedgeRight() && getNeighbour(Direction.RIGHT) != null
+                && !getNeighbour(Direction.RIGHT).isHasBeenVisitedByDragon()) return Direction.RIGHT;
         else return null;
     }
 
@@ -322,7 +326,7 @@ public class Dragon {
             try {
                 Thread.sleep(waitTimeBetweenIterationsInMs);
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                // its normal, player may have won already
             }
         }
         if(isJunction())

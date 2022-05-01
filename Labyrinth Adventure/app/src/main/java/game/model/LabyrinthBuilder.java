@@ -42,8 +42,6 @@ public class LabyrinthBuilder
                 iterations++;
             }
             currentCell.setEndingCell(true);
-            System.out.println("ENDING CELL: " + currentCell);
-            System.out.println("ended generation after " + iterations + " steps");
         }
         else if(!mapData.equals("")) {
             String[] mapDataSplit = mapData.split(" ");

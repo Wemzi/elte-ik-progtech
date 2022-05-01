@@ -56,10 +56,14 @@ public class ResourceLoader {
         exit = ImageIO.read(ResourceLoader.class.getClassLoader().getResource("exitgamebutton.png"));
         blue = ImageIO.read(ResourceLoader.class.getClassLoader().getResource("blue.png"));
         darkness = ImageIO.read(ResourceLoader.class.getClassLoader().getResource("darkness.png"))  ;
-        stever = new BufferedImage[]{ImageIO.read(ResourceLoader.class.getClassLoader().getResource("boy_right_1.png")), ImageIO.read(ResourceLoader.class.getClassLoader().getResource("boy_right_2.png"))};
-        steveu = new BufferedImage[]{ImageIO.read(ResourceLoader.class.getClassLoader().getResource("boy_up_1.png")), ImageIO.read(ResourceLoader.class.getClassLoader().getResource("boy_up_2.png"))};
-        steved = new BufferedImage[]{ImageIO.read(ResourceLoader.class.getClassLoader().getResource("boy_down_1.png")), ImageIO.read(ResourceLoader.class.getClassLoader().getResource("boy_down_2.png"))};
-        stevel = new BufferedImage[]{ImageIO.read(ResourceLoader.class.getClassLoader().getResource("boy_left_1.png")), ImageIO.read(ResourceLoader.class.getClassLoader().getResource("boy_left_2.png"))};
+        stever = new BufferedImage[]{ImageIO.read(ResourceLoader.class.getClassLoader().getResource("boy_right_1.png")),
+                ImageIO.read(ResourceLoader.class.getClassLoader().getResource("boy_right_2.png"))};
+        steveu = new BufferedImage[]{ImageIO.read(ResourceLoader.class.getClassLoader().getResource("boy_up_1.png")),
+                ImageIO.read(ResourceLoader.class.getClassLoader().getResource("boy_up_2.png"))};
+        steved = new BufferedImage[]{ImageIO.read(ResourceLoader.class.getClassLoader().getResource("boy_down_1.png")),
+                ImageIO.read(ResourceLoader.class.getClassLoader().getResource("boy_down_2.png"))};
+        stevel = new BufferedImage[]{ImageIO.read(ResourceLoader.class.getClassLoader().getResource("boy_left_1.png")),
+                ImageIO.read(ResourceLoader.class.getClassLoader().getResource("boy_left_2.png"))};
         drake = ImageIO.read(ResourceLoader.class.getClassLoader().getResource("dragon.png"));
         start = ImageIO.read(ResourceLoader.class.getClassLoader().getResource("start.png"));
         end = ImageIO.read(ResourceLoader.class.getClassLoader().getResource("end.png"));

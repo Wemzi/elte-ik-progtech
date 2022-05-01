@@ -86,7 +86,6 @@ public class LabyrinthPanel extends JPanel{
     {
         picsize = getHeight() > getWidth() ?  getWidth()/cells.size() : getHeight()/cells.size();
         Graphics2D gr = (Graphics2D)g;
-        int sizeMultiplier = picsize / ResourceLoader.brick.getHeight();
         BufferedImage img = null;
         for(int idx=cells.size()-1; idx>=0;idx--)
         {
@@ -109,7 +108,8 @@ public class LabyrinthPanel extends JPanel{
                     Dragon drake = ((AdventureGUI) board).getDrake();
                     if(drake.getCurrentCell().equals(cell) && cell.isVisibleForPlayer())
                     {
-                        gr.drawImage(ResourceLoader.drake, jdx * picsize,(board.getLabyrinth().getHeight()-(idx+1)*(picsize)), picsize, picsize, null);
+                        gr.drawImage(ResourceLoader.drake, jdx * picsize,(board.getLabyrinth().getHeight()-(idx+1)*
+                                (picsize)), picsize, picsize, null);
                     }
                 }
             }
@@ -117,15 +117,24 @@ public class LabyrinthPanel extends JPanel{
         if(board instanceof AdventureGUI) // player
         {
             Player Steve = ((AdventureGUI) board).getPlayer();
-            ((AdventureGUI) board).updatePlayer();
-            gr.drawImage(Steve.myLook,((AdventureGUI) board).getPlayer().getPixelX(),(board.getLabyrinth().getHeight()-(((AdventureGUI) board).getPlayer().getPixelY()+Steve.myLook.getHeight())), Steve.myLook.getWidth(), Steve.myLook.getHeight(), null);
             if(startOfGame)
             {
+                System.out.println("all set" + getStartingCell());
                 startOfGame = false;
+                System.out.println(getStartingCell());
                 Steve.setCoords(getStartingCell().getrowIdx(),getStartingCell().getcolIdx());
                 Steve.setPixelX(getStartingCell().getPixelX());
                 Steve.setPixelY(getStartingCell().getPixelY());
             }
+            else
+            {
+                ((AdventureGUI) board).updatePlayer();
+                gr.drawImage(Steve.myLook,((AdventureGUI) board).getPlayer().getPixelX(),(board.getLabyrinth().getHeight()-
+                                (((AdventureGUI) board).getPlayer().getPixelY()+Steve.myLook.getHeight())), Steve.myLook.getWidth(),
+                        Steve.myLook.getHeight(), null);
+            }
+
+
         }
     }
 
@@ -139,7 +148,8 @@ public class LabyrinthPanel extends JPanel{
         {
             for(Cell cell : cellRow)
             {
-                ret += (cell.getedgeUp()?"1":"0")+(cell.getedgeDown()?"1":"0")+(cell.getedgeLeft()?"1":"0")+(cell.getedgeRight()?"1":"0")+(cell.isStartingCell()?"s":"")+(cell.isEndingCell()?"e":"")+" ";
+                ret += (cell.getedgeUp()?"1":"0")+(cell.getedgeDown()?"1":"0")+(cell.getedgeLeft()?"1":"0")+
+                        (cell.getedgeRight()?"1":"0")+(cell.isStartingCell()?"s":"")+(cell.isEndingCell()?"e":"")+" ";
             }
         }
         return ret;

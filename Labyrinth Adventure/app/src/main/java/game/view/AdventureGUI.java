@@ -22,6 +22,7 @@ public class AdventureGUI extends GUIWindow {
     private final KeyHandler keyHandler = new KeyHandler();
     private final JMenu menu = new JMenu("Menu");
     private int waitTimeBetWeenAIIterations=1500;
+    private final int DEFAULT_WAITING_TIME = 1500;
     private boolean didDrakeFindThePath;
     private final JMenuBar bottomMenu = new JMenuBar();
     private Timer spriteUpdater = new Timer(SPRITE_UPDATE_FREQUENCY, new ActionListener() {
@@ -50,8 +51,10 @@ public class AdventureGUI extends GUIWindow {
                 else if(isLost())
                 {
                     String[] buttons = {"OK"};
-                    JOptionPane.showOptionDialog(null,"You lost. The score you earned is:" + score + " if you have internet connection available, it should synch automatically.","Lost game",JOptionPane.NO_OPTION,JOptionPane.OK_OPTION,null,buttons,buttons[0]);
-                    if(dbConnection != null) dbConnection.saveHighScore(score);
+                    JOptionPane.showOptionDialog(null,"You lost. The score you earned is:" + score
+                            + " if you have internet connection available, it should synch automatically.","Lost game",
+                            JOptionPane.NO_OPTION,JOptionPane.OK_OPTION,null,buttons,buttons[0]);
+                    if(dbConnection != null && dbConnection.getHighScore() > score) dbConnection.saveHighScore(score);
                     stopGame();
                 }
                 gameStatLabel.setText("Score: " + score + " Creator: " + mapCreator + " Time: " + time++);
@@ -72,14 +75,13 @@ public class AdventureGUI extends GUIWindow {
         cells = labyrinth.getCells();
         mainPanel = new LabyrinthPanel(this,false);
         Steve.setCoords(mainPanel.getStartingCell().getrowIdx(), mainPanel.getStartingCell().getcolIdx());
-        Steve.setPixelX(mainPanel.getStartingCell().getPixelX());
-        Steve.setPixelY(mainPanel.getStartingCell().getPixelY());
         newGame.addActionListener(new ActionListener(){
            @Override
         public void actionPerformed (ActionEvent e)
         {
            score=0;
            time = 0;
+           waitTimeBetWeenAIIterations = DEFAULT_WAITING_TIME;
             try {
                 restartGame();
             } catch (IncorrectMapException ex) {
@@ -215,7 +217,6 @@ public class AdventureGUI extends GUIWindow {
         int x = (Steve.getPixelX()+Steve.myLook.getWidth()/2)/picSize;
         int y = (Steve.getPixelY()+Steve.myLook.getHeight()/2)/picSize;
         Cell  ret = cells.get(y).get(x);
-        //System.out.println(ret + " " + Steve.getPixelY() + " "  +  Steve.getPixelX() );
         return ret;
     }
 
@@ -315,7 +316,7 @@ public class AdventureGUI extends GUIWindow {
         refresher.stop();
         timer.stop();
         spriteUpdater.stop();
-        drakeThread.stop();
+        drakeThread.interrupt();
         getContentPane().remove(mainPanel);
         getContentPane().remove(bottomMenu);
         if(dbConnection == null)
@@ -332,12 +333,6 @@ public class AdventureGUI extends GUIWindow {
         mainPanel = new LabyrinthPanel(this,false);
         getContentPane().add(BorderLayout.SOUTH, bottomMenu);
         getContentPane().add(BorderLayout.CENTER, mainPanel);
-        setExtendedState(JFrame.MAXIMIZED_BOTH);
-        dispose();
-        setUndecorated(true);
-        Steve.setCoords(mainPanel.getStartingCell().getrowIdx(), mainPanel.getStartingCell().getcolIdx());
-        Steve.setPixelX(mainPanel.getStartingCell().getPixelX());
-        Steve.setPixelY(mainPanel.getStartingCell().getPixelY());
         drake = new Dragon(mainPanel.getStartingCell(),cells,waitTimeBetWeenAIIterations);
         drakeThread = new Thread(()-> {
             try {
@@ -345,10 +340,12 @@ public class AdventureGUI extends GUIWindow {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }});
+        setExtendedState(MAXIMIZED_BOTH);
+        setVisible(true);
         drakeThread.start();
-        refresher.start();
         spriteUpdater.start();
         timer.start();
+        refresher.start();
     }
     
 }
