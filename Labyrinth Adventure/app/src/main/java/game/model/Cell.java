@@ -5,7 +5,9 @@ import game.view.ResourceLoader;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
-
+/**
+ *
+ */
 public class Cell {
     private int colIdx;
     private int rowIdx;
@@ -39,7 +41,12 @@ public class Cell {
         isEndingCell = endingCell;
     }
 
-    /** Képkiválasztó metódus, az éleket jelentő boolokat vizsgáljuk. Ha egy bool true, akkor van edge (fal) , ha false, akkor nincs. */
+    /**
+     * Selects the correct image for the Cell.
+     * @param debugMode Extra possibility for some information regarding the Dragon's algorithm.
+     * @return The image which represents the values of the Cell.
+     * @throws IOException when the file couldn't be read.
+     */
     public BufferedImage selectImage(boolean debugMode) throws IOException
     {
         if(debugMode && isDeadEnd) return ResourceLoader.blue;

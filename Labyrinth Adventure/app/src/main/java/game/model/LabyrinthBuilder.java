@@ -13,7 +13,13 @@ public class LabyrinthBuilder
     private Cell currentCell;
     private final int NUMBER_OF_ROWS = 9;
     private final int NUMBER_OF_COLS = 16;
-    
+
+    /**
+     * Builds the labyrinth, either by Aldous-Broder algorithm, or by loading it from the database.
+     * @param isMapGenerationNeeded true if we have to run the Aldous-Broder algorithm.
+     * @param mapData not empty String if there is a map pulled from the database.
+     * @throws IncorrectMapException if the mapData String's length is not good.
+     */
     public LabyrinthBuilder(boolean isMapGenerationNeeded,String mapData) throws IncorrectMapException {
         int iterations = 0;
         for (int idx = 0; idx < NUMBER_OF_ROWS; idx++)
@@ -73,6 +79,9 @@ public class LabyrinthBuilder
         }
     }
 
+    /**
+     * @return the cell which is the starting Cell.
+     */
     public Cell getStartingCell()
     {
         for(ArrayList<Cell> cellRow : cells)
@@ -89,7 +98,9 @@ public class LabyrinthBuilder
         this.currentCell = currentCell;
     }
 
-    /** Aldous-Broder Algoritmusnak a szomszédos mezőt kiválasztó rész implementációja */
+    /**
+     * The Aldous-Broder algorithm calls this to randomly select a new cell.
+     */
     private void moveToAdjacentCell()
     {
         double random = Math.random();
@@ -142,6 +153,11 @@ public class LabyrinthBuilder
         }
     }
     static int counter = 0;
+
+    /**
+     * The map loader algorithm calls this method to make the path according to the map data.
+     * @param dir The direction where we should make the way for the player.
+     */
     public void moveToAdjacentCell(Direction dir)
     {
         //System.out.println("Called with " + dir);
@@ -173,8 +189,11 @@ public class LabyrinthBuilder
             }
         }
     }
-    
-    /** Eddig megy az algoritmusunk, tehát amíg nincs minden elem legalább egyszer megjelölve */
+
+    /**
+     * This is the ending condition of the Aldous-Broder algorithm. We have to go until every Cell is visited at least once.
+     * @return true if every cell has been visited.
+     */
     public boolean isEndOfGeneration()
     {
         for(ArrayList<Cell> cellRow : cells)

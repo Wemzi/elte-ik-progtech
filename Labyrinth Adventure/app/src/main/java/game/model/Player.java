@@ -16,10 +16,6 @@ public class Player
     public BufferedImage[] myLooks = ResourceLoader.steved;
     public BufferedImage myLook = ResourceLoader.steved[0];
 
-    public boolean isAmIMoving() {
-        return amIMoving;
-    }
-
     public void setAmIMoving(boolean amIMoving) {
         this.amIMoving = amIMoving;
     }
@@ -40,6 +36,9 @@ public class Player
         return pixelY;
     }
 
+    /**
+     * Swaps out the image, if the player is moving, and also if it changes directions.
+     */
     public void updateLook()
     {
         switch(myDirection)
@@ -63,7 +62,10 @@ public class Player
         pixelY=0;
     }
 
-    /** A játékos mozgató metódusa, támogatja esetleg később az átlós mozgás implementálását is */
+    /**
+     * Handling the pixel movement of the player.
+     * @param dir The direction where the player wants to move.
+     */
     public void move(Direction dir, int maxX, int maxY) {
         myDirection = dir;
         switch (dir) {
@@ -92,15 +94,6 @@ public class Player
         this.coordX = coordX;
         this.coordY = coordY;
 
-    }
-
-    public int getcoordX()
-    {
-        return coordX;
-    }
-    public int getcoordY()
-    {
-        return coordY;
     }
 
     @Override

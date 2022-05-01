@@ -11,6 +11,11 @@ public class TopList extends JFrame  {
     JTable highScoreTable;
     String[] columns = {"RANK","USER","SCORE"};
     JScrollPane sp;
+
+    /**
+     * Constructs a new frame with a table in it, holding all the top scores from the users.
+     * @param dbConnection the connection to the SQL server, where it grabs the data from.
+     */
     public TopList(OracleSqlManager dbConnection)
     {
         highScoreData = dbConnection.getHighScores();

@@ -29,12 +29,8 @@ import java.io.File;
 import java.io.IOException;
 
 public class MainMenu extends JFrame {
-    public OracleSqlManager dbConnection;
-    private LabyrinthBuilder labyrinth;
-    private AdventureGUI gameInstance;
-    private final JLabel gameStatLabel = new JLabel("");
-    private static int score=0;
-    private static int time = 0;
+    private GUIWindow gameInstance;
+    private OracleSqlManager dbConnection;
     private BufferedImage background;
     private BufferedImage playOnlineImg;
     private BufferedImage playOfflineImg;
@@ -49,6 +45,9 @@ public class MainMenu extends JFrame {
     private final Rectangle topListArea;
     private final Rectangle exitArea;
 
+    /**
+     * Constructs the main menu screen, starting with loading all the resources that we'll need.
+     */
     public MainMenu() {
         try {
             ResourceLoader.initResources();
@@ -118,6 +117,10 @@ public class MainMenu extends JFrame {
         setExtendedState(MAXIMIZED_BOTH);
     }
 
+    /**
+     * Defines how to draw the components of the main menu.
+     * @param g
+     */
     @Override
     public void paint(Graphics g) {
         super.paint(g);
@@ -134,6 +137,11 @@ public class MainMenu extends JFrame {
 
     }
 
+    /**
+     * Displays a window, where the user can write their credentials to log into the ELTE Aramis server.
+     * @param frame the parent frame.
+     * @return a Hashtable containing the username and the password for the user.
+     */
     public Hashtable<String, String> login(JFrame frame) {
         Hashtable<String, String> logininformation = new Hashtable<String, String>();
         JPanel panel = new JPanel(new BorderLayout(5, 5));
@@ -153,16 +161,13 @@ public class MainMenu extends JFrame {
         return logininformation;
     }
 
-    public void newGame()
-    {
-        if(dbConnection != null) startNewOnlineGame();
-        else startNewOfflineGame();
-    }
-
+    /**
+     * Starts a new online game.
+     */
     private void startNewOnlineGame()
     {
         try {
-            this.gameInstance = new AdventureGUI(this,dbConnection);
+            this.gameInstance = new AdventureGUI(dbConnection);
         } catch (IOException e) {
             e.printStackTrace();
         } catch (IncorrectMapException e) {
@@ -170,10 +175,13 @@ public class MainMenu extends JFrame {
         }
     }
 
+    /**
+     * Starts a new offline game.
+     */
     private void startNewOfflineGame()
     {
         try {
-            this.gameInstance = new AdventureGUI(this);
+            this.gameInstance = new AdventureGUI();
         } catch (IOException e) {
             e.printStackTrace();
         } catch (IncorrectMapException e) {

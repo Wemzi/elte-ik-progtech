@@ -41,7 +41,10 @@ public class ResourceLoader {
     public static BufferedImage exit;
 
 
-
+    /**
+     * Loads all the static variables of this class, which are images for all the other classes.
+     * @throws IOException
+     */
     public static void initResources() throws IOException
     {
         bg = ImageIO.read(ResourceLoader.class.getClassLoader().getResource("bg.png"));

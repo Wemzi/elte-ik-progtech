@@ -28,6 +28,9 @@ public class LabyrinthPanel extends JPanel{
     private boolean startOfGame;
     private boolean debugMode;
 
+    /**
+     * @return the starting cell of the maze.
+     */
     public Cell getStartingCell()
     {
         for(ArrayList<Cell> cellRow : cells)
@@ -40,6 +43,9 @@ public class LabyrinthPanel extends JPanel{
         return null;
     }
 
+    /**
+     * @return the ending cell of the maze.
+     */
     public Cell getEndingCell()
     {
         for(ArrayList<Cell> cellRow : cells)
@@ -52,14 +58,11 @@ public class LabyrinthPanel extends JPanel{
         return null;
     }
 
-    public Cell getCurrentCell(MouseEvent e)
-    {
-        int x = (e.getX())/picsize;
-        int y = (cells.size())-Math.round(e.getY()/picsize);
-        Cell  ret = cells.get(y).get(x);
-        return ret;
-    }
-    
+    /**
+     * Constructs the panel, where we'll draw the labyrinth, the player and the drake.
+     * @param board the parent JFrame, which constructed this panel.
+     * @param debugMode decides if we want to turn some extra debug information visible.
+     */
     public LabyrinthPanel(GUIWindow board, boolean debugMode)
     {
         this.debugMode = debugMode;
@@ -74,11 +77,10 @@ public class LabyrinthPanel extends JPanel{
         }
     }
 
-    public int countDistance(int szam1, int szam2)
-    {
-        return szam2-szam1;
-    }
-    /** Grafikai rajzoló metódus, itt hívjuk meg a képkiválasztó függvényeket, és helyezzük őket a megfelelő helyre az ablakon belül. */
+    /**
+     * makes the game content visible for us.
+     * @param g
+     */
     @Override
     protected void paintComponent(Graphics g)
     {
@@ -127,6 +129,9 @@ public class LabyrinthPanel extends JPanel{
         }
     }
 
+    /**
+     * @return the string representation of the map, which we built in the MapBuilder.
+     */
     public String toMapDataString()
     {
         String ret = "";

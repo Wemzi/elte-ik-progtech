@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="2d198183-6036-4902-902a-616e7bbac25a" name="Changes" comment="Moved to IntelliJ">
       <change afterPath="$PROJECT_DIR$/app/src/main/java/persistence/OracleSqlManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/resources/desktop.ini" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/resources/dragon.png" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/resources/edged.png" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/resources/edgel.png" afterDir="false" />
@@ -24,7 +23,6 @@
       <change afterPath="$PROJECT_DIR$/app/src/main/resources/edgeurl.png" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/resources/end.png" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/resources/grass.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/resources/player.png" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/resources/start.png" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/test/java/Labyrinth/Adventure/AppTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />

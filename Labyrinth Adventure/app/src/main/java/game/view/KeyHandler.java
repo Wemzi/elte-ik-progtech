@@ -16,6 +16,10 @@ public class KeyHandler extends KeyAdapter {
 
     }
 
+    /**
+     * sets boolean values according to which key is currently pressed.
+     * @param e input from the keyboard.
+     */
     @Override
     public void keyPressed(KeyEvent e) {
         int code = e.getKeyCode();
@@ -25,6 +29,10 @@ public class KeyHandler extends KeyAdapter {
         if(code == KeyEvent.VK_RIGHT) rightPressed = true;
     }
 
+    /**
+     * sets boolean values according to which key is currently not pressed.
+     * @param e input from the keyboard.
+     */
     @Override
     public void keyReleased(KeyEvent e) {
         int code = e.getKeyCode();

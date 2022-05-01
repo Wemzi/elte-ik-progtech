@@ -21,6 +21,11 @@ public class Dragon {
 
     public Cell getCurrentCell(){ return currentCell;}
 
+    /**
+     * Runs the path finding algorithm of the Dragon.
+     * @return if the end of the maze has been found or not.
+     * @throws InterruptedException if the waiting time has been interrupted, for example, because the player has found the way out of the maze.
+     */
     public boolean doTremauxPathFinding() throws InterruptedException {
         ArrayList<Cell> retList = new ArrayList<>();
         if(!currentCell.isStartingCell()) return false;
@@ -45,7 +50,11 @@ public class Dragon {
         return currentCell.isEndingCell();
     }
 
-
+    /**
+     * Tries to go to the Cell next to it, considering the size of the maze, and if it is allowed to go there.
+     * @param dir the direction the Dragon should go in.
+     * @return if the move was successful or not.
+     */
     private boolean tryGoingToNeighbourCell(Direction dir)
     {
         Cell neighbour = getNeighbour(dir);
@@ -68,6 +77,9 @@ public class Dragon {
         return false;
     }
 
+    /**
+     * @return the number of directions, where it is possible to go.
+     */
     private int getCountOfPossibleDirections()
     {
         int retVal = 0;
@@ -78,6 +90,9 @@ public class Dragon {
         return retVal;
     }
 
+    /**
+     * @return if there is any cell in the array which the Dragon hasn't seen yet.
+     */
     private boolean isThereUnVisitedRoad()
     {
         return !currentCell.getedgeDown() && getNeighbour(Direction.DOWN) != null && !getNeighbour(Direction.DOWN).isHasBeenVisitedByDragon()
@@ -86,11 +101,18 @@ public class Dragon {
          || !currentCell.getedgeRight() && getNeighbour(Direction.RIGHT) != null && !getNeighbour(Direction.RIGHT).isHasBeenVisitedByDragon();
     }
 
+    /**
+     * @return if we are in a junction or not.
+     */
     private boolean isJunction()
     {
         return getCountOfPossibleDirections()>2;
     }
 
+    /**
+     * The Dragon makes a direction choice,considering visited cells and maze limits, where is the best idea to go to.
+     * @return the best direction.
+     */
     private Direction makeChoiceInJunction()
     {
         Direction possibleBest = null;
@@ -117,6 +139,10 @@ public class Dragon {
         return possibleBest;
     }
 
+    /**
+     * @param dir the direction which shall be checked.
+     * @return if it can go to the neighbour cell without going to the outer side of the maze.
+     */
     private boolean isValidMove(Direction dir)
     {
         int currentRowIdx = currentCell.getrowIdx();
@@ -133,11 +159,18 @@ public class Dragon {
         }
     }
 
+    /**
+     * @return if we are in a dead end or not.
+     */
     private boolean isDeadEnd()
     {
         return getCountOfPossibleDirections() == 1;
     }
 
+    /**
+     * @param dir the direction which shall be checked.
+     * @return if the move is blocked by any edge or not.
+     */
     private boolean isMoveBlockedByWall(Direction dir)
     {
         switch(dir)
@@ -150,6 +183,10 @@ public class Dragon {
         }
     }
 
+    /**
+     * This method keeps the Dragon going until choosing a new Cell is trivial.
+     * @return true if it found the ending cell, or false if there is nowhere we can go to anymore.
+     */
     private boolean goUntilJunction()
     {
         while(!isJunction() || isThereUnVisitedRoad() && isEndCellTheoreticallyReachable())
@@ -191,6 +228,9 @@ public class Dragon {
     }
 
 
+    /**
+     * @return a new direction, different than the previous one (follows the Right hand rule)
+     */
     private Direction selectNewDirection()
     {
         switch(currentDirection)
@@ -202,6 +242,9 @@ public class Dragon {
         }
     }
 
+    /**
+     * @return the direction opposite to the current one.
+     */
     private Direction getOppositeDirection()
     {
         switch(currentDirection)
@@ -213,6 +256,11 @@ public class Dragon {
         }
     }
 
+
+    /**
+     * @param dir The direction, in which we want to get the neighbour cell.
+     * @return null, if the move to the direction is not valid, otherwise the neighbour cell.
+     */
     private Cell getNeighbour(Direction dir)
     {
         int currentColIdx = currentCell.getcolIdx();
@@ -230,6 +278,9 @@ public class Dragon {
         return null;
     }
 
+    /**
+     * @return if it still makes sense to search for routes.
+     */
     private boolean isEndCellTheoreticallyReachable()
     {
         boolean retVal = false;
@@ -243,6 +294,9 @@ public class Dragon {
         return retVal;
     }
 
+    /**
+     * @return direction of one of the neighbour cells which is yet unvisited.
+     */
     private Direction getDirectionOfUnvisitedRoad()
     {
         if(!currentCell.getedgeDown() && getNeighbour(Direction.DOWN) != null && !getNeighbour(Direction.DOWN).isHasBeenVisitedByDragon()) return Direction.DOWN;
@@ -252,6 +306,11 @@ public class Dragon {
         else return null;
     }
 
+    /**
+     * Moves the Dragon to a new cell, and also handling the Cells' attributes, marking it visited, or dead end.
+     * @param dir the direction where we want to go
+     * @return if the move was successful or not
+     */
     private boolean selectNewCell(Direction dir)
     {
         boolean isMoveSuccessful = false;

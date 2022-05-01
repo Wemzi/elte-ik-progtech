@@ -23,9 +23,12 @@ public abstract class GUIWindow {
     protected final int REFRESH_TIME_FOR_60FPS=15;
     protected final int SECONDINMS=1000;
 
+    /**
+     * Sets some basic values which are essential for all windows opened.
+     * @throws IOException if it couldn't load the resources.
+     */
     protected GUIWindow() throws IOException
     {
-        ResourceLoader.initResources();
         frame = new JFrame("Labyrinth Adventure");
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         bottomMenu=new JMenuBar();

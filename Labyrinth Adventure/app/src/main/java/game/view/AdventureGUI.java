@@ -73,8 +73,13 @@ public class AdventureGUI extends GUIWindow {
                 //System.out.println("called");
             }
         });
-    /** Grafikus UI konstruktora,, melyben meghívom a labirintusgenerálást, létrehozzuk az összes UI elemet, generáljuk a játékost és a sárkányt.*/
-    public AdventureGUI(MainMenu parentMenu) throws IOException,IncorrectMapException
+
+    /**
+     * Constructs the Gameplay window, with the offline Version.
+     * @throws IOException if a resource file couldn't be loaded.
+     * @throws IncorrectMapException if the LabyrinthBuilder can't build the labyrinth.
+     */
+    public AdventureGUI() throws IOException,IncorrectMapException
     {
         super();
         labyrinth = new LabyrinthBuilder(true,"");
@@ -130,8 +135,13 @@ public class AdventureGUI extends GUIWindow {
     }
 
 
-
-    public AdventureGUI(MainMenu parentMenu,OracleSqlManager dbConnection) throws IOException,IncorrectMapException
+    /**
+     * Constructs our gameplay window, with the online version.
+     * @param dbConnection the connection to the SQL server.
+     * @throws IOException if a resource couldn't be loaded.
+     * @throws IncorrectMapException if the map data loaded from the SQL server is invalid.
+     */
+    public AdventureGUI(OracleSqlManager dbConnection) throws IOException,IncorrectMapException
     {
         super();
         this.dbConnection = dbConnection;
@@ -307,7 +317,11 @@ public class AdventureGUI extends GUIWindow {
     {
         return Steve;
     }
-    /** újraindító metódus */
+
+    /**
+     * Stops every timer, reconstructs the labyrinth, sets the positions of the player and drake, then starts the timers again.
+     * @throws IncorrectMapException if the LabyrinthBuilder fails to build the labyrinth.
+     */
     public void restartGame() throws IncorrectMapException
     {
         refresher.stop();
@@ -348,7 +362,6 @@ public class AdventureGUI extends GUIWindow {
         refresher.start();
         spriteUpdater.start();
         timer.start();
-        System.out.println("minden elindult");
     }
     
 }

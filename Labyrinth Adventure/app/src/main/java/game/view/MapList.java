@@ -20,6 +20,11 @@ public class MapList extends JFrame {
     String[] columns = {"MAP DATA","USER","ALIAS"};
     JScrollPane sp;
     JToolBar toolBar;
+
+    /**
+     * Constructs a JTable with the user's maps.
+     * @param dbConnection the SQL connection where it can read the map data from.
+     */
     public MapList(OracleSqlManager dbConnection)
     {
         mapData = dbConnection.getMyMaps();

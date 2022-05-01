@@ -18,6 +18,12 @@ import javax.swing.Timer;
 
 public class MapBuilderGUI extends GUIWindow {
 
+    /**
+     * The window responsible for building maps.
+     * @param dbConnection the SQL connection, where it can save the map to.
+     * @throws IOException if we couldn't load an asset.
+     * @throws IncorrectMapException if something went wrong while generating the empty maze.
+     */
     public MapBuilderGUI(OracleSqlManager dbConnection) throws IOException,IncorrectMapException
     {
         super();
