@@ -71,7 +71,6 @@ public class Player
         switch (dir) {
             case RIGHT: {
                 pixelX+=3;
-
                 break;
             }
             case UP: {

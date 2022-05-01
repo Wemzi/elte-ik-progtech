@@ -30,8 +30,7 @@ public class MapBuilderGUI extends GUIWindow {
         this.dbConnection = dbConnection;
         labyrinth = new LabyrinthBuilder(false,"");
         cells = labyrinth.getCells();
-        frame.getContentPane().add(BorderLayout.SOUTH, bottomMenu);
-        frame.setSize(1280,720);
+        getContentPane().add(BorderLayout.SOUTH, bottomMenu);
         JMenuItem saveMap = new JMenuItem("Save Map");
         saveMap.addActionListener(new ActionListener() {
             @Override
@@ -47,12 +46,12 @@ public class MapBuilderGUI extends GUIWindow {
                     }
                     else
                     {
-                        JOptionPane.showOptionDialog(frame,"The AI didn't found a way out of your maze. Please start again, and make sure there is a way out of your maze.","Lost game",JOptionPane.NO_OPTION,JOptionPane.OK_OPTION,null,buttons,buttons[0]);
+                        JOptionPane.showOptionDialog(null,"The AI didn't found a way out of your maze. Please start again, and make sure there is a way out of your maze.","Lost game",JOptionPane.NO_OPTION,JOptionPane.OK_OPTION,null,buttons,buttons[0]);
                     }
                 } catch (InterruptedException ex) {
                     ex.printStackTrace();
                 }
-                frame.dispose();
+                dispose();
             }
         });
         refresher = new Timer(REFRESH_TIME_FOR_60FPS,new ActionListener(){
@@ -65,8 +64,12 @@ public class MapBuilderGUI extends GUIWindow {
         mainPanel = new LabyrinthPanel(this,false);
         mainPanel.addMouseMotionListener(new CellMouseAdapter(cells,mainPanel,labyrinth));
         mainPanel.addMouseListener(new CellMouseAdapter(cells,mainPanel,labyrinth));
-        frame.getContentPane().add(BorderLayout.CENTER, mainPanel);
-        frame.setVisible(true);
+        getContentPane().add(BorderLayout.CENTER, mainPanel);
+        dispose();
+        setExtendedState(MAXIMIZED_BOTH);
+        setResizable(false);
+        setUndecorated(true);
+        setVisible(true);
         refresher.start();
     }
 }

@@ -30,7 +30,7 @@ public class AdventureGUI extends GUIWindow {
     private final ActionListener backToMainMenuAction = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
-            int response = JOptionPane.showConfirmDialog(frame,"Are you sure you want to quit? Any unsaved progress will be lost.","Confirmation", JOptionPane.OK_CANCEL_OPTION);
+            int response = JOptionPane.showConfirmDialog(null,"Are you sure you want to quit? Any unsaved progress will be lost.","Confirmation", JOptionPane.OK_CANCEL_OPTION);
             if(response == JOptionPane.OK_OPTION)
             {
                 stopGame();
@@ -64,7 +64,7 @@ public class AdventureGUI extends GUIWindow {
                 else if(isLost())
                 {
                     String[] buttons = {"OK"};
-                    JOptionPane.showOptionDialog(frame,"You lost. The score you earned is:" + score + " if you have internet connection available, it should synch automatically.","Lost game",JOptionPane.NO_OPTION,JOptionPane.OK_OPTION,null,buttons,buttons[0]);
+                    JOptionPane.showOptionDialog(null,"You lost. The score you earned is:" + score + " if you have internet connection available, it should synch automatically.","Lost game",JOptionPane.NO_OPTION,JOptionPane.OK_OPTION,null,buttons,buttons[0]);
                     if(dbConnection != null) dbConnection.saveHighScore(score);
                     stopGame();
                 }
@@ -109,18 +109,18 @@ public class AdventureGUI extends GUIWindow {
             }
         });
         /** A billentyűlenyomáshoz kapcsolt eseménykezelő, mely elmozdítja a játékost, és a sárkányt is, megvizsgálja, hogy vége van e a játéknak,majd ha nem, újrarajzolja a pályát. */
-        frame.addKeyListener(keyHandler);
+        addKeyListener(keyHandler);
         menu.add(newGame);
         menu.add(help);
         menu.add(backToMainMenu);
         bottomMenu.add(menu);
         bottomMenu.add(gameStatLabel);
         backToMainMenu.addActionListener(backToMainMenuAction);
-        frame.getContentPane().add(BorderLayout.SOUTH, bottomMenu);
-        frame.getContentPane().add(BorderLayout.CENTER, mainPanel);
-        frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
-        frame.setUndecorated(true);
-        frame.setVisible(true);
+        getContentPane().add(BorderLayout.SOUTH, bottomMenu);
+        getContentPane().add(BorderLayout.CENTER, mainPanel);
+        setExtendedState(JFrame.MAXIMIZED_BOTH);
+        setUndecorated(true);
+        setVisible(true);
         timer.start();
         refresher.start();
         spriteUpdater.start();
@@ -177,15 +177,15 @@ public class AdventureGUI extends GUIWindow {
         menu.add(backToMainMenu);
         backToMainMenu.addActionListener(backToMainMenuAction);
         bottomMenu.add(menu);
-        frame.addKeyListener(keyHandler);
+        addKeyListener(keyHandler);
         mapCreator = mapData[1];
         gameStatLabel.setText("Score: " + score + " Creator: " + mapCreator);
         bottomMenu.add(gameStatLabel);
-        frame.getContentPane().add(BorderLayout.SOUTH, bottomMenu);
-        frame.getContentPane().add(BorderLayout.CENTER, mainPanel);
-        frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
-        frame.setUndecorated(true);
-        frame.setVisible(true);
+        getContentPane().add(BorderLayout.SOUTH, bottomMenu);
+        getContentPane().add(BorderLayout.CENTER, mainPanel);
+        setExtendedState(JFrame.MAXIMIZED_BOTH);
+        setUndecorated(true);
+        setVisible(true);
         drake = new Dragon(mainPanel.getStartingCell(),cells,waitTimeBetWeenAIIterations);
         drakeThread = new Thread(()-> {
             try {
@@ -207,7 +207,7 @@ public class AdventureGUI extends GUIWindow {
         timer.stop();
         refresher.stop();
         spriteUpdater.stop();
-        frame.dispose();
+        dispose();
     }
 
     public Cell getStartingCell()
@@ -303,11 +303,6 @@ public class AdventureGUI extends GUIWindow {
 
     public Dragon getDrake() { return drake;}
 
-    public JFrame getFrame()
-    {
-        return frame;
-    }
-
     public ArrayList<ArrayList<Cell>> getCells()
     {
         return cells;
@@ -328,9 +323,8 @@ public class AdventureGUI extends GUIWindow {
         timer.stop();
         spriteUpdater.stop();
         drakeThread.stop();
-        Dimension prevWindowDimensions = mainPanel.getSize();
-        frame.getContentPane().remove(mainPanel);
-        frame.getContentPane().remove(bottomMenu);
+        getContentPane().remove(mainPanel);
+        getContentPane().remove(bottomMenu);
         if(dbConnection == null)
         {
             labyrinth = new LabyrinthBuilder(true,"");
@@ -343,11 +337,11 @@ public class AdventureGUI extends GUIWindow {
         }
         cells = labyrinth.getCells();
         mainPanel = new LabyrinthPanel(this,false);
-        frame.getContentPane().add(BorderLayout.SOUTH, bottomMenu);
-        frame.getContentPane().add(BorderLayout.CENTER, mainPanel);
-        frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
-        frame.dispose();
-        frame.setUndecorated(true);
+        getContentPane().add(BorderLayout.SOUTH, bottomMenu);
+        getContentPane().add(BorderLayout.CENTER, mainPanel);
+        setExtendedState(JFrame.MAXIMIZED_BOTH);
+        dispose();
+        setUndecorated(true);
         Steve.setCoords(mainPanel.getStartingCell().getrowIdx(), mainPanel.getStartingCell().getcolIdx());
         Steve.setPixelX(mainPanel.getStartingCell().getPixelX());
         Steve.setPixelY(mainPanel.getStartingCell().getPixelY());

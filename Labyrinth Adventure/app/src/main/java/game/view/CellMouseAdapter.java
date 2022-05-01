@@ -30,7 +30,7 @@ public class CellMouseAdapter extends MouseAdapter {
     {
         int picSize = mainPanel.getPicSize();
         int x = (e.getX())/picSize;
-        int y = cells.size()-Math.round(e.getY()/picSize)-1;
+        int y = cells.size()-(Math.round(e.getY()/picSize)+1);
         return cells.get(y).get(x);
     }
 

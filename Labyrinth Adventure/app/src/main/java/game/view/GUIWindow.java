@@ -9,8 +9,7 @@ import java.awt.*;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public abstract class GUIWindow {
-    protected JFrame frame;
+public abstract class GUIWindow extends JFrame {
     protected LabyrinthPanel mainPanel;
     protected LabyrinthBuilder labyrinth;
     protected ArrayList<ArrayList<Cell>> cells = new ArrayList<ArrayList<Cell>>();
@@ -29,16 +28,12 @@ public abstract class GUIWindow {
      */
     protected GUIWindow() throws IOException
     {
-        frame = new JFrame("Labyrinth Adventure");
-        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        setTitle("Labyrinth Adventure");
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         bottomMenu=new JMenuBar();
         menu = new JMenu("Menu");
         bottomMenu.add(menu);
-        frame.getContentPane().add(BorderLayout.SOUTH, bottomMenu);
-    }
-    public JFrame getFrame()
-    {
-        return frame;
+        getContentPane().add(BorderLayout.SOUTH, bottomMenu);
     }
     public ArrayList<ArrayList<Cell>> getCells()
     {
