@@ -51,6 +51,7 @@ public class CellMouseAdapter extends MouseAdapter {
         super.mouseDragged(e);
         prevCell = currentCell;
         currentCell = getCurrentCell(e);
+        currentCell.setVisibleForPlayer(true);
         if(prevCell == null)
         {
             currentCell.setStartingCell(true);

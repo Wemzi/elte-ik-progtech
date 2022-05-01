@@ -46,7 +46,7 @@ public class MapBuilderGUI extends GUIWindow {
                     }
                     else
                     {
-                        JOptionPane.showOptionDialog(null,"The AI didn't found a way out of your maze. Please start again, and make sure there is a way out of your maze.","Lost game",JOptionPane.NO_OPTION,JOptionPane.OK_OPTION,null,buttons,buttons[0]);
+                        JOptionPane.showOptionDialog(null,"The AI didn't found a way out of your maze. Please start again, and make sure there is a way out of your maze.","Invalid map",JOptionPane.NO_OPTION,JOptionPane.OK_OPTION,null,buttons,buttons[0]);
                     }
                 } catch (InterruptedException ex) {
                     ex.printStackTrace();

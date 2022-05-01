@@ -20,7 +20,12 @@ public class TopList extends JFrame  {
     {
         highScoreData = dbConnection.getHighScores();
         this.dbConnection = dbConnection;
-        highScoreTable = new JTable(highScoreData,columns);
+        highScoreTable = new JTable(highScoreData,columns){
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        };
         highScoreTable.setBounds(30,40,200,300);
         sp = new JScrollPane(highScoreTable);
         add(sp);

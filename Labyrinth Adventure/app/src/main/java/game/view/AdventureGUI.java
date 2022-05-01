@@ -18,27 +18,13 @@ public class AdventureGUI extends GUIWindow {
     private Dragon drake;
     private String mapCreator = "Aldous-Broder Algorithm";
     private final JMenuItem newGame = new JMenuItem("New Game");
-    private final JMenuItem backToMainMenu = new JMenuItem("Back to main menu");
-    private final JMenuItem help = new JMenuItem("Help");
     private final Player Steve = new Player();
     private final KeyHandler keyHandler = new KeyHandler();
     private final JMenu menu = new JMenu("Menu");
     private int waitTimeBetWeenAIIterations=1500;
     private boolean didDrakeFindThePath;
-    private boolean isPlayerMoving;
     private final JMenuBar bottomMenu = new JMenuBar();
-    private final ActionListener backToMainMenuAction = new ActionListener() {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            int response = JOptionPane.showConfirmDialog(null,"Are you sure you want to quit? Any unsaved progress will be lost.","Confirmation", JOptionPane.OK_CANCEL_OPTION);
-            if(response == JOptionPane.OK_OPTION)
-            {
-                stopGame();
-            }
-        }
-    };
     private Timer spriteUpdater = new Timer(SPRITE_UPDATE_FREQUENCY, new ActionListener() {
-
         @Override
         public void actionPerformed(ActionEvent e) {
             Steve.updateLook();
@@ -90,7 +76,6 @@ public class AdventureGUI extends GUIWindow {
         Steve.setPixelY(mainPanel.getStartingCell().getPixelY());
         newGame.addActionListener(new ActionListener(){
            @Override
-           /** newgame indítás menüből */
         public void actionPerformed (ActionEvent e)
         {
            score=0;
@@ -108,14 +93,17 @@ public class AdventureGUI extends GUIWindow {
                 mainPanel.repaint();
             }
         });
-        /** A billentyűlenyomáshoz kapcsolt eseménykezelő, mely elmozdítja a játékost, és a sárkányt is, megvizsgálja, hogy vége van e a játéknak,majd ha nem, újrarajzolja a pályát. */
         addKeyListener(keyHandler);
         menu.add(newGame);
-        menu.add(help);
         menu.add(backToMainMenu);
         bottomMenu.add(menu);
         bottomMenu.add(gameStatLabel);
-        backToMainMenu.addActionListener(backToMainMenuAction);
+        backToMainMenuAction = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                stopGame();
+            }
+        };
         getContentPane().add(BorderLayout.SOUTH, bottomMenu);
         getContentPane().add(BorderLayout.CENTER, mainPanel);
         setExtendedState(JFrame.MAXIMIZED_BOTH);
@@ -173,9 +161,13 @@ public class AdventureGUI extends GUIWindow {
             }
         });
         menu.add(newGame);
-        menu.add(help);
         menu.add(backToMainMenu);
-        backToMainMenu.addActionListener(backToMainMenuAction);
+        backToMainMenuAction = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                stopGame();
+            }
+        };
         bottomMenu.add(menu);
         addKeyListener(keyHandler);
         mapCreator = mapData[1];
@@ -200,6 +192,9 @@ public class AdventureGUI extends GUIWindow {
         spriteUpdater.start();
     }
 
+    /**
+     * Stops the game, resetting time and score, stopping the timers.
+     */
     private void stopGame()
     {
         time = 0;
@@ -210,18 +205,10 @@ public class AdventureGUI extends GUIWindow {
         dispose();
     }
 
-    public Cell getStartingCell()
-    {
-        for(ArrayList<Cell> cellRow : cells)
-        {
-            for(Cell cell : cellRow)
-            {
-                if(cell.isStartingCell())return cell;
-            }
-        }
-        return null;
-    }
-
+    /**
+     * @param Steve the player.
+     * @return the Cell which is the player at currently.
+     */
     public Cell getCurrentCell(Player Steve)
     {
         int picSize = mainPanel.getPicSize();
@@ -233,6 +220,9 @@ public class AdventureGUI extends GUIWindow {
     }
 
 
+    /**
+     * Updates attributes of the player according to the KeyHandler.
+     */
     public void updatePlayer()
     {
         Cell cell = getCurrentCell(Steve);
@@ -263,6 +253,9 @@ public class AdventureGUI extends GUIWindow {
         Steve.setCoords(getCurrentCell(Steve).getrowIdx(),getCurrentCell(Steve).getcolIdx());
     }
 
+    /**
+     * Updates cells which are visible for the player, based on "tunnel" vision in 4 directions.
+     */
     public void updateVisibleCells()
     {
         Cell currentCell = getCurrentCell(Steve);

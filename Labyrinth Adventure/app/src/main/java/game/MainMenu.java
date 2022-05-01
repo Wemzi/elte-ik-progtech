@@ -62,6 +62,7 @@ public class MainMenu extends JFrame {
         } catch (Exception e) {
             dbConnection = null;
         }
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
         background = ResourceLoader.bg;
         topListImg = ResourceLoader.toplist;
         myMapsImg = ResourceLoader.mymaps;
@@ -104,8 +105,7 @@ public class MainMenu extends JFrame {
                 }
                 if (exitArea.contains(e.getPoint())) {
                     dispose();
-                    return;
-
+                    System.exit(0);
                 }
             }
 
