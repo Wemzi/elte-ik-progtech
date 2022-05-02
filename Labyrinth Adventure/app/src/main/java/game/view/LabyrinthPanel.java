@@ -118,9 +118,7 @@ public class LabyrinthPanel extends JPanel{
             Player Steve = ((AdventureGUI) board).getPlayer();
             if(startOfGame)
             {
-                System.out.println("all set" + getStartingCell());
                 startOfGame = false;
-                System.out.println(getStartingCell());
                 Steve.setCoords(getStartingCell().getrowIdx(),getStartingCell().getcolIdx());
                 Steve.setPixelX(getStartingCell().getPixelX());
                 Steve.setPixelY(getStartingCell().getPixelY());

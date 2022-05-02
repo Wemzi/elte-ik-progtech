@@ -17,6 +17,7 @@ public abstract class GUIWindow extends JFrame {
     protected ArrayList<ArrayList<Cell>> cells = new ArrayList<ArrayList<Cell>>();
     protected JMenuBar bottomMenu;
     protected final JLabel gameStatLabel = new JLabel("");
+    protected final JMenuItem help = new JMenuItem("Help");
     protected OracleSqlManager dbConnection;
     protected final JMenuItem backToMainMenu = new JMenuItem("Back to main menu");
     protected ActionListener backToMainMenuAction = new ActionListener() {

@@ -20,6 +20,16 @@ import javax.swing.Timer;
 
 public class MapBuilderGUI extends GUIWindow {
 
+    private final ActionListener helpAction = new ActionListener() {
+        String[] Buttons = {"OK"};
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            JOptionPane.showOptionDialog(null,"You can build a labyrinth here. To select a starting cell,\n " +
+                    "start holding down the left mouse button, and drag your cursor to make the way! \n " +
+                    "Use your right mouse button to select an ending cell, and once you're ready, \n " +
+                    "you'll be able to save it in the bottom menu.","Help",JOptionPane.NO_OPTION,JOptionPane.OK_OPTION,null,Buttons,Buttons[0]);
+        }
+    };
     /**
      * The window responsible for building maps.
      * @param dbConnection the SQL connection, where it can save the map to.
@@ -47,14 +57,14 @@ public class MapBuilderGUI extends GUIWindow {
                     if(drake.doTremauxPathFinding())
                     {
                         dbConnection.saveMap(mainPanel.toMapDataString(),alias);
+                        dispose();
                     }
                     else
                     {
                         JOptionPane.showOptionDialog(null,"The AI didn't found a way out of your maze." +
-                                " Please start again, and make sure there is a way out of your maze.","Invalid map",
+                                " Please continue making the maze, and make sure there is a way out of your maze.","Invalid map",
                                 JOptionPane.NO_OPTION,JOptionPane.OK_OPTION,null,buttons,buttons[0]);
                     }
-                dispose();
             }
         });
         refresher = new Timer(REFRESH_TIME_FOR_60FPS,new ActionListener(){
@@ -64,6 +74,8 @@ public class MapBuilderGUI extends GUIWindow {
             }
         });
         menu.add(saveMap);
+        help.addActionListener(helpAction);
+        menu.add(help);
         mainPanel = new LabyrinthPanel(this,false);
         mainPanel.addMouseMotionListener(new CellMouseAdapter(cells,mainPanel,labyrinth));
         mainPanel.addMouseListener(new CellMouseAdapter(cells,mainPanel,labyrinth));

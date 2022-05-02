@@ -15,8 +15,8 @@ import game.model.Player;
 import persistence.*;
 
 public class AdventureGUI extends GUIWindow {
-    private static int score=0;
-    private static int time = 0;
+    private int score=0;
+    private int time = 0;
     private Dragon drake;
     private String mapCreator = "Aldous-Broder Algorithm";
     private final JMenuItem newGame = new JMenuItem("New Game");
@@ -26,6 +26,16 @@ public class AdventureGUI extends GUIWindow {
     private int waitTimeBetWeenAIIterations=1500;
     private final int DEFAULT_WAITING_TIME = 1500;
     private boolean didDrakeFindThePath;
+    private final ActionListener helpAction = new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            String[] buttons = {"OK"};
+            JOptionPane.showOptionDialog(null,"Use the Arrow Keys to move, \n " +
+                    "and try to be faster in getting out of the maze than the Dragon! \n " +
+                    "If you see a whole brick block somewhere, means that it is yet undiscovered, \n " +
+                    "You'll have to approach it from the right direction! Good luck!","Help",JOptionPane.NO_OPTION,JOptionPane.OK_OPTION,null,buttons,buttons[0]);
+        }
+    };
     private final JMenuBar bottomMenu = new JMenuBar();
     private Timer spriteUpdater = new Timer(SPRITE_UPDATE_FREQUENCY, new ActionListener() {
         @Override
@@ -98,6 +108,8 @@ public class AdventureGUI extends GUIWindow {
             }
         });
         addKeyListener(keyHandler);
+        help.addActionListener(helpAction);
+        menu.add(help);
         menu.add(newGame);
         menu.add(backToMainMenu);
         bottomMenu.add(menu);
@@ -118,8 +130,7 @@ public class AdventureGUI extends GUIWindow {
         spriteUpdater.start();
         drake = new Dragon(mainPanel.getStartingCell(),cells,waitTimeBetWeenAIIterations);
         drakeThread = new Thread(()-> {
-            didDrakeFindThePath = drake.doTremauxPathFinding();
-        System.out.println("returned");});
+            didDrakeFindThePath = drake.doTremauxPathFinding();});
         drakeThread.start();
     }
 
@@ -135,7 +146,6 @@ public class AdventureGUI extends GUIWindow {
         super();
         this.dbConnection = dbConnection;
         String[] mapData = dbConnection.getRandomMap();
-
         labyrinth = new Labyrinth(false,mapData[0]);
         cells = labyrinth.getCells();
         mainPanel = new LabyrinthPanel(this,false);
@@ -161,6 +171,8 @@ public class AdventureGUI extends GUIWindow {
                 }
             }
         });
+        help.addActionListener(helpAction);
+        menu.add(help);
         menu.add(newGame);
         menu.add(backToMainMenu);
         backToMainMenuAction = new ActionListener() {
@@ -180,8 +192,7 @@ public class AdventureGUI extends GUIWindow {
         setUndecorated(true);
         setVisible(true);
         drake = new Dragon(mainPanel.getStartingCell(),cells,waitTimeBetWeenAIIterations);
-        drakeThread = new Thread(()-> {didDrakeFindThePath = drake.doTremauxPathFinding();
-        System.out.println("returned");});
+        drakeThread = new Thread(()-> {didDrakeFindThePath = drake.doTremauxPathFinding();});
         drakeThread.start();
         timer.start();
         refresher.start();
@@ -309,6 +320,7 @@ public class AdventureGUI extends GUIWindow {
     {
         refresher.stop();
         timer.stop();
+        time = 0;
         spriteUpdater.stop();
         drakeThread.interrupt();
         getContentPane().remove(mainPanel);
