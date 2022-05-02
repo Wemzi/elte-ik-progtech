@@ -1,7 +1,7 @@
 package game.view;
 
 import game.model.Cell;
-import game.model.LabyrinthBuilder;
+import game.model.Labyrinth;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -12,10 +12,10 @@ public class CellMouseAdapter extends MouseAdapter {
     Cell currentCell = null;
     ArrayList<ArrayList<Cell>> cells;
     LabyrinthPanel mainPanel;
-    LabyrinthBuilder labyrinth;
+    Labyrinth labyrinth;
 
 
-    public CellMouseAdapter(ArrayList<ArrayList<Cell>> cells, LabyrinthPanel mainPanel, LabyrinthBuilder labyrinth) {
+    public CellMouseAdapter(ArrayList<ArrayList<Cell>> cells, LabyrinthPanel mainPanel, Labyrinth labyrinth) {
         this.cells = cells;
         this.mainPanel = mainPanel;
         this.labyrinth = labyrinth;
@@ -37,6 +37,10 @@ public class CellMouseAdapter extends MouseAdapter {
     @Override
     public void mouseClicked(MouseEvent e)
     {
+        if(e.getButton() == MouseEvent.BUTTON3)
+        {
+            labyrinth.setEndingCell(getCurrentCell(e));
+        }
         Cell ret = getCurrentCell(e);
         System.out.println(ret);
     }

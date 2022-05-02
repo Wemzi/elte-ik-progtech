@@ -1,7 +1,7 @@
 package game.view;
 
 import game.model.Cell;
-import game.model.LabyrinthBuilder;
+import game.model.Labyrinth;
 import persistence.OracleSqlManager;
 
 import javax.swing.*;
@@ -13,7 +13,7 @@ import java.util.ArrayList;
 
 public abstract class GUIWindow extends JFrame {
     protected LabyrinthPanel mainPanel;
-    protected LabyrinthBuilder labyrinth;
+    protected Labyrinth labyrinth;
     protected ArrayList<ArrayList<Cell>> cells = new ArrayList<ArrayList<Cell>>();
     protected JMenuBar bottomMenu;
     protected final JLabel gameStatLabel = new JLabel("");

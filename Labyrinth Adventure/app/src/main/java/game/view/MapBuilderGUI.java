@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
 
 import game.*;
 import game.model.Dragon;
-import game.model.LabyrinthBuilder;
+import game.model.Labyrinth;
 import persistence.*;
 
 import javax.swing.Timer;
@@ -30,7 +30,7 @@ public class MapBuilderGUI extends GUIWindow {
     {
         super();
         this.dbConnection = dbConnection;
-        labyrinth = new LabyrinthBuilder(false,"");
+        labyrinth = new Labyrinth(false,"");
         cells = labyrinth.getCells();
         getContentPane().add(BorderLayout.SOUTH, bottomMenu);
         JMenuItem saveMap = new JMenuItem("Save Map");

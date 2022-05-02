@@ -10,7 +10,7 @@ import java.io.IOException;
 import game.*;
 import game.model.Cell;
 import game.model.Dragon;
-import game.model.LabyrinthBuilder;
+import game.model.Labyrinth;
 import game.model.Player;
 import persistence.*;
 
@@ -68,12 +68,12 @@ public class AdventureGUI extends GUIWindow {
     /**
      * Constructs the Gameplay window, with the offline Version.
      * @throws IOException if a resource file couldn't be loaded.
-     * @throws IncorrectMapException if the LabyrinthBuilder can't build the labyrinth.
+     * @throws IncorrectMapException if the Labyrinth can't build the labyrinth.
      */
     public AdventureGUI() throws IOException,IncorrectMapException
     {
         super();
-        labyrinth = new LabyrinthBuilder(true,"");
+        labyrinth = new Labyrinth(true,"");
         cells = labyrinth.getCells();
         mainPanel = new LabyrinthPanel(this,false);
         Steve.setCoords(mainPanel.getStartingCell().getrowIdx(), mainPanel.getStartingCell().getcolIdx());
@@ -139,7 +139,7 @@ public class AdventureGUI extends GUIWindow {
         this.dbConnection = dbConnection;
         String[] mapData = dbConnection.getRandomMap();
 
-        labyrinth = new LabyrinthBuilder(false,mapData[0]);
+        labyrinth = new Labyrinth(false,mapData[0]);
         cells = labyrinth.getCells();
         mainPanel = new LabyrinthPanel(this,false);
         mainPanel.addMouseListener(new CellMouseAdapter(cells,mainPanel,labyrinth));
@@ -311,7 +311,7 @@ public class AdventureGUI extends GUIWindow {
 
     /**
      * Stops every timer, reconstructs the labyrinth, sets the positions of the player and drake, then starts the timers again.
-     * @throws IncorrectMapException if the LabyrinthBuilder fails to build the labyrinth.
+     * @throws IncorrectMapException if the Labyrinth fails to build the labyrinth.
      */
     public void restartGame() throws IncorrectMapException
     {
@@ -323,12 +323,12 @@ public class AdventureGUI extends GUIWindow {
         getContentPane().remove(bottomMenu);
         if(dbConnection == null)
         {
-            labyrinth = new LabyrinthBuilder(true,"");
+            labyrinth = new Labyrinth(true,"");
         }
         else
         {
             String[] mapData = dbConnection.getRandomMap();
-            labyrinth = new LabyrinthBuilder(false,mapData[0]);
+            labyrinth = new Labyrinth(false,mapData[0]);
             mapCreator = mapData[1];
         }
         cells = labyrinth.getCells();

@@ -7,12 +7,50 @@ import java.util.ArrayList;
 import java.util.Random;
 
 /** tkp egy Aldous-Broder algoritmus */
-public class LabyrinthBuilder
+public class Labyrinth
 {
     private ArrayList<ArrayList<Cell>> cells = new ArrayList<>();
     private Cell currentCell;
     private final int NUMBER_OF_ROWS = 9;
     private final int NUMBER_OF_COLS = 16;
+    private Cell endingCell;
+    private Cell startingCell;
+
+    public Cell getEndingCell() {
+        return endingCell;
+    }
+
+
+
+    public void setEndingCell(Cell endingCell) {
+        for(ArrayList<Cell> cellRow : cells)
+        {
+            for(Cell cell : cellRow)
+            {
+                if(cell.isEndingCell())
+                {
+                    cell.setEndingCell(false);
+                }
+            }
+        }
+        this.endingCell = endingCell;
+        endingCell.setEndingCell(true);
+    }
+
+    public void setStartingCell(Cell startingCell) {
+        for(ArrayList<Cell> cellRow : cells)
+        {
+            for(Cell cell : cellRow)
+            {
+                if(cell.isStartingCell())
+                {
+                    cell.setStartingCell(false);
+                }
+            }
+        }
+        this.startingCell = startingCell;
+        startingCell.setStartingCell(true);
+    }
 
     /**
      * Builds the labyrinth, either by Aldous-Broder algorithm, or by loading it from the database.
@@ -20,8 +58,7 @@ public class LabyrinthBuilder
      * @param mapData not empty String if there is a map pulled from the database.
      * @throws IncorrectMapException if the mapData String's length is not good.
      */
-    public LabyrinthBuilder(boolean isMapGenerationNeeded,String mapData) throws IncorrectMapException {
-        int iterations = 0;
+    public Labyrinth(boolean isMapGenerationNeeded, String mapData) throws IncorrectMapException {
         for (int idx = 0; idx < NUMBER_OF_ROWS; idx++)
         {
             ArrayList <Cell> tmp = new ArrayList<>();
@@ -39,7 +76,6 @@ public class LabyrinthBuilder
             while(!isEndOfGeneration())
             {
                 moveToAdjacentCell();
-                iterations++;
             }
             currentCell.setEndingCell(true);
         }
@@ -82,14 +118,7 @@ public class LabyrinthBuilder
      */
     public Cell getStartingCell()
     {
-        for(ArrayList<Cell> cellRow : cells)
-        {
-            for(Cell cell : cellRow)
-            {
-                if(cell.isStartingCell())return cell;
-            }
-        }
-        return null;
+        return startingCell;
     }
 
     public void setCurrentCell(Cell currentCell) {

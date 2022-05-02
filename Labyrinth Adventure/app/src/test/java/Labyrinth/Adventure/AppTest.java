@@ -7,7 +7,7 @@ import com.jcraft.jsch.JSchException;
 import game.IncorrectMapException;
 import game.Main;
 import game.model.Dragon;
-import game.model.LabyrinthBuilder;
+import game.model.Labyrinth;
 import org.junit.Test;
 import persistence.OracleSqlManager;
 
@@ -38,7 +38,7 @@ public class AppTest {
         try {
             for(int idx=0; idx<100;idx++)
             {
-                LabyrinthBuilder labyrinth  = new LabyrinthBuilder(true,"");
+                Labyrinth labyrinth  = new Labyrinth(true,"");
                 assert true == new Dragon(labyrinth.getStartingCell(),labyrinth.getCells(),0).doTremauxPathFinding();
             }
         } catch ( InterruptedException | IncorrectMapException e ) {
@@ -50,7 +50,7 @@ public class AppTest {
     @Test public void EmptyLabyrinthCantPass()
     {
         try {
-            LabyrinthBuilder labyrinth = new LabyrinthBuilder(false,"");
+            Labyrinth labyrinth = new Labyrinth(false,"");
             assert false == new Dragon(labyrinth.getCells().get(0).get(0),labyrinth.getCells(),0).doTremauxPathFinding();
         } catch ( InterruptedException | IncorrectMapException e ) {
             e.printStackTrace();
@@ -60,6 +60,6 @@ public class AppTest {
 
    @Test public void IncorrectStringThrowsException()
     {
-            assertThrows(IncorrectMapException.class, () -> new LabyrinthBuilder(false,"1010 0110 1010"));
+            assertThrows(IncorrectMapException.class, () -> new Labyrinth(false,"1010 0110 1010"));
     }
 }

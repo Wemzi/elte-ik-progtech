@@ -58,14 +58,7 @@ public class MainMenu extends JFrame {
         playOnlineImg = ResourceLoader.playonline;
         mapBuilderImg = ResourceLoader.mapbuilder;
         exitImg = ResourceLoader.exit;
-        int width = 1920;
-        int height = 1080;
-        mapBuilderArea = new Rectangle(width / 7, 3 * height / 5, mapBuilderImg.getWidth(), mapBuilderImg.getHeight());
-        playOnlineArea = new Rectangle(2 * width / 7, 3 * height / 5, playOnlineImg.getWidth(), playOnlineImg.getHeight());
-        playOfflineArea = new Rectangle( 3 * width / 7, 3 * height / 5, playOfflineImg.getWidth(), playOfflineImg.getHeight());
-        topListArea = new Rectangle(4 * width / 7, 3 * height / 5, topListImg.getWidth(), topListImg.getHeight());
-        myMapsArea = new Rectangle(5 * width / 7, 3 * height / 5, myMapsImg.getWidth(), myMapsImg.getHeight());
-        exitArea = new Rectangle(5 * width / 7, 4 * height / 5, exitImg.getWidth(), exitImg.getHeight());
+
 
         addMouseListener(new MouseAdapter() {
             @Override
@@ -103,6 +96,17 @@ public class MainMenu extends JFrame {
         setUndecorated(true);
         setVisible(true);
         setExtendedState(MAXIMIZED_BOTH);
+        int width = getWidth();
+        int height = getHeight();
+        double scale = getHeight() / 1080.0;
+        mapBuilderImg.getWidth();
+        mapBuilderArea = new Rectangle(width / 7, 3 * height / 5, (int)(mapBuilderImg.getWidth()*scale), (int)(mapBuilderImg.getHeight()*scale));
+        playOnlineArea = new Rectangle(2 * width / 7, 3 * height / 5, (int)(playOnlineImg.getWidth()*scale), (int)(playOnlineImg.getHeight()*scale));
+        playOfflineArea = new Rectangle( 3 * width / 7, 3 * height / 5, (int)(playOfflineImg.getWidth()*scale), (int)(playOfflineImg.getHeight()*scale));
+        topListArea = new Rectangle(4 * width / 7, 3 * height / 5, (int)(topListImg.getWidth()*scale), (int)(topListImg.getHeight()*scale));
+        myMapsArea = new Rectangle(5 * width / 7, 3 * height / 5, (int)(myMapsImg.getWidth()*scale), (int)(myMapsImg.getHeight()*scale));
+        exitArea = new Rectangle(5 * width / 7, 4 * height / 5, (int)(exitImg.getWidth()*scale), (int)(exitImg.getHeight()*scale));
+        System.out.println("scale is: " +  getHeight() + " " + scale);
     }
 
     /**

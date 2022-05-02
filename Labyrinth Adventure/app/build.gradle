@@ -9,12 +9,6 @@
 buildscript{
     System.setProperty( "user.dir", project.projectDir.toString() )
     println  "  project dir:  "+ System.getProperty("user.dir");
-    repositories {
-        jcenter()
-    }
-    dependencies {
-        classpath 'com.github.jengelman.gradle.plugins:shadow:2.0.1'
-    }
 }
 
 
@@ -25,7 +19,6 @@ plugins {
     id 'application'
 }
 apply plugin : "java"
-apply plugin: 'com.github.johnrengelman.shadow'
 ext{
     javaMainClass = 'game.Main'
 }

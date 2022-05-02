@@ -20,9 +20,10 @@ public class Cell {
     private boolean edgeLeft =  true;
     private boolean edgeDown =  true;
     private boolean edgeUp   =  true;
-    private boolean isStartingCell = false;
-    private boolean isEndingCell = false;
     private boolean isVisibleForPlayer = false;
+    private boolean isEndingCell;
+    private boolean isStartingCell;
+
     public boolean isStartingCell() {
         return isStartingCell;
     }
