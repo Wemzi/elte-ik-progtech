@@ -71,7 +71,6 @@ public class AdventureGUI extends GUIWindow {
                 }
                 gameStatLabel.setText("Score: " + score + " Creator: " + mapCreator + " Time: " + time++);
                 menu.repaint();
-                //System.out.println("called");
             }
         });
 
