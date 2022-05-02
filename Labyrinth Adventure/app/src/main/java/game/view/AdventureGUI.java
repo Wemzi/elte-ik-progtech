@@ -56,7 +56,7 @@ public class AdventureGUI extends GUIWindow {
                     JOptionPane.showOptionDialog(null,"You lost. The score you earned is:" + score
                             + " if you have internet connection available, it should synch automatically.","Lost game",
                             JOptionPane.NO_OPTION,JOptionPane.OK_OPTION,null,buttons,buttons[0]);
-                    if(dbConnection != null && dbConnection.getHighScore() > score) dbConnection.saveHighScore(score);
+                    if(dbConnection != null && dbConnection.getHighScore() < score) dbConnection.saveHighScore(score);
                     stopGame();
                 }
                 gameStatLabel.setText("Score: " + score + " Creator: " + mapCreator + " Time: " + time++);
@@ -118,11 +118,8 @@ public class AdventureGUI extends GUIWindow {
         spriteUpdater.start();
         drake = new Dragon(mainPanel.getStartingCell(),cells,waitTimeBetWeenAIIterations);
         drakeThread = new Thread(()-> {
-        try {
             didDrakeFindThePath = drake.doTremauxPathFinding();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }});
+        System.out.println("returned");});
         drakeThread.start();
     }
 
@@ -183,13 +180,8 @@ public class AdventureGUI extends GUIWindow {
         setUndecorated(true);
         setVisible(true);
         drake = new Dragon(mainPanel.getStartingCell(),cells,waitTimeBetWeenAIIterations);
-        drakeThread = new Thread(()-> {
-            try {
-                didDrakeFindThePath = drake.doTremauxPathFinding();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        });
+        drakeThread = new Thread(()-> {didDrakeFindThePath = drake.doTremauxPathFinding();
+        System.out.println("returned");});
         drakeThread.start();
         timer.start();
         refresher.start();
@@ -335,13 +327,11 @@ public class AdventureGUI extends GUIWindow {
         mainPanel = new LabyrinthPanel(this,false);
         getContentPane().add(BorderLayout.SOUTH, bottomMenu);
         getContentPane().add(BorderLayout.CENTER, mainPanel);
-        drake = new Dragon(mainPanel.getStartingCell(),cells,waitTimeBetWeenAIIterations);
+        drake = new Dragon(labyrinth.getStartingCell(),cells,waitTimeBetWeenAIIterations);
         drakeThread = new Thread(()-> {
-            try {
                 didDrakeFindThePath = drake.doTremauxPathFinding();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }});
+            System.out.println("drake returned with" + didDrakeFindThePath);
+        });
         setExtendedState(MAXIMIZED_BOTH);
         setVisible(true);
         drakeThread.start();

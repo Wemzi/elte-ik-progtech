@@ -94,8 +94,7 @@ public class MainMenu extends JFrame {
         dispose();
         setResizable(false);
         setUndecorated(true);
-        setVisible(true);
-        setExtendedState(MAXIMIZED_BOTH);
+        setSize(getToolkit().getScreenSize());
         int width = getWidth();
         int height = getHeight();
         double scale = getHeight() / 1080.0;
@@ -106,6 +105,7 @@ public class MainMenu extends JFrame {
         topListArea = new Rectangle(4 * width / 7, 3 * height / 5, (int)(topListImg.getWidth()*scale), (int)(topListImg.getHeight()*scale));
         myMapsArea = new Rectangle(5 * width / 7, 3 * height / 5, (int)(myMapsImg.getWidth()*scale), (int)(myMapsImg.getHeight()*scale));
         exitArea = new Rectangle(5 * width / 7, 4 * height / 5, (int)(exitImg.getWidth()*scale), (int)(exitImg.getHeight()*scale));
+        setVisible(true);
         System.out.println("scale is: " +  getHeight() + " " + scale);
     }
 

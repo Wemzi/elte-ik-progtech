@@ -37,10 +37,12 @@ public class MapBuilderGUI extends GUIWindow {
         saveMap.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                labyrinth.getCurrentCell().setEndingCell(true);
+                if(labyrinth.getEndingCell() == null)
+                {
+                    labyrinth.getCurrentCell().setEndingCell(true);
+                }
                 String alias = JOptionPane.showInputDialog("Please enter an alias for the map","alias");
                 Dragon drake = new Dragon(mainPanel.getStartingCell(),cells,0);
-                try {
                     String[] buttons = {"OK"};
                     if(drake.doTremauxPathFinding())
                     {
@@ -52,9 +54,6 @@ public class MapBuilderGUI extends GUIWindow {
                                 " Please start again, and make sure there is a way out of your maze.","Invalid map",
                                 JOptionPane.NO_OPTION,JOptionPane.OK_OPTION,null,buttons,buttons[0]);
                     }
-                } catch (InterruptedException ex) {
-                    ex.printStackTrace();
-                }
                 dispose();
             }
         });

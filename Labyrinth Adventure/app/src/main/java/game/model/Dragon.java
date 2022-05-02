@@ -11,6 +11,7 @@ public class Dragon {
     private ArrayList<ArrayList<Cell>> cells;
     private Direction currentDirection = Direction.RIGHT;
     private int waitTimeBetweenIterationsInMs;
+    private boolean isInterrupted = false;
 
     public Dragon(Cell startingCell,ArrayList<ArrayList<Cell>> cells, int waitTimeBetweenIterationsInMs)
     {
@@ -26,7 +27,7 @@ public class Dragon {
      * @return if the end of the maze has been found or not.
      * @throws InterruptedException if the waiting time has been interrupted, for example, because the player has found the way out of the maze.
      */
-    public boolean doTremauxPathFinding() throws InterruptedException {
+    public boolean doTremauxPathFinding() {
         ArrayList<Cell> retList = new ArrayList<>();
         if(!currentCell.isStartingCell()) return false;
         currentCell.setHasBeenVisitedByDragon(true);
@@ -198,6 +199,7 @@ public class Dragon {
             }
             if(!selectNewCell(currentDirection))
             {
+                if(isInterrupted) return false;
                 for(int idx=0;idx<4;idx++)
                 {
                     currentDirection = selectNewDirection();
@@ -326,7 +328,8 @@ public class Dragon {
             try {
                 Thread.sleep(waitTimeBetweenIterationsInMs);
             } catch (InterruptedException e) {
-                // its normal, player may have won already
+                isInterrupted = true;
+                return false;
             }
         }
         if(isJunction())

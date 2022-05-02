@@ -72,12 +72,12 @@ public class Labyrinth
         {
             Random random = new Random();
             currentCell = cells.get(random.nextInt(cells.size())).get(random.nextInt(cells.get(0).size()));
-            currentCell.setStartingCell(true);
+            setStartingCell(currentCell);
             while(!isEndOfGeneration())
             {
                 moveToAdjacentCell();
             }
-            currentCell.setEndingCell(true);
+            setEndingCell(currentCell);
         }
         else if(!mapData.equals("")) {
             String[] mapDataSplit = mapData.split(" ");
@@ -102,9 +102,9 @@ public class Labyrinth
                         }
                         if (cellData.length == 5) {
                             if (cellData[4] == 's') {
-                                currentCell.setStartingCell(true);
+                                setStartingCell(currentCell);
                             } else if (cellData[4] == 'e') {
-                                currentCell.setEndingCell(true);
+                                setEndingCell(currentCell);
                             }
                         }
                     }
