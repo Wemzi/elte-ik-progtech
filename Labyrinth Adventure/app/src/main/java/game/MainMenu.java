@@ -106,7 +106,6 @@ public class MainMenu extends JFrame {
         myMapsArea = new Rectangle(5 * width / 7, 3 * height / 5, (int)(myMapsImg.getWidth()*scale), (int)(myMapsImg.getHeight()*scale));
         exitArea = new Rectangle(5 * width / 7, 4 * height / 5, (int)(exitImg.getWidth()*scale), (int)(exitImg.getHeight()*scale));
         setVisible(true);
-        System.out.println("scale is: " +  getHeight() + " " + scale);
     }
 
     /**
