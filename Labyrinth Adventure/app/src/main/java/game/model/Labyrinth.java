@@ -75,7 +75,7 @@ public class Labyrinth
             setStartingCell(currentCell);
             while(!isEndOfGeneration())
             {
-                moveToAdjacentCell();
+                moveToRandomAdjacentCell();
             }
             setEndingCell(currentCell);
         }
@@ -128,14 +128,14 @@ public class Labyrinth
     /**
      * The Aldous-Broder algorithm calls this to randomly select a new cell.
      */
-    private void moveToAdjacentCell()
+    private void moveToRandomAdjacentCell()
     {
         double random = Math.random();
         if(random < 0.25 && currentCell.getrowIdx() < cells.get(0).size()-1)
         {
             if(!cells.get(currentCell.getcolIdx()).get(currentCell.getrowIdx()+1).gethasBeenSelected())
             {
-                moveToAdjacentCell(Direction.RIGHT);
+                makeWayToAdjacentCell(Direction.RIGHT);
             }
             else
             {
@@ -147,7 +147,7 @@ public class Labyrinth
         {
             if(!cells.get(currentCell.getcolIdx()+1).get(currentCell.getrowIdx()).gethasBeenSelected())
             {
-                moveToAdjacentCell(Direction.UP);
+                makeWayToAdjacentCell(Direction.UP);
             }
             else
             {
@@ -159,7 +159,7 @@ public class Labyrinth
         {
             if(!cells.get(currentCell.getcolIdx()).get(currentCell.getrowIdx()-1).gethasBeenSelected())
             {
-                moveToAdjacentCell(Direction.LEFT);
+                makeWayToAdjacentCell(Direction.LEFT);
             }
             else
             {
@@ -171,7 +171,7 @@ public class Labyrinth
         {
             if(!cells.get(currentCell.getcolIdx()-1).get(currentCell.getrowIdx()).gethasBeenSelected())
             {
-                moveToAdjacentCell(Direction.DOWN);
+                makeWayToAdjacentCell(Direction.DOWN);
             }
             else
             {
@@ -185,7 +185,7 @@ public class Labyrinth
      * The map loader algorithm calls this method to make the path according to the map data.
      * @param dir The direction where we should make the way for the player.
      */
-    public void moveToAdjacentCell(Direction dir)
+    public void makeWayToAdjacentCell(Direction dir)
     {
         //System.out.println("Called with " + dir);
         switch(dir)
