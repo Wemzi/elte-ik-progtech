@@ -56,7 +56,7 @@ public class MapBuilderGUI extends GUIWindow {
                     String[] buttons = {"OK"};
                     if(drake.doTremauxPathFinding())
                     {
-                        dbConnection.saveMap(mainPanel.toMapDataString(),alias);
+                        dbConnection.saveMap(labyrinth.toMapDataString(),alias);
                         dispose();
                     }
                     else

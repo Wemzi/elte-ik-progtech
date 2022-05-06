@@ -208,6 +208,7 @@ public class AdventureGUI extends GUIWindow {
         timer.stop();
         refresher.stop();
         spriteUpdater.stop();
+        drakeThread.interrupt();
         dispose();
     }
 

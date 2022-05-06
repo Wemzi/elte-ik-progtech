@@ -52,6 +52,20 @@ public class Labyrinth
         startingCell.setStartingCell(true);
     }
 
+    public String toMapDataString()
+    {
+        String ret = "";
+        for(ArrayList<Cell> cellRow : cells )
+        {
+            for(Cell cell : cellRow)
+            {
+                ret += (cell.getedgeUp()?"1":"0")+(cell.getedgeDown()?"1":"0")+(cell.getedgeLeft()?"1":"0")+
+                        (cell.getedgeRight()?"1":"0")+(cell.isStartingCell()?"s":"")+(cell.isEndingCell()?"e":"")+" ";
+            }
+        }
+        return ret;
+    }
+
     /**
      * Builds the labyrinth, either by Aldous-Broder algorithm, or by loading it from the database.
      * @param isMapGenerationNeeded true if we have to run the Aldous-Broder algorithm.

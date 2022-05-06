@@ -138,19 +138,6 @@ public class LabyrinthPanel extends JPanel{
     /**
      * @return the string representation of the map, which we built in the MapBuilder.
      */
-    public String toMapDataString()
-    {
-        String ret = "";
-        for(ArrayList<Cell> cellRow : cells )
-        {
-            for(Cell cell : cellRow)
-            {
-                ret += (cell.getedgeUp()?"1":"0")+(cell.getedgeDown()?"1":"0")+(cell.getedgeLeft()?"1":"0")+
-                        (cell.getedgeRight()?"1":"0")+(cell.isStartingCell()?"s":"")+(cell.isEndingCell()?"e":"")+" ";
-            }
-        }
-        return ret;
-    }
 
     public int getPicSize()
     {
