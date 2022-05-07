@@ -23,8 +23,8 @@ public class AdventureGUI extends GUIWindow {
     private final Player Steve = new Player();
     private final KeyHandler keyHandler = new KeyHandler();
     private final JMenu menu = new JMenu("Menu");
-    private int waitTimeBetWeenAIIterations=1500;
     private final int DEFAULT_WAITING_TIME = 1500;
+    private int waitTimeBetWeenAIIterations = DEFAULT_WAITING_TIME;
     private boolean didDrakeFindThePath;
     private final ActionListener helpAction = new ActionListener() {
         @Override
@@ -342,7 +342,7 @@ public class AdventureGUI extends GUIWindow {
         drake = new Dragon(labyrinth.getStartingCell(),cells,waitTimeBetWeenAIIterations);
         drakeThread = new Thread(()-> {
                 didDrakeFindThePath = drake.doTremauxPathFinding();
-            System.out.println("drake returned with" + didDrakeFindThePath);
+            //System.out.println("drake returned with" + didDrakeFindThePath);
         });
         setExtendedState(MAXIMIZED_BOTH);
         setVisible(true);

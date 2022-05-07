@@ -95,16 +95,18 @@ public class MainMenu extends JFrame {
         setResizable(false);
         setUndecorated(true);
         setSize(getToolkit().getScreenSize());
+        System.out.println(getToolkit().getScreenSize());
         int width = getWidth();
         int height = getHeight();
-        double scale = getHeight() / 1080.0;
+        double scale = 1;
+        System.out.println(scale);
         mapBuilderImg.getWidth();
-        mapBuilderArea = new Rectangle(width / 7, 3 * height / 5, (int)(mapBuilderImg.getWidth()*scale), (int)(mapBuilderImg.getHeight()*scale));
-        playOnlineArea = new Rectangle(2 * width / 7, 3 * height / 5, (int)(playOnlineImg.getWidth()*scale), (int)(playOnlineImg.getHeight()*scale));
-        playOfflineArea = new Rectangle( 3 * width / 7, 3 * height / 5, (int)(playOfflineImg.getWidth()*scale), (int)(playOfflineImg.getHeight()*scale));
-        topListArea = new Rectangle(4 * width / 7, 3 * height / 5, (int)(topListImg.getWidth()*scale), (int)(topListImg.getHeight()*scale));
-        myMapsArea = new Rectangle(5 * width / 7, 3 * height / 5, (int)(myMapsImg.getWidth()*scale), (int)(myMapsImg.getHeight()*scale));
-        exitArea = new Rectangle(5 * width / 7, 4 * height / 5, (int)(exitImg.getWidth()*scale), (int)(exitImg.getHeight()*scale));
+        mapBuilderArea = new Rectangle(width / 7, 3 * height / 5, (int)(Math.round(mapBuilderImg.getWidth()*scale)), (int)(Math.round(mapBuilderImg.getHeight()*scale)));
+        playOnlineArea = new Rectangle(2 * width / 7, 3 * height / 5, (int)(Math.round(playOnlineImg.getWidth()*scale)), (int)(Math.round(playOnlineImg.getHeight()*scale)));
+        playOfflineArea = new Rectangle( 3 * width / 7, 3 * height / 5, (int)(Math.round(playOfflineImg.getWidth()*scale)), (int)(Math.round(playOfflineImg.getHeight()*scale)));
+        topListArea = new Rectangle(4 * width / 7, 3 * height / 5, (int)(Math.round(topListImg.getWidth()*scale)), (int)(Math.round(topListImg.getHeight()*scale)));
+        myMapsArea = new Rectangle(5 * width / 7, 3 * height / 5, (int)(Math.round(myMapsImg.getWidth()*scale)), (int)(Math.round(myMapsImg.getHeight()*scale)));
+        exitArea = new Rectangle(5 * width / 7, 4 * height / 5, (int)(Math.round(exitImg.getWidth()*scale)), (int)(Math.round(exitImg.getHeight()*scale)));
         setVisible(true);
     }
 

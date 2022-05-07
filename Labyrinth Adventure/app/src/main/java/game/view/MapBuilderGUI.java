@@ -51,7 +51,7 @@ public class MapBuilderGUI extends GUIWindow {
                 {
                     labyrinth.getCurrentCell().setEndingCell(true);
                 }
-                String alias = JOptionPane.showInputDialog("Please enter an alias for the map","alias");
+                String alias = JOptionPane.showInputDialog(null,"Please enter an alias for the map","Saving map",JOptionPane.QUESTION_MESSAGE);
                 Dragon drake = new Dragon(mainPanel.getStartingCell(),cells,0);
                     String[] buttons = {"OK"};
                     if(drake.doTremauxPathFinding())
