@@ -128,7 +128,7 @@ public class LabyrinthPanel extends JPanel{
                 ((AdventureGUI) board).updatePlayer();
                 gr.drawImage(Steve.myLook,((AdventureGUI) board).getPlayer().getPixelX(),(board.getLabyrinth().getHeight()-
                                 (((AdventureGUI) board).getPlayer().getPixelY()+Steve.myLook.getHeight())), Steve.myLook.getWidth(),
-                        Steve.myLook.getHeight(), null);
+                Steve.myLook.getHeight(), null);
             }
 
 
