@@ -4,9 +4,6 @@
     <root id="archive" name="Labyrinth Adventure.jar">
       <element id="module-output" name="Labyrinth_Adventure.app.main" />
       <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/junit/junit/4.13.2/8ac9e16d933b6fb43bc7f576336b8f4d7eb5ba12/junit-4.13.2.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/app/libs/jsp-api-2.2.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/app/libs/jstl-1.2.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/app/libs/servlet-api-2.5.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/app/libs/jsch-0.1.55.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/app/libs/ojdbc11.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.jcraft/jsch/0.1.55/bbd40e5aa7aa3cfad5db34965456cee738a42a50/jsch-0.1.55.jar" path-in-jar="/" />
