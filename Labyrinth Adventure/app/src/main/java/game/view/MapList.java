@@ -9,7 +9,7 @@ import java.awt.event.ActionEvent;
 public class MapList extends JFrame {
     OracleSqlManager dbConnection;
     String[][] mapData;
-    MapTable myMapsTable;
+    JTable myMapsTable;
     String[] columns = {"MAP DATA","USER","ALIAS"};
     JScrollPane sp;
     JToolBar toolBar;
@@ -22,7 +22,12 @@ public class MapList extends JFrame {
     {
         mapData = dbConnection.getMyMaps();
         this.dbConnection = dbConnection;
-        myMapsTable = new MapTable(mapData, columns);
+        myMapsTable = new JTable(mapData,columns){
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        };
         myMapsTable.setBounds(30,40,200,300);
         toolBar = new JToolBar();
         toolBar.add(new AbstractAction("Delete Map") {

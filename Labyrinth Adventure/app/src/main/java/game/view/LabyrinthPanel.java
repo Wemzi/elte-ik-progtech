@@ -99,7 +99,7 @@ public class LabyrinthPanel extends JPanel{
                 {
                     System.out.println("Error loading file");
                 }
-                gr.drawImage(img, jdx * picsize,(board.getLabyrinth().getHeight()-(idx+1)*(picsize)), picsize, picsize, null);
+                gr.drawImage(img, jdx * picsize,(getHeight()-(idx+1)*(picsize)), picsize, picsize, null);
                 cell.setPixelX(jdx*picsize);
                 cell.setPixelY((idx)*(picsize));
                 if(board instanceof AdventureGUI)
@@ -107,7 +107,7 @@ public class LabyrinthPanel extends JPanel{
                     Dragon drake = ((AdventureGUI) board).getDrake();
                     if(drake.getCurrentCell().equals(cell) && cell.isVisibleForPlayer())
                     {
-                        gr.drawImage(ResourceLoader.drake, jdx * picsize,(board.getLabyrinth().getHeight()-(idx+1)*
+                        gr.drawImage(ResourceLoader.drake, jdx * picsize,(getHeight()-(idx+1)*
                                 (picsize)), picsize, picsize, null);
                     }
                 }
@@ -126,7 +126,7 @@ public class LabyrinthPanel extends JPanel{
             else
             {
                 ((AdventureGUI) board).updatePlayer();
-                gr.drawImage(Steve.myLook,((AdventureGUI) board).getPlayer().getPixelX(),(board.getLabyrinth().getHeight()-
+                gr.drawImage(Steve.myLook,((AdventureGUI) board).getPlayer().getPixelX(),(getHeight()-
                                 (((AdventureGUI) board).getPlayer().getPixelY()+Steve.myLook.getHeight())), Steve.myLook.getWidth(),
                 Steve.myLook.getHeight(), null);
             }

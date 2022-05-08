@@ -88,6 +88,14 @@ public class Player
         }
     }
 
+    public int getCoordX() {
+        return coordX;
+    }
+
+    public int getCoordY() {
+        return coordY;
+    }
+
     public void setCoords(int coordX, int coordY)
     {
         this.coordX = coordX;

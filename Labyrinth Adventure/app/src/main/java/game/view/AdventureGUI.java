@@ -198,6 +198,8 @@ public class AdventureGUI extends GUIWindow {
         spriteUpdater.start();
     }
 
+
+
     /**
      * Stops the game, resetting time and score, stopping the timers.
      */
@@ -289,6 +291,8 @@ public class AdventureGUI extends GUIWindow {
             if(cell.getedgeUp()) break;
         }
     }
+
+
 
     public boolean isLost()
     {

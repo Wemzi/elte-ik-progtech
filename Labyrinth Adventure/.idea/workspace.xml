@@ -104,7 +104,7 @@
       <recent name="C:\Users\lkcsdvd\IdeaProjects\progtech\Labyrinth Adventure\app\src\main\java\Labyrinth\Adventure" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.Labyrinth Adventure [run]">
+  <component name="RunManager" selected="JUnit.Test Labyrinth Adventure">
     <configuration name="Labyrinth Adventure [build]" type="GradleRunConfiguration" factoryName="Gradle" nameIsGenerated="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -257,6 +257,18 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
+    <configuration name="Test Labyrinth Adventure" type="JUnit" factoryName="JUnit">
+      <module name="Labyrinth_Adventure.app.test" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="ALTERNATIVE_JRE_PATH" value="openjdk-17" />
+      <option name="PACKAGE_NAME" value="Labyrinth.Adventure" />
+      <option name="MAIN_CLASS_NAME" value="Labyrinth.Adventure.AppTest" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="JetRunConfigurationType">
       <module name="Labyrinth Adventure" />
       <method v="2">
@@ -278,6 +290,7 @@
       <item itemvalue="Gradle.Labyrinth Adventure [shadowJar]" />
       <item itemvalue="Gradle.Labyrinth Adventure:app [runShadow]" />
       <item itemvalue="Gradle.Labyrinth Adventure:app [customFatJar]" />
+      <item itemvalue="JUnit.Test Labyrinth Adventure" />
     </list>
     <recent_temporary>
       <list>

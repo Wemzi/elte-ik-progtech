@@ -51,13 +51,18 @@ public abstract class GUIWindow extends JFrame {
         menu.add(backToMainMenu);
         bottomMenu.add(menu);
         getContentPane().add(BorderLayout.SOUTH, bottomMenu);
+        setSize(new Dimension(1920,1080));
     }
     public ArrayList<ArrayList<Cell>> getCells()
     {
         return cells;
     }
-    public JPanel getLabyrinth()
+    public LabyrinthPanel getLabyrinthPanel()
     {
         return this.mainPanel;
+    }
+
+    public Labyrinth getLabyrinth() {
+        return labyrinth;
     }
 }
