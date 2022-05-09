@@ -185,7 +185,7 @@ public class OracleSqlManager {
     }
 
     public void connect(String username, String pw) throws SQLException, JSchException{
-        int assigned_port;
+        int assigned_port = 0;
         final int local_port=2345;
         final int remote_port=1521;
         final String remote_host="caesar.elte.hu";
@@ -198,11 +198,14 @@ public class OracleSqlManager {
             config.put("ConnectionAttempts","2");
             session.setConfig(config);
             session.connect();
-            assigned_port = session.setPortForwardingL(local_port,
-                    "aramis.inf.elte.hu", remote_port);
+            try{
+                assigned_port = session.setPortForwardingL(local_port,
+                        "aramis.inf.elte.hu", remote_port);
+            }catch(JSchException e)
+            {}
+
         if (assigned_port == 0) {
             LOGGER.log(Level.SEVERE, "Port forwarding failed !");
-            return;
         }
         final String database_user=username;
         final String database_password=pw;

@@ -33,7 +33,7 @@ public class AppTest {
         }
     }
 
-    @Test(timeout=2000) public void connectWithSQLIsSuccessful()
+    @Test(timeout=10000) public void connectWithSQLIsSuccessful()
     {
         OracleSqlManager sqlManager = null;
         try {
@@ -102,11 +102,11 @@ public class AppTest {
         try {
             AdventureGUI window = new AdventureGUI();
             Player Steve = window.getPlayer();
-            window.setVisible(false);
             LabyrinthPanel panel = new LabyrinthPanel(
             window, false);
             panel.setSize(new Dimension(1920,1080));
             assert Steve.getCoordX() == window.getLabyrinth().getStartingCell().getrowIdx() && Steve.getCoordY() == window.getLabyrinth().getStartingCell().getcolIdx();
+            window.setVisible(false);
         } catch ( IncorrectMapException e ) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -114,7 +114,7 @@ public class AppTest {
         }
     }
 
-    @Test public void mapListInitialization
+    @Test public void mapListInitialization()
     {
         OracleSqlManager sqlManager = null;
         try {
@@ -125,10 +125,14 @@ public class AppTest {
             e.printStackTrace();
         }
         MapList mapList = new MapList(sqlManager);
-        assert
+        String alias = (String)mapList.getMyMapsTable().getValueAt(0,2);
+        String name = (String)mapList.getMyMapsTable().getValueAt(0,1);
+        mapList.setVisible(false);
+        assert alias.equals("proba");
+        assert name.equals("IDU27K");
     }
 
-    @Test(timeout = 5000) public void topListInitialization
+    @Test(timeout = 5000) public void topListInitialization()
     {
         OracleSqlManager sqlManager = null;
         try {
@@ -139,6 +143,10 @@ public class AppTest {
             e.printStackTrace();
         }
         TopList topList = new TopList(sqlManager);
-        assert
+        String neptuncode = (String)topList.getHighScoreTable().getValueAt(0,1);
+        String highscore = (String)topList.getHighScoreTable().getValueAt(0,2);
+        assert neptuncode.equals("HF3LBG");
+        assert highscore.equals("23");
+        topList.setVisible(false);
     }
 }
