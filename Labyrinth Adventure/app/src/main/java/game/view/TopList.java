@@ -32,4 +32,8 @@ public class TopList extends JFrame  {
         setSize(300,400);
         setVisible(true);
     }
+
+    public JTable getHighScoreTable() {
+        return highScoreTable;
+    }
 }

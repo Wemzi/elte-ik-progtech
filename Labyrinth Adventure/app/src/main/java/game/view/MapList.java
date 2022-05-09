@@ -14,6 +14,10 @@ public class MapList extends JFrame {
     JScrollPane sp;
     JToolBar toolBar;
 
+    public JTable getMyMapsTable() {
+        return myMapsTable;
+    }
+
     /**
      * Constructs a JTable with the user's maps.
      * @param dbConnection the SQL connection where it can read the map data from.

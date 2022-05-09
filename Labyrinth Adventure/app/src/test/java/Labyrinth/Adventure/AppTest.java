@@ -10,10 +10,7 @@ import game.model.Cell;
 import game.model.Dragon;
 import game.model.Labyrinth;
 import game.model.Player;
-import game.view.AdventureGUI;
-import game.view.GUIWindow;
-import game.view.LabyrinthPanel;
-import game.view.ResourceLoader;
+import game.view.*;
 import org.junit.Before;
 import org.junit.Test;
 import persistence.OracleSqlManager;
@@ -40,7 +37,7 @@ public class AppTest {
     {
         OracleSqlManager sqlManager = null;
         try {
-            sqlManager = new OracleSqlManager("rnyr2f","rnyr2f");
+            sqlManager = new OracleSqlManager("idu27k","almafa");
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (JSchException e) {
@@ -115,5 +112,33 @@ public class AppTest {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    @Test public void mapListInitialization
+    {
+        OracleSqlManager sqlManager = null;
+        try {
+            sqlManager = new OracleSqlManager("idu27k","almafa");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (JSchException e) {
+            e.printStackTrace();
+        }
+        MapList mapList = new MapList(sqlManager);
+        assert
+    }
+
+    @Test(timeout = 5000) public void topListInitialization
+    {
+        OracleSqlManager sqlManager = null;
+        try {
+            sqlManager = new OracleSqlManager("idu27k","almafa");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (JSchException e) {
+            e.printStackTrace();
+        }
+        TopList topList = new TopList(sqlManager);
+        assert
     }
 }
