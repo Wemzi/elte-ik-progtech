@@ -160,6 +160,7 @@ public class MainMenu extends JFrame {
     private void startNewOnlineGame()
     {
         try {
+            if(this.gameInstance != null ) this.gameInstance.dispose();
             this.gameInstance = new AdventureGUI(dbConnection);
         } catch (IOException e) {
             e.printStackTrace();
@@ -174,6 +175,7 @@ public class MainMenu extends JFrame {
     private void startNewOfflineGame()
     {
         try {
+            if(this.gameInstance != null ) this.gameInstance.dispose();
             this.gameInstance = new AdventureGUI();
         } catch (IOException e) {
             e.printStackTrace();
