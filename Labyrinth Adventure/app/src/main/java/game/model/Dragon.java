@@ -319,6 +319,7 @@ public class Dragon {
      */
     private boolean selectNewCell(Direction dir)
     {
+        isInterrupted = Thread.currentThread().isInterrupted();
         boolean isMoveSuccessful = false;
         if(isValidMove(dir))
         {

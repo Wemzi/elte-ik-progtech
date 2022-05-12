@@ -310,7 +310,7 @@
       <recent name="C:\Users\lkcsdvd\IdeaProjects\progtech\Labyrinth Adventure\app\src" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.Test Labyrinth Adventure">
+  <component name="RunManager" selected="Gradle.Labyrinth Adventure:app [customFatJar]">
     <configuration name="Labyrinth Adventure [build]" type="GradleRunConfiguration" factoryName="Gradle" nameIsGenerated="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -500,9 +500,9 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.Labyrinth Adventure:app [customFatJar]" />
         <item itemvalue="Gradle.Labyrinth Adventure:app [runShadow]" />
         <item itemvalue="Gradle.Labyrinth Adventure:app [jar]" />
-        <item itemvalue="Gradle.Labyrinth Adventure:app [customFatJar]" />
         <item itemvalue="Gradle.Labyrinth Adventure [shadowJar]" />
         <item itemvalue="Gradle.Labyrinth Adventure [compileJava]" />
       </list>
@@ -527,7 +527,8 @@
       <workItem from="1652046707174" duration="1639000" />
       <workItem from="1652075542183" duration="553000" />
       <workItem from="1652080532081" duration="2936000" />
-      <workItem from="1652204600776" duration="2454000" />
+      <workItem from="1652204600776" duration="3103000" />
+      <workItem from="1652212658474" duration="4806000" />
     </task>
     <servers />
   </component>

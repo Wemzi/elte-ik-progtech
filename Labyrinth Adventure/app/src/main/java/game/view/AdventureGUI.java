@@ -60,7 +60,7 @@ public class AdventureGUI extends GUIWindow {
                         ex.printStackTrace();
                     }
                 }
-                else if(isLost())
+                else if(isLost() && isVisible())
                 {
                     String[] buttons = {"OK"};
                     JOptionPane.showOptionDialog(null,"You lost. The score you earned is:" + score
@@ -203,14 +203,24 @@ public class AdventureGUI extends GUIWindow {
     /**
      * Stops the game, resetting time and score, stopping the timers.
      */
-    private void stopGame()
+    @Override
+    protected void stopGame()
     {
         time = 0;
         score = 0;
         timer.stop();
         refresher.stop();
         spriteUpdater.stop();
-        drakeThread.interrupt();
+        while(!drakeThread.isInterrupted())
+        {
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException e) {
+            }
+            drakeThread.interrupt();
+        }
+        drakeThread = null;
+        drake = null;
         dispose();
     }
 

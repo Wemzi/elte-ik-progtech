@@ -67,7 +67,6 @@ public class LabyrinthPanel extends JPanel{
         this.debugMode = debugMode;
         this.board=board;
         cells = board.getCells();
-        System.out.println(getHeight());
         picsize = getHeight() > getWidth() ?  getWidth()/cells.size() : getHeight()/cells.size();
         startOfGame = true;
         if(board instanceof AdventureGUI)

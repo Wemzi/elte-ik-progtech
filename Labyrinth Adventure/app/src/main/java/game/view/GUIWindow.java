@@ -19,6 +19,7 @@ public abstract class GUIWindow extends JFrame {
     protected final JLabel gameStatLabel = new JLabel("");
     protected final JMenuItem help = new JMenuItem("Help");
     protected OracleSqlManager dbConnection;
+    protected abstract void stopGame();
     protected final JMenuItem backToMainMenu = new JMenuItem("Back to main menu");
     protected ActionListener backToMainMenuAction = new ActionListener() {
         @Override
@@ -26,7 +27,7 @@ public abstract class GUIWindow extends JFrame {
             int response = JOptionPane.showConfirmDialog(null,"Are you sure you want to quit? Any unsaved progress will be lost.","Confirmation", JOptionPane.OK_CANCEL_OPTION);
             if(response == JOptionPane.OK_OPTION)
             {
-                dispose();
+                stopGame();
             }
         }
     };

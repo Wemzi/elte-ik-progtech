@@ -99,7 +99,6 @@ public class MainMenu extends JFrame {
         int width = getWidth();
         int height = getHeight();
         double scale = 1;
-        System.out.println(scale);
         mapBuilderImg.getWidth();
         mapBuilderArea = new Rectangle(width / 7, 3 * height / 5, (int)(Math.round(mapBuilderImg.getWidth()*scale)), (int)(Math.round(mapBuilderImg.getHeight()*scale)));
         playOnlineArea = new Rectangle(2 * width / 7, 3 * height / 5, (int)(Math.round(playOnlineImg.getWidth()*scale)), (int)(Math.round(playOnlineImg.getHeight()*scale)));
