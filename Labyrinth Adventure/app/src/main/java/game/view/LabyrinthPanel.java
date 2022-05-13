@@ -82,7 +82,14 @@ public class LabyrinthPanel extends JPanel{
     @Override
     protected void paintComponent(Graphics g)
     {
-        picsize = getHeight() > getWidth() ?  getWidth()/cells.size() : getHeight()/cells.size();
+        try
+        {
+            picsize = getHeight() > getWidth() ?  getWidth()/cells.size() : getHeight()/cells.size();
+        }catch(ArithmeticException e)
+        {
+            picsize = ResourceLoader.brick.getHeight();
+        }
+
         Graphics2D gr = (Graphics2D)g;
         BufferedImage img = null;
         for(int idx=cells.size()-1; idx>=0;idx--)

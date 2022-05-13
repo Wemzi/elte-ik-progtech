@@ -119,11 +119,7 @@ public class AppTest {
         OracleSqlManager sqlManager = null;
         try {
             sqlManager = new OracleSqlManager("idu27k","almafa");
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (JSchException e) {
-            e.printStackTrace();
-        }
+        } catch (SQLException  | JSchException e){}
         MapList mapList = new MapList(sqlManager);
         String alias = (String)mapList.getMyMapsTable().getValueAt(0,2);
         String name = (String)mapList.getMyMapsTable().getValueAt(0,1);
@@ -137,11 +133,7 @@ public class AppTest {
         OracleSqlManager sqlManager = null;
         try {
             sqlManager = new OracleSqlManager("idu27k","almafa");
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (JSchException e) {
-            e.printStackTrace();
-        }
+        } catch (SQLException  | JSchException e){}
         TopList topList = new TopList(sqlManager);
         String neptuncode = (String)topList.getHighScoreTable().getValueAt(0,1);
         String highscore = (String)topList.getHighScoreTable().getValueAt(0,2);
