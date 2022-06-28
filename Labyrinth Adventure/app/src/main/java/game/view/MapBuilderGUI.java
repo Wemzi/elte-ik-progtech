@@ -61,6 +61,7 @@ public class MapBuilderGUI extends GUIWindow {
                 }
                 String alias = JOptionPane.showInputDialog(null,"Please enter an alias for the map","Saving map",JOptionPane.QUESTION_MESSAGE);
                 Dragon drake = new Dragon(mainPanel.getStartingCell(),cells,0);
+                mainPanel.resetDragonVisibility();
                     String[] buttons = {"OK"};
                     if(drake.doTremauxPathFinding())
                     {

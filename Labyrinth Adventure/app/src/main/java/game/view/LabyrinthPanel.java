@@ -141,6 +141,18 @@ public class LabyrinthPanel extends JPanel{
         }
     }
 
+
+    public void resetDragonVisibility()
+    {
+        for(ArrayList<Cell> cellRow : cells)
+        {
+            for(Cell cell : cellRow)
+            {
+                cell.setHasBeenVisitedByDragon(false);
+                cell.setDeadEnd(false);
+            }
+        }
+    }
     /**
      * @return the string representation of the map, which we built in the MapBuilder.
      */
