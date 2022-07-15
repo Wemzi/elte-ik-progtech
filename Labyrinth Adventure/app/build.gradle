@@ -31,13 +31,15 @@ repositories {
 
 dependencies {
     // This dependency is used by the application.
-    implementation fileTree(dir: '/libs', include:'*.jar')
+    implementation group: 'com.jcraft', name: 'jsch', version: '0.1.55'
+    implementation 'com.oracle.database.jdbc:ojdbc6:11.2.0.4'
 }
 
 task customFatJar(type: Jar) {
     manifest {
         attributes 'Main-Class': 'game.Main'
     }
+
     baseName = 'all-in-one-jar'
     from { configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) } }
     with jar
